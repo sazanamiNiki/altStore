@@ -51,65 +51,15 @@ html {
     @apply inline-flex items-center gap-1 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium;
   }
 
-  /* フラットデザイン - アプリカード（App Store風グリッドスタイル） */
+  /* フラットデザイン - アプリカード */
   .app-card {
-    @apply relative bg-white rounded-3xl text-left p-6 shadow-sm
-           hover:shadow-md transition-all flex flex-col;
-  }
-
-  .app-card-header {
-    @apply flex items-start gap-4 mb-3;
+    @apply bg-white rounded-lg border-2 border-gray-200
+           hover:border-sky-500 hover:bg-sky-50
+           transition-all p-4;
   }
 
   .app-card-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 22%;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 1px solid #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .app-card-info {
-    @apply flex-1 pt-1;
-  }
-
-  .app-card-name {
-    @apply text-lg font-bold text-gray-900 leading-tight;
-  }
-
-  .app-card-developer {
-    @apply text-xs text-gray-500 mb-1;
-  }
-
-  .app-card-badge {
-    @apply inline-block bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded;
-  }
-
-  .app-card-description {
-    @apply text-sm text-gray-600 line-clamp-2 leading-relaxed;
-  }
-
-  .app-card-button {
-    @apply absolute top-6 right-6 px-5 py-1.5 bg-[#007AFF] text-white rounded-full font-bold text-sm shadow-sm
-           hover:bg-blue-600 transition-colors;
-  }
-
-  /* TOPページの人気アプリカード（App Store風グリッドスタイル） */
-  .featured-app-card {
-    @apply relative bg-white rounded-3xl text-left p-6 shadow-sm
-           hover:shadow-md transition-all flex flex-col;
-  }
-
-  .featured-app-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 22%;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 1px solid #f3f4f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    @apply w-16 h-16 rounded-lg object-cover mb-4;
   }
 
   /* ボタンスタイル */
@@ -119,12 +69,6 @@ html {
 
   .btn-secondary {
     @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition;
-  }
-
-  /* カプセル型ボタン（App Store風） */
-  .btn-primary-capsule {
-    @apply bg-sky-500 hover:bg-sky-600 text-white font-medium py-2 px-6 transition;
-    border-radius: 9999px;
   }
 
   /* テキスト省略 */

@@ -36,8 +36,8 @@ function createHeader() {
           </svg>
         </button>
       </nav>
-      <nav id="mobile-menu" class="md:hidden hidden flex-col gap-4 p-4 bg-white border-t border-sky-100">
-        <ul class="flex flex-col gap-4">
+      <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-sky-100">
+        <ul class="flex flex-col gap-4 p-4">
           <li><a href="${basePath}index.html" class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
           <li><a href="${basePath}apps.html" class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
           <li><a href="${basePath}articles/" class="text-gray-700 hover:text-sky-600 transition">記事</a></li>
@@ -96,21 +96,11 @@ function createAdSenseHorizontal() {
 function setupMobileMenu() {
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
-
-  if (!toggle || !menu) {
-    console.error('Menu elements not found:', { toggle: !!toggle, menu: !!menu });
-    return;
-  }
-
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-
-  // メニューのリンクをクリックすると自動的にメニューを閉じる
-  const menuLinks = menu.querySelectorAll('a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
     });
-  });
+  }
 }
+
+document.addEventListener('DOMContentLoaded', setupMobileMenu);
