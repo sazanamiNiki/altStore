@@ -63,7 +63,8 @@ altStore-jp/
 
 このプロジェクトはGitHub Pagesでホストされています。
 
-**ライブURL**: `https://sazanamiNiki.github.io/altStore/`
+**ライブURL**: `https://sazanamiNiki.github.io/altStore/` (master ブランチ)
+**デプロイプレビュー**: `https://sazanamiNiki.github.io/altStore-dev/` (develop ブランチ)
 
 ### セットアップ
 
