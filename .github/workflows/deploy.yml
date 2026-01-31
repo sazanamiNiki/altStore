@@ -20,7 +20,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          cname: bunchoniki.com
+          cname: altstore-jp.bunchoniki.com
 
   deploy-develop:
     runs-on: ubuntu-latest
@@ -30,9 +30,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy develop to gh-pages-dev
+      - name: Copy _config-dev.yml to _config.yml
+        run: cp _config-dev.yml _config.yml
+
+      - name: Deploy develop to gh-pages dev folder
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          destination_dir: altStore-dev
+          destination_dir: dev
