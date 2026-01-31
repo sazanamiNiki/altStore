@@ -30,9 +30,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy develop to gh-pages-dev
+      - name: Use dev config for develop branch
+        run: cp _config-dev.yml _config.yml
+
+      - name: Deploy develop to gh-pages/dev
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          destination_dir: altStore-dev
+          destination_dir: dev
+          branch: gh-pages
