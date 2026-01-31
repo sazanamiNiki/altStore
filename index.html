@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://bunchoniki.github.io/altStore-jp/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://bunchoniki.github.io/altStore-jp/">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/altStore-jp/assets/css/main.css">
   <script src="/altStore-jp/assets/js/components.js"></script>
@@ -38,18 +39,24 @@
       <div class="max-w-6xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12">当サイトの特徴</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-sky-50 rounded-lg p-8 border border-sky-100">
-            <div class="text-4xl mb-4">✅</div>
+          <div class="bg-white rounded-lg p-8 border-2 border-sky-200 hover:border-sky-400 transition-colors">
+            <div class="mb-4">
+              <span class="material-symbols-outlined feature-icon">verified</span>
+            </div>
             <h3 class="text-xl font-bold mb-2">公証済みのみ</h3>
             <p class="text-gray-700">Apple Notarization対応アプリのみを掲載。安全性を最優先します。</p>
           </div>
-          <div class="bg-sky-50 rounded-lg p-8 border border-sky-100">
-            <div class="text-4xl mb-4">📚</div>
+          <div class="bg-white rounded-lg p-8 border-2 border-sky-200 hover:border-sky-400 transition-colors">
+            <div class="mb-4">
+              <span class="material-symbols-outlined feature-icon">menu_book</span>
+            </div>
             <h3 class="text-xl font-bold mb-2">丁寧な解説</h3>
             <p class="text-gray-700">新法対応やサイドローディングの基礎を分かりやすく説明。</p>
           </div>
-          <div class="bg-sky-50 rounded-lg p-8 border border-sky-100">
-            <div class="text-4xl mb-4">🌍</div>
+          <div class="bg-white rounded-lg p-8 border-2 border-sky-200 hover:border-sky-400 transition-colors">
+            <div class="mb-4">
+              <span class="material-symbols-outlined feature-icon">language</span>
+            </div>
             <h3 class="text-xl font-bold mb-2">日本語対応</h3>
             <p class="text-gray-700">すべてのコンテンツが日本語。英語が苦手でも安心です。</p>
           </div>
@@ -105,7 +112,10 @@
             ${app.isNotarized ? '<span class="notarized-badge">公証済み</span>' : ''}
             <p class="text-sm text-gray-600 text-truncate-2 mb-4">${app.shortDescription}</p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-yellow-600">⭐ ${app.rating}</span>
+              <span class="text-sm icon-with-text">
+                <span class="material-symbols-outlined rating-icon">star</span>
+                <span>${app.rating}</span>
+              </span>
               <a href="/altStore-jp/apps.html?app=${app.id}" class="btn-primary text-sm">詳細</a>
             </div>
           `;

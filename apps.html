@@ -11,6 +11,7 @@
   <meta property="og:description" content="公証済みアプリをカテゴリー別に検索">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/altStore-jp/assets/css/main.css">
   <script src="/altStore-jp/assets/js/components.js"></script>
@@ -25,7 +26,7 @@
       <p class="text-gray-600">公証済みアプリを検索・フィルター</p>
     </div>
 
-    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+    <div class="bg-white rounded-lg border-2 border-gray-200 p-6 mb-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">キーワード検索</label>
@@ -39,7 +40,10 @@
         </div>
       </div>
       <div class="flex gap-4">
-        <button id="notarized-filter" class="btn-secondary">✓ 公証済みのみ</button>
+        <button id="notarized-filter" class="btn-secondary icon-with-text">
+          <span class="material-symbols-outlined check-icon">check_circle</span>
+          <span>公証済みのみ</span>
+        </button>
         <button id="reset-filter" class="btn-secondary">フィルターをリセット</button>
       </div>
     </div>

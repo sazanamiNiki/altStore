@@ -1,4 +1,44 @@
+/* Material Symbols アイコン設定 */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* タイポグラフィ改善 */
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont,
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "YuGothic", "Meiryo",
+    "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+    sans-serif;
+  font-feature-settings: "palt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #0ea5e9;
+  color: white;
+}
+
+/* Tailwind utilities */
 @layer utilities {
+  /* テキストグラデーション */
   .buncho-text-gradient {
     background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
     -webkit-background-clip: text;
@@ -6,18 +46,23 @@
     background-clip: text;
   }
 
+  /* 公証済みバッジ */
   .notarized-badge {
     @apply inline-flex items-center gap-1 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium;
   }
 
+  /* フラットデザイン - アプリカード */
   .app-card {
-    @apply bg-white rounded-lg shadow hover:shadow-lg transition p-4 border border-gray-100;
+    @apply bg-white rounded-lg border-2 border-gray-200
+           hover:border-sky-500 hover:bg-sky-50
+           transition-all p-4;
   }
 
   .app-card-image {
     @apply w-16 h-16 rounded-lg object-cover mb-4;
   }
 
+  /* ボタンスタイル */
   .btn-primary {
     @apply bg-sky-500 hover:bg-sky-600 text-white font-medium py-2 px-4 rounded-lg transition;
   }
@@ -26,20 +71,35 @@
     @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition;
   }
 
+  /* テキスト省略 */
   .text-truncate-2 {
     @apply line-clamp-2;
   }
-}
 
-html {
-  scroll-behavior: smooth;
-}
+  /* アイコンスタイル */
+  .feature-icon {
+    font-size: 3rem;
+    color: #0ea5e9;
+  }
 
-body {
-  font-feature-settings: "palt" 1;
-}
+  .rating-icon {
+    color: #f59e0b;
+    font-variation-settings: 'FILL' 1, 'wght' 400;
+    font-size: 1.25rem;
+  }
 
-::selection {
-  background-color: #0ea5e9;
-  color: white;
+  .warning-icon {
+    color: #f59e0b;
+    font-size: 1.5rem;
+  }
+
+  .check-icon {
+    color: #10b981;
+    font-size: 1.25rem;
+  }
+
+  /* アイコンとテキストの組み合わせ */
+  .icon-with-text {
+    @apply inline-flex items-center gap-2;
+  }
 }
