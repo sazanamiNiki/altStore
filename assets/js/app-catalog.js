@@ -9,7 +9,7 @@ const appGrid = document.getElementById('app-grid');
 
 async function loadApps() {
   try {
-    const response = await fetch('./assets/data/apps.json');
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxcaYOnyNaovd0ERTnVKKRxZP0x4eWSftKk-mMVCXZrbuQDw8e-aPN9sj4dSDPoGYeBsg/exec');
     const data = await response.json();
     allApps = data.apps;
     filteredApps = [...allApps];
