@@ -36,7 +36,7 @@ function createHeader() {
           </svg>
         </button>
       </nav>
-      <nav id="mobile-menu" class="hidden md:flex flex-col gap-4 p-4 bg-white border-t border-sky-100">
+      <nav id="mobile-menu" class="md:hidden hidden flex-col gap-4 p-4 bg-white border-t border-sky-100">
         <ul class="flex flex-col gap-4">
           <li><a href="${basePath}index.html" class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
           <li><a href="${basePath}apps.html" class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
