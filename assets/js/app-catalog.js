@@ -114,7 +114,7 @@ function createAppCard(app) {
 function showAppDetail(appId) {
   const app = allApps.find(a => a.id === appId);
   if (app) {
-    window.location.href = `/altStore-jp/app-detail.html?id=${appId}`;
+    window.location.href = `./app-detail.html?id=${appId}`;
   }
 }
 
