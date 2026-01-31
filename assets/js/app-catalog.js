@@ -9,7 +9,7 @@ const appGrid = document.getElementById('app-grid');
 
 async function loadApps() {
   try {
-    const response = await fetch('/altStore-jp/assets/data/apps.json');
+    const response = await fetch('./assets/data/apps.json');
     const data = await response.json();
     allApps = data.apps;
     filteredApps = [...allApps];
@@ -96,7 +96,10 @@ function createAppCard(app) {
     </div>
     <div class="flex items-center justify-between">
       <div>
-        <span class="text-sm text-yellow-600">⭐ ${app.rating}</span>
+        <span class="text-sm icon-with-text">
+          <span class="material-symbols-outlined rating-icon">star</span>
+          <span>${app.rating}</span>
+        </span>
         <span class="text-xs text-gray-500">(${app.reviewCount})</span>
       </div>
     </div>
@@ -122,13 +125,16 @@ function showImportModal(appId) {
   const modal = document.createElement('div');
   modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50';
   modal.innerHTML = `
-    <div class="bg-white rounded-lg max-w-md w-full p-6 shadow-xl">
+    <div class="bg-white rounded-lg max-w-md w-full p-6 border-2 border-gray-300">
       <h2 class="text-2xl font-bold mb-4">アプリをインポート</h2>
       <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-lg mb-4">
       <h3 class="font-bold text-lg">${app.nameJa}</h3>
       <p class="text-sm text-gray-600 mb-4">${app.shortDescription}</p>
       <div class="bg-yellow-50 border border-yellow-200 rounded p-3 mb-4 text-sm">
-        <p class="font-medium mb-1">⚠️ 確認してください</p>
+        <p class="font-medium mb-1 icon-with-text">
+          <span class="material-symbols-outlined warning-icon">warning</span>
+          <span>確認してください</span>
+        </p>
         <p class="text-gray-700">${app.legalNotice}</p>
       </div>
       <div class="space-y-2">
