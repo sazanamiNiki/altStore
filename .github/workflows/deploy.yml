@@ -7,17 +7,32 @@ on:
       - develop
 
 jobs:
-  deploy:
+  deploy-master:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy master to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          cname: ${{ github.ref == 'refs/heads/master' && 'bunchoniki.com' || '' }}
+          cname: bunchoniki.com
+
+  deploy-develop:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy develop to gh-pages-dev
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          destination_dir: altStore-dev
