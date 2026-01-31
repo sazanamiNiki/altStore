@@ -10,9 +10,9 @@
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/altStore-jp/assets/css/main.css">
-  <script src="/altStore-jp/assets/js/components.js"></script>
-  <script src="/altStore-jp/assets/js/seo.js"></script>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <script src="./assets/js/components.js"></script>
+  <script src="./assets/js/seo.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <div id="header-container"></div>
@@ -105,7 +105,7 @@
       }
 
       try {
-        const response = await fetch('/altStore-jp/assets/data/apps.json');
+        const response = await fetch('./assets/data/apps.json');
         const data = await response.json();
         currentApp = data.apps.find(app => app.id === appId);
 
@@ -163,7 +163,7 @@
         relatedContainer.innerHTML = `
           <h2 class="text-2xl font-bold mb-4">関連記事</h2>
           <div class="space-y-2">
-            ${currentApp.relatedArticles.map(articleId => `<a href="/altStore-jp/articles/${articleId}.html" class="block p-4 bg-sky-50 rounded hover:bg-sky-100 transition">${articleId}</a>`).join('')}
+            ${currentApp.relatedArticles.map(articleId => `<a href="./articles/${articleId}.html" class="block p-4 bg-sky-50 rounded hover:bg-sky-100 transition">${articleId}</a>`).join('')}
           </div>
         `;
       }

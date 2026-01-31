@@ -5,19 +5,30 @@ const BUNCHO_LOGO = `<svg class="w-8 h-8 inline" viewBox="0 0 40 40" fill="none"
   <circle cx="21" cy="12" r="1" fill="white"/>
 </svg>`;
 
+function getBasePath() {
+  const pathname = window.location.pathname;
+  const depth = (pathname.match(/\//g) || []).length - 1;
+  // articlesフォルダ内のページは1段階上に上る必要がある
+  if (pathname.includes('/articles/')) {
+    return '../';
+  }
+  return './';
+}
+
 function createHeader() {
+  const basePath = getBasePath();
   return `
     <header class="bg-white shadow-sm border-b border-sky-100">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <a href="/altStore-jp/" class="flex items-center gap-3 font-bold text-xl text-sky-600">
+        <a href="${basePath}index.html" class="flex items-center gap-3 font-bold text-xl text-sky-600">
           ${BUNCHO_LOGO}
           <span class="hidden sm:inline">bunchoniki Store</span>
         </a>
         <ul class="hidden md:flex gap-8">
-          <li><a href="/altStore-jp/" class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
-          <li><a href="/altStore-jp/apps.html" class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
-          <li><a href="/altStore-jp/articles/" class="text-gray-700 hover:text-sky-600 transition">記事</a></li>
-          <li><a href="/altStore-jp/articles/faq.html" class="text-gray-700 hover:text-sky-600 transition">FAQ</a></li>
+          <li><a href="${basePath}index.html" class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
+          <li><a href="${basePath}apps.html" class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
+          <li><a href="${basePath}articles/" class="text-gray-700 hover:text-sky-600 transition">記事</a></li>
+          <li><a href="${basePath}articles/faq.html" class="text-gray-700 hover:text-sky-600 transition">FAQ</a></li>
         </ul>
         <button id="menu-toggle" class="md:hidden text-gray-700">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,10 +38,10 @@ function createHeader() {
       </nav>
       <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-sky-100">
         <ul class="flex flex-col gap-4 p-4">
-          <li><a href="/altStore-jp/" class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
-          <li><a href="/altStore-jp/apps.html" class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
-          <li><a href="/altStore-jp/articles/" class="text-gray-700 hover:text-sky-600 transition">記事</a></li>
-          <li><a href="/altStore-jp/articles/faq.html" class="text-gray-700 hover:text-sky-600 transition">FAQ</a></li>
+          <li><a href="${basePath}index.html" class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
+          <li><a href="${basePath}apps.html" class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
+          <li><a href="${basePath}articles/" class="text-gray-700 hover:text-sky-600 transition">記事</a></li>
+          <li><a href="${basePath}articles/faq.html" class="text-gray-700 hover:text-sky-600 transition">FAQ</a></li>
         </ul>
       </nav>
     </header>
@@ -38,6 +49,7 @@ function createHeader() {
 }
 
 function createFooter() {
+  const basePath = getBasePath();
   return `
     <footer class="bg-gray-50 border-t border-gray-200 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,8 +61,8 @@ function createFooter() {
           <div>
             <h3 class="font-bold text-gray-900 mb-4">リンク</h3>
             <ul class="space-y-2 text-sm">
-              <li><a href="/altStore-jp/privacy-policy.html" class="text-gray-600 hover:text-sky-600">プライバシーポリシー</a></li>
-              <li><a href="/altStore-jp/terms.html" class="text-gray-600 hover:text-sky-600">利用規約</a></li>
+              <li><a href="${basePath}privacy-policy.html" class="text-gray-600 hover:text-sky-600">プライバシーポリシー</a></li>
+              <li><a href="${basePath}terms.html" class="text-gray-600 hover:text-sky-600">利用規約</a></li>
               <li><a href="https://altstore.io" class="text-gray-600 hover:text-sky-600">AltStore 公式</a></li>
             </ul>
           </div>

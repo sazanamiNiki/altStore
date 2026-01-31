@@ -9,7 +9,7 @@ const appGrid = document.getElementById('app-grid');
 
 async function loadApps() {
   try {
-    const response = await fetch('/altStore-jp/assets/data/apps.json');
+    const response = await fetch('./assets/data/apps.json');
     const data = await response.json();
     allApps = data.apps;
     filteredApps = [...allApps];

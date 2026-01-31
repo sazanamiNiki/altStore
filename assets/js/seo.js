@@ -87,7 +87,7 @@ if (document.location.pathname.includes('app-detail')) {
   const params = new URLSearchParams(window.location.search);
   const appId = params.get('id');
   if (appId) {
-    fetch('/altStore-jp/assets/data/apps.json')
+    fetch('./assets/data/apps.json')
       .then(r => r.json())
       .then(data => {
         const app = data.apps.find(a => a.id === appId);
