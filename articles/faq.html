@@ -21,52 +21,101 @@
       <div class="space-y-6">
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q1. サイドローディングは安全ですか？</h2>
-          <p class="text-gray-700">A. 公証済みアプリのサイドローディングは安全です。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. 公証済みアプリのサイドローディングは一般的に安全です。AltStoreは<a href="https://altstore.io/" target="_blank" class="text-sky-600 hover:underline">オープンソースプロジェクト</a>で、コードが公開されており透明性があります。また、Appleのコア機能をバイパスしないため、iOSの基本的なセキュリティ保護は維持されます。</p>
+          <p class="text-gray-700 mt-4">重要な点として、AltStore自体は安全ですが、個々のアプリの安全性は保証されません。信頼できるソースからのみアプリをダウンロードし、アプリの許可変更についてはAltStoreが自動的にアラートを表示します。さらに、AltStoreを通じてインストールされたアプリはAppleのプロビジョニングシステムで署名されており、デバイスは通常通りソフトウェア更新を受け取ります。</p>
+          <p class="text-gray-700 mt-4">ただし、AltStoreには各アプリを審査するベッティングシステムがないため、デバイスの安全性はユーザー自身のリサーチに依存します。また、無料のApple IDでは7日ごとに再署名が必要で、稀に証明書の無効化が発生する可能性があります。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q2. iPhoneが重くなりませんか？</h2>
-          <p class="text-gray-700">A. 適切に管理すれば問題ありません。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. 適切に管理すれば、サイドロードされたアプリがiPhoneのパフォーマンスに大きな悪影響を与えることはありません。ただし、いくつかの注意点があります。</p>
+          <p class="text-gray-700 mt-4">まず、iPhoneのパフォーマンスはインストールするアプリの数や品質に左右されます。信頼できるソースからダウンロードしたアプリであれば、通常のApp Storeアプリと同じように動作します。ただし、不安定なコード（非公式版やパイレーツアプリなど）をインストールするとシステムクラッシュやバッテリー消費が増加する可能性があります。</p>
+          <p class="text-gray-700 mt-4">iOS 17以降では、Just-In-Time（JIT）コンパイルがサイドロードアプリでも利用可能になり、DolphinエミュレータやPojavLauncherなどのアプリは従来より高速に動作するようになりました。スムーズなパフォーマンスを維持するには、不要なアプリは削除し、バックグラウンド更新を管理することをお勧めします。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q3. エラーが出ました。どうしたら？</h2>
-          <p class="text-gray-700">A. よくあるエラーと対応方法について説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. AltStoreでよくあるエラーにはいくつかの原因と対応方法があります。<a href="https://faq.altstore.io/altstore-classic/troubleshooting-guide" target="_blank" class="text-sky-600 hover:underline">AltStoreの公式トラブルシューティングガイド</a>を参考にしてください。</p>
+          <p class="text-gray-700 mt-4"><strong>接続に関するエラー：</strong>デバイスとコンピュータが同じWi-Fiネットワークに接続されていることを確認してください。AltServerがiOSデバイスに接続できない場合は、デバイスをコンピュータに直接接続してみてください。</p>
+          <p class="text-gray-700 mt-4"><strong>信頼とデバイス認識：</strong>MacとiOSデバイスの両方で「信頼」をタップする必要があります。FinderまたはiTunesでダイアログボックスが表示されるか確認してください。</p>
+          <p class="text-gray-700 mt-4"><strong>バージョン関連の問題：</strong>AltServerが古いバージョンのままだと問題が発生します。最新バージョンにアップデートしてください。</p>
+          <p class="text-gray-700 mt-4"><strong>Windows固有の問題：</strong>ファイアウォールがAltServerへの受信接続をブロックしている可能性があります。ファイアウォール設定でAltServerのネットワークアクセスを有効にしてください。また、Microsoft StoreからインストールしたiTunesやiCloudは、Appleから直接ダウンロードした最新版に置き換える必要があります。</p>
+          <p class="text-gray-700 mt-4"><strong>インストール失敗時：</strong>最新バージョンがインストールされていることを確認し、AltStoreを削除して再インストールしてみてください。また、無料開発者アカウントでサイドロード可能なアプリの最大数には制限があります。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q4. Developer Modeとは何ですか？</h2>
-          <p class="text-gray-700">A. Developer Modeについて詳しく説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. Developer Modeは、iOS 16とwatchOS 9以降で導入された、開発者向けの特別なモードです。<a href="https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device" target="_blank" class="text-sky-600 hover:underline">Apple公式ドキュメント</a>によると、開発者が一般的な開発ワークフローを実行できるようにするための機能です。</p>
+          <p class="text-gray-700 mt-4"><strong>Developer Modeが導入された理由：</strong>強力な開発者機能が標的型攻撃で悪用されていたため、Apple はこれらの機能をデフォルトで無効にすることにしました。大多数のユーザーはこのような機能を必要としないため、セキュリティを強化するために明示的な登録制にしたのです。</p>
+          <p class="text-gray-700 mt-4"><strong>Developer Modeを有効にすると：</strong></p>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+            <li>XcodeでiPhoneに直接アプリをビルドして実行し、デバッグできます</li>
+            <li>App Store公開前の開発版アプリをテストできます</li>
+            <li>iOSデバイスをコンピュータに接続して、ファイルシステムへのアクセスやアプリケーションのデバッグが可能になります</li>
+            <li>詳細なログ出力、パフォーマンス監視、ネットワーク条件のシミュレーションなどの高度な機能にアクセスできます</li>
+          </ul>
+          <p class="text-gray-700 mt-4">通常のユーザーの場合、Developer Modeを有効化する必要はありません。サイドロード自体にはDeveloper Modeを必須としないアプリもありますが、特定のアプリではこの機能が推奨される場合があります。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q5. Apple Certificateは必要ですか？</h2>
-          <p class="text-gray-700">A. 公証済みアプリの場合について説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. iOSアプリのサイドロードにおいて、「公証」（Notarization）の概念はmacOS向けのものです。iOSの場合は異なる仕組みが用いられます。</p>
+          <p class="text-gray-700 mt-4"><strong>iOSサイドロードの場合：</strong>公証済みアプリをサイドロードする場合、Apple Developer Certificateは必須ではありません。AltStoreなどのツールを使用する際は、通常のApple IDで十分です。</p>
+          <p class="text-gray-700 mt-4"><strong>Developer ID Certificateについて：</strong>macOS向けアプリの<a href="https://developer.apple.com/developer-id/" target="_blank" class="text-sky-600 hover:underline">Developer ID Certificate</a>は有料のApple Developer Programアカウントが必要です。このCertificateで署名されたmacOSアプリは、Appleの<a href="https://developer.apple.com/news/?id=04102019a" target="_blank" class="text-sky-600 hover:underline">Notarization Service</a>で自動的なセキュリティチェックを受ける必要があります。</p>
+          <p class="text-gray-700 mt-4"><strong>iOS での署名方式：</strong>サイドロードされたiOSアプリはAppleのプロビジョニングシステムで署名されており、これにより悪意のあるコードからの保護とアプリの完全性が保証されます。</p>
+          <p class="text-gray-700 mt-4">つまり、文鳥ストアで配信されているような公証済みアプリをサイドロードする場合、特別なCertificateを用意する必要はなく、通常のApple IDがあれば十分です。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q6. iOS更新で削除されませんか？</h2>
-          <p class="text-gray-700">A. 更新時の影響について説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. iOSのアップデート後、サイドロードされたアプリは自動的に削除されることはありません。ただし、注意が必要な点があります。</p>
+          <p class="text-gray-700 mt-4"><strong>アプリの有効性：</strong>サイドロードされたアプリは7日間（または開発者アカウントで365日間）の有効期限を持ちます。アプリが開かなくなった場合は、期限が切れた可能性があります。SideStoreなどのツールは、バックグラウンドで定期的にアプリを「リフレッシュ」して有効期限の切れを防ぎます。</p>
+          <p class="text-gray-700 mt-4"><strong>iOS更新後のアプリの再署名：</strong>iOS更新後、サイドロードされたアプリが起動しなくなった場合、AltStoreやSideStoreを使用して再度アプリを署名し直す必要があります。これはアップデートに関連する署名の無効化が原因です。</p>
+          <p class="text-gray-700 mt-4"><strong>EU でのiOS対応：</strong>EU地域ではiOS 17.4以降、App Storeの外部からアプリをインストールできるようになり、より安定したサイドロード体験が可能になっています。</p>
+          <p class="text-gray-700 mt-4">つまり、iOSアップデートによってアプリが完全に削除されることはありませんが、定期的な再署名が必要になる可能性があるということです。SideStoreを使用していれば、このプロセスはほぼ自動で行われます。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q7. 複数デバイスで使用できますか？</h2>
-          <p class="text-gray-700">A. 複数デバイス対応について説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. はい、AltStoreとSideStoreの両方で複数デバイスの対応が可能です。ただし、証明書の管理に注意が必要です。</p>
+          <p class="text-gray-700 mt-4"><strong>複数デバイスでの使用方法：</strong>複数のiPhoneやiPadで同じApple IDを使用してサイドロードすることができます。ただし、複数デバイスで複数のApple IDを管理するのは煩雑です。</p>
+          <p class="text-gray-700 mt-4"><strong>証明書管理の課題：</strong>1つのデバイスに初めてSideStore/AltStoreをインストールすると、古い署名証明書が無効化され、その結果、同じApple IDでサイドロードされた他のデバイス上のアプリも無効になる可能性があります。これを防ぐには、他のデバイスでも手動でSideStore/AltStoreを更新する必要があります。</p>
+          <p class="text-gray-700 mt-4"><strong>証明書共有機能：</strong>AltStore 2.2.1以降の更新により、Export Certificate機能が追加されました。これにより1つの証明書を複数デバイス間で共有でき、同じApple IDで複数デバイスを管理する際の煩雑さが大幅に軽減されています。</p>
+          <p class="text-gray-700 mt-4"><strong>アプリ制限：</strong>無料のApple Accountの場合、SideStoreは一度に最大3つのアプリ（SideStore自体を含む）をインストール可能で、1週間で最大10の異なるアプリをインストールできます。</p>
+          <p class="text-gray-700 mt-4">複数デバイスでの使用を考えている場合は、AltStore/SideStoreの最新版を使用し、証明書共有機能を活用することをお勧めします。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q8. パソコンは必要ですか？</h2>
-          <p class="text-gray-700">A. Sidestoreについて説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. <a href="https://sidestore.io/" target="_blank" class="text-sky-600 hover:underline">SideStore</a>を使用すれば、初期インストール後のパソコンは不要です。</p>
+          <p class="text-gray-700 mt-4"><strong>通常のAltStore の場合：</strong>AltStoreを使用するには、毎回パソコンにAltServerをインストールして、iPhoneに接続する必要があります。これは継続的なパソコン接続が必要です。</p>
+          <p class="text-gray-700 mt-4"><strong>SideStoreの利点：</strong><a href="https://docs.sidestore.io/docs/faq" target="_blank" class="text-sky-600 hover:underline">SideStore</a>はAltStoreの分岐版で、AltServerを必要としません。代わりに仮想プライベートネットワーク（VPN）を活用してiOSをトリックし、アプリをインストールします。</p>
+          <p class="text-gray-700 mt-4"><strong>セットアップ要件：</strong>SideStoreは初回インストール時のみパソコンが必要です。その後は、Wi-Fi接続があれば、パソコンなしでiPhone単独でアプリのサイドロードや更新を実行できます。</p>
+          <p class="text-gray-700 mt-4"><strong>対応デバイス：</strong>SideStoreはiOS 14以降のすべてのiPhoneとiPadで動作します。</p>
+          <p class="text-gray-700 mt-4"><strong>背景リフレッシュ機能：</strong>SideStoreは、バックグラウンドで定期的にアプリを再署名し、アプリの7日間の有効期限が切れるのを防ぎます。これにより、ユーザーが手動で再署名する手間が不要になります。</p>
+          <p class="text-gray-700 mt-4">つまり、SideStoreを使用すれば、初期セットアップ以外はパソコンが不要で、より快適なサイドロード体験が得られます。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q9. セキュリティリスクはありませんか？</h2>
-          <p class="text-gray-700">A. セキュリティについて詳しく説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. 公証済みアプリのサイドロード自体のセキュリティリスクは低いですが、いくつかの注意点があります。</p>
+          <p class="text-gray-700 mt-4"><strong>AltStore/SideStore自体のセキュリティ：</strong>AltStoreはオープンソースであり、コードが公開されているため、隠れたマルウェアやトラッカーがないか検証できます。また、iOSのコア機能をバイパスしないため、デバイスの基本セキュリティは維持されます。</p>
+          <p class="text-gray-700 mt-4"><strong>アプリの信頼性が重要：</strong>AltStoreには各アプリを審査するシステムがないため、デバイスの安全性はユーザー自身のリサーチと判断に依存します。信頼できるソースからのみアプリをダウンロードすることが重要です。</p>
+          <p class="text-gray-700 mt-4"><strong>悪意のあるコードのリスク：</strong>非公式版やパイレーツアプリなどの不安定なコードをインストールすると、システムクラッシュやバッテリー消費が増加する可能性があります。最悪の場合、デバイスの脆弱性を悪用される可能性もあります。</p>
+          <p class="text-gray-700 mt-4"><strong>EU での公証システム：</strong>EU地域では、<a href="https://developer.apple.com/support/dma-and-apps-in-the-eu/" target="_blank" class="text-sky-600 hover:underline">App Storeの外部でインストールされるアプリに対しても、Appleの公証が行われます</a>。これらのアプリはマルウェアとプライバシー・セキュリティの脅威についてスキャンされ、デバイスの完全性が保護されます。</p>
+          <p class="text-gray-700 mt-4"><strong>定期的な監視：</strong>AltStoreはアプリの許可が変更された場合に自動的にアラート表示し、ユーザーがセキュリティリスクを認識できるようにしています。</p>
+          <p class="text-gray-700 mt-4">つまり、公証済みアプリのサイドロードは安全ですが、ユーザー自身がアプリソースを検証し、不信なアプリのインストールを避けることが重要です。</p>
         </div>
 
         <div class="bg-white rounded-lg shadow-md p-8">
           <h2 class="text-xl font-bold mb-2">Q10. サイドローディングが違法になることはありますか？</h2>
-          <p class="text-gray-700">A. 法的側面について説明します。詳細な説明が入ります（1000文字以上）</p>
+          <p class="text-gray-700">A. 現在のところ、公証済みアプリのサイドローディング自体は違法ではありませんが、地域によって状況が異なります。</p>
+          <p class="text-gray-700 mt-4"><strong>EUの状況：</strong>欧州委員会の<a href="https://developer.apple.com/support/dma-and-apps-in-the-eu/" target="_blank" class="text-sky-600 hover:underline">Digital Markets Act（DMA）</a>により、iOS 17.4（2024年3月）以降、EU地域のユーザーはApp Store以外のソースからアプリをダウンロードしてサイドロードできるようになりました。これはEUの法律で要求された変更です。</p>
+          <p class="text-gray-700 mt-4"><strong>EU の実装の課題：</strong>しかし、<a href="https://www.cultofmac.com/news/iphone-sideloading-eu-dma" target="_blank" class="text-sky-600 hover:underline">欧州委員会はAppleが実装したシステムが複雑すぎると指摘</a>し、制限が多すぎてDMAの要件を満たしていないと主張しています。</p>
+          <p class="text-gray-700 mt-4"><strong>米国の状況：</strong>米国では現在、サイドロードは法的に義務付けられていません。ただし、<a href="https://appleinsider.com/inside/ios/tips/how-to-sideload-ios-apps-to-the-iphone-with-altstore" target="_blank" class="text-sky-600 hover:underline">米国司法省（DOJ）もサイドロード許可を強制する可能性がある</a>とも報じられており、今後の動きに注目が必要です。</p>
+          <p class="text-gray-700 mt-4"><strong>個人使用の法的側面：</strong>個人が自分自身のデバイスにアプリをサイドロードすることは、現在どの国でも違法ではありません。問題となるのは、著作権侵害アプリの配布や知的財産権の侵害です。</p>
+          <p class="text-gray-700 mt-4"><strong>将来の変化の可能性：</strong>DMAやその他の規制により、iOSのサイドロードに関する法的状況は今後変わる可能性があります。このため、当FAQの情報は2026年1月時点のものであり、最新の法的情報を確認することをお勧めします。</p>
+          <p class="text-gray-700 mt-4">つまり、現在のところ公証済みアプリのサイドロードは一般的に合法ですが、使用する地域の法律を最新の状態で確認することが重要です。</p>
         </div>
       </div>
 
