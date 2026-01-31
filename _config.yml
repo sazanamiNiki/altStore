@@ -2,7 +2,7 @@ title: bunchoniki Store
 description: AltStore日本語ラッパーポータル
 author: bunchoniki
 baseurl: "/altStore-jp"
-url: "https://bunchoniki.github.io"
+url: "https://bunchoniki.com"
 encoding: UTF-8
 markdown: kramdown
 theme: null
