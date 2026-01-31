@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サイドローディング安全ガイド | bunchoniki Store</title>
+  <meta name="description" content="Appleの公証（Notarization）、オープンソースの重要性、権限許可の注意点。野良アプリから身を守る3つの鉄則">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="../assets/js/components.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div id="header-container"></div>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <article>
+      <h1 class="text-4xl font-bold mb-4">野良アプリは危険？ウイルスから身を守るための3つの鉄則</h1>
+      <p class="text-gray-600 mb-8">Notarization、オープンソースの力、権限許可で安全なサイドローディング</p>
+
+      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">導入：「野良アプリ＝危険」は本当か</h2>
+        <p class="text-gray-700 mb-4">
+          「App Store 以外のアプリは危険」「野良アプリはウイルスがいっぱい」
+          こうした言葉を聞いたことはありませんか？
+        </p>
+        <p class="text-gray-700 mb-4">
+          一定の根拠がある議論ですが、<strong>実は正しい知識と対策があれば、
+          サイドローディングは十分に安全に楽しめます</strong>。
+          この記事では、「野良アプリ」を安全に使う3つの鉄則をご紹介します。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">鉄則1：Apple の公証（Notarization）があるか確認する</h2>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">Notarization とは何か</h3>
+        <p class="text-gray-700 mb-4">
+          <strong>Notarization（公証）</strong>は、Apple が開発者から提出されたアプリをチェックして、
+          「このアプリは安全だ」と認証するプロセスです。
+          簡単に言うと、<strong>App Store でなくてもApple のお墨付きが得られる仕組み</strong>です。
+        </p>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">Notarization のチェック項目</h3>
+        <p class="text-gray-700 mb-4">
+          Apple の自動・手動検査により、以下の項目が確認されます：
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-2">
+          <li><strong>マルウェアの有無</strong> ー ウイルスやスパイウェアが含まれていないか</li>
+          <li><strong>プライバシー侵害の可能性</strong> ー ユーザーデータを無断で収集していないか</li>
+          <li><strong>セキュリティ脆弱性</strong> ー 既知のセキュリティバグが含まれていないか</li>
+          <li><strong>年齢別コンテンツレーティング</strong> ー 不適切な内容が含まれていないか</li>
+        </ul>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">「公証済み」のアプリを選ぼう</h3>
+        <p class="text-gray-700 mb-4">
+          AltStore などの信頼できるストアでアプリを探す際は、
+          「このアプリは Notarization を通過しているか？」という点を確認するクセをつけましょう。
+          Notarization 済みであれば、<strong>少なくとも Apple による基本的なセキュリティチェックは完了</strong>しています。
+        </p>
+
+        <p class="text-gray-700 mb-4">
+          ただし、Notarization が「完全に安全」を保証するわけではありません。
+          100%の安全性は存在しないことを頭に入れておくことが大切です。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">鉄則2：オープンソース＆信頼できるプロジェクトを優先する</h2>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">オープンソースとは</h3>
+        <p class="text-gray-700 mb-4">
+          <strong>オープンソース</strong>とは、ソースコード（プログラムの生のコード）が
+          誰でも見られる状態で公開されているソフトウェアのことです。
+          GitHub などのプラットフォームで、全世界の開発者がコードを監視することができます。
+        </p>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">オープンソースが信頼できる理由</h3>
+        <p class="text-gray-700 mb-4">
+          コードが非公開だと、開発者が何をしているのか確認できません。
+          しかしオープンソースなら：
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-2">
+          <li><strong>セキュリティ研究者が定期的にチェック</strong>してくれます。</li>
+          <li><strong>不正なコードがあれば、すぐに報告される</strong>可能性が高いです。</li>
+          <li><strong>多くの開発者の目が入る</strong>ため、バグが早期発見されやすい。</li>
+          <li><strong>ユーザーが自分でコードを確認</strong>することもできます。</li>
+        </ul>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">信頼できるプロジェクトの見分け方</h3>
+        <p class="text-gray-700 mb-4">
+          オープンソースプロジェクトの信頼度を判断する指標：
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-2">
+          <li><strong>GitHub での Star（⭐）数</strong> ー 多いほど注目度が高い</li>
+          <li><strong>コミット履歴が充実</strong>しているか ー 定期的に更新されているか</li>
+          <li><strong>Issue（問題報告）への対応</strong> が迅速か</li>
+          <li><strong>寄付金や企業スポンサー</strong>があるか ー 信頼性の証になることもある</li>
+          <li><strong>セキュリティ監査を実施</strong>しているか</li>
+        </ul>
+
+        <p class="text-gray-700 mb-4">
+          これらの条件が満たされているプロジェクトは、一般的に信頼度が高いと言えます。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">鉄則3：権限許可（パーミッション）に注意する</h2>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">iOS のパーミッション機能</h3>
+        <p class="text-gray-700 mb-4">
+          アプリが初めてカメラやマイク、位置情報などにアクセスしようとすると、
+          iOS は「このアプリにカメラへのアクセスを許可しますか？」と尋ねます。
+          この仕組みを<strong>パーミッション（権限許可）</strong>と呼びます。
+        </p>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">「不自然な権限要求」は警戒信号</h3>
+        <p class="text-gray-700 mb-4">
+          例えば、単純な計算機アプリが「位置情報へのアクセスが必要」と言ってきたら、
+          それは不自然ですよね。<strong>アプリの機能と無関係な権限をリクエストするアプリは要注意</strong>です。
+        </p>
+
+        <p class="text-gray-700 mb-4">
+          悪意あるアプリの多くは、こうした不要な権限を取得しようとしてきます。
+          ユーザーデータや位置情報を無断で送信するためです。
+        </p>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">権限許可の安全な判断法</h3>
+        <p class="text-gray-700 mb-4">
+          インストール前に確認する習慣をつけましょう：
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4 ml-2">
+          <li>そのアプリが<strong>何のためにその権限が必要か、説明できるか</strong>考える</li>
+          <li>必要な権限だけ許可し、不要な権限は「許可しない」を選択する</li>
+          <li>後でも「設定」→「プライバシー」から権限を変更できることを知っておく</li>
+        </ul>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">設定画面でいつでも確認・変更可能</h3>
+        <p class="text-gray-700 mb-4">
+          iPhone の「設定」→「プライバシーとセキュリティ」を開くと、
+          すべてのアプリの権限状況が一覧表示されます。
+          不安なら、定期的にこの画面をチェックして、不要な権限を剥奪することをお勧めします。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">その他の安全対策</h2>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">信頼できるソースからのみ入手する</h3>
+        <p class="text-gray-700 mb-4">
+          一番安全なのは、AltStore PAL や AltStore など、
+          <strong>公式で信頼されたアプリストアからアプリをダウンロード</strong>することです。
+          個人サイトや不明なリンクからの直接ダウンロードは避けましょう。
+        </p>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">開発者の履歴を調べる</h3>
+        <p class="text-gray-700 mb-4">
+          新しい開発者のアプリより、<strong>実績のある開発者のアプリの方が安全性が高い</strong>傾向があります。
+          開発者の名前を検索して、他にどんなアプリを作成しているか、
+          評判はどうかを確認することをお勧めします。
+        </p>
+
+        <h3 class="text-xl font-bold mb-3 mt-6">定期的にアプリを更新する</h3>
+        <p class="text-gray-700 mb-4">
+          セキュリティの脆弱性が発見されたら、開発者はアップデートをリリースして対応します。
+          <strong>古いバージョンを使い続けることは避け、定期的に更新</strong>することが大切です。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">まとめ</h2>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li><strong>鉄則1：Notarization 済みのアプリ</strong>を選びましょう。Apple の基本チェックが済んでいます。</li>
+          <li><strong>鉄則2：オープンソースかつ実績のあるプロジェクト</strong>を優先しましょう。コード監視が行われています。</li>
+          <li><strong>鉄則3：権限許可に注意</strong>しましょう。不自然な権限要求は拒否してOK。</li>
+          <li>信頼できるストア、開発者から入手し、定期的に更新することで、ほぼすべてのリスクを回避できます。</li>
+          <li>完全な安全性はありません。常に「念のため」という気持ちで確認するクセをつけましょう。</li>
+        </ul>
+
+        <div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+          <p class="text-gray-700 text-sm">
+            次に読むべき記事：
+            <a href="./what-is-sideloading.html" class="text-blue-600 font-bold hover:underline">「サイドローディングとは」</a>、
+            <a href="./how-to-use-altstore.html" class="text-blue-600 font-bold hover:underline">「AltStoreの使い方」</a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
+      <p class="text-sm text-gray-600">最終更新日：2026年1月31日</p>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script>
+    document.getElementById('header-container').innerHTML = createHeader();
+    document.getElementById('footer-container').innerHTML = createFooter();
+    setupMobileMenu();
+  </script>
+</body>
+</html>
