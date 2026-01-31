@@ -1,0 +1,11 @@
+title: bunchoniki Store
+description: AltStore日本語ラッパーポータル
+author: bunchoniki
+baseurl: "/altStore-jp"
+url: "https://bunchoniki.github.io"
+encoding: UTF-8
+markdown: kramdown
+theme: null
+exclude:
+  - package.json
+  - node_modules

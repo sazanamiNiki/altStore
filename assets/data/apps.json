@@ -1,0 +1,209 @@
+{
+  "apps": [
+    {
+      "id": "delta-emulator",
+      "name": "Delta Emulator",
+      "nameJa": "Delta エミュレータ",
+      "developer": "Riley Testut",
+      "shortDescription": "iPhoneでレトロゲームを楽しむ",
+      "longDescription": "Delta は、Nintendo Entertainment System (NES)、Game Boy、Game Boy Color、Game Boy Advance、Nintendo 64、Super Nintendo Entertainment System (SNES) をサポートするマルチプラットフォーム emulator アプリケーションです。高速なエミュレーション、カスタマイズ可能なコントローラー、クラウドセーブなど、豊富な機能を提供します。",
+      "category": "ゲーム",
+      "iconURL": "https://altstore.io/media/delta-icon.png",
+      "version": "1.6.0",
+      "size": "45MB",
+      "isNotarized": true,
+      "releaseDate": "2024-12-15",
+      "lastUpdated": "2026-01-20",
+      "sourceURL": "https://github.com/rileytestut/Delta",
+      "altStoreURL": "altstore://source?url=https://altstore.io/sources/delta.json",
+      "requirements": {
+        "ios": "14.0+",
+        "devices": ["iPhone", "iPad"]
+      },
+      "features": [
+        "複数のレトロゲームシステムをサポート",
+        "カスタマイズ可能なコントローラーマッピング",
+        "iCloud経由のセーブデータ同期",
+        "暗いテーマとライトテーマ",
+        "キーボード・コントローラーサポート"
+      ],
+      "legalNotice": "Delta は公式の任天堂製品ではありません。ゲームのダウンロードは合法的に取得したROMのみを使用してください。",
+      "tags": ["エミュレータ", "ゲーム", "レトロ"],
+      "rating": 4.8,
+      "reviewCount": 12500,
+      "relatedArticles": ["delta-utm-guide", "top3-apps-2026"]
+    },
+    {
+      "id": "utm-se",
+      "name": "UTM SE",
+      "nameJa": "UTM SE",
+      "developer": "UTM Project",
+      "shortDescription": "iPhoneで仮想マシンを動かす",
+      "longDescription": "UTM SE（Standard Edition）は、Apple Silicon MacなどでQEMUを使用して仮想マシンをエミュレートするアプリケーションです。iPhone、iPad上でLinux、Windowsなど様々なOSを実行できます。サイドローディングにより、App Storeの制限を受けずに高性能な仮想化が実現できます。",
+      "category": "ユーティリティ",
+      "iconURL": "https://altstore.io/media/utm-icon.png",
+      "version": "4.4.5",
+      "size": "120MB",
+      "isNotarized": true,
+      "releaseDate": "2024-08-10",
+      "lastUpdated": "2026-01-15",
+      "sourceURL": "https://github.com/utmapp/UTM",
+      "altStoreURL": "altstore://source?url=https://altstore.io/sources/utm.json",
+      "requirements": {
+        "ios": "15.0+",
+        "devices": ["iPad"]
+      },
+      "features": [
+        "QEMUベースの仮想マシンエミュレーション",
+        "複数のLinuxディストリビューション対応",
+        "キーボード・マウスサポート",
+        "ネットワーク機能",
+        "GPU アクセラレーション（サポート対象デバイス）"
+      ],
+      "legalNotice": "使用するOSとソフトウェアのライセンス条項に従ってください。",
+      "tags": ["ユーティリティ", "開発", "仮想マシン"],
+      "rating": 4.6,
+      "reviewCount": 8300,
+      "relatedArticles": ["delta-utm-guide", "top3-apps-2026"]
+    },
+    {
+      "id": "sidestore",
+      "name": "Sidestore",
+      "nameJa": "Sidestore",
+      "developer": "Sidestore Community",
+      "shortDescription": "PCなしでアプリを管理できるAltStore代替",
+      "longDescription": "Sidestore は、AltStore の便利な代替アプリです。PC不要でiPhone、iPad上からアプリのサイドローディングを管理できます。公証済みアプリのインストール、更新、削除が簡単になります。Wi-Fi経由でシームレスに操作できるため、Developer Modeアクセスのあるデバイスに最適です。",
+      "category": "ユーティリティ",
+      "iconURL": "https://altstore.io/media/sidestore-icon.png",
+      "version": "0.3.2",
+      "size": "25MB",
+      "isNotarized": true,
+      "releaseDate": "2024-06-20",
+      "lastUpdated": "2026-01-10",
+      "sourceURL": "https://github.com/side-projects-42/sidestore",
+      "altStoreURL": "altstore://source?url=https://altstore.io/sources/sidestore.json",
+      "requirements": {
+        "ios": "17.0+",
+        "devices": ["iPhone", "iPad"]
+      },
+      "features": [
+        "PC不要のアプリ管理",
+        "Wi-Fi経由での操作",
+        "自動アプリ更新",
+        "複数デバイス対応",
+        "日本語UIサポート"
+      ],
+      "legalNotice": "Developer Modeを有効にしたデバイスが必要です。Apple の規約に従ってご使用ください。",
+      "tags": ["ユーティリティ", "デバイス管理"],
+      "rating": 4.5,
+      "reviewCount": 6200,
+      "relatedArticles": ["sidestore-guide", "top3-apps-2026"]
+    },
+    {
+      "id": "filza",
+      "name": "Filza File Manager",
+      "nameJa": "Filza ファイルマネージャー",
+      "developer": "Statistic Master",
+      "shortDescription": "iPhoneの隠しファイルにアクセス",
+      "longDescription": "Filza は、iPhoneとiPad上で強力なファイル管理機能を提供するアプリケーションです。公証済み版では、アプリサンドボックス内のファイルアクセス、テキスト編集、圧縮・解凍などの機能が利用できます。開発者やパワーユーザーに便利です。",
+      "category": "ユーティリティ",
+      "iconURL": "https://altstore.io/media/filza-icon.png",
+      "version": "3.8.2",
+      "size": "35MB",
+      "isNotarized": true,
+      "releaseDate": "2024-07-15",
+      "lastUpdated": "2026-01-18",
+      "sourceURL": "https://github.com/Statistic-Master/Filza",
+      "altStoreURL": "altstore://source?url=https://altstore.io/sources/filza.json",
+      "requirements": {
+        "ios": "15.0+",
+        "devices": ["iPhone", "iPad"]
+      },
+      "features": [
+        "ファイル・フォルダ管理",
+        "テキストエディタ機能",
+        "圧縮・解凍対応",
+        "複数ファイル操作",
+        "アプリサンドボックスアクセス"
+      ],
+      "legalNotice": "システムファイルの変更は自己責任でお願いします。",
+      "tags": ["ユーティリティ", "ファイル管理"],
+      "rating": 4.7,
+      "reviewCount": 9800,
+      "relatedArticles": ["top3-apps-2026"]
+    },
+    {
+      "id": "ish",
+      "name": "iSH Shell",
+      "nameJa": "iSH シェル",
+      "developer": "iSH Project",
+      "shortDescription": "iPhoneでLinuxコマンドを実行",
+      "longDescription": "iSH は、iPhone、iPad上で Alpine Linux シェル環境を提供するアプリケーションです。apk（Alpine Linux パッケージマネージャー）を使用して、Linux用のコマンドラインツールをインストール・実行できます。開発者や Linux 愛好家向けの強力なツールです。",
+      "category": "開発",
+      "iconURL": "https://altstore.io/media/ish-icon.png",
+      "version": "2.3.1",
+      "size": "55MB",
+      "isNotarized": true,
+      "releaseDate": "2024-09-01",
+      "lastUpdated": "2026-01-22",
+      "sourceURL": "https://github.com/ish-app/ish",
+      "altStoreURL": "altstore://source?url=https://altstore.io/sources/ish.json",
+      "requirements": {
+        "ios": "14.0+",
+        "devices": ["iPhone", "iPad"]
+      },
+      "features": [
+        "Alpine Linux シェル環境",
+        "apkパッケージマネージャー",
+        "複数のLinuxコマンド対応",
+        "ファイルシステムアクセス",
+        "ネットワーク機能"
+      ],
+      "legalNotice": "Linux コマンドの使用に関する法律を遵守してください。",
+      "tags": ["開発", "ユーティリティ", "Linux"],
+      "rating": 4.4,
+      "reviewCount": 5100,
+      "relatedArticles": ["top3-apps-2026"]
+    },
+    {
+      "id": "vinyls",
+      "name": "Vinyls",
+      "nameJa": "ビニール",
+      "developer": "Vinyls Project",
+      "shortDescription": "Apple Musicをレコード体験で聴く",
+      "longDescription": "Vinyls は、Apple Music をレコードプレーヤーのような視覚的なインターフェースで楽しむカスタムミュージックプレーヤーです。アルバムアートをレコード盤に見立て、スタイリッシュで没入感のある音楽体験を提供します。デザインと機能性の両立がされたアプリです。",
+      "category": "エンターテイメント",
+      "iconURL": "https://altstore.io/media/vinyls-icon.png",
+      "version": "1.2.0",
+      "size": "18MB",
+      "isNotarized": true,
+      "releaseDate": "2024-11-05",
+      "lastUpdated": "2026-01-16",
+      "sourceURL": "https://github.com/Vinyls-Project/Vinyls",
+      "altStoreURL": "altstore://source?url=https://altstore.io/sources/vinyls.json",
+      "requirements": {
+        "ios": "16.0+",
+        "devices": ["iPhone", "iPad"]
+      },
+      "features": [
+        "レコード盤UIデザイン",
+        "Apple Music統合",
+        "カスタムテーマ",
+        "ジェスチャーコントロール",
+        "再生情報の詳細表示"
+      ],
+      "legalNotice": "Apple Music サブスクリプションが必要です。",
+      "tags": ["エンターテイメント", "音楽"],
+      "rating": 4.6,
+      "reviewCount": 4500,
+      "relatedArticles": ["top3-apps-2026"]
+    }
+  ],
+  "categories": [
+    "ゲーム",
+    "ユーティリティ",
+    "開発",
+    "エンターテイメント"
+  ],
+  "lastUpdated": "2026-01-31"
+}

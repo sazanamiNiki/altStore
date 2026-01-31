@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アプリ詳細 | bunchoniki Store</title>
+  <meta name="description" content="公証済みアプリの詳細情報">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/altStore-jp/assets/css/main.css">
+  <script src="/altStore-jp/assets/js/components.js"></script>
+  <script src="/altStore-jp/assets/js/seo.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div id="header-container"></div>
+
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <div id="breadcrumb" class="mb-8"></div>
+
+    <div id="app-detail" class="bg-white rounded-lg shadow-md p-8 mb-12">
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <img id="app-icon" class="w-32 h-32 rounded-2xl object-cover" alt="App Icon">
+        <div class="flex-1">
+          <h1 id="app-name" class="text-4xl font-bold mb-2"></h1>
+          <p id="app-developer" class="text-gray-600 mb-4"></p>
+          <div id="app-badges" class="flex flex-wrap gap-2 mb-4"></div>
+          <div class="flex gap-4">
+            <button class="btn-primary text-lg" onclick="importCurrentApp()">インポートする</button>
+            <a id="source-link" href="#" class="btn-secondary text-lg" target="_blank">ソースコード</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 p-6 bg-gray-50 rounded">
+        <div>
+          <p class="text-xs text-gray-500">バージョン</p>
+          <p id="app-version" class="font-bold"></p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500">ファイルサイズ</p>
+          <p id="app-size" class="font-bold"></p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500">必須iOS</p>
+          <p id="app-ios" class="font-bold"></p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500">評価</p>
+          <p class="font-bold"><span id="app-rating"></span> ⭐</p>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">説明</h2>
+        <p id="app-description" class="text-gray-700 leading-relaxed"></p>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">主な機能</h2>
+        <ul id="app-features" class="list-disc list-inside space-y-2 text-gray-700"></ul>
+      </div>
+
+      <div class="mb-8 bg-yellow-50 border border-yellow-200 rounded p-4">
+        <h2 class="text-lg font-bold mb-2">⚠️ 法的注意事項</h2>
+        <p id="app-legal" class="text-gray-700"></p>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">動作環境</h2>
+        <ul id="app-requirements" class="space-y-2 text-gray-700"></ul>
+      </div>
+
+      <div id="related-articles" class="mb-8"></div>
+    </div>
+
+    <div id="adsense-container"></div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script>
+    let currentApp = null;
+
+    document.getElementById('header-container').innerHTML = createHeader();
+    document.getElementById('footer-container').innerHTML = createFooter();
+    document.getElementById('adsense-container').innerHTML = createAdSenseHorizontal();
+    setupMobileMenu();
+
+    async function loadAppDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const appId = params.get('id');
+
+      if (!appId) {
+        document.getElementById('app-detail').innerHTML = '<p class="text-red-600">アプリが見つかりません</p>';
+        return;
+      }
+
+      try {
+        const response = await fetch('/altStore-jp/assets/data/apps.json');
+        const data = await response.json();
+        currentApp = data.apps.find(app => app.id === appId);
+
+        if (!currentApp) {
+          document.getElementById('app-detail').innerHTML = '<p class="text-red-600">指定されたアプリが見つかりません</p>';
+          return;
+        }
+
+        renderAppDetail();
+      } catch (error) {
+        console.error('Failed to load app detail:', error);
+        document.getElementById('app-detail').innerHTML = '<p class="text-red-600">アプリ情報の読み込みに失敗しました</p>';
+      }
+    }
+
+    function renderAppDetail() {
+      document.title = `${currentApp.nameJa} | bunchoniki Store`;
+      document.querySelector('meta[name="description"]').setAttribute('content', currentApp.shortDescription);
+
+      document.getElementById('app-icon').src = currentApp.iconURL;
+      document.getElementById('app-name').textContent = currentApp.nameJa;
+      document.getElementById('app-developer').textContent = `開発者: ${currentApp.developer}`;
+      document.getElementById('app-version').textContent = currentApp.version;
+      document.getElementById('app-size').textContent = currentApp.size;
+      document.getElementById('app-ios').textContent = currentApp.requirements.ios;
+      document.getElementById('app-rating').textContent = currentApp.rating;
+      document.getElementById('app-description').textContent = currentApp.longDescription;
+      document.getElementById('app-legal').textContent = currentApp.legalNotice;
+      document.getElementById('source-link').href = currentApp.sourceURL;
+
+      const badgesContainer = document.getElementById('app-badges');
+      if (currentApp.isNotarized) {
+        badgesContainer.innerHTML += '<span class="notarized-badge">公証済み</span>';
+      }
+      badgesContainer.innerHTML += `<span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full">${currentApp.category}</span>`;
+
+      const featuresList = document.getElementById('app-features');
+      featuresList.innerHTML = '';
+      currentApp.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        featuresList.appendChild(li);
+      });
+
+      const requirementsList = document.getElementById('app-requirements');
+      requirementsList.innerHTML = `<li>iOS ${currentApp.requirements.ios}</li>`;
+      currentApp.requirements.devices.forEach(device => {
+        const li = document.createElement('li');
+        li.textContent = device;
+        requirementsList.appendChild(li);
+      });
+
+      if (currentApp.relatedArticles && currentApp.relatedArticles.length > 0) {
+        const relatedContainer = document.getElementById('related-articles');
+        relatedContainer.innerHTML = `
+          <h2 class="text-2xl font-bold mb-4">関連記事</h2>
+          <div class="space-y-2">
+            ${currentApp.relatedArticles.map(articleId => `<a href="/altStore-jp/articles/${articleId}.html" class="block p-4 bg-sky-50 rounded hover:bg-sky-100 transition">${articleId}</a>`).join('')}
+          </div>
+        `;
+      }
+    }
+
+    function importCurrentApp() {
+      if (currentApp) {
+        window.location.href = currentApp.altStoreURL;
+      }
+    }
+
+    loadAppDetail();
+  </script>
+</body>
+</html>
