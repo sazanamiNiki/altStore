@@ -31,12 +31,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Copy _config-dev.yml to _config.yml
-        run: cp _config-dev.yml _config.yml
+      - name: Prepare dev deployment
+        run: |
+          mkdir -p /tmp/dev-build
+          cp -r . /tmp/dev-build/
+          cd /tmp/dev-build
+          # baseurl を /altStore-jp から /altStore-jp/dev に置換
+          find . -name "*.html" -type f -exec sed -i 's|/altStore-jp/|/altStore-jp/dev/|g' {} +
+          find . -name "*.js" -type f -exec sed -i 's|/altStore-jp/|/altStore-jp/dev/|g' {} +
+          find . -name "*.css" -type f -exec sed -i 's|/altStore-jp/|/altStore-jp/dev/|g' {} +
 
       - name: Deploy develop to gh-pages dev folder
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: /tmp/dev-build
           destination_dir: dev
