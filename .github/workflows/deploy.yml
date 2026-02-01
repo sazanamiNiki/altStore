@@ -21,6 +21,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           cname: altstore-jp.bunchoniki.com
+          keep_files: true
 
   deploy-develop:
     runs-on: ubuntu-latest
