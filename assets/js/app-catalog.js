@@ -20,7 +20,7 @@ async function loadApps() {
     setupEventListeners();
   } catch (error) {
     console.error('Failed to load apps:', error);
-    appGrid.innerHTML = '<div class="col-span-full text-center py-8"><p class="text-red-600">アプリの読み込みに失敗しました</p></div>';
+    appGrid.innerHTML = '<div class="col-span-full text-center py-8"><p class="text-red-600">アプリが読み込めませんでした<br><span class="text-sm text-gray-500">しばらく待ってから試してみてください</span></p></div>';
   }
 }
 
@@ -81,7 +81,7 @@ function filterApps() {
 
 function renderApps() {
   if (filteredApps.length === 0) {
-    appGrid.innerHTML = '<div class="col-span-full text-center py-8"><p class="text-gray-500">該当するアプリが見つかりません</p></div>';
+    appGrid.innerHTML = '<div class="col-span-full text-center py-8"><p class="text-gray-500">ぴったりなアプリが見つかりませんでした<br><span class="text-sm">別の条件で試してみてください</span></p></div>';
     return;
   }
 

@@ -58,25 +58,27 @@
       </div>
 
       <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">説明</h2>
+        <h2 class="text-2xl font-bold mb-4">このアプリについて</h2>
         <p id="app-description" class="text-gray-700 leading-relaxed"></p>
       </div>
 
       <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">主な機能</h2>
+        <h2 class="text-2xl font-bold mb-4">できることはこんなに</h2>
         <ul id="app-features" class="list-disc list-inside space-y-2 text-gray-700"></ul>
       </div>
 
       <div class="mb-8 bg-yellow-50 border border-yellow-200 rounded p-4">
-        <h2 class="text-lg font-bold mb-2 icon-with-text">
-          <span class="material-symbols-outlined warning-icon">warning</span>
-          <span>法的注意事項</span>
-        </h2>
-        <p id="app-legal" class="text-gray-700"></p>
+        <div class="flex items-start gap-3">
+          <img src="./assets/img/buncho.png" alt="ぶんちゃん" class="w-10 h-10 flex-shrink-0">
+          <div class="flex-1">
+            <h2 class="text-lg font-bold mb-2">知っておきたいこと</h2>
+            <p id="app-legal" class="text-gray-700"></p>
+          </div>
+        </div>
       </div>
 
       <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">動作環境</h2>
+        <h2 class="text-2xl font-bold mb-4">対応デバイス・iOS</h2>
         <ul id="app-requirements" class="space-y-2 text-gray-700"></ul>
       </div>
 
@@ -179,7 +181,7 @@
 
       document.getElementById('app-icon').src = currentApp.iconURL;
       document.getElementById('app-name').textContent = currentApp.nameJa;
-      document.getElementById('app-developer').textContent = `開発者: ${currentApp.developer}`;
+      document.getElementById('app-developer').textContent = `作った人: ${currentApp.developer}`;
       document.getElementById('app-version').textContent = currentApp.version;
       document.getElementById('app-size').textContent = currentApp.size;
       document.getElementById('app-ios').textContent = currentApp.requirements.ios;

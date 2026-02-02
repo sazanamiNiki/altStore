@@ -68,7 +68,7 @@ function createFooter() {
           </div>
           <div>
             <h3 class="font-bold text-gray-900 mb-4">免責事項</h3>
-            <p class="text-gray-600 text-sm">本サイトは非公式です。掲載情報は最善の努力で確認しておりますが、正確性を保証しません。</p>
+            <p class="text-gray-600 text-sm">このサイトはAppleとは関係ありません。情報は最新のものを心がけていますが、変わることもあります。</p>
           </div>
         </div>
         <div class="border-t border-gray-200 pt-8 text-center">
