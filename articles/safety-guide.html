@@ -59,10 +59,24 @@
           Notarization 済みであれば、<strong>少なくとも Apple による基本的なセキュリティチェックは完了</strong>しています。
         </p>
 
-        <p class="text-gray-700 mb-4">
-          ただし、Notarization が「完全に安全」を保証するわけではありません。
-          100%の安全性は存在しないことを頭に入れておくことが大切です。
-        </p>
+        <div class="bg-yellow-50 rounded-lg p-6 mt-6 border-l-4 border-yellow-500 border border-yellow-200">
+          <div class="font-bold text-yellow-700 mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-yellow-600">info</span>
+            公証の限界について
+          </div>
+          <p class="text-gray-700 mb-3">
+            <strong>公証は100%の安全性を保証するものではありません。</strong>
+            新種のマルウェアや極めて高度な脅威が検知されない可能性もあります。
+          </p>
+          <p class="text-gray-700 mb-3">
+            また、<strong>7日署名（IPA配布）の場合は公証保護が適用されません</strong>。
+            AltStoreやSideStoreでIPAファイルとしてインストールしたアプリは、7日ごとの再署名時に公証ステータスが失われます。
+          </p>
+          <p class="text-gray-700">
+            ただし、iOSのサンドボックス構造により、アプリはシステムから隔離されているため、
+            公証が失われても基本的な安全性は維持されます。
+          </p>
+        </div>
       </div>
 
       <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
@@ -188,7 +202,7 @@
     </article>
 
     <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
-      <p class="text-sm text-gray-600">最終更新日：2026年1月31日</p>
+      <p class="text-sm text-gray-600">最終更新日：2026年2月2日</p>
     </div>
   </main>
 

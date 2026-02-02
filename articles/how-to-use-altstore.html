@@ -97,6 +97,30 @@
         <p class="text-gray-700 mb-4">
           つまり、<strong>PC を持っていれば、手動でスマートフォンを操作する手間をほぼ完全に削減できる</strong>わけです。
         </p>
+
+        <div class="bg-yellow-50 rounded-lg p-6 mt-6 border-l-4 border-yellow-500 border border-yellow-200">
+          <div class="font-bold text-yellow-700 mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-yellow-600">info</span>
+            自動更新の仕組みについて
+          </div>
+          <p class="text-gray-700 mb-3">
+            AltServerによる自動更新では、<strong>7日ごとに再署名</strong>が行われます。
+            この再署名プロセスでは、<mark class="bg-yellow-100 px-1 rounded"><strong>Apple公証ステータスが毎回失われます</strong></mark>。
+          </p>
+          <p class="text-gray-700 mb-3">
+            つまり：
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-1 ml-2">
+            <li>初回インストール時は公証済みの状態</li>
+            <li>7日後の自動更新以降は、公証なしの状態で動作</li>
+            <li>ただし、iOSのサンドボックス構造により基本的な安全性は維持されます</li>
+          </ul>
+          <p class="text-gray-700 mt-3">
+            公証を継続的に維持したい場合は、App Store経由で配信されるアプリを選ぶか、
+            有料開発者アカウント（年額99ドル）を使用する必要があります。
+            詳しくは<a href="./apple-notarization.html" class="text-blue-600 font-bold hover:underline">公証に関する記事</a>をご覧ください。
+          </p>
+        </div>
       </div>
 
       <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">

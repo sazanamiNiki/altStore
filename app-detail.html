@@ -27,6 +27,7 @@
           <h1 id="app-name" class="text-4xl font-bold mb-2"></h1>
           <p id="app-developer" class="text-gray-600 mb-4"></p>
           <div id="app-badges" class="flex flex-wrap gap-2 mb-4"></div>
+          <div id="distribution-info-container" class="mt-4"></div>
           <div class="flex gap-4">
             <button class="btn-primary text-lg" onclick="importCurrentApp()">インポートする</button>
             <a id="source-link" href="#" class="btn-secondary text-lg" target="_blank">ソースコード</a>
@@ -115,9 +116,60 @@
         }
 
         renderAppDetail();
+        renderDistributionInfo();
       } catch (error) {
         console.error('Failed to load app detail:', error);
         document.getElementById('app-detail').innerHTML = '<p class="text-red-600">アプリ情報の読み込みに失敗しました</p>';
+      }
+    }
+
+    function renderDistributionInfo() {
+      if (!currentApp) return;
+
+      // デフォルトは 'sideload'
+      const distributionCategory = currentApp.distributionInfo?.category || 'sideload';
+      const container = document.getElementById('distribution-info-container');
+
+      if (distributionCategory === 'official') {
+        // App Store配信の場合
+        container.innerHTML = `
+          <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+            <div class="font-bold text-green-700 mb-2 flex items-center gap-2">
+              <span class="material-symbols-outlined text-green-600">check_circle</span>
+              App Store配信（公証維持）
+            </div>
+            <p class="text-sm text-gray-700">
+              このアプリはApp Storeを通じて配信されており、<strong>Apple公証が永続的に維持</strong>されます。
+              セキュリティ保護が継続的に有効です。
+            </p>
+          </div>
+        `;
+      } else {
+        // IPA配布（7日署名）の場合
+        container.innerHTML = `
+          <div class="bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500">
+            <div class="font-bold text-yellow-700 mb-2 flex items-center gap-2">
+              <span class="material-symbols-outlined text-yellow-600">warning</span>
+              IPA配布（7日署名）
+            </div>
+            <p class="text-sm text-gray-700 mb-3">
+              このアプリはIPAファイルとして配布されており、<strong>7日ごとの再署名が必要</strong>です。
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 ml-2">
+              <li>AltStore/SideStore経由でインストール</li>
+              <li>7日ごとに自動更新が必要</li>
+              <li>再署名のたびに公証が失われます</li>
+              <li>セキュリティ保護は初回インストール時のみ</li>
+            </ul>
+            <div class="mt-3 p-3 bg-blue-50 rounded border border-blue-200">
+              <p class="text-xs text-gray-700">
+                <strong>注意：</strong>再署名により公証ステータスが失われますが、信頼できるソースからインストールする限り、
+                サンドボックス構造により安全性は保たれています。詳しくは
+                <a href="./articles/apple-notarization.html" class="text-blue-600 font-bold hover:underline">公証に関する記事</a>をご覧ください。
+              </p>
+            </div>
+          </div>
+        `;
       }
     }
 

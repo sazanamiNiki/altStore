@@ -3,6 +3,7 @@ let filteredApps = [];
 
 const searchInput = document.getElementById('search-input');
 const categorySelect = document.getElementById('category-select');
+const distributionFilter = document.getElementById('distribution-filter');
 const notarizedFilter = document.getElementById('notarized-filter');
 const resetFilter = document.getElementById('reset-filter');
 const appGrid = document.getElementById('app-grid');
@@ -39,6 +40,7 @@ function populateCategories() {
 function setupEventListeners() {
   searchInput.addEventListener('input', filterApps);
   categorySelect.addEventListener('change', filterApps);
+  distributionFilter.addEventListener('change', filterApps);
   notarizedFilter.addEventListener('click', () => {
     notarizedFilter.classList.toggle('bg-green-100');
     notarizedFilter.classList.toggle('text-green-800');
@@ -47,6 +49,7 @@ function setupEventListeners() {
   resetFilter.addEventListener('click', () => {
     searchInput.value = '';
     categorySelect.value = '';
+    distributionFilter.value = '';
     notarizedFilter.classList.remove('bg-green-100', 'text-green-800');
     filteredApps = [...allApps];
     renderApps();
@@ -56,15 +59,21 @@ function setupEventListeners() {
 function filterApps() {
   const searchTerm = searchInput.value.toLowerCase();
   const selectedCategory = categorySelect.value;
+  const selectedDistribution = distributionFilter.value;
   const onlyNotarized = notarizedFilter.classList.contains('bg-green-100');
 
   filteredApps = allApps.filter(app => {
     const matchesSearch = app.name.toLowerCase().includes(searchTerm) ||
                          app.developerName.toLowerCase().includes(searchTerm);
     const matchesCategory = !selectedCategory || app.category === selectedCategory;
+
+    // 配布方法のフィルタリング（デフォルトは 'sideload'）
+    const distributionCategory = app.distributionInfo?.category || 'sideload';
+    const matchesDistribution = !selectedDistribution || distributionCategory === selectedDistribution;
+
     const matchesNotarized = !onlyNotarized; // 公証情報がない場合は常に表示
 
-    return matchesSearch && matchesCategory && matchesNotarized;
+    return matchesSearch && matchesCategory && matchesDistribution && matchesNotarized;
   });
 
   renderApps();
@@ -86,11 +95,24 @@ function renderApps() {
 function createAppCard(app) {
   const card = document.createElement('div');
   card.className = 'relative bg-white rounded-3xl shadow-sm p-6 text-left transition hover:shadow-md cursor-pointer';
+
+  // 配布方法のデフォルト値を設定
+  const distributionCategory = app.distributionInfo?.category || 'sideload';
+  card.setAttribute('data-distribution', distributionCategory);
+
   card.addEventListener('click', (e) => {
     if (!e.target.closest('button')) {
       showAppDetailModal(app.bundleIdentifier);
     }
   });
+
+  // 配布方法バッジの設定
+  let distributionBadge = '';
+  if (distributionCategory === 'official') {
+    distributionBadge = '<span class="inline-block bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-md ml-1">App Store配信</span>';
+  } else {
+    distributionBadge = '<span class="inline-block bg-yellow-100 text-yellow-700 text-[10px] px-2 py-0.5 rounded-md ml-1">IPA配布</span>';
+  }
 
   card.innerHTML = `
     <button class="absolute top-6 right-6 bg-[#007AFF] text-white font-bold text-sm px-5 py-1.5 rounded-full hover:bg-blue-600 transition" onclick="showImportModal(event, '${app.bundleIdentifier}')">
@@ -103,7 +125,10 @@ function createAppCard(app) {
       <div class="flex-1 pt-1">
         <h3 class="font-bold text-lg text-gray-900 leading-tight line-clamp-1">${app.name}</h3>
         <p class="text-sm text-gray-500 mb-2">${app.developerName}</p>
-        <span class="inline-block bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded-md">${app.category}</span>
+        <div class="flex flex-wrap items-center gap-1">
+          <span class="inline-block bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded-md">${app.category}</span>
+          ${distributionBadge}
+        </div>
       </div>
     </div>
 

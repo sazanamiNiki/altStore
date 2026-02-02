@@ -381,6 +381,47 @@
           </p>
         </div>
       </div>
+
+      <div class="bg-white rounded-lg p-8 mt-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
+          <span class="material-symbols-outlined text-yellow-600">warning</span>
+          重要：7日署名と公証の関係
+        </h2>
+
+        <div class="bg-yellow-50 rounded-lg p-6 mb-6 border-l-4 border-yellow-500 border border-yellow-200">
+          <div class="font-bold text-yellow-700 mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-yellow-600">info</span>
+            7日署名では公証が失われます
+          </div>
+          <p class="text-gray-700 mb-4">
+            AltStoreやSideStoreでIPAファイルとしてインストールしたアプリは、<strong>7日ごとに再署名が必要</strong>です。
+            この再署名プロセスでは、<mark class="bg-yellow-100 px-1 rounded"><strong>元の公証ステータスが失われます</strong></mark>。
+          </p>
+          <p class="text-gray-700 mb-4">
+            つまり、初回インストール時は公証済みアプリとして保護されますが、
+            7日後の自動更新以降は、<strong>公証なしの状態</strong>で動作することになります。
+          </p>
+          <p class="text-gray-700">
+            ただし、iOSの<strong>サンドボックス構造</strong>により、アプリはシステムから隔離されているため、
+            公証が失われても基本的な安全性は維持されます。
+          </p>
+        </div>
+
+        <div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-500 border border-green-200">
+          <div class="font-bold text-green-700 mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-green-600">check_circle</span>
+            公証を維持する方法
+          </div>
+          <p class="text-gray-700 mb-3">
+            Apple公証を継続的に維持したい場合は、以下の方法があります：
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 ml-2">
+            <li><strong>App Storeから配信されるアプリを使用：</strong>App Store経由のアプリは公証が永続的に維持されます</li>
+            <li><strong>有料開発者アカウント（年額99ドル）を使用：</strong>永続的な署名が可能になります</li>
+            <li><strong>信頼できるソースからのみインストール：</strong>初回の公証チェックで安全性を確保できます</li>
+          </ul>
+        </div>
+      </div>
     </article>
 
     <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
