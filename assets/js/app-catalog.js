@@ -123,7 +123,7 @@ function createAppCard(app) {
       <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
 
       <div class="flex-1 pt-1">
-        <h3 class="font-bold text-lg text-gray-900 leading-tight line-clamp-1">${app.name}</h3>
+        <h3 class="font-bold text-lg text-gray-900 leading-tight line-clamp-1 w-2/3">${app.name}</h3>
         <p class="text-sm text-gray-500 mb-2">${app.developerName}</p>
         <div class="flex flex-wrap items-center gap-1">
           <span class="inline-block bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded-md">${app.category}</span>
@@ -192,7 +192,7 @@ function showAppDetailModal(bundleIdentifier) {
         <span class="material-symbols-outlined">close</span>
       </button>
 
-      <div class="p-6 pb-0 flex-shrink-0">
+      <div class="p-6 pb-0 flex-shrink-0 bg-white">
         <div class="flex items-start gap-4 mb-6">
           <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
           <div class="flex-1">
