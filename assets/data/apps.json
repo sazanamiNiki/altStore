@@ -72,7 +72,7 @@
       "nameJa": "Sidestore",
       "developer": "Sidestore Community",
       "shortDescription": "PCなしでアプリを管理できるAltStore代替",
-      "longDescription": "Sidestore は、AltStore の便利な代替アプリです。PC不要でiPhone、iPad上からアプリのサイドローディングを管理できます。公証済みアプリのインストール、更新、削除が簡単になります。Wi-Fi経由でシームレスに操作できるため、Developer Modeアクセスのあるデバイスに最適です。",
+      "longDescription": "Sidestore は、AltStore の便利な代替アプリです。PC不要でiPhone、iPad上からアプリのサイドローディングを管理できます。アプリのインストール、更新、削除が簡単になります。Wi-Fi経由でシームレスに操作できるため、Developer Modeアクセスのあるデバイスに最適です。",
       "category": "ユーティリティ",
       "iconURL": "https://altstore.io/media/sidestore-icon.png",
       "version": "0.3.2",

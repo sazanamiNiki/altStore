@@ -10,7 +10,7 @@ function addWebsiteStructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "bunchoniki Store",
-    "description": "Apple Silicon対応デバイス向けの公証済みアプリをご紹介",
+    "description": "開発元が明確な厳選サイドロードアプリをご紹介",
     "url": "https://bunchoniki.github.io/altStore-jp/",
     "potentialAction": {
       "@type": "SearchAction",
