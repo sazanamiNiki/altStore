@@ -20,7 +20,14 @@
   <main class="max-w-4xl mx-auto px-4 py-12">
     <div id="breadcrumb" class="mb-8"></div>
 
-    <div id="app-detail" class="bg-white rounded-lg border-2 border-gray-200 p-8 mb-12">
+    <div id="loading-container" class="bg-white rounded-lg border-2 border-gray-200 p-12 mb-12 text-center">
+      <div class="flex flex-col items-center gap-4">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <p class="text-gray-600">アプリ情報を読み込んでいます...</p>
+      </div>
+    </div>
+
+    <div id="app-detail" class="bg-white rounded-lg border-2 border-gray-200 p-8 mb-12" style="display: none;">
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <img id="app-icon" class="w-32 h-32 rounded-2xl object-cover" alt="App Icon">
         <div class="flex-1">
@@ -29,13 +36,12 @@
           <div id="app-badges" class="flex flex-wrap gap-2 mb-4"></div>
           <div id="distribution-info-container" class="mt-4"></div>
           <div class="flex gap-4">
-            <button class="btn-primary text-lg" onclick="importCurrentApp()">インポートする</button>
-            <a id="source-link" href="#" class="btn-secondary text-lg" target="_blank">ソースコード</a>
+            <button class="btn-primary text-lg" onclick="downloadCurrentApp()">ダウンロード</button>
           </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 p-6 bg-gray-50 rounded">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 bg-gray-50 rounded">
         <div>
           <p class="text-xs text-gray-500">バージョン</p>
           <p id="app-version" class="font-bold"></p>
@@ -48,13 +54,6 @@
           <p class="text-xs text-gray-500">必須iOS</p>
           <p id="app-ios" class="font-bold"></p>
         </div>
-        <div>
-          <p class="text-xs text-gray-500">評価</p>
-          <p class="font-bold icon-with-text">
-            <span class="material-symbols-outlined rating-icon">star</span>
-            <span id="app-rating"></span>
-          </p>
-        </div>
       </div>
 
       <div class="mb-8">
@@ -62,27 +61,9 @@
         <p id="app-description" class="text-gray-700 leading-relaxed"></p>
       </div>
 
-      <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">できることはこんなに</h2>
-        <ul id="app-features" class="list-disc list-inside space-y-2 text-gray-700"></ul>
-      </div>
+      <div id="version-description-section"></div>
 
-      <div class="mb-8 bg-yellow-50 border border-yellow-200 rounded p-4">
-        <div class="flex items-start gap-3">
-          <img src="./assets/img/buncho.png" alt="ぶんちゃん" class="w-10 h-10 flex-shrink-0">
-          <div class="flex-1">
-            <h2 class="text-lg font-bold mb-2">知っておきたいこと</h2>
-            <p id="app-legal" class="text-gray-700"></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">対応デバイス・iOS</h2>
-        <ul id="app-requirements" class="space-y-2 text-gray-700"></ul>
-      </div>
-
-      <div id="related-articles" class="mb-8"></div>
+      <div id="screenshots-section"></div>
     </div>
 
     <div id="adsense-container"></div>
@@ -98,42 +79,63 @@
     document.getElementById('adsense-container').innerHTML = createAdSenseHorizontal();
     setupMobileMenu();
 
+    function formatBytes(bytes) {
+      if (!bytes) return 'N/A';
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+    }
+
     async function loadAppDetail() {
       const params = new URLSearchParams(window.location.search);
       const appId = params.get('id');
+      const loadingContainer = document.getElementById('loading-container');
+      const appDetailContainer = document.getElementById('app-detail');
 
       if (!appId) {
-        document.getElementById('app-detail').innerHTML = '<p class="text-red-600">アプリが見つかりません</p>';
+        loadingContainer.style.display = 'none';
+        appDetailContainer.style.display = 'block';
+        appDetailContainer.innerHTML = '<p class="text-red-600">アプリが見つかりません</p>';
         return;
       }
 
       try {
         const response = await fetch('https://script.google.com/macros/s/AKfycbxcaYOnyNaovd0ERTnVKKRxZP0x4eWSftKk-mMVCXZrbuQDw8e-aPN9sj4dSDPoGYeBsg/exec');
         const data = await response.json();
-        currentApp = data.apps.find(app => app.id === appId);
+        currentApp = data.apps.find(app => app.bundleIdentifier === appId);
 
         if (!currentApp) {
-          document.getElementById('app-detail').innerHTML = '<p class="text-red-600">指定されたアプリが見つかりません</p>';
+          loadingContainer.style.display = 'none';
+          appDetailContainer.style.display = 'block';
+          appDetailContainer.innerHTML = '<p class="text-red-600">指定されたアプリが見つかりません</p>';
           return;
         }
 
         renderAppDetail();
         renderDistributionInfo();
+        renderVersionDescription();
+        renderScreenshots();
+
+        // ローディング非表示、コンテンツ表示
+        loadingContainer.style.display = 'none';
+        appDetailContainer.style.display = 'block';
       } catch (error) {
         console.error('Failed to load app detail:', error);
-        document.getElementById('app-detail').innerHTML = '<p class="text-red-600">アプリ情報の読み込みに失敗しました</p>';
+        loadingContainer.style.display = 'none';
+        appDetailContainer.style.display = 'block';
+        appDetailContainer.innerHTML = '<p class="text-red-600">アプリ情報の読み込みに失敗しました</p>';
       }
     }
 
     function renderDistributionInfo() {
       if (!currentApp) return;
 
-      // デフォルトは 'sideload'
       const distributionCategory = currentApp.distributionInfo?.category || 'sideload';
       const container = document.getElementById('distribution-info-container');
 
       if (distributionCategory === 'official') {
-        // App Store配信の場合
         container.innerHTML = `
           <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
             <div class="font-bold text-green-700 mb-2 flex items-center gap-2">
@@ -147,7 +149,6 @@
           </div>
         `;
       } else {
-        // IPA配布（7日署名）の場合
         container.innerHTML = `
           <div class="bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500">
             <div class="font-bold text-yellow-700 mb-2 flex items-center gap-2">
@@ -174,56 +175,64 @@
     }
 
     function renderAppDetail() {
-      document.title = `${currentApp.nameJa} | bunchoniki Store`;
-      document.querySelector('meta[name="description"]').setAttribute('content', currentApp.shortDescription);
+      document.title = `${currentApp.name} | bunchoniki Store`;
+      document.querySelector('meta[name="description"]').setAttribute('content', currentApp.localizedDescription || 'アプリの詳細情報');
 
       document.getElementById('app-icon').src = currentApp.iconURL;
-      document.getElementById('app-name').textContent = currentApp.nameJa;
-      document.getElementById('app-developer').textContent = `作った人: ${currentApp.developer}`;
-      document.getElementById('app-version').textContent = currentApp.version;
-      document.getElementById('app-size').textContent = currentApp.size;
-      document.getElementById('app-ios').textContent = currentApp.requirements.ios;
-      document.getElementById('app-rating').textContent = currentApp.rating;
-      document.getElementById('app-description').textContent = currentApp.longDescription;
-      document.getElementById('app-legal').textContent = currentApp.legalNotice;
-      document.getElementById('source-link').href = currentApp.sourceURL;
+      document.getElementById('app-name').textContent = currentApp.name;
+      document.getElementById('app-developer').textContent = `作った人: ${currentApp.developerName}`;
+      document.getElementById('app-version').textContent = currentApp.version || 'N/A';
+      document.getElementById('app-size').textContent = formatBytes(currentApp.size);
 
+      // 必須iOS
+      const minOSVersion = currentApp.versions && currentApp.versions[0] && currentApp.versions[0].minOSVersion
+        ? `iOS ${currentApp.versions[0].minOSVersion}以上`
+        : 'iOS 14以上';
+      document.getElementById('app-ios').textContent = minOSVersion;
+
+      // 説明文
+      document.getElementById('app-description').textContent = currentApp.localizedDescription || '説明はありません';
+
+      // バッジ（カテゴリ）
       const badgesContainer = document.getElementById('app-badges');
-      if (currentApp.isNotarized) {
-        badgesContainer.innerHTML += '<span class="notarized-badge">公証済み</span>';
-      }
-      badgesContainer.innerHTML += `<span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full">${currentApp.category}</span>`;
-
-      const featuresList = document.getElementById('app-features');
-      featuresList.innerHTML = '';
-      currentApp.features.forEach(feature => {
-        const li = document.createElement('li');
-        li.textContent = feature;
-        featuresList.appendChild(li);
-      });
-
-      const requirementsList = document.getElementById('app-requirements');
-      requirementsList.innerHTML = `<li>iOS ${currentApp.requirements.ios}</li>`;
-      currentApp.requirements.devices.forEach(device => {
-        const li = document.createElement('li');
-        li.textContent = device;
-        requirementsList.appendChild(li);
-      });
-
-      if (currentApp.relatedArticles && currentApp.relatedArticles.length > 0) {
-        const relatedContainer = document.getElementById('related-articles');
-        relatedContainer.innerHTML = `
-          <h2 class="text-2xl font-bold mb-4">関連記事</h2>
-          <div class="space-y-2">
-            ${currentApp.relatedArticles.map(articleId => `<a href="./articles/${articleId}.html" class="block p-4 bg-sky-50 rounded hover:bg-sky-100 transition">${articleId}</a>`).join('')}
-          </div>
-        `;
-      }
+      badgesContainer.innerHTML = `<span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full">${currentApp.category}</span>`;
     }
 
-    function importCurrentApp() {
-      if (currentApp) {
-        window.location.href = currentApp.altStoreURL;
+    function renderVersionDescription() {
+      if (!currentApp.versionDescription) return;
+
+      const features = currentApp.versionDescription.split('\n').filter(f => f.trim());
+      if (features.length === 0) return;
+
+      const section = document.getElementById('version-description-section');
+      section.innerHTML = `
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold mb-4">主な機能</h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            ${features.map(f => `<li>${f.trim()}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderScreenshots() {
+      const screenshots = currentApp.screenshots || currentApp.screenshotURLs || [];
+      if (screenshots.length === 0) return;
+
+      const section = document.getElementById('screenshots-section');
+      section.innerHTML = `
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold mb-4">スクリーンショット</h2>
+          <div class="flex gap-3 overflow-x-auto pb-2">
+            ${screenshots.map(url => `<img src="${url}" alt="Screenshot" class="rounded border border-gray-200 h-96 flex-shrink-0">`).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function downloadCurrentApp() {
+      if (currentApp && currentApp.downloadURL) {
+        window.location.href = currentApp.downloadURL;
       }
     }
 
