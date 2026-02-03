@@ -173,7 +173,7 @@ function createFooter() {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 class="font-bold text-gray-900 mb-4">bunchoniki Store</h3>
-            <p class="text-gray-600 text-sm">Apple Silicon対応デバイス向けの公証済みアプリをご紹介します。</p>
+            <p class="text-gray-600 text-sm">開発元が明確な厳選サイドロードアプリをご紹介します。</p>
           </div>
           <div>
             <h3 class="font-bold text-gray-900 mb-4">リンク</h3>
