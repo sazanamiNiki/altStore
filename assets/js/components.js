@@ -5,6 +5,10 @@ const BUNCHO_LOGO = `<svg class="w-8 h-8 inline" viewBox="0 0 40 40" fill="none"
   <circle cx="21" cy="12" r="1" fill="white"/>
 </svg>`;
 
+
+// ページ読み込み時に実行
+document.addEventListener('DOMContentLoaded', loadAdSense);
+
 function getBasePath() {
   const pathname = window.location.pathname;
   const depth = (pathname.match(/\//g) || []).length - 1;
@@ -104,4 +108,20 @@ function setupMobileMenu() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', setupMobileMenu);
+function loadAdSense() {
+  const existingScript = document.querySelector('script[src*="client=ca-pub-3579213602196152"]');
+  if (existingScript) return;
+
+  const script = document.createElement('script');
+  script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3579213602196152";
+  script.async = true;
+  script.crossOrigin = "anonymous";
+
+  document.head.appendChild(script);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupMobileMenu();
+  loadAdSense();
+});
+
