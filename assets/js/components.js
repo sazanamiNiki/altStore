@@ -61,6 +61,7 @@ function createFooter() {
           <div>
             <h3 class="font-bold text-gray-900 mb-4">リンク</h3>
             <ul class="space-y-2 text-sm">
+              <li><a href="${basePath}our-policy.html" class="text-gray-600 hover:text-sky-600">運営方針・お問い合わせ</a></li>
               <li><a href="${basePath}privacy-policy.html" class="text-gray-600 hover:text-sky-600">プライバシーポリシー</a></li>
               <li><a href="${basePath}terms.html" class="text-gray-600 hover:text-sky-600">利用規約</a></li>
               <li><a href="https://altstore.io" class="text-gray-600 hover:text-sky-600">AltStore 公式</a></li>
