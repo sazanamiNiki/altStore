@@ -5,10 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AltStoreの使い方ガイド | bunchoniki Store</title>
   <meta name="description" content="AltStoreの7日間署名問題、AltServerの役割、Wi-Fi経由での自動更新の仕組みを詳しく解説">
+
+  <!-- OGP / Open Graph Protocol -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PCなしでも更新可能？AltStoreの仕組みと導入の基本">
+  <meta property="og:description" content="AltStoreの7日間署名問題、AltServerの役割、Wi-Fi経由での自動更新の仕組みを詳しく解説。初心者でもわかる完全ガイド。">
+  <meta property="og:url" content="https://bunchoniki.com/articles/how-to-use-altstore.html">
+  <meta property="og:image" content="https://bunchoniki.com/assets/img/og-altstore-guide.jpg">
+  <meta property="og:site_name" content="bunchoniki Store">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="article:published_time" content="2026-01-31T00:00:00+09:00">
+  <meta property="article:modified_time" content="2026-01-31T00:00:00+09:00">
+  <meta property="article:author" content="bunchoniki">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PCなしでも更新可能？AltStoreの仕組みと導入の基本">
+  <meta name="twitter:description" content="AltStoreの7日間署名問題、AltServerの役割、Wi-Fi経由での自動更新の仕組みを詳しく解説。初心者でもわかる完全ガイド。">
+  <meta name="twitter:image" content="https://bunchoniki.com/assets/img/og-altstore-guide.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bunchoniki.com/articles/how-to-use-altstore.html">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../assets/css/main.css">
   <script src="../assets/js/components.js"></script>
+
+  <!-- 構造化データ / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "AltStoreの使い方ガイド - 7日間署名の仕組みと自動更新設定",
+    "description": "AltStoreの7日間署名問題、AltServerの役割、Wi-Fi経由での自動更新の仕組みを詳しく解説",
+    "image": "https://bunchoniki.com/assets/img/og-altstore-guide.jpg",
+    "totalTime": "PT30M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "JPY",
+      "value": "0"
+    },
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "AltServer（PC/Mac）"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "iPhone/iPad"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Apple ID"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "AltServerをインストール",
+        "text": "Windows PC または Mac に AltServer をダウンロードしてインストールします。",
+        "url": "https://bunchoniki.com/articles/how-to-use-altstore.html#step1"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Apple IDでログイン",
+        "text": "AltServer に Apple ID を入力します（2段階認証対応）。",
+        "url": "https://bunchoniki.com/articles/how-to-use-altstore.html#step2"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "iPhoneを接続して初期設定",
+        "text": "iPhone を USB ケーブルで PC に接続し、初回のみアプリをインストールして署名します。",
+        "url": "https://bunchoniki.com/articles/how-to-use-altstore.html#step3"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Wi-Fi接続を設定",
+        "text": "AltServer で「Sync with this iPhone over Wi-Fi」オプションを有効にします。",
+        "url": "https://bunchoniki.com/articles/how-to-use-altstore.html#step4"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "バックグラウンド起動",
+        "text": "AltServer を PC のスタートアップに登録して、常に起動した状態に保ちます。",
+        "url": "https://bunchoniki.com/articles/how-to-use-altstore.html#step5"
+      }
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "bunchoniki"
+    },
+    "datePublished": "2026-01-31",
+    "dateModified": "2026-01-31"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PCなしでも更新可能？AltStoreの仕組みと導入の基本",
+    "description": "AltStoreの7日間署名問題、AltServerの役割、Wi-Fi経由での自動更新の仕組みを詳しく解説",
+    "image": "https://bunchoniki.com/assets/img/og-altstore-guide.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "bunchoniki"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "bunchoniki Store",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bunchoniki.com/assets/img/logo.png"
+      }
+    },
+    "datePublished": "2026-01-31",
+    "dateModified": "2026-01-31",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bunchoniki.com/articles/how-to-use-altstore.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://bunchoniki.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "記事一覧",
+        "item": "https://bunchoniki.com/articles/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AltStoreの使い方ガイド",
+        "item": "https://bunchoniki.com/articles/how-to-use-altstore.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <div id="header-container"></div>
@@ -18,11 +164,11 @@
       <div class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <!-- ドットパターン背景 -->
         <div class="absolute inset-0 opacity-[0.15]" style="background-image: radial-gradient(circle, #3b82f6 1px, transparent 1px); background-size: 24px 24px;"></div>
-        <h1 class="text-4xl font-bold mb-3 text-slate-800 flex items-center gap-3 relative z-10">
+        <h1 class="text-2xl font-bold mb-3 text-slate-800 flex items-center gap-3 relative z-10">
           <span class="material-symbols-outlined text-blue-500" style="font-size: 2.5rem;">apps</span>
-          PCなしでも更新可能？AltStoreの仕組みと導入の基本
+          PCなしでも更新可能？<br />AltStoreの仕組みと導入の基本
         </h1>
-        <p class="text-gray-600 text-lg relative z-10">7日間の署名更新、AltServerの役割、Wi-Fi自動更新まで完全解説</p>
+        <p class="text-gray-600 text-mg relative z-10">7日間の署名更新、AltServerの役割、Wi-Fi自動更新まで完全解説</p>
       </div>
 
       <div class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
@@ -147,9 +293,31 @@
 
         <h3 class="text-xl font-bold mb-3 mt-6">Step 1: AltServer をインストール</h3>
         <p class="text-gray-700 mb-4">
-          Windows PC または Mac に <a href="https://altserver.io" target="_blank" class="text-blue-600 font-bold hover:underline">AltServer</a> をダウンロードしてインストールします。
+          Windows PC または Mac に <a href="https://altserver.io" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline inline-flex items-center gap-1">AltServer<span class="material-symbols-outlined text-sm">open_in_new</span></a> をダウンロードしてインストールします。
         </p>
-
+        <div class="my-8 p-6 bg-gray-50 border border-gray-200 rounded-xl">
+          <div class="flex flex-col sm:flex-row gap-6 items-center">
+            <div class="flex-1">
+              <h4 class="font-bold text-lg text-gray-900 mb-2">
+                <span class="material-symbols-outlined align-middle text-blue-600 mr-1">computer</span>
+                常時起動用のPCがない場合は？
+              </h4>
+              <p class="text-sm text-gray-600 mb-3">
+                AltServerを24時間動かすなら、省電力なミニPCが最適です。電気代も月数百円で済み、メインPCを占有しません。
+              </p>
+              <a href="https://amzn.to/3ZNfzzo" target="_blank" rel="sponsored noopener" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition-colors text-sm shadow-md" data-affiliate-type="amazon" data-product-category="mini-pc" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'mini-pc', 'n100-pc');">
+                AmazonでN100搭載PCを見る
+              </a>
+            </div>
+            <!--
+              画像追加時の推奨属性:
+              <img src="[画像パス]" alt="N100搭載ミニPC - AltServer常時起動に最適な省電力モデル" loading="lazy" decoding="async" width="128" height="128" class="rounded-lg border">
+            -->
+            <div class="w-32 h-32 bg-white flex items-center justify-center border rounded-lg text-gray-400 text-xs">
+              商品画像
+            </div>
+          </div>
+        </div>
         <h3 class="text-xl font-bold mb-3 mt-6">Step 2: Apple ID でログイン</h3>
         <p class="text-gray-700 mb-4">
           AltServer に Apple ID を入力します（2段階認証対応）。
@@ -160,7 +328,17 @@
           iPhone を USB ケーブルで PC に接続し、初回のみアプリをインストールして署名します。
           このとき「信頼する」を選択することで、Apple ID の認証が完了します。
         </p>
-
+        <div class="my-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+          <h4 class="font-bold text-gray-900 text-sm mb-1">⚠️ 接続トラブルの9割はケーブルが原因です</h4>
+          <p class="text-xs text-gray-700 mb-3">
+            100均の「充電専用」ケーブルではAltServerは認識しません。必ずデータ転送対応のケーブルを使ってください。
+          </p>
+          <div class="text-right">
+            <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="text-blue-600 font-bold text-sm hover:underline flex items-center justify-end gap-1" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
+              おすすめの高耐久ケーブルを見る <span class="material-symbols-outlined text-sm">open_in_new</span>
+            </a>
+          </div>
+        </div>
         <h3 class="text-xl font-bold mb-3 mt-6">Step 4: Wi-Fi 接続を設定</h3>
         <p class="text-gray-700 mb-4">
           AltServer で「Sync with this iPhone over Wi-Fi」オプションを有効にします。
@@ -259,6 +437,75 @@
     document.getElementById('header-container').innerHTML = createHeader();
     document.getElementById('footer-container').innerHTML = createFooter();
     setupMobileMenu();
+
+    // アフィリエイトクリック計測（GTMやGoogle Analytics連携用）
+    function trackAffiliateClick(platform, category, productId) {
+      // Google Analytics 4 (GA4) イベント送信例
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'affiliate_click', {
+          'platform': platform,
+          'category': category,
+          'product_id': productId,
+          'page_location': window.location.href
+        });
+      }
+
+      // Google Tag Manager (GTM) データレイヤー送信例
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          'event': 'affiliateClick',
+          'affiliatePlatform': platform,
+          'productCategory': category,
+          'productId': productId
+        });
+      }
+
+      // コンソールログ（開発時の確認用）
+      console.log('Affiliate Click:', { platform, category, productId });
+    }
+
+    // 目次自動生成（オプション）
+    // 以下のコメントを解除すると、記事内のh2/h3から自動で目次を生成できます
+    /*
+    function generateTableOfContents() {
+      const article = document.querySelector('article');
+      const headings = article.querySelectorAll('h2, h3');
+
+      if (headings.length < 3) return; // 見出しが少ない場合はスキップ
+
+      const toc = document.createElement('div');
+      toc.className = 'bg-white rounded-lg p-6 mb-8 border border-gray-200';
+      toc.innerHTML = '<h2 class="text-xl font-bold mb-4 text-gray-800 flex items-center gap-2"><span class="material-symbols-outlined text-blue-600">list</span>目次</h2><ul class="space-y-2"></ul>';
+
+      const tocList = toc.querySelector('ul');
+
+      headings.forEach((heading, index) => {
+        const id = `heading-${index}`;
+        heading.id = id;
+
+        const li = document.createElement('li');
+        const level = heading.tagName === 'H2' ? 'ml-0' : 'ml-4';
+        li.className = level;
+
+        const link = document.createElement('a');
+        link.href = `#${id}`;
+        link.textContent = heading.textContent.replace(/^\s*[▼▲■●]?\s*/, '');
+        link.className = 'text-blue-600 hover:underline text-sm';
+
+        li.appendChild(link);
+        tocList.appendChild(li);
+      });
+
+      // 最初のセクションの前に目次を挿入
+      const firstSection = article.querySelector('.bg-blue-50, .bg-white');
+      if (firstSection) {
+        firstSection.parentNode.insertBefore(toc, firstSection);
+      }
+    }
+
+    // ページ読み込み後に目次を生成（必要に応じてコメント解除）
+    // window.addEventListener('DOMContentLoaded', generateTableOfContents);
+    */
   </script>
 </body>
 </html>
