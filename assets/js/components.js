@@ -17,7 +17,7 @@ function createHeader() {
     <header class="bg-white shadow-sm border-b border-sky-100 relative">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <a href="${basePath}index.html" class="flex items-center gap-2 sm:gap-3 font-bold text-sm sm:text-xl text-sky-600">
-          <img src="./assets/img/buncho_logo.svg" />
+          <img src="/assets/img/buncho_logo.svg" />
           <span>bunchoniki Store</span>
         </a>
         <ul class="hidden md:flex gap-8">
