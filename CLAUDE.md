@@ -46,6 +46,27 @@ altStore-jp/
 - JavaScript（ナビゲーション、メニュー）
 - Static Site（Node.jsやDBなし）
 
+## デプロイフロー
+
+ユーザーから「作業内容を反映してください」と指示された場合、以下の手順を実行してください：
+
+1. **変更をコミット**
+   - 変更ファイルをステージング（`git add`）
+   - 適切なコミットメッセージで変更をコミット
+   - コミットメッセージには `Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>` を含める
+
+2. **developブランチにマージ**
+   - `git checkout develop`
+   - `git merge master`（または作業ブランチをマージ）
+   - `git push origin develop`
+
+3. **PRを作成してマージ**
+   - `gh pr create --base master --head develop` でPRを作成
+   - `gh pr merge [PR番号] --merge` でマージ
+   - マージ後、`git checkout master && git pull origin master` で最新を取得
+
+**注意**: この一連の流れを自動で実行してください。途中で確認を求める必要はありません。
+
 ---
 
 詳細な編集ルールは `./.claude/rule/articles_style_guide.md` を参照してください。
