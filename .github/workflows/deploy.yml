@@ -22,6 +22,7 @@ jobs:
           publish_dir: ./
           cname: altstore-jp.bunchoniki.com
           keep_files: true
+          force_orphan: true
 
   deploy-develop:
     runs-on: ubuntu-latest
