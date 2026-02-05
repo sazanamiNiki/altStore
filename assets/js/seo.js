@@ -11,12 +11,12 @@ function addWebsiteStructuredData() {
     "@type": "WebSite",
     "name": "bunchoniki Store",
     "description": "開発元が明確な厳選サイドロードアプリをご紹介",
-    "url": "https://bunchoniki.github.io/altStore-jp/",
+    "url": "https://altstore-jp.bunchoniki.com/",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://bunchoniki.github.io/altStore-jp/apps.html?search={search_term_string}"
+        "urlTemplate": "https://altstore-jp.bunchoniki.com/apps.html?search={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -37,7 +37,7 @@ function addSoftwareApplicationSchema(app) {
     },
     "version": app.version,
     "image": app.iconURL,
-    "url": `https://bunchoniki.github.io/altStore-jp/app-detail.html?id=${app.id}`,
+    "url": `https://altstore-jp.bunchoniki.com/app-detail.html?id=${app.id}`,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": app.rating,
