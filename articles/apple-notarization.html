@@ -14,6 +14,8 @@
   <div id="header-container"></div>
 
   <main class="max-w-3xl mx-auto px-4 py-12">
+    <div id="article-back-link-container"></div>
+
     <article>
       <div class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <!-- ドットパターン背景 -->
@@ -453,6 +455,7 @@
   <script>
     document.getElementById('header-container').innerHTML = createHeader();
     document.getElementById('footer-container').innerHTML = createFooter();
+    document.getElementById('article-back-link-container').innerHTML = createArticleBackLink();
     setupMobileMenu();
   </script>
 </body>

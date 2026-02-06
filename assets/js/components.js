@@ -90,6 +90,17 @@ function createAdSenseHorizontal() {
   `;
 }
 
+function createArticleBackLink() {
+  return `
+    <div class="mb-6">
+      <a href="./index.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-bold transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+        記事一覧に戻る
+      </a>
+    </div>
+  `;
+}
+
 function setupMobileMenu() {
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
