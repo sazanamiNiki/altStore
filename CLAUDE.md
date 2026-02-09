@@ -22,8 +22,13 @@ altStore-jp/
 │   ├── css/               # スタイルシート
 │   ├── js/                # JavaScriptコンポーネント
 │   └── img/               # 画像・ロゴ
+├── tools/
+│   ├── extract_sections.py # セクション抽出スクリプト
+│   └── README.md          # ツールの使用方法
 ├── .claude/
 │   ├── rule/              # Claude用編集ルール
+│   │   ├── articles_style_guide.md  # 記事スタイルガイド
+│   │   └── article_sections.md      # セクション管理ルール
 │   ├── docments/          # 記事仕様書
 │   └── settings.local.json
 └── CLAUDE.md              # このファイル
@@ -38,13 +43,34 @@ altStore-jp/
 - **アイコン**: 原則として絵文字ではなくMaterial Symbols Outlined（MUI）のアイコンを色付きで使用
 - 青・黄・緑のカラースキーム
 - 導入セクション→メインコンテンツ→よくある質問→まとめの構成
+- **セクション属性**: 全セクションに `id` と `data-section` 属性を付与（トークン消費削減のため）
 
 ## 技術スタック
 
 - HTML5 + Tailwind CSS
 - Material Symbols Outlined（アイコン）
 - JavaScript（ナビゲーション、メニュー）
+- Python 3.7+（セクション抽出ツール）
 - Static Site（Node.jsやDBなし）
+
+## セクション抽出ツール
+
+記事HTMLファイルからトークン消費を削減するため、特定のセクションのみを抽出できるツールを用意しています。
+
+### 使用例
+
+```bash
+# セクション一覧を表示
+python3 tools/extract_sections.py articles/what-is-sideloading.html --list
+
+# 特定のセクションを抽出（テキスト形式）
+python3 tools/extract_sections.py articles/what-is-sideloading.html --sections header intro summary
+
+# マークダウン形式で抽出
+python3 tools/extract_sections.py articles/what-is-sideloading.html --sections content --format markdown
+```
+
+詳細は `tools/README.md` および `./.claude/rule/article_sections.md` を参照してください。
 
 ## デプロイフロー
 
