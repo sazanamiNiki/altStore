@@ -17,48 +17,48 @@
 <body class="bg-gray-50 text-gray-900">
   <div id="header-container"></div>
 
-  <main class="max-w-4xl mx-auto px-4 py-12">
+  <main class="max-w-xl mx-auto px-6 py-20">
     <div id="breadcrumb" class="mb-8"></div>
 
-    <div id="loading-container" class="bg-white rounded-lg border-2 border-gray-200 p-12 mb-12 text-center">
+    <div id="loading-container" class="bg-white rounded-2xl shadow-sm p-12 mb-8 text-center">
       <div class="flex flex-col items-center gap-4">
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-        <p class="text-gray-600">アプリ情報を読み込んでいます...</p>
+        <p class="text-sm text-gray-600">アプリ情報を読み込んでいます...</p>
       </div>
     </div>
 
-    <div id="app-detail" class="bg-white rounded-lg border-2 border-gray-200 p-8 mb-12" style="display: none;">
+    <div id="app-detail" class="bg-white rounded-2xl shadow-sm p-8 mb-8" style="display: none;">
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <img id="app-icon" class="w-32 h-32 rounded-2xl object-cover" alt="App Icon">
         <div class="flex-1">
-          <h1 id="app-name" class="text-4xl font-bold mb-2"></h1>
-          <p id="app-developer" class="text-gray-600 mb-4"></p>
+          <h1 id="app-name" class="text-3xl font-bold text-gray-900 mb-2"></h1>
+          <p id="app-developer" class="text-sm text-gray-600 mb-4"></p>
           <div id="app-badges" class="flex flex-wrap gap-2 mb-4"></div>
           <div id="distribution-info-container" class="mt-4"></div>
           <div class="flex gap-4 mt-3">
-            <button class="bg-[#007AFF] text-white font-bold text-sm px-5 py-1.5 rounded-full hover:bg-blue-600" onclick="downloadCurrentApp()">ダウンロード</button>
+            <button class="bg-blue-600 text-white font-semibold text-sm px-5 py-1.5 rounded-full hover:bg-blue-700" onclick="downloadCurrentApp()">ダウンロード</button>
           </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 bg-gray-50 rounded">
+      <div class="grid grid-cols-3 gap-4 mb-8 p-6 bg-gray-50 rounded-xl">
         <div>
           <p class="text-xs text-gray-500">バージョン</p>
-          <p id="app-version" class="font-bold"></p>
+          <p id="app-version" class="font-semibold text-gray-900"></p>
         </div>
         <div>
           <p class="text-xs text-gray-500">ファイルサイズ</p>
-          <p id="app-size" class="font-bold"></p>
+          <p id="app-size" class="font-semibold text-gray-900"></p>
         </div>
         <div>
           <p class="text-xs text-gray-500">必須iOS</p>
-          <p id="app-ios" class="font-bold"></p>
+          <p id="app-ios" class="font-semibold text-gray-900"></p>
         </div>
       </div>
 
       <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">このアプリについて</h2>
-        <p id="app-description" class="text-gray-700 leading-relaxed"></p>
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">このアプリについて</h2>
+        <p id="app-description" class="text-sm text-gray-600 leading-7"></p>
       </div>
 
       <div id="version-description-section"></div>
@@ -195,7 +195,7 @@
 
       // バッジ（カテゴリ）
       const badgesContainer = document.getElementById('app-badges');
-      badgesContainer.innerHTML = `<span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full">${currentApp.category}</span>`;
+      badgesContainer.innerHTML = `<span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">${currentApp.category}</span>`;
     }
 
     function renderVersionDescription() {
@@ -207,8 +207,8 @@
       const section = document.getElementById('version-description-section');
       section.innerHTML = `
         <div class="mb-8">
-          <h2 class="text-2xl font-bold mb-4">主な機能</h2>
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">主な機能</h2>
+          <ul class="list-disc list-inside space-y-2 text-sm text-gray-600 leading-7">
             ${features.map(f => `<li>${f.trim()}</li>`).join('')}
           </ul>
         </div>
@@ -222,9 +222,9 @@
       const section = document.getElementById('screenshots-section');
       section.innerHTML = `
         <div class="mb-8">
-          <h2 class="text-2xl font-bold mb-4">スクリーンショット</h2>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">スクリーンショット</h2>
           <div class="flex gap-3 overflow-x-auto pb-2">
-            ${screenshots.map(url => `<img src="${url}" alt="Screenshot" class="rounded border border-gray-200 h-96 flex-shrink-0">`).join('')}
+            ${screenshots.map(url => `<img src="${url}" alt="Screenshot" class="rounded-xl h-96 flex-shrink-0">`).join('')}
           </div>
         </div>
       `;
