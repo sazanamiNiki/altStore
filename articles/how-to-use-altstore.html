@@ -31,6 +31,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../assets/css/main.css">
   <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/status.js"></script>
 
   <!-- 構造化データ / JSON-LD -->
   <script type="application/ld+json">
@@ -187,6 +188,36 @@
           しかし、AltStore には「7日ごとに署名が切れる」という独特の制限があります。
           この記事では、その仕組みと対策、そして PC なしで更新できる方法をご紹介します。
         </p>
+      </div>
+
+      <!-- 関連記事リンク -->
+      <div class="bg-white rounded-lg p-6 mb-8 border-l-4 border-indigo-400 border border-indigo-100">
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-indigo-500 text-2xl">auto_stories</span>
+          <div class="flex-1">
+            <h3 class="font-bold text-gray-800 mb-3">この記事の位置づけ</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              この記事は、AltStoreの<strong>仕組み・理論編</strong>として7日署名の仕組みやAltServerの役割を詳しく解説しています。
+              実際のインストール手順や全体像を知りたい方は、以下の記事もご覧ください。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <a href="altstore-complete-guide.html" class="block p-4 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg border border-purple-200 hover:shadow-md transition-all group">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="material-symbols-outlined text-purple-600 text-lg">apps</span>
+                  <span class="font-bold text-purple-700 group-hover:text-purple-800">AltStore完全ガイド</span>
+                </div>
+                <p class="text-sm text-gray-600">基礎知識からトラブル対応まで全てを網羅した<strong>統合ガイド編</strong></p>
+              </a>
+              <a href="install-app-step-by-step.html" class="block p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200 hover:shadow-md transition-all group">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="material-symbols-outlined text-green-600 text-lg">install_desktop</span>
+                  <span class="font-bold text-green-700 group-hover:text-green-800">アプリをインストールする方法</span>
+                </div>
+                <p class="text-sm text-gray-600">具体的なセットアップ手順に特化した<strong>実践・セットアップ編</strong></p>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="article-content-1" data-section="content" data-content-type="mechanism" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
