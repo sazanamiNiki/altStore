@@ -163,7 +163,7 @@
     <div id="article-back-link-container"></div>
 
     <article>
-      <div class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <div id="article-header" data-section="header" class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <!-- ドットパターン背景 -->
         <div class="absolute inset-0 opacity-[0.15]" style="background-image: radial-gradient(circle, #3b82f6 1px, transparent 1px); background-size: 24px 24px;"></div>
         <h1 class="text-2xl font-bold mb-3 text-slate-800 flex items-center gap-3 relative z-10">
@@ -173,7 +173,7 @@
         <p class="text-gray-600 text-mg relative z-10">7日間の署名更新、AltServerの役割、Wi-Fi自動更新まで完全解説</p>
       </div>
 
-      <div class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
+      <div id="article-intro" data-section="intro" class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
         <h2 class="text-2xl font-bold mb-4 text-blue-700 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-500">help_outline</span>
           AltStoreとは何か
@@ -189,7 +189,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-1" data-section="content" data-content-type="mechanism" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">settings</span>
           AltStoreの仕組み：なぜ7日で署名が切れるのか
@@ -223,7 +223,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-2" data-section="content" data-content-type="altserver" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">dns</span>
           AltServerの役割：PC から Wi-Fi で自動更新
@@ -287,7 +287,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-3" data-section="content" data-content-type="setup" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">integration_instructions</span>
           実際の導入手順（概要）
@@ -354,7 +354,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-4" data-section="content" data-content-type="nopc" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">help_center</span>
           PC がない場合はどうする？
@@ -377,7 +377,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-faq" data-section="faq" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">help</span>
           よくある質問と対策
@@ -405,7 +405,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-summary" data-section="summary" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">done_all</span>
           まとめ
@@ -427,7 +427,7 @@
         </div>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-gray-200">
+      <div id="article-recommendation" data-section="recommendation" class="mt-12 pt-8 border-t border-gray-200">
         <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">arrow_forward</span>
           次に読むべきおすすめ記事
@@ -445,7 +445,7 @@
       </div>
     </article>
 
-    <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
+    <div id="article-metadata" data-section="metadata" class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
       <p class="text-sm text-gray-600">最終更新日：2026年1月31日</p>
     </div>
   </main>
