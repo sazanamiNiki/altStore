@@ -17,7 +17,7 @@
     <div id="article-back-link-container"></div>
 
     <article>
-      <div class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <div id="article-header" data-section="header" class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <!-- ドットパターン背景 -->
         <div class="absolute inset-0 opacity-[0.15]" style="background-image: radial-gradient(circle, #3b82f6 1px, transparent 1px); background-size: 24px 24px;"></div>
         <h1 class="text-4xl font-bold mb-3 text-slate-800 flex items-center gap-3 relative z-10">
@@ -27,7 +27,7 @@
         <p class="text-gray-600 text-lg relative z-10">合法的な使用法と、避けるべき行為を弁護士的視点で解説</p>
       </div>
 
-      <div class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
+      <div id="article-intro" data-section="intro" class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
         <h2 class="text-2xl font-bold mb-4 text-blue-700 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-500">lightbulb</span>
           「エミュレータ＝違法」ではない
@@ -42,7 +42,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-1" data-section="content" data-content-type="emulator_legality" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-green-600">gavel</span>
           エミュレータ自体は合法
@@ -78,7 +78,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-2" data-section="content" data-content-type="legal_rom_acquisition" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">download</span>
           合法的な ROM の入手方法：自分でダンピング
@@ -134,7 +134,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-3" data-section="content" data-content-type="illegal_download_warning" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-red-600">warning</span>
           厳禁：違法ダウンロード
@@ -174,7 +174,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-4" data-section="content" data-content-type="official_game_sales" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">storefront</span>
           正規ゲームの販売が続いている理由
@@ -204,7 +204,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-content-5" data-section="content" data-content-type="site_stance" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">policy</span>
           当サイトのスタンス：サイドローディングで安全に楽しむ
@@ -244,7 +244,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-faq" data-section="faq" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">help</span>
           よくある質問
@@ -274,7 +274,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
+      <div id="article-summary" data-section="summary" class="bg-white rounded-lg p-8 mb-8 border border-gray-200">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">done_all</span>
           まとめ
@@ -296,7 +296,7 @@
         </div>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-gray-200">
+      <div id="article-recommendation" data-section="recommendation" class="mt-12 pt-8 border-t border-gray-200">
         <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-600">arrow_forward</span>
           次に読むべきおすすめ記事
@@ -314,7 +314,7 @@
       </div>
     </article>
 
-    <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
+    <div id="article-metadata" data-section="metadata" class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
       <p class="text-sm text-gray-600">最終更新日：2026年1月31日</p>
     </div>
   </main>

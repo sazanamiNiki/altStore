@@ -17,7 +17,7 @@
     <div id="article-back-link-container"></div>
 
     <article>
-      <div class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <div id="article-header" data-section="header" class="mb-8 pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
         <!-- ドットパターン背景 -->
         <div class="absolute inset-0 opacity-[0.15]" style="background-image: radial-gradient(circle, #3b82f6 1px, transparent 1px); background-size: 24px 24px;"></div>
         <h1 class="text-4xl font-bold mb-3 text-slate-800 flex items-center gap-3 relative z-10">
@@ -27,7 +27,7 @@
         <p class="text-gray-600 text-lg relative z-10">iPhoneでレトロゲームやWindows/Linuxを動かす公式の方法</p>
       </div>
 
-      <div class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
+      <div id="article-intro" data-section="intro" class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200">
         <h2 class="text-2xl font-bold mb-4 text-blue-700 flex items-center gap-2">
           <span class="material-symbols-outlined text-blue-500">lightbulb</span>
           はじめに
@@ -41,7 +41,7 @@
       </div>
 
       <!-- Delta Emulator セクション -->
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <div id="article-content-1" data-section="content" data-content-type="delta_guide" class="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-indigo-600">videogame_asset</span>
           Part 1: Delta Emulator
@@ -146,7 +146,7 @@
       </div>
 
       <!-- UTM SE セクション -->
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <div id="article-content-2" data-section="content" data-content-type="utm_guide" class="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-purple-600">computer</span>
           Part 2: UTM SE
@@ -246,7 +246,7 @@
       </div>
 
       <!-- まとめセクション -->
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <div id="article-summary" data-section="summary" class="bg-white rounded-lg shadow-md p-8 mb-8">
         <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2">
           <span class="material-symbols-outlined text-green-600">done_all</span>
           まとめ
@@ -269,7 +269,7 @@
       </div>
     </article>
 
-    <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
+    <div id="article-metadata" data-section="metadata" class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-200">
       <p class="text-sm text-gray-600">最終更新日：2026年2月1日</p>
     </div>
   </main>
