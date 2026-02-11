@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  open?: boolean;
+}
+const { title, open = false } = Astro.props;
+const id = `accordion-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="accordion-item border-b border-gray-100 last:border-b-0">
+  <button
+    class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+    aria-expanded={open ? 'true' : 'false'}
+    aria-controls={id}
+    data-accordion-trigger
+  >
+    <span class="font-bold text-gray-800">{title}</span>
+    <span class="material-symbols-outlined text-gray-400 accordion-icon transition-transform duration-200" aria-hidden="true">
+      expand_more
+    </span>
+  </button>
+  <div
+    id={id}
+    class={`accordion-content ${open ? '' : 'hidden'} px-6 pb-6 pt-1`}
+  >
+    <slot />
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-accordion-trigger]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      const contentId = trigger.getAttribute('aria-controls');
+      const content = contentId ? document.getElementById(contentId) : null;
+      const icon = trigger.querySelector('.accordion-icon');
+
+      if (isOpen) {
+        trigger.setAttribute('aria-expanded', 'false');
+        content?.classList.add('hidden');
+        if (icon instanceof HTMLElement) icon.style.transform = '';
+      } else {
+        trigger.setAttribute('aria-expanded', 'true');
+        content?.classList.remove('hidden');
+        if (icon instanceof HTMLElement) icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>

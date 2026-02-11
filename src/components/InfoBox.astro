@@ -1,0 +1,43 @@
+---
+type BoxType = 'info' | 'success' | 'warning' | 'error' | 'indigo';
+
+interface Props {
+  type?: BoxType;
+  icon?: string;
+  title?: string;
+}
+
+const { type = 'info', icon, title } = Astro.props;
+
+const styles = {
+  info:    { box: 'bg-blue-50 border-blue-100',    title: 'text-blue-800',  icon: 'text-blue-500' },
+  success: { box: 'bg-green-50 border-green-100',  title: 'text-green-800', icon: 'text-green-500' },
+  warning: { box: 'bg-yellow-50 border-yellow-200', title: 'text-yellow-900', icon: 'text-yellow-500' },
+  error:   { box: 'bg-red-50 border-red-200',      title: 'text-red-800',   icon: 'text-red-500' },
+  indigo:  { box: 'bg-indigo-50 border-indigo-100', title: 'text-indigo-800', icon: 'text-indigo-500' },
+};
+
+const s = styles[type];
+
+const defaultIcons = {
+  info: 'info',
+  success: 'verified',
+  warning: 'warning',
+  error: 'error',
+  indigo: 'new_releases',
+};
+
+const resolvedIcon = icon ?? defaultIcons[type];
+---
+
+<div class={`p-4 rounded-lg border mb-4 ${s.box}`}>
+  {title && (
+    <div class={`font-bold text-sm mb-1 flex items-center gap-2 ${s.title}`}>
+      <span class={`material-symbols-outlined text-base ${s.icon}`}>{resolvedIcon}</span>
+      {title}
+    </div>
+  )}
+  <div class="text-gray-700 text-sm">
+    <slot />
+  </div>
+</div>

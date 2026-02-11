@@ -1,0 +1,35 @@
+---
+interface ArticleLink {
+  href: string;
+  icon: string;
+  iconColor?: string;
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  articles: ArticleLink[];
+}
+
+const { articles } = Astro.props;
+---
+
+<div class="mt-6 mb-8">
+  <h3 class="text-lg font-bold mb-4 text-gray-800">次に読むべきおすすめ記事</h3>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    {articles.map(article => (
+      <a
+        href={article.href}
+        class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all"
+      >
+        <div class="flex items-center gap-2 mb-2">
+          <span class={`material-symbols-outlined ${article.iconColor ?? 'text-blue-600'} text-lg`}>
+            {article.icon}
+          </span>
+          <span class="font-bold text-gray-800 text-sm">{article.title}</span>
+        </div>
+        <p class="text-gray-600 text-xs">{article.desc}</p>
+      </a>
+    ))}
+  </div>
+</div>
