@@ -12,6 +12,7 @@ interface Props {
 }
 
 const { articles } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <div class="mt-6 mb-8">
@@ -19,7 +20,7 @@ const { articles } = Astro.props;
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
     {articles.map(article => (
       <a
-        href={article.href}
+        href={`${base}${article.href.replace(/^\//, '')}`}
         class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all"
       >
         <div class="flex items-center gap-2 mb-2">

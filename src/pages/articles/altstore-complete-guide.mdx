@@ -26,8 +26,8 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
   <InfoBox type="indigo" icon="auto_stories" title="より詳しく学ぶための関連記事">
     このページは、AltStore に関する全ての情報を1つにまとめた<strong>統合ガイド・リファレンス編</strong>です。
     より詳しく学びたい方は、
-    「<a href="/articles/how-to-use-altstore" class="font-bold underline">AltStore の仕組みと導入の基本（理論編）</a>」や
-    「<a href="/articles/install-app-step-by-step" class="font-bold underline">アプリをインストールする方法（実践編）</a>」もご覧ください。
+    「<a href={`${import.meta.env.BASE_URL}articles/how-to-use-altstore`} class="font-bold underline">AltStore の仕組みと導入の基本（理論編）</a>」や
+    「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">アプリをインストールする方法（実践編）</a>」もご覧ください。
   </InfoBox>
 </Section>
 
@@ -128,7 +128,7 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
     AltServer による自動更新では、7日ごとに再署名が行われます。
     この再署名プロセスでは<strong>Apple 公証ステータスが毎回失われます</strong>が、
     iOS のサンドボックス構造により基本的な安全性は維持されます。
-    詳しくは「<a href="/articles/apple-notarization" class="font-bold underline">Apple の公証とは何か</a>」をご覧ください。
+    詳しくは「<a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="font-bold underline">Apple の公証とは何か</a>」をご覧ください。
   </InfoBox>
 </Section>
 
@@ -228,7 +228,7 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
       </p>
       <p class="text-gray-700">
         完全に PC なしで運用したい場合は、SideStore への切り替えも選択肢のひとつです。
-        詳しくは「<a href="/articles/sidestore-guide" class="font-bold underline">SideStore 完全ガイド</a>」をご覧ください。
+        詳しくは「<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide`} class="font-bold underline">SideStore 完全ガイド</a>」をご覧ください。
       </p>
     </Accordion>
     <Accordion title="Apple IDが複数ある場合は？">

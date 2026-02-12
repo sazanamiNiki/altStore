@@ -47,7 +47,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
   <main class="max-w-3xl mx-auto px-4 py-12">
     <!-- 記事一覧に戻る -->
     <div class="mb-6">
-      <a href="/articles/" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-bold transition-colors">
+      <a href={`${import.meta.env.BASE_URL}articles/`} class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-bold transition-colors">
         <span class="material-symbols-outlined">arrow_back</span>
         記事一覧に戻る
       </a>
