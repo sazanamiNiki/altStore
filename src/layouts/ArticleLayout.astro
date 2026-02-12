@@ -1,5 +1,25 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Schema from '../components/Schema.astro';
+
+// FAQエントリの型定義
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+// HowToステップの型定義
+interface HowToStep {
+  name: string;
+  text: string;
+}
+
+// HowToデータの型定義
+interface HowToData {
+  name: string;
+  description?: string;
+  steps: HowToStep[];
+}
 
 interface Props {
   title: string;
@@ -9,6 +29,10 @@ interface Props {
   icon?: string;
   iconColor?: string;
   ogImage?: string;
+  /** FAQPageスキーマ用: 質問と回答の配列 */
+  faq?: FaqItem[];
+  /** HowToスキーマ用: 手順データ */
+  howto?: HowToData;
 }
 
 const {
@@ -19,30 +43,113 @@ const {
   icon = 'shield',
   iconColor = 'text-blue-500',
   ogImage,
+  faq,
+  howto,
 } = Astro.props;
 
 const displayTitle = h1 ?? title;
 
 const siteUrl = 'https://altstore-jp.bunchoniki.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+// ── Articleスキーマ ──────────────────────────────────────────────
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description ?? "",
+  // datePublished・dateModified は date が未指定の場合は省略
+  ...(date && {
+    "datePublished": date,
+    "dateModified": date,
+  }),
+  "publisher": {
+    "@type": "Organization",
+    "name": "bunchoniki Store",
+    "url": siteUrl,
+  },
+  "url": canonicalUrl,
+  "inLanguage": "ja",
+};
+
+// ── BreadcrumbListスキーマ ────────────────────────────────────────
+// URLパスを分解してパンくずリストを生成する
+// 例: /articles/faq → ホーム > 記事一覧 > よくある質問
+const pathSegments = Astro.url.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+
+// パスセグメントを人間が読める名前にマッピング
+const segmentLabels: Record<string, string> = {
+  articles: "記事一覧",
+};
+
+const breadcrumbItems = [
+  // 先頭は常にトップページ
+  {
+    "@type": "ListItem",
+    "position": 1,
+    "name": "ホーム",
+    "item": siteUrl,
+  },
+  // 残りのセグメントを順番に展開
+  ...pathSegments.map((seg, index) => ({
+    "@type": "ListItem",
+    "position": index + 2,
+    // マッピングがあればその名前、なければページタイトルを使用
+    "name": segmentLabels[seg] ?? (index === pathSegments.length - 1 ? title : seg),
+    "item": new URL(
+      pathSegments.slice(0, index + 1).join('/') + '/',
+      siteUrl
+    ).toString(),
+  })),
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems,
+};
+
+// ── FAQPageスキーマ（faq props が渡された場合のみ生成）────────────
+const faqSchema = faq && faq.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faq.map((item) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer,
+        },
+      })),
+    }
+  : null;
+
+// ── HowToスキーマ（howto props が渡された場合のみ生成）──────────
+const howtoSchema = howto
+  ? {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": howto.name,
+      ...(howto.description && { "description": howto.description }),
+      "step": howto.steps.map((step, index) => ({
+        "@type": "HowToStep",
+        "position": index + 1,
+        "name": step.name,
+        "text": step.text,
+      })),
+    }
+  : null;
 ---
 
 <BaseLayout title={title} description={description} ogType="article" ogImage={ogImage}>
-  <!-- Article Schema JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": description,
-    "datePublished": date,
-    "dateModified": date,
-    "publisher": {
-      "@type": "Organization",
-      "name": "bunchoniki Store",
-      "url": siteUrl,
-    },
-    "url": canonicalUrl,
-  })} />
+  <!-- Article・BreadcrumbListスキーマをschemaスロット経由でheadに注入 -->
+  <Fragment slot="schema">
+    <Schema data={articleSchema} />
+    <Schema data={breadcrumbSchema} />
+    {faqSchema && <Schema data={faqSchema} />}
+    {howtoSchema && <Schema data={howtoSchema} />}
+  </Fragment>
 
   <main class="max-w-3xl mx-auto px-4 py-12">
     <!-- 記事一覧に戻る -->

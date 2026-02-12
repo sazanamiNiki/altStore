@@ -1,0 +1,25 @@
+---
+/**
+ * Schema.astro
+ * JSON-LD構造化データを <script type="application/ld+json"> として出力するコンポーネント。
+ *
+ * 使い方:
+ *   <Schema data={schemaObject} />
+ *
+ * data には "@context" と "@type" を含むSchema.orgオブジェクトを渡す。
+ */
+
+interface Props {
+  /** Schema.orgに準拠したJSONオブジェクト */
+  data: Record<string, unknown>;
+}
+
+const { data } = Astro.props;
+---
+
+<!--
+  JSON.stringifyで安全にシリアライズし、set:htmlでXSSを回避しつつ埋め込む。
+  Astroのset:htmlはHTMLエスケープを行わないため、JSON内の特殊文字が壊れない。
+  ただしJSONはそもそもHTMLタグを含まないため、ここでは安全に使用できる。
+-->
+<script type="application/ld+json" set:html={JSON.stringify(data, null, 0)} />

@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StatusBar from '../components/StatusBar.astro';
+import Schema from '../components/Schema.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -23,6 +24,34 @@ const {
 const siteUrl = 'https://altstore-jp.bunchoniki.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const base = import.meta.env.BASE_URL;
+
+// WebSiteスキーマ: サイト全体の構造化データ（全ページ共通）
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "bunchoniki Store",
+  "url": siteUrl,
+  "description": "サイドローディングの総合情報サイト。AltStore・SideStoreの使い方、安全性、法的情報を日本語で解説。",
+  "inLanguage": "ja",
+  // サイト内検索のSearchActionを定義
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}/articles/?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Organizationスキーマ: 運営組織情報（全ページ共通）
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "bunchoniki Store",
+  "url": siteUrl,
+  "logo": `${siteUrl}/assets/img/logo.png`,
+};
 ---
 
 <!DOCTYPE html>
@@ -58,6 +87,13 @@ const base = import.meta.env.BASE_URL;
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3579213602196152" crossorigin="anonymous" is:inline></script>
+
+  <!-- 構造化データ（JSON-LD）: WebSite / Organization -->
+  <Schema data={websiteSchema} />
+  <Schema data={organizationSchema} />
+
+  <!-- 記事ページなど各レイアウトが追加スキーマを注入する場所 -->
+  <slot name="schema" />
 </head>
 <body class="bg-gray-50 text-gray-900">
   <StatusBar />
