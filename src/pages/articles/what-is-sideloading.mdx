@@ -11,121 +11,156 @@ export const title = "iPhoneのサイドローディングとは？メリット�
 export const h1 = "サイドローディングとは";
 export const description = "サイドローディングの定義、App Storeとの違い、メリット・リスク、欧州法改正の背景を初心者向けに解説";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-01-31" icon="smartphone" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-12" icon="smartphone" iconColor="text-blue-500">
 
 <Section intro title="サイドローディングって何？" icon="help_outline">
   <p class="text-gray-700 mb-4">
-    iPhoneを使っていて、「App Storeには出ていないけど、使ってみたいアプリがある」と思ったことはありませんか？
-    そうした時に活躍するのが<mark class="bg-yellow-100 px-1 rounded"><strong>サイドローディング</strong></mark>という方法です。
-  </p>
-  <p class="text-gray-700">
-    サイドローディングは、<mark class="bg-yellow-100 px-1 rounded"><strong>App Store以外の方法でアプリをインストールする技術</strong></mark>のことです。この記事では、
-    初心者の方にも分かりやすく、サイドローディングとは何か、App Storeとの違い、そしてメリット・リスクまで
-    詳しく解説します。
+    <mark class="bg-yellow-100 px-1 rounded"><strong>App Storeには出ていない</strong></mark>アプリをインストールする方法です。
   </p>
 </Section>
 
 <Section title="サイドローディングの定義" icon="info">
   <AccordionGroup>
-    <Accordion title="App Storeとの最大の違い">
-      <p class="text-gray-700 mb-4">
-        通常、iPhoneにアプリをインストールするときは App Store を使います。
-        App Store では、Apple が事前に審査したアプリだけが登録されており、ユーザーはそこから安心してダウンロードできます。
-      </p>
-      <p class="text-gray-700">
-        一方、<strong>サイドローディングは、App Store の審査を経ずに直接アプリをインストール</strong>する方法です。
-        開発者が自分で作ったアプリ、App Store では公開できない特殊なアプリ、
-        または海外のストアでしか配信されていないアプリなどを使うことができます。
-      </p>
-    </Accordion>
-    <Accordion title="サイドローディングが注目される背景">
-      <p class="text-gray-700 mb-4">
-        かつて、サイドローディングは一般的なユーザーにはほぼ不可能でした。
-        しかし、<strong>欧州の Digital Markets Act（DMA）</strong>や日本の
-        <strong>Mobile Software Competition Act（MSCA）</strong>といった法改正により、
-        大手IT企業の独占的な立場を制限する動きが広がりました。
-      </p>
-      <p class="text-gray-700">
-        このため、Apple も App Store 以外の配信方法を認めるようになり、2024年～2026年にかけて、
-        段階的にサイドローディングの道が開かれています。特に日本では、2026年の法律施行に合わせて
-        「AltStore PAL」という代替アプリストアのサービスが開始される予定です。
-      </p>
-    </Accordion>
+  <Accordion title="App Storeとの最大の違い">
+
+    <div class="grid sm:grid-cols-2 gap-4 text-sm">
+
+      <div class="bg-gray-50 rounded-lg p-4">
+        <h4 class="font-semibold mb-2">App Store</h4>
+        <ul class="space-y-1 text-gray-600">
+          <li>・Appleが事前審査</li>
+          <li>・安全性が高い</li>
+          <li>・誰でも簡単にインストール</li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+        <h4 class="font-semibold mb-2 text-blue-700">サイドローディング</h4>
+        <ul class="space-y-1 text-gray-700">
+          <li>・審査なしで直接インストール</li>
+          <li>・エミュレータや特殊アプリが使える</li>
+          <li>・AltStoreなどが必要</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </Accordion>
+  <Accordion title="サイドローディングが注目される背景">
+
+    <ul class="space-y-3 text-sm">
+
+      <li class="flex gap-3">
+        <span class="font-semibold text-gray-900 w-16 shrink-0">以前</span>
+        <span class="text-gray-600">一般ユーザーはサイドローディング不可（App Storeのみ）</span>
+      </li>
+
+      <li class="flex gap-3">
+        <span class="font-semibold text-blue-600 w-16 shrink-0">2024</span>
+        <span class="text-gray-700">EU「DMA」によりAppleに外部ストア開放を義務化</span>
+      </li>
+
+      <li class="flex gap-3">
+        <span class="font-semibold text-blue-600 w-16 shrink-0">2026</span>
+        <span class="text-gray-700">日本「MSCA」施行予定 → AltStore PALなどが利用可能に</span>
+      </li>
+
+    </ul>
+
+    <p class="text-xs text-gray-500 mt-4">
+      これらの法改正により、App Store以外からのアプリ配信が現実的になりました。
+    </p>
+
+  </Accordion>
+
   </AccordionGroup>
 </Section>
 
 <Section title="サイドローディングのメリット" icon="thumb_up" iconColor="text-green-600">
   <CardGrid>
-    <Card icon="apps" iconColor="text-green-500" title="より自由なアプリの選択肢が増える">
-      <p class="text-gray-600 text-xs mt-1">App Store では、Apple の厳しい基準により、一部のアプリが掲載されない場合があります。
-      サイドローディングにより、そうした制限を超えた多様なアプリを使用できるようになります。</p>
+    <Card icon="apps" iconColor="text-green-500" title="アプリの選択肢が広がる">
+      <p class="text-gray-600 text-sm mt-1">
+        App Storeにないアプリも利用可能
+      </p>
     </Card>
-    <Card icon="handshake" iconColor="text-green-500" title="開発者と直接つながることができる">
-      <p class="text-gray-600 text-xs mt-1">小規模な開発者が直接ユーザーに配信したアプリを使えます。
-      App Store の審査料や手数料を払わずに済むため、より安価なアプリや工夫されたアプリが増える可能性もあります。</p>
+    <Card icon="handshake" iconColor="text-green-500" title="開発者から直接入手">
+      <p class="text-gray-600 text-sm mt-1">
+        手数料なし・個人開発アプリも使える
+      </p>
     </Card>
-    <Card icon="science" iconColor="text-green-500" title="テスト版やベータ版が使える" fullWidth={true}>
-      <p class="text-gray-600 text-xs mt-1">最新機能をいち早く試したい開発者向けのベータアプリも、サイドローディングなら試用できます。</p>
+    <Card icon="science" iconColor="text-green-500" title="ベータ版を試せる" fullWidth={true}>
+      <p class="text-gray-600 text-sm mt-1">
+        新機能をいち早く体験可能
+      </p>
     </Card>
   </CardGrid>
 </Section>
-
 <Section title="サイドローディングのリスク" icon="warning" iconColor="text-red-600">
   <AccordionGroup>
-    <Accordion title="App Store の審査が入らない＝ソース選びが重要">
-      <p class="text-gray-700 mb-4">
-        App Store のアプリは全て Apple による事前審査を経ています。一方、
-        サイドローディングのアプリは、<strong>開発元がはっきりしているか、ソースコードが公開されているか</strong>を自分で確認する必要があります。
-        出どころ不明なアプリをインストールすると、悪意あるコードが含まれているリスクが存在します。
+    <Accordion title="ソース選びが重要">
+      <p class="text-sm text-gray-700 mb-3">
+        サイドローディングにはAppleの審査がありません。
+        そのため、アプリの安全性は<strong>自分で判断する必要があります</strong>。
       </p>
-      <InfoBox type="warning" title="最大の注意点">
-        信頼できるソース（オープンソースで透明性のあるプロジェクト、
-        実績のある開発者の公式リポジトリなど）からのアプリのみを使用することをお勧めします。
-      </InfoBox>
+
+      <ul class="text-sm text-gray-700 space-y-1 mb-4 mt-4">
+        <li>・出どころ不明なアプリは危険</li>
+        <li>・悪意あるコードが含まれる可能性あり</li>
+        <li>・公式／オープンソースのみ利用推奨</li>
+      </ul>
+
+      <div class="bg-red-50 border border-red-200 text-red-700 text-xs p-3 rounded-lg">
+        信頼できるリポジトリ以外からはインストールしないでください。
+      </div>
+
     </Accordion>
-    <Accordion title="7日ごとの署名切れ問題">
-      <p class="text-gray-700 mb-4">
-        無料の Apple ID でサイドローディングしたアプリは、<strong>7日ごとに署名が切れて使えなくなります</strong>。
-        その際は再度署名を更新する必要があります。
-      </p>
-      <InfoBox type="info" title="AltStoreで自動解決">
-        AltStore などのツールを使えば、Wi-Fi 経由で自動的に署名を更新できるので、
-        手間を大幅に減らすことができます。
-      </InfoBox>
+    <Accordion title="7日ごとに署名が切れる">
+      <ul class="text-sm text-gray-700 space-y-2">
+        <li>・無料Apple IDは7日で失効</li>
+        <li>・再署名が必要</li>
+        <li>・AltStoreならWi-Fiで自動更新可能</li>
+      </ul>
     </Accordion>
-    <Accordion title="デバイス設定の変更が必要">
-      <p class="text-gray-700">
-        iOS 16 以降、サイドローディングされたアプリを実行するには、
-        端末の「設定」→「プライバシーとセキュリティ」→「開発者モード」を有効化する必要があります。
-        これにより、デバイスのセキュリティが若干低下するリスクもあります。
-      </p>
+    <Accordion title="開発者モードの有効化が必要">
+      <ul class="text-sm text-gray-700 space-y-2">
+        <li>・設定 → 開発者モードをON</li>
+        <li>・セキュリティがやや低下</li>
+        <li>・理解した上で利用することが大切</li>
+      </ul>
     </Accordion>
   </AccordionGroup>
 </Section>
 
 <Section title="ユーザーの自由と責任" icon="balance">
-  <p class="text-gray-700 mb-4">
-    サイドローディングは<strong>「自由」と「責任」の両方</strong>を意味します。
-    一方では、ユーザー自身が使いたいアプリを選べる自由が広がります。
-    他方では、何をインストールするか、どこから取得するかを自分で判断する責任も生まれます。
-  </p>
-  <p class="text-gray-700">
-    当サイトでは、サイドローディングの安全な使い方や、信頼できるアプリストア・ツールについて、
-    詳しくご紹介しています。この記事を足がかりに、より詳しい情報をお読みください。
-  </p>
+  <div class="bg-slate-50 rounded-2xl p-6 text-center space-y-3">
+    <p class="text-lg font-bold text-gray-900">
+      サイドローディング = 自由 × 自己責任
+    </p>
+    <p class="text-sm text-gray-600">
+      好きなアプリを自由に選べる代わりに、安全性は自分で判断する必要があります。
+    </p>
+  </div>
 </Section>
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
-  <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-    <li><strong>サイドローディング</strong>は、App Store を介さずに直接アプリをインストールする方法です。</li>
-    <li>欧州・日本の法改正により、2024～2026年にかけて一般ユーザーにも開放されつつあります。</li>
-    <li>メリットは「アプリの選択肢が増える」こと。リスクは「セキュリティが自己責任」になることです。</li>
-    <li>当サイトでは、安全でかつ合法的なサイドローディングの方法を紹介しています。</li>
+  <ul class="space-y-3 text-sm">
+    <li class="flex gap-2">
+      <span class="text-green-600">✓</span>
+      App Storeを使わずにアプリを入れる方法
+    </li>
+    <li class="flex gap-2">
+      <span class="text-green-600">✓</span>
+      法改正により一般ユーザーにも解放
+    </li>
+    <li class="flex gap-2">
+      <span class="text-green-600">✓</span>
+      メリット：自由度が高い
+    </li>
+    <li class="flex gap-2">
+      <span class="text-red-500">⚠</span>
+      リスク：<mark class="bg-yellow-100 px-1 rounded"><strong>安全性は自己責任</strong></mark>
+    </li>
   </ul>
-  <InfoBox type="info" icon="arrow_forward" title="次に読むべき記事">
-    <a href={`${import.meta.env.BASE_URL}articles/how-to-use-altstore`} class="text-blue-600 font-bold hover:underline">「AltStoreの使い方」</a>、
-    <a href={`${import.meta.env.BASE_URL}articles/safety-guide`} class="text-blue-600 font-bold hover:underline">「安全ガイド」</a>
-  </InfoBox>
 </Section>
 
 <RelatedArticles articles={[
