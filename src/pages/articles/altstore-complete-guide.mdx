@@ -1,0 +1,331 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "AltStore完全ガイド：セットアップから運用まで徹底解説";
+export const h1 = "AltStore完全ガイド";
+export const description = "AltStoreの基本、7日署名の仕組み、初期セットアップ、アプリのインストール方法、トラブルシューティングまで完全網羅。初心者でも安心して使えるガイド。";
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-10" icon="apps" iconColor="text-blue-500">
+
+<Section intro title="AltStoreを使いこなすための完全ガイド" icon="lightbulb">
+  <p class="text-gray-700 mb-4">
+    「AltStoreって何？」「難しそう...」「PC が必要なの？」そんな疑問をお持ちの方へ。
+  </p>
+  <p class="text-gray-700 mb-4">
+    このガイドでは、AltStore の基礎知識から実際のセットアップ手順、日常的なメンテナンス方法、
+    そしてトラブルが起きた時の対処法まで、<strong>全てをまとめて解説</strong>します。
+  </p>
+  <InfoBox type="indigo" icon="auto_stories" title="より詳しく学ぶための関連記事">
+    このページは、AltStore に関する全ての情報を1つにまとめた<strong>統合ガイド・リファレンス編</strong>です。
+    より詳しく学びたい方は、
+    「<a href="/articles/how-to-use-altstore" class="font-bold underline">AltStore の仕組みと導入の基本（理論編）</a>」や
+    「<a href="/articles/install-app-step-by-step" class="font-bold underline">アプリをインストールする方法（実践編）</a>」もご覧ください。
+  </InfoBox>
+</Section>
+
+<Section title="AltStoreとは" icon="info" iconColor="text-blue-600">
+  <p class="text-gray-700 mb-4">
+    <strong>AltStore</strong> は、App Store の代わりとなるアプリストアで、PC や Mac から簡単にサイドローディングできるツールです。
+    サイドローディング初心者にとって、最も使いやすく安全な選択肢として知られています。
+  </p>
+  <CardGrid>
+    <Card icon="storefront" iconColor="text-blue-500" title="App Store外のアプリを入手" desc="App Storeに登録されていないアプリ（エミュレータ、改造アプリ等）をインストール可能。" />
+    <Card icon="dns" iconColor="text-green-500" title="PC/MacのAltServerと連携" desc="PC/Mac上のAltServerと連携してアプリの署名・インストールを管理。" />
+    <Card icon="wifi" iconColor="text-indigo-500" title="Wi-Fi経由での自動更新" desc="同じWi-Fiに接続しているだけで署名を自動更新。手動操作がほぼ不要。" />
+    <Card icon="person" iconColor="text-orange-500" title="無料Apple IDで利用可能" desc="有料のDeveloper Accountは不要。既存のApple IDで利用開始できる。" />
+  </CardGrid>
+</Section>
+
+<Section title="AltStoreの仕組み：なぜ7日で署名が切れるのか" icon="schedule" iconColor="text-blue-600">
+  <p class="text-gray-700 mb-4">
+    AltStore には<strong>「7日ごとに署名が切れる」</strong>という独特の制限があります。
+  </p>
+  <AccordionGroup>
+    <Accordion title="App Storeとの配信の違い">
+      <p class="text-gray-700 mb-3">
+        App Store を通じて配信されるアプリは、Apple が<strong>永続的に署名</strong>（デジタル認証）を提供します。
+        これにより、ユーザーは何年でも同じアプリを使い続けることができます。
+      </p>
+      <p class="text-gray-700">
+        しかし AltStore では、開発者が<strong>Apple ID を使ってアプリを署名</strong>しています。
+        無料の Apple ID で署名したアプリの有効期限は、著作権法の保護期間の関係から<strong>7日間</strong>と決められています。
+      </p>
+    </Accordion>
+    <Accordion title="署名（Signature）とは何か">
+      <p class="text-gray-700 mb-3">
+        「署名」とは、Apple が「このアプリは信頼できる開発者から提供されたものだ」と保証するデジタルスタンプのようなものです。
+        iOS は、署名の有効期限をチェックして、期限切れのアプリの実行を許可しません。
+      </p>
+      <p class="text-gray-700">
+        7日ごとに署名を更新することで、iOS に「このアプリはまだ信頼できる」と認識させ直すわけです。
+      </p>
+    </Accordion>
+    <Accordion title="有料開発者アカウントなら制限なし">
+      <p class="text-gray-700">
+        Apple Developer Program（年額 99 ドル）に登録している開発者は、<strong>永続的な署名</strong>を行うことができます。
+        有料開発者アカウントを使えば、7日ごとの更新は不要になります。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="事前準備：必要な環境" icon="checklist" iconColor="text-blue-600">
+  <p class="text-gray-700 mb-4">AltStore をインストールする前に、以下を用意してください。</p>
+  <div class="overflow-x-auto mb-6">
+    <table class="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 px-4 py-2 text-left">項目</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">要件</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">iOS</td>
+          <td class="border border-gray-300 px-4 py-2">iOS 14.4 以上</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2 font-semibold">PC/Mac</td>
+          <td class="border border-gray-300 px-4 py-2">Windows 10 以上、または macOS 10.14 以上</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">Apple ID</td>
+          <td class="border border-gray-300 px-4 py-2">無料アカウントで OK（2段階認証推奨）</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2 font-semibold">USB ケーブル</td>
+          <td class="border border-gray-300 px-4 py-2">データ転送対応のケーブル（初回のみ）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <InfoBox type="success" icon="check_circle" title="重要：Developer Accountは不要">
+    有料の Developer Account は必要ありません。無料の Apple ID で大丈夫です。
+  </InfoBox>
+  <InfoBox type="warning" icon="cable" title="USBケーブルはデータ転送対応のものを">
+    初回セットアップ時のみ、iPhone を PC/Mac に USB で接続します。その後は Wi-Fi 経由になります。
+    接続トラブルの9割はケーブルが原因です。100均の「充電専用」ケーブルでは AltServer は認識しません。
+    必ず<strong>データ転送対応のケーブル</strong>を使ってください。
+  </InfoBox>
+</Section>
+
+<Section title="初期セットアップ手順" icon="construction" iconColor="text-blue-600">
+  <StepList>
+    <Step num={1} title="AltServerをダウンロード＆インストール" desc="公式サイトからPC/Mac用のAltServerをダウンロードしてインストール。Macの手順・Windowsの手順が公式FAQに掲載されています（altstore.io）。" />
+    <Step num={2} title="AltServerにApple IDでログイン" desc="AltServerを起動し、メニューから「Sign In」を選択。iPhoneで使用しているApple IDでサインイン。2段階認証コードの入力が必要な場合があります。" />
+    <Step num={3} title="iPhoneをUSBで接続してAltStoreをインストール" desc="iPhoneをUSBケーブルでPC/Macに接続 → 「このコンピューターを信頼しますか？」→「信頼」をタップ → AltServerメニューから「Install AltStore」を選択 → 数秒でiPhoneのホーム画面にAltStoreが追加される。iPhone上でAltStoreを起動し、Apple IDでサインイン。" />
+    <Step num={4} title="Wi-Fi経由での自動更新設定（推奨）" desc="PC/MacのAltServerメニューからインストール済みのiPhoneを選択 → 「Sync with [iPhone name] over Wi-Fi」オプションをオン。PC/MacとiPhoneが同じWi-Fiネットワークに接続し、AltServerをバックグラウンドで起動したままにすると自動更新が機能します。" />
+  </StepList>
+  <InfoBox type="warning" icon="info" title="自動更新と公証ステータスについて">
+    AltServer による自動更新では、7日ごとに再署名が行われます。
+    この再署名プロセスでは<strong>Apple 公証ステータスが毎回失われます</strong>が、
+    iOS のサンドボックス構造により基本的な安全性は維持されます。
+    詳しくは「<a href="/articles/apple-notarization" class="font-bold underline">Apple の公証とは何か</a>」をご覧ください。
+  </InfoBox>
+</Section>
+
+<Section title="アプリのインストール方法" icon="download" iconColor="text-blue-600">
+  <AccordionGroup>
+    <Accordion title="方法1：AltStore内のアプリ一覧から">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>iPhone 上の AltStore アプリを開く</li>
+        <li>「Browse」タブでアプリ一覧を表示（Tweaked Apps、Emulators など）</li>
+        <li>インストールしたいアプリをタップして詳細ページへ</li>
+        <li>「Get」ボタンをタップ</li>
+        <li>ダウンロード完了後、「Open」ボタンが表示されればインストール成功</li>
+      </ol>
+    </Accordion>
+    <Accordion title="方法2：IPAファイルをiPhoneで直接インストール">
+      <p class="text-gray-700 mb-3">IPA ファイル（iPhone アプリのパッケージファイル）を用意して、AltStore からインストールする方法です。</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-3">
+        <li>信頼できるソースから IPA ファイルをダウンロード（「ファイル」アプリに保存）</li>
+        <li>AltStore アプリを起動</li>
+        <li>下部タブの「My Apps」をタップ</li>
+        <li>左上の「+」アイコンをタップ</li>
+        <li>「ファイル」からダウンロードした IPA ファイルを選択</li>
+        <li>インストールが始まり、完了するとホーム画面にアプリアイコンが表示される</li>
+      </ol>
+      <InfoBox type="warning" title="信頼できるソースからのみダウンロード">
+        野良サイトからの IPA ファイルにはマルウェアが含まれている可能性があります。
+        GitHub の公式リポジトリや信頼性の確認できたサイトのみを使用してください。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="方法3：AltServerからIPAをサイドロード（PC使用）">
+      <p class="text-gray-700 mb-3">PC/Mac に IPA ファイルを保存して、AltServer 経由でインストールする方法です。カスタムアプリや個人開発アプリに便利です。</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>信頼できるソースから IPA ファイルを PC/Mac にダウンロード</li>
+        <li>AltServer メニューを開き「Sideload .ipa」などを選択</li>
+        <li>IPA ファイルを指定してインストール</li>
+      </ol>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="error" icon="error" title="アプリスロットの制限（無料Apple ID）">
+    無料 Apple ID では、AltStore 自体を含めて<strong>最大3つのアプリ</strong>まで同時にインストール可能です。
+    新しいアプリをインストールする前に、不要なアプリを削除してスロットを空ける必要がある場合があります。
+  </InfoBox>
+</Section>
+
+<Section title="署名の更新とメンテナンス" icon="update" iconColor="text-blue-600">
+  <InfoBox type="error" icon="schedule" title="重要：7日ごとの署名更新を忘れずに">
+    AltStore のアプリは<strong>7日ごと</strong>に署名が切れます。
+    Wi-Fi 同期が有効なら期限切れの2〜3日前に自動更新されます。
+    手動更新の場合は7日以内なら随時更新できます。期限を過ぎるとアプリが起動しなくなるので注意してください。
+  </InfoBox>
+  <CardGrid>
+    <Card icon="touch_app" iconColor="text-blue-500" title="手動更新（Wi-Fi同期なし）" desc="AltStoreアプリを開き、アプリの横の更新ボタン（↻）をタップ。数分で完了。" />
+    <Card icon="autorenew" iconColor="text-green-500" title="Wi-Fi経由の自動更新（推奨）" desc="セットアップ手順4の設定完了後は何もしなくても自動更新。PCを起動してAltServerを実行しておくだけでOK。" />
+  </CardGrid>
+</Section>
+
+<Section title="トラブルシューティング" icon="help" iconColor="text-blue-600">
+  <AccordionGroup>
+    <Accordion title="インストールが失敗する">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>Apple ID のパスワードが正しく入力されているか</li>
+        <li>iOS が 14.4 以上か</li>
+        <li>iPhone の容量は十分か（アプリサイズ以上の空きが必要）</li>
+        <li>AltServer を再起動してみる</li>
+        <li>USB ケーブルがデータ転送対応かどうか確認する</li>
+      </ul>
+    </Accordion>
+    <Accordion title="インストール後、アプリが起動しない">
+      <p class="text-gray-700 mb-3"><strong>原因：</strong>署名が切れている可能性があります。</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>AltStore アプリを開く</li>
+        <li>該当アプリの横の更新ボタン（↻）をタップ</li>
+        <li>署名を更新（通常、数分で起動可能になります）</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Wi-Fi自動更新がうまくいかない">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>PC/Mac と iPhone が<strong>同じ Wi-Fi ネットワーク</strong>に接続しているか</li>
+        <li>AltServer が PC 上でバックグラウンド実行中か（メニューバーに表示されているか）</li>
+        <li>Wi-Fi ルーターのファイアウォール設定が AltServer の通信をブロックしていないか</li>
+        <li>PC を再起動して、再度 Wi-Fi 同期をオンにしてみる</li>
+      </ul>
+    </Accordion>
+    <Accordion title="複数のiPhoneで使える？">
+      <p class="text-gray-700 mb-3">
+        可能です。同じ Apple ID で複数の端末を登録すれば、複数の iPhone/iPad で AltStore を使用できます。
+      </p>
+      <InfoBox type="warning" title="無料Apple IDのApp ID制限">
+        無料 Apple ID には「App ID」という制限があり、同時に署名できるアプリ数には上限があります。
+        多くのアプリを使いたい場合は有料開発者アカウントの利用を検討してください。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="PCがない場合はどうする？">
+      <p class="text-gray-700 mb-3">
+        家族や友人の PC/Mac を借りて初回セットアップを完了させれば、
+        その後は iPhone 上で手動で署名を更新できます。毎回 USB 接続は不要です。
+      </p>
+      <p class="text-gray-700">
+        完全に PC なしで運用したい場合は、SideStore への切り替えも選択肢のひとつです。
+        詳しくは「<a href="/articles/sidestore-guide" class="font-bold underline">SideStore 完全ガイド</a>」をご覧ください。
+      </p>
+    </Accordion>
+    <Accordion title="Apple IDが複数ある場合は？">
+      <p class="text-gray-700">
+        AltServer と AltStore に<strong>同じ Apple ID</strong> でサインインしてください。
+        複数の Apple ID は対応していません。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="SideStoreとの比較" icon="compare" iconColor="text-green-600">
+  <p class="text-gray-700 mb-4">
+    SideStore は、AltStore をベースに開発されたコミュニティ主導のサイドローディングアプリです。
+  </p>
+  <div class="overflow-x-auto mb-6">
+    <table class="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 px-4 py-2 text-left">項目</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">AltStore</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">SideStore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">PC 接続</td>
+          <td class="border border-gray-300 px-4 py-2">毎週必要（7日ごとの更新時）</td>
+          <td class="border border-gray-300 px-4 py-2">初回セットアップのみ</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2 font-semibold">アプリ更新方式</td>
+          <td class="border border-gray-300 px-4 py-2">AltServer 経由（Wi-Fi/USB）</td>
+          <td class="border border-gray-300 px-4 py-2">VPN 経由（完全オンデバイス）</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">開発体制</td>
+          <td class="border border-gray-300 px-4 py-2">Riley Testut 氏主導</td>
+          <td class="border border-gray-300 px-4 py-2">コミュニティ主導</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2 font-semibold">VPN 必要性</td>
+          <td class="border border-gray-300 px-4 py-2">不要</td>
+          <td class="border border-gray-300 px-4 py-2">必要（LocalDevVPN または StosVPN）</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">セットアップ難易度</td>
+          <td class="border border-gray-300 px-4 py-2">比較的簡単</td>
+          <td class="border border-gray-300 px-4 py-2">やや複雑（VPN 設定が必要）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <CardGrid>
+    <Card icon="computer" iconColor="text-blue-500" title="AltStoreを選ぶなら" desc="PCに定期的にアクセスでき、シンプルなセットアップを好む方。初心者にもおすすめ。" />
+    <Card icon="phone_iphone" iconColor="text-green-500" title="SideStoreを選ぶなら" desc="PCへのアクセスが限られており、完全オンデバイスでアプリ管理をしたい方。一度セットアップすれば独立して運用可能。" />
+  </CardGrid>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="schedule" iconColor="text-orange-500" title="7日ごとの署名更新" desc="無料Apple IDの制限。著作権法の保護期間の制約。AltServerのWi-Fi自動更新で手放し管理が可能。" />
+    <Card icon="construction" iconColor="text-blue-500" title="セットアップの流れ" desc="AltServerインストール → Apple IDログイン → USB接続で初回インストール → Wi-Fi自動更新設定。" />
+    <Card icon="download" iconColor="text-green-500" title="アプリのインストール" desc="AltStore内で「Get」をタップするだけ。IPAファイルからの直接インストールも可能。" />
+    <Card icon="build" iconColor="text-red-500" title="トラブル時の対処" desc="ほとんどの問題はApple IDの確認やPCの再起動で解決。署名切れはAltStoreから更新ボタンをタップ。" />
+  </CardGrid>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/how-to-use-altstore',
+    icon: 'settings',
+    iconColor: 'text-blue-600',
+    title: 'AltStoreの仕組みと導入の基本',
+    desc: '7日署名の仕組みやAltServerの役割など、理論・仕組み編として詳しく解説。',
+  },
+  {
+    href: '/articles/install-app-step-by-step',
+    icon: 'install_desktop',
+    iconColor: 'text-green-600',
+    title: 'アプリをインストールする方法',
+    desc: '実際のセットアップ手順に特化した実践・セットアップ編。',
+  },
+  {
+    href: '/articles/safety-guide',
+    icon: 'security',
+    iconColor: 'text-red-600',
+    title: 'サイドローディング安全ガイド',
+    desc: 'ウイルスから身を守る3つの鉄則。安全に使うための必読ガイド。',
+  },
+  {
+    href: '/articles/top3-apps-2026',
+    icon: 'star',
+    iconColor: 'text-yellow-500',
+    title: '入れるべきアプリ【神アプリ3選】',
+    desc: 'Delta、UTM SE、SideStore の3大アプリを徹底解説。',
+  },
+]} />
+
+</ArticleLayout>

@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   title: string;
+  h1?: string;
   description?: string;
   date?: string;
   icon?: string;
@@ -12,12 +13,15 @@ interface Props {
 
 const {
   title,
+  h1,
   description,
   date,
   icon = 'shield',
   iconColor = 'text-blue-500',
   ogImage,
 } = Astro.props;
+
+const displayTitle = h1 ?? title;
 
 const siteUrl = 'https://altstore-jp.bunchoniki.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
@@ -52,11 +56,11 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
     <article>
       <!-- ヒーロー -->
       <div class="mb-8 pb-8 border-b-2 border-blue-200">
-        <h1 class="text-4xl font-bold mb-3 text-slate-800 flex items-center gap-3">
-          <span class={`material-symbols-outlined ${iconColor} text-[2.5rem]`}>{icon}</span>
-          {title}
+        <h1 class="text-3xl font-bold mb-2 text-slate-800 flex items-center gap-3">
+          <span class={`material-symbols-outlined ${iconColor} text-[2rem]`}>{icon}</span>
+          {displayTitle}
         </h1>
-        {description && <p class="text-gray-600 text-lg">{description}</p>}
+        {description && <p class="text-gray-600 text-base mt-1">{description}</p>}
       </div>
 
       <!-- MDXコンテンツ（スキャン可能UIに変換） -->

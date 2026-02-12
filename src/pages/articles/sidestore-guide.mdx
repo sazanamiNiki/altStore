@@ -1,0 +1,328 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "SideStore 完全ガイド";
+export const description = "PC不要でアプリを管理する日本語ガイド。AltStoreとの違い、VPNの仕組み、セットアップ手順、トラブルシューティングまで徹底解説。";
+
+<ArticleLayout title={title} description={description} date="2026-02-01" icon="phonelink" iconColor="text-blue-500">
+
+<Section intro title="PC不要でアプリを管理する方法" icon="lightbulb">
+  <p class="text-gray-700 mb-4">
+    SideStoreは、AltStoreをベースに開発されたコミュニティ主導のサイドローディングアプリです。最大の特徴は、初回セットアップ後はPCなしでアプリのインストールや更新が可能な点です。VPN技術を活用することで、iOSの制限を回避し、完全にデバイス上でサイドローディングを完結させることができます。
+  </p>
+  <p class="text-gray-700">
+    本ガイドでは、SideStoreの仕組み、AltStoreとの違い、セットアップ手順、そしてトラブルシューティングまで詳しく解説します。iOS 14からiOS 18.4まで対応しており、2026年現在も活発に開発が続けられています。
+  </p>
+</Section>
+
+<Section title="SideStoreとAltStoreの違い" icon="compare" iconColor="text-green-600">
+  <div class="overflow-x-auto mb-6">
+    <table class="w-full border-collapse border border-gray-300 text-sm">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 px-4 py-2 text-left">項目</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">AltStore</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">SideStore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">PC接続</td>
+          <td class="border border-gray-300 px-4 py-2">毎週必要（7日ごとの更新時）</td>
+          <td class="border border-gray-300 px-4 py-2">初回セットアップのみ</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2 font-semibold">アプリ更新方式</td>
+          <td class="border border-gray-300 px-4 py-2">AltServer経由（Wi-Fi/USB）</td>
+          <td class="border border-gray-300 px-4 py-2">VPN経由（完全オンデバイス）</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">開発体制</td>
+          <td class="border border-gray-300 px-4 py-2">Riley Testut氏主導</td>
+          <td class="border border-gray-300 px-4 py-2">コミュニティ主導</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2 font-semibold">VPN必要性</td>
+          <td class="border border-gray-300 px-4 py-2">不要</td>
+          <td class="border border-gray-300 px-4 py-2">必要（LocalDevVPNまたはStosVPN）</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2 font-semibold">セットアップ難易度</td>
+          <td class="border border-gray-300 px-4 py-2">比較的簡単</td>
+          <td class="border border-gray-300 px-4 py-2">やや複雑（VPN設定が必要）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <CardGrid>
+    <Card icon="computer" iconColor="text-blue-500" title="AltStoreを選ぶ場合" desc="PCに定期的にアクセスでき、シンプルなセットアップを好む方。初心者にもおすすめ。" />
+    <Card icon="phone_iphone" iconColor="text-orange-500" title="SideStoreを選ぶ場合" desc="PCへのアクセスが限られており、完全にオンデバイスでアプリ管理をしたい方。一度セットアップすれば独立して運用可能。" />
+  </CardGrid>
+</Section>
+
+<Section title="VPN（EM Proxy）を使用した仕組み" icon="vpn_key" iconColor="text-purple-600">
+  <AccordionGroup>
+    <Accordion title="なぜVPNが必要なのか">
+      <p class="text-gray-700 mb-4">
+        通常、iOSアプリのサイドローディングには開発者証明書による署名が必要で、これにはPC上のツール（AltServerなど）が必要です。SideStoreはこの制限を回避するため、「EM Proxy」という技術を使用しています。
+      </p>
+      <p class="text-gray-700">
+        EM Proxyは、SideStoreの最も重要な機能である「アンテザード（PC不要）インストール」を実現する技術です。特別なエンタイトルメント（権限）を持つApp Store公開アプリ「LocalDevVPN」を使用してVPNトンネルを作成し、「Jitterbug」のループバック方式を活用することで、有料の開発者アカウントなしでもアプリのインストールが可能になります。
+      </p>
+    </Accordion>
+    <Accordion title="LocalDevVPN：App Storeから入手できる標準VPN">
+      <p class="text-gray-700 mb-3">LocalDevVPNはApp Storeから無料でダウンロード可能なVPNアプリです。SideStoreと連携して動作し、アプリのインストール、更新、リフレッシュ時にVPN接続が必要です。</p>
+      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+        <li>App Store またはAltStore PALソースから入手可能</li>
+        <li>ローカル接続のみを使用（外部サーバーへの接続なし）</li>
+        <li>バッテリー消費はほぼゼロ（自分のデバイスへの接続のみ）</li>
+      </ul>
+    </Accordion>
+    <Accordion title="StosVPN：SideStoreチーム製の専用VPN（推奨）">
+      <p class="text-gray-700 mb-3">
+        StosVPNは2025年4月にApp Storeでリリースされた、SideStoreチームが開発した専用VPNクライアントです。LocalDevVPNの代替として使用でき、いくつかの利点があります：
+      </p>
+      <CardGrid>
+        <Card icon="wifi_off" iconColor="text-blue-500" title="オフライン対応" desc="オフライン状態でもJIT有効化が可能" />
+        <Card icon="signal_cellular_alt" iconColor="text-green-500" title="モバイルデータ対応" desc="iOSの制限を受けずセルラー回線でも正常動作" />
+        <Card icon="battery_full" iconColor="text-yellow-500" title="省電力" desc="SideStoreのトラフィックのみをルーティングするため電力消費が極めて少ない" />
+        <Card icon="verified" iconColor="text-purple-500" title="高い安定性" desc="WireGuardベースのソリューションより安定" />
+      </CardGrid>
+    </Accordion>
+    <Accordion title="VPNの動作原理">
+      <p class="text-gray-700 mb-4">
+        VPNは「仮想プライベートネットワーク」の略ですが、SideStoreで使用するVPNは一般的なVPNとは異なり、外部への接続は行いません。代わりに、デバイス内部でのループバック接続を確立し、iOSにアプリが正規にインストールされたと認識させる役割を果たします。
+      </p>
+      <InfoBox type="warning" title="重要：VPNはいつ接続すべきか">
+        VPNはアプリのインストール、更新、リフレッシュ時のみ有効にする必要があります。常時接続している必要はありません。作業完了後はVPNを切断しても、インストールされたアプリは正常に動作します。
+      </InfoBox>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="初期セットアップ手順" icon="construction" iconColor="text-blue-600">
+  <InfoBox type="info" title="必要な環境">
+    <ul class="mt-1 space-y-1 text-gray-700">
+      <li><strong>対応iOS：</strong>iOS 14.0 - iOS 18.4</li>
+      <li><strong>PC：</strong>Windows 10以降、またはmacOS（初回セットアップ時のみ）</li>
+      <li><strong>Apple ID：</strong>無料アカウントでOK（ただし制限あり）</li>
+      <li><strong>USBケーブル：</strong>iPhoneとPCを接続するため</li>
+    </ul>
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="Step 1：Developer Modeの有効化（iOS 16以降）">
+      <p class="text-gray-700 mb-3">iOS 16以降を使用している場合、Developer Mode（開発者モード）を有効にする必要があります：</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>「設定」アプリを開く</li>
+        <li>「プライバシーとセキュリティ」をタップ</li>
+        <li>画面下部までスクロールし「デベロッパモード」をタップ</li>
+        <li>スイッチをオンにする</li>
+        <li>デバイスが再起動を要求したら「再起動」をタップ</li>
+        <li>再起動後、確認ダイアログで「オンにする」をタップ</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Step 2：SideStoreのインストール（iLoader使用）">
+      <p class="text-gray-700 mb-3">SideStoreの初回インストールには「iLoader」またはAltServerを使用します：</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>PC にiLoaderまたはAltServerをダウンロード・インストール</li>
+        <li>iPhoneをUSBケーブルでPCに接続</li>
+        <li>iPhoneで「このコンピュータを信頼」を選択</li>
+        <li>SideStoreのIPAファイルをダウンロード（公式GitHubから最新版を取得）</li>
+        <li>iLoaderまたはAltServerを使用してIPAをインストール</li>
+        <li>Apple IDでサインイン（新規アカウントの作成を推奨）</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Step 3：VPNの設定">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>App StoreからLocalDevVPNまたはStosVPNをダウンロード</li>
+        <li>VPNアプリを開き「接続」をタップ</li>
+        <li>「VPN構成の追加を許可」の確認が表示されたら「許可」をタップ</li>
+        <li>パスコードを入力してVPN構成を追加</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Step 4：証明書の信頼設定">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>「設定」アプリを開く</li>
+        <li>「一般」→「VPNとデバイス管理」を選択</li>
+        <li>「デベロッパApp」セクションに表示されている自分のApple IDをタップ</li>
+        <li>「[Apple ID名]を信頼」をタップし、確認画面で「信頼」を選択</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Step 5：SideStoreの初回リフレッシュ">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>VPNアプリで「接続」を確認</li>
+        <li>SideStoreを起動</li>
+        <li>iLoaderで使用したApple IDでサインイン</li>
+        <li>「My Apps」タブに移動</li>
+        <li>SideStoreの横にある「7 DAYS」カウンターをタップして手動リフレッシュ</li>
+        <li>リフレッシュ完了後、SideStoreのセットアップが完了</li>
+      </ol>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="アプリの追加・更新・管理" icon="manage_accounts" iconColor="text-indigo-600">
+  <AccordionGroup>
+    <Accordion title="方法1：ソースからインストール">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>VPNを接続</li>
+        <li>SideStoreを起動し「Browse」タブをタップ</li>
+        <li>利用可能なアプリ一覧から目的のアプリを探す</li>
+        <li>「GET」をタップしてインストール</li>
+        <li>インストール完了後、VPNを切断可能</li>
+      </ol>
+    </Accordion>
+    <Accordion title="方法2：カスタムソースの追加">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>SideStoreで「Browse」→「Sources」をタップ</li>
+        <li>右上の「+」ボタンをタップ</li>
+        <li>ソースのURLを入力して「Add Source」をタップ</li>
+        <li>追加したソースからアプリをブラウズ・インストール</li>
+      </ol>
+    </Accordion>
+    <Accordion title="方法3：IPAファイルから直接インストール">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>IPAファイルを「ファイル」アプリに保存</li>
+        <li>VPNを接続</li>
+        <li>SideStoreで「My Apps」タブ→左上の「+」ボタンをタップ</li>
+        <li>「ファイル」からIPAを選択</li>
+        <li>インストール完了を待つ</li>
+      </ol>
+    </Accordion>
+    <Accordion title="アプリの更新方法">
+      <p class="text-gray-700 mb-3">アプリの更新が利用可能な場合、SideStoreの「My Apps」タブにバッジが表示されます：</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>VPNを接続</li>
+        <li>SideStoreで「My Apps」タブを開く</li>
+        <li>更新が必要なアプリの横にある「UPDATE」をタップ</li>
+        <li>または上部の「Update All」で一括更新</li>
+      </ol>
+    </Accordion>
+    <Accordion title="7日間のリフレッシュについて">
+      <p class="text-gray-700 mb-3">
+        無料のApple IDで署名されたアプリは7日間で有効期限が切れます。SideStoreはバックグラウンドで自動的にアプリをリフレッシュしますが、以下の点に注意してください：
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>バックグラウンドリフレッシュにはVPN接続が必要</li>
+        <li>7日以内に少なくとも1回はSideStoreを開いてリフレッシュを確認</li>
+        <li>「My Apps」の各アプリ横に残り日数が表示される</li>
+        <li>有効期限が切れるとアプリが起動できなくなる（再リフレッシュで復活）</li>
+      </ul>
+    </Accordion>
+    <Accordion title="アプリ数の制限と回避策">
+      <InfoBox type="error" title="無料Apple IDの制限">
+        SideStore自体を含めて同時に3つのアプリまでしかインストールできません。また、1週間に10個までの異なるアプリしかインストールできません。
+      </InfoBox>
+      <p class="text-gray-700 mt-3 mb-2">この制限を回避する方法：</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>有料開発者アカウント（$99/年）：</strong>365日の有効期限とアプリ数制限なし</li>
+        <li><strong>LiveContainer：</strong>1つのアプリスロット内で複数のアプリを切り替えて使用</li>
+        <li><strong>SparseRestore：</strong>iOS 18 db5/18.0.1以下で使用可能な3アプリ制限回避方法</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="トラブルシューティング" icon="build" iconColor="text-red-600">
+  <AccordionGroup>
+    <Accordion title="「Unable to Install」エラー">
+      <p class="text-gray-700 mb-2"><strong>原因：</strong>VPNが接続されていない、または証明書が信頼されていない</p>
+      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+        <li>VPNアプリで接続状態を確認</li>
+        <li>「設定」→「一般」→「VPNとデバイス管理」で証明書を信頼</li>
+        <li>SideStoreとVPNアプリを再起動</li>
+      </ul>
+    </Accordion>
+    <Accordion title="アプリが7日後に開けなくなった">
+      <p class="text-gray-700 mb-2"><strong>原因：</strong>証明書の有効期限切れ</p>
+      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+        <li>VPNを接続してSideStoreを起動</li>
+        <li>「My Apps」でアプリをリフレッシュ</li>
+        <li>SideStore自体が開けない場合はiLoaderで再インストール</li>
+      </ul>
+    </Accordion>
+    <Accordion title="VPNが接続できない">
+      <p class="text-gray-700 mb-2"><strong>原因：</strong>VPN構成の問題、またはネットワークの問題</p>
+      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+        <li>「設定」→「一般」→「VPNとデバイス管理」→「VPN」でプロファイルを削除し再設定</li>
+        <li>LocalDevVPNの代わりにStosVPNを試す</li>
+        <li>デバイスを再起動</li>
+      </ul>
+    </Accordion>
+    <Accordion title="「Maximum App ID Limit Reached」エラー">
+      <p class="text-gray-700 mb-2"><strong>原因：</strong>週間アプリ制限（10個）に達した</p>
+      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+        <li>7日間待ってから再試行</li>
+        <li>不要なアプリを削除してスロットを空ける</li>
+        <li>LiveContainerの使用を検討</li>
+      </ul>
+    </Accordion>
+    <Accordion title="Developer Modeが表示されない">
+      <p class="text-gray-700 mb-2"><strong>原因：</strong>iOS 15以前を使用、またはまだ一度もサイドロードを試みていない</p>
+      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+        <li>iOS 15以前では Developer Mode は不要</li>
+        <li>iOS 16以降では、まずiLoaderでアプリをインストールしようとすると表示される</li>
+        <li>Xcodeをインストールしたmacに接続すると表示される場合あり</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="info" icon="tips_and_updates" title="その他のヒント">
+    <ul class="mt-1 space-y-1 text-gray-700">
+      <li>SideStoreの最新Nightlyビルド（2026年1月時点でv0.6.3）を使用することで最新の修正が適用される</li>
+      <li>問題が解決しない場合は、SideStore公式Discordサーバーでサポートを求める</li>
+      <li>公式ドキュメント（docs.sidestore.io）で最新の情報を確認</li>
+    </ul>
+  </InfoBox>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <p class="text-gray-700 mb-4">
+    SideStoreは、AltStoreの利便性を継承しながら、PC依存を最小限に抑えた革新的なサイドローディングソリューションです。VPN技術を活用することで、初回セットアップ後は完全にiPhone単体でアプリの管理が可能になります。
+  </p>
+  <p class="text-gray-700 mb-4">
+    セットアップはAltStoreより複雑ですが、一度完了すれば自由度の高いアプリ管理が実現します。無料Apple IDの制限（3アプリ、7日間）はありますが、定期的なリフレッシュを忘れなければ問題なく使用できます。
+  </p>
+  <CardGrid>
+    <Card icon="phonelink" iconColor="text-blue-500" title="SideStoreがおすすめな方" desc="PCへのアクセスが限られている方、完全にモバイルでの運用を希望する方" />
+    <Card icon="computer" iconColor="text-gray-500" title="AltStoreのほうが向いている方" desc="PCに定期的にアクセスでき、シンプルな運用を好む初心者の方" />
+  </CardGrid>
+  <InfoBox type="info" title="公式リソース">
+    <ul class="mt-1 space-y-1">
+      <li><a href="https://sidestore.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline">SideStore公式サイト</a></li>
+      <li><a href="https://docs.sidestore.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline">SideStore公式ドキュメント</a></li>
+      <li><a href="https://github.com/SideStore/SideStore" target="_blank" rel="noopener" class="text-blue-600 hover:underline">SideStore GitHub</a></li>
+      <li><a href="https://github.com/SideStore/StosVPN" target="_blank" rel="noopener" class="text-blue-600 hover:underline">StosVPN GitHub</a></li>
+    </ul>
+  </InfoBox>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/how-to-use-altstore',
+    icon: 'install_mobile',
+    title: 'AltStoreの仕組みと使い方',
+    desc: 'SideStoreと比較しながら、AltStoreのインストールから基本操作まで詳しく解説。',
+  },
+  {
+    href: '/articles/install-app-step-by-step',
+    icon: 'smartphone',
+    title: 'アプリをインストールする方法',
+    desc: '実際のインストール手順を画像付きで詳しく解説。初めての方はこちらから。',
+  },
+  {
+    href: '/articles/faq',
+    icon: 'help',
+    title: 'よくある質問',
+    desc: 'サイドローディングに関するFAQ。7日署名、複数デバイス、パソコン不要の方法など。',
+  },
+]} />
+
+</ArticleLayout>
