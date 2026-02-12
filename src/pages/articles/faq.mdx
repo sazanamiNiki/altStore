@@ -12,58 +12,71 @@ export const description = "サイドローディング、AltStoreに関する�
 
 <ArticleLayout title={title} description={description} date="2026-02-03" icon="help" iconColor="text-blue-500">
 
-<Section intro title="サイドローディングについて、みんなが気になること" icon="lightbulb">
-  <p class="text-gray-700">
-    サイドローディングや AltStore について、よく寄せられる質問をまとめました。
-    気になる質問を開いて、答えをご確認ください。
-  </p>
+<Section intro title="気になることを1秒で解決" icon="lightbulb">
+  <p class="text-gray-600 text-sm">質問をタップして答えを確認してください。</p>
 </Section>
 
 <Section title="安全性・合法性" icon="security" iconColor="text-green-600">
   <AccordionGroup>
     <Accordion title="Q. サイドローディングって危なくない？">
-      <p class="text-gray-700 mb-4">
-        A. 大丈夫です。このサイトで紹介しているアプリは、開発元がはっきりしている公式アプリのみです。
-        エミュレータ（Delta、UTMなど）はオープンソースで透明性が確保されており、クリエイターアプリはAppleの公証を受けたものを扱います。
-      </p>
-      <p class="text-gray-700 mb-4">
-        AltStoreはオープンソースプロジェクトで、コードが公開されており透明性があります。
-        iOSの基本的なセキュリティ保護は維持されるので、安心して使えます。
-      </p>
-      <InfoBox type="info" title="大事なこと">
-        このサイト以外から野良アプリを入れる時は注意してください。信頼できるリポジトリからインストールすることが何より大切です。
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">大丈夫です。公式アプリのみ紹介しています。</span>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-700 mb-4">
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base">check</span>
+          Delta・UTMはオープンソースで透明性あり
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base">check</span>
+          AltStoreのコードは公開済み
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base">check</span>
+          iOSの基本セキュリティはそのまま維持
+        </li>
+      </ul>
+      <InfoBox type="warning" icon="warning" title="注意">
+        このサイト以外の野良アプリは十分に確認してから入れてください。
       </InfoBox>
     </Accordion>
+
     <Accordion title="Q. サイドローディングって違法じゃない？">
-      <p class="text-gray-700 mb-4">
-        A. 違法ではありません。自分のiPhoneにアプリを入れることは、どの国でも合法です。
-      </p>
-      <p class="text-gray-700 mb-4">
-        EUではDigital Markets Act（DMA）という法律で、むしろサイドローディングを推奨しています。
-        日本でも2025年末に施行予定のスマホ新法で、サイドローディングが正式に認められる見込みです。
-      </p>
-      <p class="text-gray-700 mb-4">
-        問題になるのは、著作権侵害アプリを配布したり、知的財産権を侵害したりすること。
-        個人で使う分には全く問題ありません。
-      </p>
-      <InfoBox type="success" title="安心してください">
-        bunchoniki Storeで紹介しているアプリは、すべて合法的に配布されている公式アプリです。安心してご利用ください。
-      </InfoBox>
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">違法ではありません。個人利用は完全に合法です。</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
+          <div class="font-semibold text-blue-700 text-xs mb-1">EU（DMA）</div>
+          <div class="text-gray-600 text-xs">サイドローディングを推奨・義務化</div>
+        </div>
+        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
+          <div class="font-semibold text-blue-700 text-xs mb-1">日本（スマホ新法）</div>
+          <div class="text-gray-600 text-xs">2025年末に正式認定予定</div>
+        </div>
+      </div>
+      <InfoBox type="success" title="このサイトのアプリはすべて合法配布の公式アプリです。" />
     </Accordion>
+
     <Accordion title="Q. セキュリティは大丈夫？">
-      <p class="text-gray-700 mb-4">
-        A. 信頼できるソースから入手すれば大丈夫です。でも、どこからダウンロードするかが大事。
-      </p>
-      <p class="text-gray-700 mb-4">
-        AltStoreやSideStoreはオープンソースで、コードが公開されているから安心。
-        iOSの基本セキュリティはそのまま保たれるし、怪しい動きをしていないか誰でも確認できます。
-      </p>
-      <p class="text-gray-700 mb-4">
-        ただし、海賊版や非公式版のアプリを入れると、iPhoneがクラッシュしたり、バッテリーを余計に消費したりする可能性があります。
-        信頼できるソースからだけダウンロードしましょう。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">信頼できるソースからなら問題ありません。</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="p-3 bg-green-50 rounded-lg border border-green-100">
+          <div class="font-semibold text-green-700 text-xs mb-1">安全</div>
+          <div class="text-gray-600 text-xs">公式リポジトリのアプリ</div>
+        </div>
+        <div class="p-3 bg-red-50 rounded-lg border border-red-100">
+          <div class="font-semibold text-red-700 text-xs mb-1">危険</div>
+          <div class="text-gray-600 text-xs">海賊版・非公式アプリ</div>
+        </div>
+      </div>
       <InfoBox type="error" icon="warning" title="警告">
-        このサイト以外から野良アプリを入れる時は、そのアプリが本当に安全か、よく確認してください。開発者の公式リポジトリから入手することが一番の安全策です。
+        海賊版はクラッシュ・バッテリー消耗の原因になります。
       </InfoBox>
     </Accordion>
   </AccordionGroup>
@@ -72,40 +85,42 @@ export const description = "サイドローディング、AltStoreに関する�
 <Section title="技術的な質問" icon="settings">
   <AccordionGroup>
     <Accordion title="Q. Developer Mode（開発者モード）って何？">
-      <p class="text-gray-700 mb-4">
-        A. iOS 16以降で追加された、開発者向けの特別なモードです。
-        Apple公式によると、アプリ開発に必要な高度な機能を使えるようにするものです。
-      </p>
-      <p class="text-gray-700 mb-4">
-        なぜこんなモードがあるかというと、悪い人がこの機能を悪用しないようにするため。
-        普通に使う分にはオフのままで大丈夫で、特定のアプリ（エミュレータとか）を使う時だけオンにすればOKです。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-4">
+        <span class="material-symbols-outlined text-blue-500">info</span>
+        <span class="font-bold text-blue-700 text-sm">iOS 16以降の開発者向けモード。通常は不要です。</span>
+      </div>
       <InfoBox type="info" title="ポイント">
-        普通にサイドローディングするだけなら、Developer Modeはオフのままでも問題ありません。アプリ側で必要な場合は、説明が出るので、その時にオンにしましょう。
+        必要なアプリを入れると自動で説明が出ます。その時だけONにすればOK。
       </InfoBox>
     </Accordion>
+
     <Accordion title="Q. Apple Certificateって必要なの？">
-      <p class="text-gray-700 mb-4">
-        A. いいえ、特別な証明書は必要ありません。普通のApple IDがあれば大丈夫です。
-      </p>
-      <p class="text-gray-700 mb-4">
-        よく聞く「Developer ID Certificate」とか「公証」っていうのは、主にMac向けアプリの話。
-        iPhoneでサイドローディングする時は、AltStoreが自動で署名してくれるので、あなたが何か準備する必要はありません。
-      </p>
-      <InfoBox type="info" title="つまり">
-        bunchoniki Storeで紹介しているアプリをインストールする時は、普通のApple IDだけでOK。有料のApple Developer Programに入る必要はありません。
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">不要。普通のApple IDだけでOKです。</span>
+      </div>
+      <InfoBox type="info" title="補足">
+        AltStoreが自動で署名してくれます。有料のDeveloper Programへの加入は不要です。
       </InfoBox>
     </Accordion>
+
     <Accordion title="Q. iPhoneが重くなったりしない？">
-      <p class="text-gray-700 mb-4">
-        A. ちゃんと管理すれば大丈夫。信頼できるアプリを入れていれば、普通のApp Storeアプリと変わりません。
-      </p>
-      <p class="text-gray-700 mb-4">
-        iOS 17以降では、JITコンパイルという技術のおかげで、エミュレータなどのアプリも前より速く動くようになりました。
-        不要なアプリは削除して、バックグラウンド更新を管理すれば、サクサク快適に使えます。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">信頼できるアプリなら通常通り動作します。</span>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-700 mb-4">
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base">arrow_right</span>
+          iOS 17以降はJITコンパイルでエミュレータも高速化
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base">arrow_right</span>
+          不要なアプリを削除すれば快適に使える
+        </li>
+      </ul>
       <InfoBox type="warning" title="注意">
-        非公式版や海賊版アプリは動作が不安定で、バッテリーを余計に消費することがあります。開発者の公式リポジトリから配布されているアプリを選びましょう。
+        非公式版・海賊版は動作不安定・バッテリー消費の原因になります。
       </InfoBox>
     </Accordion>
   </AccordionGroup>
@@ -114,75 +129,104 @@ export const description = "サイドローディング、AltStoreに関する�
 <Section title="署名・アップデート・複数デバイス" icon="update">
   <AccordionGroup>
     <Accordion title="Q. iOSアップデートしたら消えちゃう？">
-      <p class="text-gray-700 mb-4">
-        A. 消えません。アプリ自体は残ります。
-      </p>
-      <p class="text-gray-700 mb-4">
-        ただし、7日ごとの署名期限が切れていると起動できなくなります。
-        その場合は、AltStoreやSideStoreで再度署名すればまた使えるようになります。
-      </p>
-      <p class="text-gray-700 mb-4">
-        SideStoreを使っていれば、バックグラウンドで自動的に署名を更新してくれるので、あなたが何もしなくても大丈夫。
-      </p>
-      <InfoBox type="info" title="ポイント">
-        iOSアップデートでアプリが消えることはないけど、署名が切れた時は再署名が必要。SideStoreなら自動でやってくれます。
-      </InfoBox>
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">アプリは消えません。署名切れのみ注意。</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div class="font-semibold text-gray-700 text-xs mb-1">AltStore</div>
+          <div class="text-gray-600 text-xs">7日ごとに手動で再署名が必要</div>
+        </div>
+        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div class="font-semibold text-green-700 text-xs mb-1">SideStore</div>
+          <div class="text-gray-600 text-xs">バックグラウンドで自動更新</div>
+        </div>
+      </div>
     </Accordion>
+
     <Accordion title="Q. 複数のiPhoneやiPadで使える？">
-      <p class="text-gray-700 mb-4">
-        A. はい、使えます。同じApple IDで複数デバイスにインストールできます。
-      </p>
-      <p class="text-gray-700 mb-4">
-        ただし、新しいデバイスにインストールすると、古い証明書が無効になって、他のデバイスのアプリが起動できなくなることがあります。
-        その時は、他のデバイスでも再署名すればOK。
-      </p>
-      <p class="text-gray-700 mb-4">
-        AltStore 2.2.1以降なら、証明書を共有できる機能があるので、複数デバイスの管理がもっと楽になります。
-      </p>
-      <InfoBox type="warning" title="制限">
-        無料のApple IDだと、一度に最大3つのアプリ（AltStore/SideStore含む）までインストールできます。1週間で最大10個の異なるアプリをインストール可能です。
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-4">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">同じApple IDで複数デバイス対応。</span>
+      </div>
+      <InfoBox type="warning" title="無料Apple IDの制限">
+        同時インストール：最大3アプリ（AltStore含む）／週10アプリまで
       </InfoBox>
     </Accordion>
+
     <Accordion title="Q. パソコンって毎回必要？">
-      <p class="text-gray-700 mb-4">
-        A. SideStoreなら最初だけでOK。
-      </p>
-      <p class="text-gray-700 mb-4">
-        普通のAltStoreは毎回パソコンにiPhoneを繋ぐ必要があるけど、SideStoreは最初にインストールした後は、Wi-Fiがあればパソコンなしでアプリを入れたり更新したりできます。
-      </p>
-      <p class="text-gray-700 mb-4">
-        SideStoreはバックグラウンドで自動的に署名を更新してくれるから、7日ごとの署名切れも気にしなくて大丈夫。
-      </p>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div class="font-semibold text-gray-700 text-xs mb-1">AltStore</div>
+          <div class="text-gray-600 text-xs">毎回PCに接続が必要</div>
+        </div>
+        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div class="font-semibold text-green-700 text-xs mb-1">SideStore（推奨）</div>
+          <div class="text-gray-600 text-xs">最初だけ。以降はWi-Fiのみ</div>
+        </div>
+      </div>
       <InfoBox type="success" title="おすすめ">
-        SideStoreはiOS 14以降のすべてのiPhoneとiPadで動作します。パソコンレスで快適にサイドローディングしたいなら、SideStoreが一番です。
+        SideStoreはiOS 14以降対応。7日署名も自動更新します。
       </InfoBox>
     </Accordion>
+
     <Accordion title="Q. AltStoreでうまくインストールできない時は？">
-      <p class="text-gray-700 mb-3">A. よくある原因をチェックしてみてください：</p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-        <li>PCとiPhoneがちゃんと繋がってる？（同じWi-Fiに接続してる？）</li>
-        <li>Apple IDのパスワードは合ってる？</li>
-        <li>MacやiPhoneで「信頼」をタップした？</li>
-        <li>AltStoreとiOSは最新版？</li>
-        <li>Windowsの場合：ファイアウォール（セキュリティ）で遮られてない？</li>
-        <li>Microsoft Store版のiTunes使ってない？（Apple公式版を使おう）</li>
+      <p class="text-sm text-gray-600 mb-3">以下を順番に確認してください：</p>
+      <ul class="space-y-2 text-sm text-gray-700 mb-4">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          PCとiPhoneが同じWi-Fiに接続しているか
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          Apple IDのパスワードが正しいか
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          Macやデバイスで「信頼」をタップしたか
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          AltStoreとiOSが最新版か
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          Windows：ファイアウォールで遮断されていないか
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          iTunesはApple公式版か（MS Store版は非推奨）
+        </li>
       </ul>
       <InfoBox type="info" title="もっと詳しく">
-        「アプリをインストールする方法」で画像付きで説明しています。<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="text-blue-600 font-bold hover:underline">→ インストールガイドを見る</a>
+        <a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="text-blue-600 font-bold hover:underline">→ インストールガイドを見る</a>
       </InfoBox>
     </Accordion>
   </AccordionGroup>
 </Section>
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
-  <p class="text-gray-700 mb-6">サイドローディングは安全で合法的な選択肢です</p>
-  <CardGrid>
-    <Card icon="verified" iconColor="text-blue-500" title="公式ソースから入手する" desc="開発者の公式リポジトリや信頼できるストアからアプリを入手しましょう" />
-    <Card icon="update" iconColor="text-green-500" title="自動更新が便利" desc="SideStoreなら7日署名も自動で更新。パソコンも最初だけでOK" />
-    <Card icon="gavel" iconColor="text-purple-500" title="合法的な選択肢" desc="サイドローディングは合法。日本でも新法で正式に認められる予定です" />
-  </CardGrid>
+  <div class="space-y-2 mb-6">
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">check_circle</span>
+      <span class="text-gray-800 font-medium text-sm">公式リポジトリからのみインストールする</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">check_circle</span>
+      <span class="text-gray-800 font-medium text-sm">SideStoreで7日署名を自動管理する</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">check_circle</span>
+      <span class="text-gray-800 font-medium text-sm">サイドローディングは合法（日本でも新法対応予定）</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">check_circle</span>
+      <span class="text-gray-800 font-medium text-sm">無料Apple IDでも利用可能（同時3アプリまで）</span>
+    </div>
+  </div>
   <InfoBox type="warning" icon="info" title="このFAQについて">
-    このFAQは2026年2月現在の情報に基づいています。法律やプラットフォーム仕様は変更される可能性があります。
+    2026年2月現在の情報です。法律・仕様は変更される可能性があります。
   </InfoBox>
 </Section>
 

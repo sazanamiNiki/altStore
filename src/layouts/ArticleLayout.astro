@@ -105,10 +105,14 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
       }
     });
 
-    // カード外に残ったH2前のコンテンツをラップ
-    const orphans = Array.from(content.children).filter(
-      el => !el.classList.contains('bg-white')
-    );
+    // カード外に残ったH2前のコンテンツをラップ（pやulなどの素のコンテンツのみ対象）
+    const sectionClasses = ['bg-white', 'bg-blue-50', 'bg-green-50', 'bg-yellow-50'];
+    const simpleContentTags = ['P', 'UL', 'OL', 'BLOCKQUOTE', 'PRE', 'H3', 'H4'];
+    const orphans = Array.from(content.children).filter(el => {
+      const isSection = sectionClasses.some(cls => el.classList.contains(cls));
+      const isSimpleContent = simpleContentTags.includes(el.tagName);
+      return !isSection && isSimpleContent;
+    });
     if (orphans.length > 0) {
       const introCard = document.createElement('div');
       introCard.className = 'bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200';

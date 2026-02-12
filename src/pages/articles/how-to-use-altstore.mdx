@@ -16,50 +16,42 @@ export const description = "AltStoreの7日間署名問題、AltServerの役割�
 <ArticleLayout title={title} h1={h1} description={description} date="2026-01-31" icon="apps" iconColor="text-blue-500">
 
 <Section intro title="AltStoreとは何か" icon="help_outline">
-  <p class="text-gray-700 mb-4">
-    <strong>AltStore</strong>は、App Store の代わりとなるアプリストアで、
-    PC や Mac から簡単にサイドローディングできるツールです。
-    サイドローディング初心者にとって、最も使いやすく安全な選択肢として知られています。
-  </p>
-  <p class="text-gray-700">
-    しかし、AltStore には「7日ごとに署名が切れる」という独特の制限があります。
-    この記事では、その仕組みと対策、そして PC なしで更新できる方法をご紹介します。
-  </p>
+  <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-4">
+    <span class="material-symbols-outlined text-blue-500">apps</span>
+    <span class="font-bold text-blue-700 text-sm">App Storeの代替。初心者に最もやさしいサイドローディングツールです。</span>
+  </div>
   <InfoBox type="indigo" icon="auto_stories" title="この記事の位置づけ（仕組み・理論編）">
-    この記事は AltStore の<strong>仕組み・理論編</strong>として、7日署名の仕組みや AltServer の役割を詳しく解説しています。
-    実際のインストール手順は「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">アプリをインストールする方法</a>」を、
-    全体像は「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">AltStore 完全ガイド</a>」をご覧ください。
+    この記事はAltStoreの<strong>仕組み・理論編</strong>です。
+    実際の手順は「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」、全体像は「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">完全ガイド</a>」をご覧ください。
   </InfoBox>
 </Section>
 
 <Section title="AltStoreの仕組み：なぜ7日で署名が切れるのか" icon="settings" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="App Storeとの配信の違い">
-      <p class="text-gray-700 mb-3">
-        App Store を通じて配信されるアプリは、Apple が<strong>永続的に署名</strong>（デジタル認証）を提供します。
-        これにより、ユーザーは何年でも同じアプリを使い続けることができます。
-      </p>
-      <p class="text-gray-700">
-        しかし AltStore では、開発者が<strong>Apple ID を使ってアプリを署名</strong>しています。
-        無料の Apple ID で署名したアプリの有効期限は、著作権法の保護期間の関係から<strong>7日間</strong>と決められています。
-      </p>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div class="font-semibold text-green-700 text-xs mb-1">App Store</div>
+          <div class="text-gray-600 text-xs">Appleが永続的に署名を提供</div>
+        </div>
+        <div class="p-3 bg-orange-50 rounded-lg border border-orange-200">
+          <div class="font-semibold text-orange-700 text-xs mb-1">AltStore</div>
+          <div class="text-gray-600 text-xs">無料Apple IDは7日間のみ有効</div>
+        </div>
+      </div>
     </Accordion>
     <Accordion title="署名（Signature）とは何か">
-      <p class="text-gray-700 mb-3">
-        「署名」とは、Apple が「このアプリは信頼できる開発者から提供されたものだ」と保証する
-        デジタルスタンプのようなものです。
-        iOS は、署名の有効期限をチェックして、期限切れのアプリの実行を許可しません。
-      </p>
-      <p class="text-gray-700">
-        7日ごとに署名を更新することで、iOS に「このアプリはまだ信頼できる」と認識させ直すわけです。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-3">
+        <span class="material-symbols-outlined text-blue-500">info</span>
+        <span class="font-bold text-blue-700 text-sm">「このアプリは安全」とiOSに伝えるデジタルスタンプです。</span>
+      </div>
+      <p class="text-sm text-gray-600">7日ごとに再署名することで、iOSに「まだ信頼できる」と認識させ直します。</p>
     </Accordion>
     <Accordion title="有料開発者アカウントなら制限なし">
-      <p class="text-gray-700">
-        Apple Developer Program（年額 99 ドル）に登録している開発者は、
-        <strong>永続的な署名</strong>を行うことができます。
-        つまり、有料開発者アカウントを使えば、7日ごとの更新は不要になります。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-purple-50 rounded-lg border border-purple-200">
+        <span class="material-symbols-outlined text-purple-500">workspace_premium</span>
+        <span class="font-bold text-purple-700 text-sm">Apple Developer Program（年額99ドル）で7日制限が不要になります。</span>
+      </div>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -67,44 +59,82 @@ export const description = "AltStoreの7日間署名問題、AltServerの役割�
 <Section title="AltServerの役割：PCからWi-Fiで自動更新" icon="dns" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="AltServer とは">
-      <p class="text-gray-700">
-        <strong>AltServer</strong> は、Windows PC や Mac 上で動作するアプリで、
-        AltStore の署名を自動的に更新してくれるツールです。
-        「AltStore＝iPhone/iPad 上のアプリストア」に対し、
-        「AltServer＝PC/Mac 上の更新ツール」と考えると分かりやすいです。
-      </p>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
+          <div class="font-semibold text-blue-700 text-xs mb-1">AltStore</div>
+          <div class="text-gray-600 text-xs">iPhone/iPad上のアプリストア</div>
+        </div>
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div class="font-semibold text-gray-700 text-xs mb-1">AltServer</div>
+          <div class="text-gray-600 text-xs">PC/Mac上の署名更新ツール</div>
+        </div>
+      </div>
     </Accordion>
     <Accordion title="Wi-Fi自動更新の仕組み">
-      <p class="text-gray-700 mb-3">AltServer を起動しておくと、以下のプロセスが自動的に行われます：</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>AltServer が iPhone/iPad と同じ Wi-Fi ネットワークを認識する</li>
-        <li>毎日、自動的に署名の有効期限をチェックする</li>
-        <li>期限が近づいたアプリを検出すると、自動的に再署名（更新）する</li>
-        <li>iPhone/iPad は気づかないうちに、最新の署名を受け取る</li>
-      </ol>
+      <ul class="space-y-2 text-sm text-gray-700 mb-3">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">looks_one</span>
+          同じWi-FiネットワークでiPhone/iPadを認識
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">looks_two</span>
+          毎日、自動で署名の有効期限をチェック
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">looks_3</span>
+          期限が近いアプリを検出し、自動で再署名
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">looks_4</span>
+          iPhone/iPadは気づかないうちに最新署名を受け取る
+        </li>
+      </ul>
     </Accordion>
     <Accordion title="AltServer を常に起動しておくメリット">
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
-        <li><strong>手動更新が不要</strong> — 7日ごとに手動で操作する手間がなくなる</li>
-        <li><strong>いつでも最新状態</strong> — 常に有効な署名を維持できる</li>
-        <li><strong>起動時刻を設定できる</strong> — PC の起動に合わせて AltServer を自動起動できる</li>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+          手動更新が不要（7日ごとの操作ゼロ）
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+          常に有効な署名を維持
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base">check_circle</span>
+          PC起動時にAltServerを自動起動できる
+        </li>
       </ul>
-      <p class="text-gray-700 mt-3">
-        PC を持っていれば、<strong>手動でスマートフォンを操作する手間をほぼ完全に削減</strong>できます。
-      </p>
+      <div class="my-8 p-6 bg-gray-50 border border-gray-200 rounded-xl">
+        <div class="flex flex-col sm:flex-row gap-6 items-center">
+          <div class="flex-1">
+            <h4 class="font-bold text-lg text-gray-900 mb-2">
+              <span class="material-symbols-outlined align-middle text-blue-600 mr-1">computer</span>
+              常時起動用のPCがない場合は？
+            </h4>
+            <p class="text-sm text-gray-600 mb-3">
+              AltServerを24時間動かすなら、省電力なミニPCが最適です。電気代も月数百円で済み、メインPCを占有しません。
+            </p>
+            <a href="https://amzn.to/3ZNfzzo" target="_blank" rel="sponsored noopener" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition-colors text-sm shadow-md" data-affiliate-type="amazon" data-product-category="mini-pc" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'mini-pc', 'n100-pc');">
+              AmazonでミニPCを見る
+            </a>
+          </div>
+        </div>
+      </div>
     </Accordion>
     <Accordion title="自動更新と公証ステータスについて">
-      <p class="text-gray-700 mb-3">
-        AltServer による自動更新では、<strong>7日ごとに再署名</strong>が行われます。
-        この再署名プロセスでは、<strong>Apple 公証ステータスが毎回失われます</strong>。
-      </p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-3">
-        <li>初回インストール時は公証済みの状態</li>
-        <li>7日後の自動更新以降は、公証なしの状態で動作</li>
-        <li>ただし、iOS のサンドボックス構造により基本的な安全性は維持される</li>
-      </ul>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div class="font-semibold text-green-700 text-xs mb-1">初回インストール時</div>
+          <div class="text-gray-600 text-xs">公証済みの状態</div>
+        </div>
+        <div class="p-3 bg-orange-50 rounded-lg border border-orange-200">
+          <div class="font-semibold text-orange-700 text-xs mb-1">7日後の自動更新以降</div>
+          <div class="text-gray-600 text-xs">公証なし（ただし基本的な安全性は維持）</div>
+        </div>
+      </div>
       <InfoBox type="info" title="公証を継続的に維持したい場合">
-        App Store 経由で配信されるアプリを選ぶか、有料開発者アカウント（年額 99 ドル）を使用する必要があります。
+        App Store経由のアプリか、有料開発者アカウント（年額99ドル）が必要です。
         詳しくは「<a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="font-bold underline">Appleの公証とは何か</a>」をご覧ください。
       </InfoBox>
     </Accordion>
@@ -113,36 +143,40 @@ export const description = "AltStoreの7日間署名問題、AltServerの役割�
 
 <Section title="実際の導入手順（概要）" icon="integration_instructions" iconColor="text-blue-600">
   <StepList>
-    <Step num={1} title="AltServerをインストール" desc="Windows PC または Mac に AltServer をダウンロードしてインストール。特別な設定は不要です。" />
-    <Step num={2} title="Apple IDでログイン" desc="AltServer に Apple ID を入力します（2段階認証対応）。有料の Developer Account は不要です。" />
-    <Step num={3} title="iPhoneを接続して初期設定" desc="iPhone を USB ケーブルで PC に接続し、初回のみアプリをインストールして署名。「信頼する」を選択することで Apple ID の認証が完了します。" />
-    <Step num={4} title="Wi-Fi接続を設定" desc="AltServer で「Sync with this iPhone over Wi-Fi」オプションを有効にします。これで USB 接続が不要になります。" />
-    <Step num={5} title="バックグラウンド起動を設定" desc="AltServer を PC のスタートアップに登録して、常に起動した状態に保ちます。これで Wi-Fi 経由での自動更新が実現します。" />
+    <Step num={1} title="AltServerをインストール" desc="公式サイトからダウンロードして起動" image={`${import.meta.env.BASE_URL}assets/img/download.png`} alt="download" />
+    <Step num={2} title="iPhoneにAltStoreのインストール" desc="iPhone を PC に接続。altServerで端末を選択" image={`${import.meta.env.BASE_URL}assets/img/device-select.png`} alt="select" />
+    <Step num={3} title="Apple IDでログイン" desc="AltServer に Apple ID を入力" image={`${import.meta.env.BASE_URL}assets/img/login.png`} alt="select" />
+    <Step num={4} title="IPhoneでアプリの許可" desc="設定 > 一般 > VPNとデバイス管理ので自身のIDの欄をタップ。詳細の信頼をタップ" image={`${import.meta.env.BASE_URL}assets/img/allow.png`} alt="allow"/>
+    <Step num={5} title="IPhoneでアプリの許可" desc="Finder で「 WI-FI経由でIPhoneとの接続 」を有効にすれば接続が不要になります。" image={`${import.meta.env.BASE_URL}assets/img/connect.png`} alt="connect"/>
   </StepList>
-  <InfoBox type="warning" icon="cable" title="接続トラブルの9割はケーブルが原因">
-    100均の「充電専用」ケーブルでは AltServer は認識しません。必ず<strong>データ転送対応のケーブル</strong>を使ってください。
-  </InfoBox>
+  <div class="mt-4 gap-4">
+    <InfoBox type="warning" icon="cable" title="接続トラブルの9割はケーブルが原因">
+      100均の「充電専用」ケーブルでは AltServer は認識しません。必ず<strong>データ転送対応のケーブル</strong>を使ってください。
+    </InfoBox>
+    <div class="text-right">
+      <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="text-blue-600 font-bold text-sm hover:underline flex items-center justify-end gap-1" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
+        おすすめの高耐久ケーブルを見る <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+  </div>
 </Section>
 
 <Section title="PCがない場合はどうする？" icon="help_center" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="手動更新なら可能">
-      <p class="text-gray-700 mb-3">
-        PC や Mac を持っていない場合でも、AltStore はサイドローディング可能です。
-        ただし、7日ごとに<strong>iPhone 上の AltStore アプリから手動で署名を更新</strong>する必要があります。
-      </p>
-      <p class="text-gray-700">
-        「この作業は手間」と感じるかもしれませんが、実際には数分で完了します。
-        むしろ、アプリの更新状況を定期的に確認する習慣がつくメリットもあります。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-3">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">PCなしでも使えます。7日ごとに手動で更新するだけです。</span>
+      </div>
+      <p class="text-sm text-gray-600">AltStoreアプリを開いて更新ボタンをタップ。数分で完了します。</p>
     </Accordion>
     <Accordion title="代替手段：友人のPCを借りる">
-      <p class="text-gray-700 mb-3">
-        家族や友人の PC で AltServer を起動してもらい、同じ Wi-Fi ネットワークに接続するという方法もあります。
-        ただし、Apple ID の管理には十分注意が必要です。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-3">
+        <span class="material-symbols-outlined text-blue-500">people</span>
+        <span class="font-bold text-blue-700 text-sm">家族・友人のPCでも代用できます（同じWi-Fi接続が必要）。</span>
+      </div>
       <InfoBox type="info" title="PC不要で運用したい場合はSideStoreも検討">
-        完全に PC なしで運用したい場合は、SideStore への切り替えも選択肢のひとつです。
+        完全にPC不要で運用したい場合は、SideStoreへの切り替えも選択肢のひとつです。
         詳しくは「<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide`} class="font-bold underline">SideStore 完全ガイド</a>」をご覧ください。
       </InfoBox>
     </Accordion>
@@ -152,41 +186,59 @@ export const description = "AltStoreの7日間署名問題、AltServerの役割�
 <Section title="よくある質問と対策" icon="help" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="署名が切れたアプリはどうなる？">
-      <p class="text-gray-700 mb-3">
-        アプリが<strong>起動しなくなります</strong>。削除されたわけではなく、
-        iPhone 上には残っていますが、iOS がセキュリティ上の理由で実行を許可しません。
-      </p>
-      <p class="text-gray-700">
-        AltStore アプリを開いて更新ボタン（↻）をタップして署名を更新すれば、すぐに使えるようになります。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-orange-50 rounded-lg border border-orange-200 mb-3">
+        <span class="material-symbols-outlined text-orange-500">warning</span>
+        <span class="font-bold text-orange-700 text-sm">起動しなくなります（削除ではありません）。</span>
+      </div>
+      <p class="text-sm text-gray-600">AltStoreアプリを開いて更新ボタン（↻）をタップ → すぐに使えるようになります。</p>
     </Accordion>
     <Accordion title="Wi-Fi自動更新がうまくいかない場合は？">
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
-        <li>PC と iPhone が<strong>同じ Wi-Fi ネットワーク</strong>に接続しているか確認</li>
-        <li>ファイアウォールが AltServer の通信をブロックしていないか確認</li>
-        <li>上記で解決しない場合は、USB 接続で手動更新することができます</li>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          PCとiPhoneが同じWi-Fiに接続しているか
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          ファイアウォールがAltServerの通信をブロックしていないか
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
+          解決しない場合はUSB接続で手動更新
+        </li>
       </ul>
     </Accordion>
     <Accordion title="複数のiPhoneで使える？">
-      <p class="text-gray-700 mb-3">
-        可能です。同じ Apple ID で複数の端末を登録すれば、
-        複数の iPhone/iPad で AltStore を使用できます。
-      </p>
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-3">
+        <span class="material-symbols-outlined text-green-500">check_circle</span>
+        <span class="font-bold text-green-700 text-sm">可能です。同じApple IDで複数デバイス対応。</span>
+      </div>
       <InfoBox type="warning" title="無料Apple IDのApp ID制限">
-        無料 Apple ID には「App ID」という制限があり、<strong>同時に署名できるアプリ数には上限</strong>があります。
-        多くのアプリを使いたい場合は有料開発者アカウントの利用を検討してください。
+        同時に署名できるアプリ数に上限があります。多くのアプリを使いたい場合は有料開発者アカウントを検討してください。
       </InfoBox>
     </Accordion>
   </AccordionGroup>
 </Section>
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
-  <CardGrid>
-    <Card icon="schedule" iconColor="text-orange-500" title="7日ごとの署名更新" desc="無料Apple IDの制限。著作権法の保護期間の制約により、7日ごとに再署名が必要。" />
-    <Card icon="dns" iconColor="text-blue-500" title="AltServerで自動化" desc="PC/MacにAltServerをインストールしてバックグラウンド起動しておけば、Wi-Fi経由で自動更新。手放し管理が実現。" />
-    <Card icon="smartphone" iconColor="text-green-500" title="PCなしでも手動更新可能" desc="PCがなくても7日ごとに手動更新することで運用可能。SideStoreに切り替えると完全PC不要に。" />
-    <Card icon="workspace_premium" iconColor="text-purple-500" title="有料アカウントなら制限なし" desc="Apple Developer Program（年額99ドル）なら7日制限を回避。永続的な署名が可能になる。" />
-  </CardGrid>
+  <div class="space-y-2 mb-6">
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-orange-500">schedule</span>
+      <span class="text-gray-800 font-medium text-sm">無料Apple IDは7日ごとに再署名が必要</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-blue-500">dns</span>
+      <span class="text-gray-800 font-medium text-sm">AltServerをバックグラウンド起動すればWi-Fi自動更新が実現</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">smartphone</span>
+      <span class="text-gray-800 font-medium text-sm">PCなしでも手動更新で運用可能（SideStoreなら完全不要）</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-purple-500">workspace_premium</span>
+      <span class="text-gray-800 font-medium text-sm">有料Developer Program（年額99ドル）で7日制限なし</span>
+    </div>
+  </div>
 </Section>
 
 <RelatedArticles articles={[
