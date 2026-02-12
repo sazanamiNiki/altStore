@@ -1,0 +1,200 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "当サイトについて・運営方針";
+export const description = "bunchoniki Storeの運営方針と掲載基準。オープンソースまたはApple公証により安全性を確認したアプリのみを厳選し、初心者でも安全に利用できる情報を提供します。";
+
+<ArticleLayout title={title} description={description} date="2026-02-03" icon="policy" iconColor="text-blue-500">
+
+<Section intro title="なぜこのサイトを作ったのか" icon="lightbulb">
+  <p class="text-gray-700 mb-4">
+    iPhoneのサイドローディングは、App Storeでは提供されない便利なアプリを使える画期的な仕組みです。しかし、<mark class="bg-yellow-100 px-1 rounded"><strong>日本語の情報が少なく、初心者には敷居が高い</strong></mark>という課題がありました。
+  </p>
+  <p class="text-gray-700 mb-4">
+    また、ネット上には出どころ不明なアプリや安全性が不明なアプリの情報も混在しており、<mark class="bg-yellow-100 px-1 rounded"><strong>どの情報を信じればいいのか分からない</strong></mark>という声も多く聞かれます。
+  </p>
+  <p class="text-gray-700">
+    bunchoniki Storeは、<strong>「開発元が明確なアプリのみを扱う」「初心者でも安心して使える」「日本語で分かりやすく解説する」</strong>という3つの方針のもと、サイドローディングの正しい知識と安全な使い方を広めることを目的として運営しています。
+  </p>
+</Section>
+
+<Section title="当サイトの特徴" icon="stars">
+  <AccordionGroup>
+    <Accordion title="1. 開発元が明確なアプリのみを厳選">
+      <p class="text-gray-700 mb-4">
+        当サイトでは、<mark class="bg-yellow-100 px-1 rounded"><strong>オープンソースまたはApple公証により安全性を確認したアプリのみ</strong></mark>を紹介しています。この2つの方法により、開発元が明確で、マルウェアやウイルスが含まれていないことを確認しています。
+      </p>
+      <InfoBox type="success" icon="code" title="オープンソースによる透明性">
+        エミュレータなどのオープンソースアプリは、ソースコードが公開されており、誰でも内部の動作を確認できます。コードが公開されているため悪意あるコードが混入しにくく、世界中の開発者がコードをレビューし、GitHubなどで開発履歴も確認できます。
+      </InfoBox>
+      <InfoBox type="info" icon="shield" title="Apple公証による信頼性">
+        クリエイター向けツールなど、商用アプリの多くはAppleの公証（Notarization）を受けています。公証済みアプリは、Appleが安全性をチェックし、マルウェアやウイルスが含まれていないことを確認したアプリです。開発元の身元がApple Developer IDで確認されており、問題が発見された場合は証明書を取り消すことができます。
+      </InfoBox>
+      <InfoBox type="error" icon="warning" title="出どころ不明のアプリのリスク">
+        マルウェア・ウイルスの混入、個人情報の不正な収集・送信、デバイスの動作不良、法的・規約的な問題が発生するリスクがあります。当サイトではオープンソースまたは公証済みのアプリのみを扱い、ユーザーの安全を最優先に考えています。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="2. 初心者でも安心して使える">
+      <p class="text-gray-700 mb-4">
+        サイドローディングは、専門用語や技術的な知識が必要に思えるかもしれません。しかし、当サイトでは<mark class="bg-yellow-100 px-1 rounded"><strong>難しい言葉を避け、手順を詳しく解説</strong></mark>することで、初心者でも安心して利用できるようにしています。
+      </p>
+      <p class="text-gray-700">
+        また、各記事には「よくある質問」や「トラブルシューティング」を用意し、つまずきやすいポイントをカバーしています。
+      </p>
+    </Accordion>
+    <Accordion title="3. 日本語情報の充実">
+      <p class="text-gray-700 mb-4">
+        サイドローディングの情報は英語が中心で、日本語の情報源が限られています。当サイトでは、<strong>日本語で分かりやすく、かつ正確な情報</strong>を提供することを心がけています。
+      </p>
+      <p class="text-gray-700">
+        技術的な専門用語も、必要に応じて日本語の説明を付けています。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="掲載基準" icon="rule">
+  <AccordionGroup>
+    <Accordion title="開発元が明確であること（必須）">
+      <p class="text-gray-700 mb-4">
+        すべての掲載アプリは、<strong>オープンソースまたはApple公証により安全性を確認している</strong>必要があります。具体的には、以下の方法で確認しています：
+      </p>
+      <CardGrid>
+        <Card icon="code" iconColor="text-blue-500" title="オープンソースアプリの確認">
+          <ul class="list-disc pl-4 space-y-1 text-gray-600 text-xs mt-1">
+            <li>GitHubなどでソースコードが公開されている</li>
+            <li>開発履歴やコミット内容が確認できる</li>
+            <li>コミュニティによる活発な開発・レビューが行われている</li>
+            <li>実際にコードをレビューし、問題がないことを確認</li>
+          </ul>
+        </Card>
+        <Card icon="verified" iconColor="text-green-500" title="公証済みアプリの確認">
+          <ul class="list-disc pl-4 space-y-1 text-gray-600 text-xs mt-1">
+            <li>公式サイトやGitHubリポジトリでの公式アナウンス</li>
+            <li>実際にインストールして動作確認</li>
+            <li>Apple Developer IDの確認</li>
+          </ul>
+        </Card>
+      </CardGrid>
+    </Accordion>
+    <Accordion title="実用性があること">
+      <p class="text-gray-700">
+        掲載アプリは、<mark class="bg-yellow-100 px-1 rounded"><strong>実際に役立つ機能を持っている</strong></mark>ことを重視しています。単なる実験的なアプリや、使い道が限定的なものは対象外です。
+      </p>
+    </Accordion>
+    <Accordion title="継続的なメンテナンスがされていること">
+      <p class="text-gray-700">
+        開発が停止しているアプリや、長期間更新されていないアプリは、セキュリティリスクが高まります。当サイトでは、<strong>継続的に開発・保守されているアプリ</strong>を優先的に掲載しています。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="情報の信頼性" icon="fact_check" iconColor="text-green-600">
+  <AccordionGroup>
+    <Accordion title="情報源">
+      <p class="text-gray-700 mb-3">当サイトの情報は、以下のソースをもとに作成しています：</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Apple公式ドキュメント</strong>：サイドローディングやApp Storeの規約に関する公式情報</li>
+        <li><strong>各アプリの公式サイト・GitHubリポジトリ</strong>：最新のバージョン情報や機能説明、ソースコードの確認</li>
+        <li><strong>実際の検証</strong>：運営者が実際にインストール・テストして確認</li>
+        <li><strong>法的情報</strong>：デジタル市場法（DMA）や日本の法律に関する信頼できる情報源</li>
+      </ul>
+    </Accordion>
+    <Accordion title="更新方針">
+      <p class="text-gray-700 mb-4">
+        サイドローディングの情報は急速に変化します。当サイトでは、<mark class="bg-yellow-100 px-1 rounded"><strong>最新情報を定期的に更新</strong></mark>し、古い情報を放置しないように努めています。
+      </p>
+      <p class="text-gray-700">
+        各記事の最後には<strong>「最終更新日」</strong>を明記し、情報の新しさを確認できるようにしています。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="免責事項" icon="gavel" iconColor="text-red-600">
+  <InfoBox type="error" icon="warning" title="サイドローディングは自己責任で行ってください">
+    当サイトで紹介する情報は、正確性と安全性を重視していますが、<strong>すべての動作を保証するものではありません</strong>。
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="当サイトの責任範囲">
+      <p class="text-gray-700 mb-3">bunchoniki Storeは、以下の点について責任を負いかねます：</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>デバイスの故障や不具合</strong>：サイドローディングの実行により生じたデバイスの問題</li>
+        <li><strong>データの損失</strong>：アプリのインストールや使用によるデータ消失</li>
+        <li><strong>法的問題</strong>：利用者の居住地域の法律に基づく問題（利用者自身で確認してください）</li>
+        <li><strong>アプリの動作</strong>：紹介したアプリが期待通りに動作しない場合</li>
+        <li><strong>Appleによるペナルティ</strong>：Apple IDの停止や利用制限（通常は発生しませんが、規約違反があった場合）</li>
+      </ul>
+    </Accordion>
+    <Accordion title="ユーザーの責任">
+      <p class="text-gray-700 mb-3">サイドローディングを利用する際は、以下の点をご理解ください：</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>当サイトの情報を参考にする場合でも、<mark class="bg-yellow-100 px-1 rounded"><strong>最終的な判断と責任は利用者自身</strong></mark>にあります</li>
+        <li>アプリのインストール前に、公式サイトや利用規約を必ず確認してください</li>
+        <li>法的に問題のないアプリのみを使用してください（違法コピーアプリやチートツールは対象外です）</li>
+        <li>重要なデータは定期的にバックアップを取ってください</li>
+      </ul>
+    </Accordion>
+    <Accordion title="情報の正確性について">
+      <p class="text-gray-700">
+        当サイトは最新かつ正確な情報の提供に努めていますが、<strong>情報が古くなる可能性や、誤りが含まれる可能性</strong>があります。重要な判断をする際は、必ず公式情報を確認してください。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="お問い合わせ" icon="mail">
+  <p class="text-gray-700 mb-4">
+    当サイトに関するご質問、誤りの報告、掲載希望のアプリに関するご連絡は、以下のメールアドレスまでお願いします。
+  </p>
+  <InfoBox type="info" title="お問い合わせメールアドレス">
+    <p class="text-xl font-bold text-blue-600 mt-1">
+      <a href="mailto:contact@bunchoniki.com" class="hover:underline">contact@bunchoniki.com</a>
+    </p>
+    <p class="text-gray-600 text-sm mt-2">返信には数日いただく場合がございます。あらかじめご了承ください。</p>
+    <p class="text-gray-600 text-sm mt-2">
+      <strong>注意：</strong>個別のトラブルシューティングや技術サポートには対応しておりません。各アプリの公式サポートをご利用ください。
+    </p>
+  </InfoBox>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="verified" iconColor="text-green-500" title="開発元が明確なアプリのみ" desc="オープンソースまたは公証により安全性を確認。出どころ不明なアプリは扱いません" />
+    <Card icon="school" iconColor="text-blue-500" title="初心者でも安心" desc="難しい言葉を避け、手順を詳しく解説。よくある質問でつまずきをカバー" />
+    <Card icon="translate" iconColor="text-purple-500" title="日本語情報の充実" desc="英語中心の情報を、分かりやすい日本語で正確に提供" />
+  </CardGrid>
+  <InfoBox type="warning" icon="info" title="自己責任での利用が前提です">
+    サイドローディングは便利な仕組みですが、<mark class="bg-yellow-100 px-1 rounded"><strong>自己責任での利用が前提</strong></mark>です。当サイトの情報を参考にしながら、安全に楽しくサイドローディングを活用してください。
+  </InfoBox>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/what-is-sideloading',
+    icon: 'smartphone',
+    title: 'サイドローディングとは',
+    desc: 'App Storeとの違い、メリット・リスクを初心者向けに解説。',
+  },
+  {
+    href: '/articles/safety-guide',
+    icon: 'security',
+    title: '野良アプリの安全ガイド',
+    desc: '安全に使うための3つの鉄則。オープンソースの透明性と権限許可の重要性を解説。',
+  },
+  {
+    href: '/articles/apple-notarization',
+    icon: 'verified',
+    title: 'Apple公証とは',
+    desc: 'Appleによるアプリ安全チェックの仕組みと、公証済みアプリの見分け方。',
+  },
+]} />
+
+</ArticleLayout>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  icon?: string;
+  recommended?: boolean;
+}
+const { title, icon = 'settings', recommended = false } = Astro.props;
+
+const headerClass = recommended
+  ? 'bg-blue-50 px-5 py-3 border-b border-blue-200'
+  : 'bg-gray-50 px-5 py-3 border-b border-gray-200';
+
+const wrapperClass = recommended
+  ? 'border border-blue-200 rounded-xl overflow-hidden mb-4'
+  : 'border border-gray-200 rounded-xl overflow-hidden mb-4';
+
+const titleClass = recommended
+  ? 'font-bold text-blue-700 flex items-center gap-2 text-sm'
+  : 'font-bold text-gray-700 flex items-center gap-2 text-sm';
+
+const iconClass = recommended ? 'text-blue-500 text-base' : 'text-gray-500 text-base';
+---
+
+<div class={wrapperClass}>
+  <div class={headerClass}>
+    <h4 class={titleClass}>
+      <span class={`material-symbols-outlined ${iconClass}`}>{icon}</span>
+      {title}{recommended && '（推奨）'}
+    </h4>
+  </div>
+  <div class="p-5">
+    <div class="text-gray-700 text-sm">
+      <slot />
+    </div>
+  </div>
+</div>

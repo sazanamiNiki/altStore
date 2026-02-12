@@ -1,0 +1,157 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "野良アプリは危険？ウイルスから身を守るための3つの鉄則";
+export const h1 = "安全に使う3つの鉄則";
+export const description = "オープンソースの透明性、信頼できる開発元の確認、権限許可の注意点。野良アプリから身を守る3つの鉄則";
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-02" icon="security" iconColor="text-blue-500">
+
+<Section intro title="「野良アプリ＝危険」は本当か" icon="help_outline">
+  <p class="text-gray-700 mb-4">
+    「App Store 以外のアプリは危険」「野良アプリはウイルスがいっぱい」
+    こうした言葉を聞いたことはありませんか？
+  </p>
+  <p class="text-gray-700">
+    一定の根拠がある議論ですが、<mark class="bg-yellow-100 px-1 rounded"><strong>実は正しい知識と対策があれば、
+    サイドローディングは十分に安全に楽しめます</strong></mark>。
+    この記事では、「野良アプリ」を安全に使う3つの鉄則をご紹介します。
+  </p>
+</Section>
+
+<Section title="鉄則1：開発元がはっきりしているアプリを選ぶ" icon="verified" iconColor="text-green-600">
+  <p class="text-gray-700 mb-6">
+    野良アプリの安全性を判断する際は、<mark class="bg-yellow-100 px-1 rounded"><strong>「誰が作ったのか」「どこから配信されているのか」</strong></mark>を必ず確認しましょう。
+    安全なアプリには、必ず信頼できる根拠があります。
+  </p>
+  <CardGrid>
+    <Card icon="code" iconColor="text-blue-500" title="オープンソースによる透明性">
+      <p class="text-gray-600 text-xs mt-1">エミュレータ（Delta、UTMなど）はソースコードが公開されており、誰でも中身を確認できます。GitHubなどで公式リポジトリから直接配布されているため、改ざんのリスクがありません。</p>
+    </Card>
+    <Card icon="verified" iconColor="text-green-500" title="Appleによる公証（Notarization）">
+      <p class="text-gray-600 text-xs mt-1">クリエイターアプリなど、一部のアプリはAppleの公証を受けています。公証により、マルウェアやセキュリティ脆弱性がないことが確認されています。</p>
+    </Card>
+  </CardGrid>
+  <InfoBox type="error" icon="warning" title="出どころ不明のアプリは危険">
+    最も重要なのは、<mark class="bg-yellow-100 px-1 rounded"><strong>開発者の公式リポジトリや信頼できるストアから入手</strong></mark>することです。
+    出どころ不明のIPAファイルや、怪しいサイトからのダウンロードは避けましょう。
+  </InfoBox>
+  <InfoBox type="warning" title="7日署名と安全性について">
+    AltStoreやSideStoreでIPAファイルとしてインストールしたアプリは、7日ごとに自己署名で更新されます。
+    この再署名プロセスでは、Apple公証が適用されませんが、<strong>iOSのサンドボックス構造により基本的な安全性は維持されます</strong>。
+    重要なのは、<strong>初回インストール時に信頼できるソースから入手すること</strong>です。
+    公式リポジトリから取得したアプリであれば、7日署名であっても安全に利用できます。
+  </InfoBox>
+</Section>
+
+<Section title="鉄則2：オープンソース＆信頼できるプロジェクトを優先する" icon="code">
+  <AccordionGroup>
+    <Accordion title="オープンソースとは？">
+      <p class="text-gray-700 mb-4">
+        <strong>オープンソース</strong>とは、ソースコード（プログラムの生のコード）が
+        誰でも見られる状態で公開されているソフトウェアのことです。
+        GitHub などのプラットフォームで、全世界の開発者がコードを監視することができます。
+      </p>
+      <InfoBox type="success" icon="visibility" title="透明性が安全性を保証">
+        コードが非公開だと、開発者が何をしているのか確認できません。オープンソースなら：セキュリティ研究者が定期的にチェックし、不正なコードがあればすぐに報告されます。多くの開発者の目が入るため、バグが早期発見されやすいです。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="信頼できるプロジェクトの見分け方">
+      <p class="text-gray-700 mb-4">以下の指標でオープンソースプロジェクトの信頼度を判断できます：</p>
+      <CardGrid>
+        <Card icon="star" iconColor="text-yellow-500" title="GitHub Star数が多い" desc="注目度が高く、多くの開発者に使われているプロジェクト" />
+        <Card icon="update" iconColor="text-blue-500" title="コミット履歴が充実" desc="定期的に更新されており、開発が活発である" />
+        <Card icon="chat" iconColor="text-blue-500" title="Issueへの対応が迅速" desc="バグ報告や質問に開発者が積極的に対応している" />
+        <Card icon="verified_user" iconColor="text-green-500" title="セキュリティ監査を実施" desc="外部機関によるコードレビューや監査を受けている" />
+      </CardGrid>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="鉄則3：権限許可（パーミッション）に注意する" icon="admin_panel_settings" iconColor="text-yellow-600">
+  <InfoBox type="info" icon="lock" title="iOSの保護機能を理解する">
+    アプリが初めてカメラやマイク、位置情報などにアクセスしようとすると、
+    iOS は「このアプリにカメラへのアクセスを許可しますか？」と尋ねます。
+    この仕組みを<mark class="bg-yellow-100 px-1 rounded"><strong>パーミッション（権限許可）</strong></mark>と呼びます。
+  </InfoBox>
+  <InfoBox type="error" icon="warning" title="不自然な権限要求は危険信号">
+    例えば、単純な計算機アプリが「位置情報へのアクセスが必要」と言ってきたら、
+    それは不自然ですよね。<mark class="bg-yellow-100 px-1 rounded"><strong>アプリの機能と無関係な権限をリクエストするアプリは要注意</strong></mark>です。
+    悪意あるアプリの多くは、こうした不要な権限を取得しようとしてきます。
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="権限許可の安全な判断法">
+      <p class="text-gray-700 mb-3">インストール前に確認する習慣をつけましょう：</p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>そのアプリが<mark class="bg-yellow-100 px-1 rounded"><strong>何のためにその権限が必要か、説明できるか</strong></mark>考える</li>
+        <li>必要な権限だけ許可し、不要な権限は「許可しない」を選択する</li>
+        <li>後でも「設定」→「プライバシー」から権限を変更できることを知っておく</li>
+      </ul>
+    </Accordion>
+    <Accordion title="設定画面でいつでも確認・変更可能">
+      <p class="text-gray-700">
+        iPhone の「設定」→「プライバシーとセキュリティ」を開くと、
+        すべてのアプリの権限状況が一覧表示されます。
+        不安なら、定期的にこの画面をチェックして、不要な権限を剥奪することをお勧めします。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="その他の安全対策" icon="shield">
+  <AccordionGroup>
+    <Accordion title="信頼できるソースからのみ入手する">
+      <p class="text-gray-700">
+        一番安全なのは、AltStore PAL や AltStore など、
+        <mark class="bg-yellow-100 px-1 rounded"><strong>公式で信頼されたアプリストアからアプリをダウンロード</strong></mark>することです。
+        個人サイトや不明なリンクからの直接ダウンロードは避けましょう。
+      </p>
+    </Accordion>
+    <Accordion title="開発者の履歴を調べる">
+      <p class="text-gray-700">
+        新しい開発者のアプリより、<mark class="bg-yellow-100 px-1 rounded"><strong>実績のある開発者のアプリの方が安全性が高い</strong></mark>傾向があります。
+        開発者の名前を検索して、他にどんなアプリを作成しているか、
+        評判はどうかを確認することをお勧めします。
+      </p>
+    </Accordion>
+    <Accordion title="定期的にアプリを更新する">
+      <p class="text-gray-700">
+        セキュリティの脆弱性が発見されたら、開発者はアップデートをリリースして対応します。
+        <mark class="bg-yellow-100 px-1 rounded"><strong>古いバージョンを使い続けることは避け、定期的に更新</strong></mark>することが大切です。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all">
+  <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-6">
+    <li><mark class="bg-yellow-100 px-1 rounded"><strong>鉄則1：開発元がはっきりしているアプリを選ぶ</strong></mark>。オープンソースまたは公証により、安全性の根拠を確認しましょう。</li>
+    <li><mark class="bg-yellow-100 px-1 rounded"><strong>鉄則2：オープンソースかつ実績のあるプロジェクト</strong></mark>を優先しましょう。コード監視が行われています。</li>
+    <li><mark class="bg-yellow-100 px-1 rounded"><strong>鉄則3：権限許可に注意</strong></mark>しましょう。不自然な権限要求は拒否してOK。</li>
+    <li>信頼できるストア、公式リポジトリから入手し、定期的に更新することで、ほぼすべてのリスクを回避できます。</li>
+    <li>完全な安全性はありません。常に「念のため」という気持ちで確認するクセをつけましょう。</li>
+  </ul>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/emulator-legal',
+    icon: 'gavel',
+    title: 'エミュレータの違法性について',
+    desc: 'エミュレータ自体は合法？ROM の入手方法による違法性の違いを解説。安心して楽しむための知識。',
+  },
+  {
+    href: '/articles/smartphone-law-explained',
+    icon: 'balance',
+    title: 'スマホ新法の解説',
+    desc: '日本のモバイルソフトウェア競争法（MSCA）がもたらす変化。App Store 独占の終わりと、ユーザーが得る自由。',
+  },
+]} />
+
+</ArticleLayout>

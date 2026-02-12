@@ -1,0 +1,209 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import MethodCard from '../../components/MethodCard.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "【年額5,000円の差も】App Store決済とWeb決済、どっちが得？";
+export const h1 = "App Store vs Web決済";
+export const description = "「アプリで払うと高い」は本当？スマホ新法で自由になった決済手段のメリット・デメリットと、YouTubeやSpotifyでの価格差の実例を解説。";
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-02" icon="credit_card" iconColor="text-blue-500">
+
+<Section intro title="同じサービスなのに値段が違う？" icon="lightbulb">
+  <p class="text-gray-700 mb-4">
+    「YouTube Premium」や「Spotify」を契約する時、<strong>iPhoneアプリから申し込むか、Webサイトから申し込むか</strong>で、月額料金が違うことをご存知でしょうか？
+  </p>
+  <p class="text-gray-700 mb-4">
+    たとえば、YouTube Premiumは<strong>アプリ経由だと月額1,680円、Web経由だと月額1,280円</strong>。年間にすると<mark class="bg-yellow-100 px-1 rounded"><strong>約4,800円の差</strong></mark>が出ます。
+  </p>
+  <p class="text-gray-700 mb-4">
+    この価格差の正体は<strong>「Apple税」</strong>と呼ばれる手数料（15〜30%）です。アプリ内で決済すると、Appleが手数料を徴収するため、その分が価格に上乗せされているのです。
+  </p>
+  <p class="text-gray-700">
+    しかし、2025年から施行された<mark class="bg-yellow-100 px-1 rounded"><strong>日本の「スマホソフトウェア競争促進法」（通称：スマホ新法）</strong></mark>により、アプリ開発者は<strong>Web決済への誘導が正式に許可</strong>されるようになりました。この記事では、それぞれの決済方法のメリット・デメリットと、<strong>賢い使い分けの方法</strong>を解説します。
+  </p>
+</Section>
+
+<Section title="App Store決済 vs Web決済：何が違う？" icon="compare_arrows">
+  <p class="text-gray-700 mb-6">
+    まず、2つの決済方法の特徴を比較してみましょう。
+  </p>
+  <div class="mb-6 overflow-x-auto">
+    <table class="w-full text-sm text-gray-700 border-collapse">
+      <thead>
+        <tr class="bg-gray-100 border-b border-gray-300">
+          <th class="text-left p-3 font-bold">特徴</th>
+          <th class="text-left p-3 font-bold">App Store決済 (Apple ID)</th>
+          <th class="text-left p-3 font-bold">Web決済 (クレカ/PayPal)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-200">
+          <td class="p-3"><strong>料金</strong></td>
+          <td class="p-3 bg-red-50">割高なことが多い（手数料上乗せ）</td>
+          <td class="p-3 bg-green-50"><strong>最安値</strong>（本来の価格）</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td class="p-3"><strong>手軽さ</strong></td>
+          <td class="p-3 bg-green-50"><strong>Face IDで一瞬</strong></td>
+          <td class="p-3 bg-yellow-50">カード番号入力が必要</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td class="p-3"><strong>管理</strong></td>
+          <td class="p-3 bg-green-50">iPhone設定から一括管理・解約</td>
+          <td class="p-3 bg-yellow-50">各サイトにログインして解約</td>
+        </tr>
+        <tr>
+          <td class="p-3"><strong>安全性</strong></td>
+          <td class="p-3 bg-green-50">カード情報をAppleのみに通知</td>
+          <td class="p-3 bg-yellow-50">各サイトに登録が必要</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <AccordionGroup>
+    <Accordion title="App Store決済のメリット">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Face ID認証だけで一瞬で決済完了</strong> - カード番号を入力する手間がない</li>
+        <li><strong>iPhoneの設定画面から全サブスク一括管理</strong> - 解約も簡単</li>
+        <li><strong>セキュリティ面で安心</strong> - クレジットカード情報をAppleのみに預ける</li>
+      </ul>
+    </Accordion>
+    <Accordion title="Web決済のメリット">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>料金が安い</strong> - Apple手数料が上乗せされない本来の価格</li>
+        <li><strong>開発者やクリエイターに直接お金が届く</strong> - 手数料で消える金額を減らせる</li>
+        <li><strong>決済手段が豊富</strong> - PayPal、Google Pay、銀行振込などが使える場合も</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="warning" icon="info" title="スマホ新法（2025年施行）とは？">
+    正式名称は「特定ソフトウェアに係る競争の促進に関する法律」。Apple（iOS）やGoogle（Android）といったプラットフォームが、<strong>決済手段を独占することを禁止</strong>し、アプリ開発者が外部決済（Web決済）への誘導を自由にできるようにした法律です。これにより、ユーザーは<mark class="bg-yellow-100 px-1 rounded"><strong>より安い価格で同じサービスを利用できる</strong></mark>ようになりました。
+  </InfoBox>
+</Section>
+
+<Section title="賢い使い分けの3つのルール" icon="task_alt" iconColor="text-green-600">
+  <p class="text-gray-700 mb-6">
+    どちらが良いかは「何を重視するか」で変わります。以下の3つのルールを参考に、自分に合った方法を選びましょう。
+  </p>
+  <MethodCard title="ルール1：大手サブスクは「Web決済」一択" icon="savings" recommended>
+    <p class="mb-3">
+      <strong>YouTube Premium、Spotify、Netflix、Hulu</strong>などの大手サブスクサービスは、<mark class="bg-yellow-100 px-1 rounded"><strong>Webで契約してアプリでログインする</strong></mark>のが鉄則です。
+    </p>
+    <ul class="list-disc pl-5 space-y-2 mb-3">
+      <li><strong>YouTube Premium:</strong> アプリ 1,680円/月 → Web 1,280円/月（年間4,800円の差）</li>
+      <li><strong>Spotify Premium:</strong> アプリ 1,280円/月 → Web 980円/月（年間3,600円の差）</li>
+    </ul>
+    <p class="font-bold text-blue-700">アプリで契約するのは「年間約5,000円の損」と考えましょう。</p>
+  </MethodCard>
+  <MethodCard title="ルール2：解約忘れが怖いなら「App Store決済」" icon="shield">
+    <p class="mb-3">「試しに1ヶ月だけ使いたい」「解約を忘れそう」という場合は、<strong>iPhoneの設定画面から一括管理できるApp Store決済</strong>が安心です。</p>
+    <p class="mb-2">解約手順：</p>
+    <ol class="list-decimal pl-5 space-y-1">
+      <li>iPhoneの「設定」→「Apple ID（一番上）」→「サブスクリプション」</li>
+      <li>解約したいサービスを選んで「サブスクリプションをキャンセル」</li>
+    </ol>
+    <p class="font-bold text-green-700 mt-3">多少高くても「管理代」と割り切れるなら、App Storeが便利です。</p>
+  </MethodCard>
+  <MethodCard title="ルール3：推し活・個人開発者は「Web決済（Patreonなど）」" icon="favorite">
+    <p class="mb-3">好きなYouTuberや個人開発者を支援する場合は、<mark class="bg-yellow-100 px-1 rounded"><strong>手数料で消えるお金を減らし、直接お金が届くWeb決済</strong></mark>がベストです。</p>
+    <ul class="list-disc pl-5 space-y-2 mb-3">
+      <li><strong>Patreon</strong> - クリエイター支援の定番（手数料5〜12%）</li>
+      <li><strong>GitHub Sponsors</strong> - オープンソース開発者の支援（手数料なし）</li>
+      <li><strong>Ko-fi</strong> - 一度きりの投げ銭にも対応（手数料0〜5%）</li>
+    </ul>
+    <p class="font-bold text-purple-700">Apple手数料30%を避けることで、支援金の70%→95%以上が開発者に届きます。</p>
+  </MethodCard>
+</Section>
+
+<Section title="AltStoreユーザーへのアドバイス" icon="apps">
+  <p class="text-gray-700 mb-4">
+    AltStoreやSideStoreで配信されるアプリの多くは、<strong>そもそもApp Store決済（IAP: In-App Purchase）を持たない</strong>ことがほとんどです。
+  </p>
+  <p class="text-gray-700 mb-6">
+    これは、Apple審査を通過していないため、Appleの決済システムを利用できないからです。代わりに、以下の方法で開発者を支援できます：
+  </p>
+  <CardGrid>
+    <Card icon="support" iconColor="text-blue-500" title="Patreon" desc="月額支援で限定機能や先行版を提供。AltStore連携対応" />
+    <Card icon="code" iconColor="text-blue-500" title="GitHub Sponsors" desc="GitHubアカウントで簡単支援。手数料なし" />
+    <Card icon="local_cafe" iconColor="text-yellow-500" title="Ko-fi / Buy Me a Coffee" desc="一度きりの寄付に最適。手数料0〜5%" />
+    <Card icon="send_money" iconColor="text-green-500" title="PayPal直接送金" desc="手数料最小。直接開発者に届く" />
+  </CardGrid>
+  <InfoBox type="success" icon="volunteer_activism" title="AltStoreのメリット：中抜きなしで開発者に直接届く">
+    サイドローディングアプリの支援は、<mark class="bg-yellow-100 px-1 rounded"><strong>「Web決済」の最大のメリット</strong></mark>そのものです。Apple税が一切かからず、支援金の大部分が開発者に届きます。これは、<strong>オープンソース文化やクリエイターエコノミー</strong>を支える重要な仕組みでもあります。
+  </InfoBox>
+</Section>
+
+<Section title="よくある質問" icon="help">
+  <AccordionGroup>
+    <Accordion title="Q. Web決済に切り替えたら、今までのデータは消える？">
+      <p class="text-gray-700">
+        <strong>A.</strong> いいえ、消えません。ほとんどのサービスでは、<strong>同じアカウントでログイン</strong>すれば、アプリでもWebでもデータは共有されます。YouTube Premium、Spotify、Netflixなど主要サービスはすべて対応しています。
+      </p>
+    </Accordion>
+    <Accordion title="Q. App Storeで契約したものを、途中でWeb決済に変更できる？">
+      <p class="text-gray-700 mb-3">
+        <strong>A.</strong> できます。手順は以下の通り：
+      </p>
+      <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+        <li>まず、App Storeのサブスクを解約</li>
+        <li>契約期間が終了したら、Webサイトから再契約</li>
+        <li>同じアカウントでログインすればデータは引き継がれる</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Q. Web決済の方が安いのに、なぜアプリ決済を使う人がいるの？">
+      <p class="text-gray-700 mb-3"><strong>A.</strong> 主な理由は以下の3つです：</p>
+      <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        <li><strong>知らないから</strong> - 価格差に気づいていない人が多い</li>
+        <li><strong>手軽さ</strong> - Face IDで一瞬で決済できる便利さを優先</li>
+        <li><strong>管理のしやすさ</strong> - iPhone設定から一括管理できるのが楽</li>
+      </ul>
+    </Accordion>
+    <Accordion title="Q. Web決済は安全？クレジットカード情報を入力するのが不安…">
+      <p class="text-gray-700">
+        <strong>A.</strong> YouTube、Spotify、Netflixなど<strong>大手サービス</strong>であれば、セキュリティ対策は万全です。また、<strong>PayPalやGoogle Pay</strong>を経由すれば、クレジットカード情報を各サイトに直接渡さずに決済できます。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <ul class="list-disc pl-6 space-y-3 text-gray-700 mb-6">
+    <li><strong class="text-blue-600">価格差の正体：</strong>アプリ経由の決済はApple手数料（15〜30%）が上乗せされるため、Web決済より高い。</li>
+    <li><strong class="text-blue-600">スマホ新法の影響：</strong>2025年施行の日本の法律により、アプリ開発者はWeb決済への誘導が正式に許可され、ユーザーは選択肢が増えた。</li>
+    <li><strong class="text-blue-600">ルール1：大手サブスクはWeb一択：</strong>YouTube、Spotify、NetflixなどはWebで契約すれば年間約5,000円の節約。</li>
+    <li><strong class="text-blue-600">ルール2：解約忘れが怖いならApp Store：</strong>iPhone設定から一括管理できる安心感。多少高くても「管理代」と割り切る。</li>
+    <li><strong class="text-blue-600">ルール3：推し活はWeb決済：</strong>PatreonやGitHub Sponsorsで直接支援することで、手数料を減らして開発者に届ける。</li>
+  </ul>
+  <InfoBox type="info" icon="lightbulb" title="結論">
+    盲目的にFace IDで払うのではなく、一度「Web価格」を確認するクセをつけよう。「便利さのApple」か「安さと応援のWeb」か、<mark class="bg-yellow-100 px-1 rounded"><strong>自分の価値観で選ぶ時代</strong></mark>です。
+  </InfoBox>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/smartphone-law-explained',
+    icon: 'gavel',
+    title: 'スマホ新法とは',
+    desc: '2025年施行のスマートフォンソフトウェア競争促進法で何が変わるのか詳しく解説。',
+  },
+  {
+    href: '/articles/commission-cut',
+    icon: 'percent',
+    title: '手数料削減の仕組み',
+    desc: 'Apple税30%はなぜ高い？サイドローディングで開発者に届くお金が増える理由。',
+  },
+  {
+    href: '/articles/direct-support',
+    icon: 'volunteer_activism',
+    title: '開発者への直接支援',
+    desc: 'Patreon連携でベータ版先行アクセスや限定アプリを受け取る方法。',
+  },
+]} />
+
+</ArticleLayout>

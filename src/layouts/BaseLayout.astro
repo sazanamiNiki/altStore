@@ -1,0 +1,68 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StatusBar from '../components/StatusBar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = 'サイドローディングの総合情報サイト。AltStore・SideStoreの使い方、安全性、法的情報を日本語で解説。',
+  ogType = 'website',
+  ogImage = '/assets/img/logo.png',
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://altstore-jp.bunchoniki.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const base = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | bunchoniki Store</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noIndex && <meta name="robots" content="noindex" />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:title" content={`${title} | bunchoniki Store`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={`${siteUrl}${base.slice(0, -1)}${ogImage}`} />
+  <meta property="og:site_name" content="bunchoniki Store" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${title} | bunchoniki Store`} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Favicon -->
+  <link rel="icon" href={`${base}assets/img/logo.png`} />
+
+  <!-- Material Symbols Outlined -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3579213602196152" crossorigin="anonymous" is:inline></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <StatusBar />
+  <Header />
+  <slot />
+  <Footer />
+</body>
+</html>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  icon: string;
+  iconColor?: string;
+  title: string;
+  desc?: string;
+  fullWidth?: boolean;
+}
+const {
+  icon,
+  iconColor = 'text-blue-500',
+  title,
+  desc,
+  fullWidth = false,
+} = Astro.props;
+---
+
+<div class={`flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100 ${fullWidth ? 'sm:col-span-2' : ''}`}>
+  <span class={`material-symbols-outlined ${iconColor} text-base mt-0.5 flex-shrink-0`}>{icon}</span>
+  <div>
+    <div class="font-semibold text-gray-800 text-sm">{title}</div>
+    {desc && <div class="text-gray-500 text-xs">{desc}</div>}
+    <slot />
+  </div>
+</div>

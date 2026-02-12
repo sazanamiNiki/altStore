@@ -1,0 +1,45 @@
+---
+type AlertType = 'info' | 'warning' | 'error';
+
+interface Alert {
+  id: string;
+  type: AlertType;
+  icon: string;
+  message: string;
+  active: boolean;
+}
+
+const alerts: Alert[] = [
+  {
+    id: 'ios-support',
+    type: 'info',
+    icon: 'smartphone',
+    message: '対応iOS: 17.0〜18.3 ｜ AltStore PAL / AltStore Classic 最新版対応',
+    active: true,
+  },
+];
+
+const styles = {
+  info:    { bar: 'bg-sky-50 border-sky-200',    text: 'text-sky-800',    icon: 'text-sky-500' },
+  warning: { bar: 'bg-amber-50 border-amber-300', text: 'text-amber-900', icon: 'text-amber-500' },
+  error:   { bar: 'bg-red-50 border-red-300',     text: 'text-red-900',   icon: 'text-red-500' },
+};
+
+const activeAlerts = alerts.filter(a => a.active);
+---
+
+{activeAlerts.length > 0 && (
+  <div id="site-status-bar" class="border-b border-gray-100">
+    {activeAlerts.map(alert => {
+      const s = styles[alert.type];
+      return (
+        <div class={`${s.bar} border-b last:border-b-0`}>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center gap-2">
+            <span class={`material-symbols-outlined ${s.icon} text-[18px] leading-none`}>{alert.icon}</span>
+            <span class={`text-sm font-medium ${s.text}`}>{alert.message}</span>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+)}

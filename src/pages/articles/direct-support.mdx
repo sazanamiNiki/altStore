@@ -1,0 +1,233 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "アプリの寿命を決めるのは「あなた」です。直接支援（パトロン）のメリット";
+export const h1 = "直接支援のメリット";
+export const description = "開発者にコーヒー1杯分を奢る文化が、アプリの未来をどう変えるのか？AltStore独自の「Patreon連携」と、ベータ版アクセスの魅力を解説します。";
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-02" icon="volunteer_activism" iconColor="text-blue-500">
+
+<Section intro title="なぜ「神アプリ」は消えてしまうのか？" icon="lightbulb">
+  <p class="text-gray-700 mb-4">
+    あなたの大好きなアプリ。もしかして、数年前に更新が止まっていたり、ダウンロード画面から消えていたりしていませんか？
+  </p>
+  <p class="text-gray-700 mb-4">
+    それは単なる運の悪さではなく、<strong>開発者の資金が枯渇した</strong>可能性があります。
+  </p>
+  <p class="text-gray-700 mb-4">
+    App Store の「売り切りモデル」や「広告モデル」では、アプリ開発を継続するのに十分な収入が得られません。
+    <mark class="bg-yellow-100 px-1 rounded"><strong>OSのアップデート対応やサーバー維持には、継続的なコストがかかる</strong></mark>からです。
+  </p>
+  <p class="text-gray-700">
+    その悲劇を防ぐのが、<strong>パトロン（直接支援）という考え方</strong>です。このセクションでは、その仕組みと魅力を詳しく解説します。
+  </p>
+</Section>
+
+<Section title="「購入」ではなく「応援」する文化（Patron Culture）" icon="favorite">
+  <AccordionGroup>
+    <Accordion title="パトロン文化とは">
+      <p class="text-gray-700 mb-4">
+        <strong>パトロン（Patron）文化</strong>とは、ユーザーが開発者の活動を直接支援する文化のことです。
+      </p>
+      <p class="text-gray-700">
+        従来のアプリ購入モデルでは「機能を買う」という関係でしたが、パトロン文化では
+        <mark class="bg-yellow-100 px-1 rounded"><strong>「開発者の活動を支える」という関係</strong></mark>
+        に変わります。
+      </p>
+    </Accordion>
+    <Accordion title="具体的な仕組み">
+      <p class="text-gray-700 mb-4">
+        毎月コーヒー1杯分（数百円程度）を開発者に直接支援するというシンプルなモデルです。
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>1ヶ月～数ヶ月単位で支援額を選べる</li>
+        <li>いつでも支援を中止できる（月額サブスクリプション形式）</li>
+        <li>支援金は直接開発者に届く</li>
+      </ul>
+    </Accordion>
+    <Accordion title="App Storeとの違い：Apple税を回避">
+      <p class="text-gray-700 mb-4">
+        App Store を通じた購入では、Apple が<mark class="bg-yellow-100 px-1 rounded"><strong>15～30% の手数料</strong></mark>を徴収します。
+        一方、Patreon などのプラットフォームを使った直接支援では、この「Apple 税」を大幅に回避できます。
+      </p>
+      <div class="mb-4 overflow-x-auto">
+        <table class="w-full text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-gray-100 border-b border-gray-300">
+              <th class="text-left p-3 font-bold">購入方法</th>
+              <th class="text-left p-3 font-bold">開発者が受け取る割合</th>
+              <th class="text-left p-3 font-bold">プラットフォーム手数料</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="p-3"><strong>App Store 購入</strong></td>
+              <td class="p-3">70%</td>
+              <td class="p-3">30% (Apple税)</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="p-3"><strong>App Store アプリ内課金</strong></td>
+              <td class="p-3">70%</td>
+              <td class="p-3">30% (Apple税)</td>
+            </tr>
+            <tr>
+              <td class="p-3"><strong>Patreon 支援</strong></td>
+              <td class="p-3">95～98%</td>
+              <td class="p-3">2～5% (プラットフォーム手数料)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-gray-700">
+        あなたが100円支援すれば、App Store経由では開発者は70円しか受け取れませんが、
+        Patreon では95円以上が開発者に届きます。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="AltStoreユーザーの特権：支援のリターン" icon="star" iconColor="text-green-600">
+  <p class="text-gray-700 mb-6">
+    AltStore には<strong>Patreon連携機能</strong>が標準搭載されており、
+    支援者には明確で嬉しいメリットがあります。
+  </p>
+  <AccordionGroup>
+    <Accordion title="1. 最新機能を誰よりも早く（Beta Access）">
+      <p class="text-gray-700 mb-4">
+        <mark class="bg-yellow-100 px-1 rounded"><strong>AltStore や Delta のベータ版は、Patreon支援者限定で提供</strong></mark>されています。
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+        <li>新しいゲーム機対応を一般公開の数週間～数ヶ月前に使える</li>
+        <li>新機能をいち早く試すことができる</li>
+        <li>バグレポートを通じて、開発を直接サポートできる</li>
+      </ul>
+      <InfoBox type="info" icon="lightbulb" title="Beta Access の実例">
+        Delta がNintendo Switchの完全サポートを追加した時、Patreon支援者は一般公開の3ヶ月前に試用できました。
+        その間にバグを報告し、開発を支援することができたのです。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="2. 限定アプリのアンロック">
+      <p class="text-gray-700 mb-4">
+        Clip（クリップボード管理アプリ）など、一部の高機能アプリは<strong>支援者限定で配布</strong>される場合があります。
+      </p>
+      <p class="text-gray-700">
+        これらのアプリは、通常のソースには登録されず、サポーターのみがアクセスできる特別なリポジトリに配置されています。
+      </p>
+    </Accordion>
+    <Accordion title="3. 開発への直接的な影響力">
+      <p class="text-gray-700 mb-4">
+        多くの開発者は、Discord などのクローズドコミュニティで支援者とコミュニケーションを取ります。
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><mark class="bg-yellow-100 px-1 rounded"><strong>機能リクエストを直接できる権利</strong></mark></li>
+        <li>開発ロードマップについて事前に相談できる</li>
+        <li>バグ報告が優先的に対応される</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="実際に支援するには？" icon="task_alt">
+  <p class="text-gray-700 mb-6">
+    AltStore で支援を始めるのは非常に簡単です。以下の手順で完了します：
+  </p>
+  <StepList>
+    <Step num={1} title="AltStore を開く" desc="iPhone にインストール済みの AltStore アプリを起動します。" />
+    <Step num={2} title="Settings → Patreon を開く" desc="AltStore の設定画面から「Patreon」メニューを選択します。" />
+    <Step num={3} title="Patreon アカウントを連携" desc="Patreon アカウント（なければ新規作成）でログインし、AltStore と連携します。" />
+    <Step num={4} title="好きなクリエイターを支援" desc="支援したい開発者を検索し、毎月の支援額を選択。これで完了です！" />
+  </StepList>
+  <p class="text-gray-700 mt-4 mb-4">
+    AltStore は、連携したアカウントから支援中のクリエイターの情報を自動取得し、
+    <mark class="bg-yellow-100 px-1 rounded"><strong>「ベータ版ソース」が自動的にリストに追加</strong></mark>される仕組みになっています。
+  </p>
+  <p class="text-gray-700">
+    追加の設定は不要。支援を開始した瞬間から、ベータ版アプリやリターン特典にアクセスできます。
+  </p>
+</Section>
+
+<Section title="よくある質問" icon="help">
+  <AccordionGroup>
+    <Accordion title="Q. 支援を中止したら、ベータ版も使えなくなる？">
+      <p class="text-gray-700">
+        <strong>A.</strong> はい、一般的にはそうです。支援を中止すると、サポーター限定のベータ版ソースにはアクセスできなくなります。
+        ただし、既にインストール済みのアプリは使用可能な場合がほとんどです。
+      </p>
+    </Accordion>
+    <Accordion title="Q. 最低いくら支援すれば、ベータ版にアクセスできる？">
+      <p class="text-gray-700">
+        <strong>A.</strong> 開発者によって異なります。多くの場合、月額100～500円程度の支援で、ベータ版アクセスが得られます。
+        各開発者の Patreon ページで確認できます。
+      </p>
+    </Accordion>
+    <Accordion title="Q. 支援した場合、個人情報は保護される？">
+      <p class="text-gray-700">
+        <strong>A.</strong> Patreon と AltStore の連携では、基本的に必要最小限の情報のみ共有されます。
+        ただし、詐欺やアカウント盗用を避けるため、安全な支払い方法を使用することをお勧めします。
+      </p>
+    </Accordion>
+    <Accordion title="Q. 複数の開発者を同時に支援できる？">
+      <p class="text-gray-700">
+        <strong>A.</strong> もちろんです。AltStore の Patreon 連携では、複数の支援を管理できます。
+        好きなアプリの開発者を複数選んで、応援することができます。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ：支援は「投票」である" icon="done_all" iconColor="text-green-600">
+  <p class="text-gray-700 mb-6">
+    <mark class="bg-yellow-100 px-1 rounded"><strong>あなたの数百円が、そのアプリが来年も存在するかどうかを決める「投票」になります。</strong></mark>
+  </p>
+  <CardGrid>
+    <Card icon="check_circle" iconColor="text-blue-500" title="パトロン文化のメリット">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-xs mt-1">
+        <li>開発者に<strong>より多くの収入</strong>が直接届く（Apple税の回避）</li>
+        <li><strong>ベータ版を先行体験</strong>できる</li>
+        <li><strong>限定アプリ</strong>や<strong>高機能版</strong>にアクセスできる</li>
+        <li>開発への<strong>直接的な影響力</strong>を持つことができる</li>
+      </ul>
+    </Card>
+    <Card icon="warning" iconColor="text-yellow-500" title="支援する前に確認">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-xs mt-1">
+        <li>開発者の Patreon ページで支援額と特典を確認</li>
+        <li>定期的に更新されているか、活動が継続しているか確認</li>
+        <li>月額なので、いつでも中止できることを理解する</li>
+      </ul>
+    </Card>
+  </CardGrid>
+  <InfoBox type="info" icon="favorite" title="好きなアプリには、惜しみなく「愛」と「コーヒー代」を送ろう。">
+    その支援が、あなたが愛するアプリの未来を作っているのです。
+  </InfoBox>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/how-to-use-altstore',
+    icon: 'install_mobile',
+    title: 'AltStoreの仕組みと使い方',
+    desc: 'AltStoreのインストールから基本操作まで。Patreon連携機能の使い方も詳しく解説。',
+  },
+  {
+    href: '/articles/delta-utm-guide',
+    icon: 'sports_esports',
+    title: 'DeltaとUTM徹底ガイド',
+    desc: 'AltStore経由でインストールできる代表的アプリ、DeltaとUTMの完全ガイド。',
+  },
+  {
+    href: '/articles/sidestore-guide',
+    icon: 'phone_iphone',
+    title: 'SideStoreとの比較',
+    desc: 'PCなしでサイドローディングできるSideStoreの特徴とAltStoreとの違いを解説。',
+  },
+]} />
+
+</ArticleLayout>

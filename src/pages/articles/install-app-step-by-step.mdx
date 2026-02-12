@@ -1,0 +1,227 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "AltStoreでアプリをインストールする方法";
+export const h1 = "アプリのインストール方法";
+export const description = "AltStoreを使ってiPhoneにアプリをインストールする方法を、初心者向けにステップバイステップで解説。AltServerの準備から実際のアプリインストール、トラブル対応まで。";
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-01-31" icon="install_desktop" iconColor="text-blue-500">
+
+<Section intro title="AltStoreでアプリを入れるって難しい？" icon="lightbulb">
+  <p class="text-gray-700 mb-4">
+    「AltStoreの話をよく聞くけど、実際にアプリを入れるには何をすればいいの？」「PC/Macって絶対に必要なの？」「インストール後のメンテナンスはどうするの？」
+  </p>
+  <p class="text-gray-700">
+    実は、AltStore でアプリをインストールするのは、App Store よりも<strong>シンプルで直感的</strong>です。
+    この記事では、初心者の方でも迷わないようにステップバイステップで解説します。
+    読み終わる頃には、<strong>最初のアプリをインストール</strong>し、<strong>定期メンテナンスの方法</strong>も理解できているはずです。
+  </p>
+</Section>
+
+<Section title="事前準備：インストール前に確認すること" icon="checklist">
+  <AccordionGroup>
+    <Accordion title="iOS のバージョン要件">
+      <p class="text-gray-700 mb-3">
+        AltStore は<strong>iOS 14.4 以上</strong>で動作します。
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>設定 → 一般 → ソフトウェア・アップデートでバージョンを確認</li>
+        <li>iOS 14.4 未満の場合はアップデートが必要</li>
+      </ul>
+    </Accordion>
+    <Accordion title="PC / Mac の用意">
+      <p class="text-gray-700 mb-3">
+        AltStore をインストールするには、<strong>Windows PC または Mac</strong>が必要です。
+        初回セットアップ時のみ USB 接続が必要で、その後は Wi-Fi 経由での操作が可能になります。
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Windows:</strong> Windows 10 以上推奨</li>
+        <li><strong>Mac:</strong> macOS 10.14 以上推奨</li>
+      </ul>
+    </Accordion>
+    <Accordion title="Apple ID の用意">
+      <p class="text-gray-700 mb-3">
+        <strong>有効な Apple ID</strong>（2段階認証を有効にしたもの）が必要です。
+        既に iPhone で使用している Apple ID で問題ありません。
+      </p>
+      <InfoBox type="info" title="重要：Developer Accountは不要">
+        有料の Developer Account は必要ありません。無料の Apple ID で大丈夫です。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="USB ケーブル（初回セットアップのみ）">
+      <InfoBox type="success" icon="cable" title="初回のみUSB接続が必要">
+        初回セットアップ時のみ、iPhone をPC/Mac に USB で接続します。
+        その後は Wi-Fi 経由での操作になるため、毎回 USB 接続は不要です。
+      </InfoBox>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="セットアップ5ステップ" icon="construction" iconColor="text-blue-600">
+  <StepList>
+    <Step num={1} title="AltServerをダウンロード＆インストール" desc="公式サイトからPC/Mac用のAltServerをダウンロードしてインストール。特別な設定は不要です。" />
+    <Step num={2} title="AltServerにApple IDでログイン" desc="AltServerのメニューから「Sign In」を選択し、iPhoneで使用しているApple IDでサインイン。2段階認証コードの入力が必要な場合があります。" />
+    <Step num={3} title="iPhoneをUSBで接続してAltStoreをインストール" desc="iPhoneをUSBケーブルでPCに接続 → AltServerメニューから「Install AltStore」を選択 → 数秒でインストール完了。" />
+    <Step num={4} title="iPhoneのAltStoreにApple IDでサインイン" desc="iPhone上のAltStoreアプリを起動し、同じApple IDでサインイン。初回セットアップはこれで完了です。" />
+    <Step num={5} title="アプリをインストール" desc="AltStore内でインストールしたいアプリを選んで「Get」をタップするだけ。App Storeと同じくらい簡単です。" />
+  </StepList>
+  <InfoBox type="warning" icon="info" title="Step 3：「信頼」をタップすることを忘れずに">
+    USB接続時に「このコンピューターを信頼しますか？」というメッセージが iPhone に表示される場合は、必ず「信頼」をタップしてください。これをしないとインストールが進みません。
+  </InfoBox>
+  <InfoBox type="info" title="AltServerのダウンロード先">
+    AltServer公式サイトの手順を参照してください。Macの手順・Windowsの手順が公式FAQに掲載されています（altstore.io）。
+  </InfoBox>
+</Section>
+
+<Section title="アプリのインストール方法" icon="apps">
+  <AccordionGroup>
+    <Accordion title="方法1：AltStore内のアプリ一覧から">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>iPhone 上の AltStore アプリを開く</li>
+        <li>「Browse」タブでアプリ一覧を表示（Tweaked Apps、Emulators など）</li>
+        <li>インストールしたいアプリをタップ</li>
+        <li>詳細ページの「Get」ボタンをタップ</li>
+        <li>ダウンロード完了後、「Open」ボタンが表示されればインストール成功</li>
+      </ol>
+    </Accordion>
+    <Accordion title="方法2：IPAファイルから直接インストール">
+      <p class="text-gray-700 mb-3">
+        AltStore 内のアプリ一覧以外にも、<strong>IPA ファイル</strong>（iPhone アプリのパッケージファイル）
+        を PC/Mac で用意して、AltServer からインストールする方法もあります。
+        カスタムアプリや個人開発アプリをインストールしたい場合に便利です。
+      </p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>信頼できるソースからIPAファイルを入手</li>
+        <li>AltServer メニューを開き「Sideload .ipa」などを選択</li>
+        <li>IPAファイルを指定してインストール</li>
+      </ol>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="Wi-Fi 経由での自動更新設定（推奨）" icon="wifi">
+  <InfoBox type="success" icon="autorenew" title="自動更新で手間いらず">
+    AltStore のアプリは<strong>7日ごとに署名を更新</strong>する必要があります。
+    毎回 USB で接続する代わりに、<strong>Wi-Fi 経由で自動更新</strong>するように設定すると、
+    手動操作がほぼ不要になります。
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="AltServer側での設定方法">
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>PC/Mac の AltServer メニューを開く</li>
+        <li>インストール済みの iPhone を選択</li>
+        <li>「Sync with [iPhone name] over Wi-Fi」オプションをオンにする</li>
+      </ol>
+    </Accordion>
+    <Accordion title="Wi-Fi同期を機能させるための必須条件">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>PC/Mac と iPhone が同じ Wi-Fi ネットワークに接続</strong>していること</li>
+        <li><strong>AltServer がバックグラウンド起動</strong>していること</li>
+        <li><strong>iPhone が同じ Wi-Fi に常に接続</strong>していることが理想的</li>
+      </ul>
+    </Accordion>
+    <Accordion title="自動更新の仕組み">
+      <p class="text-gray-700 mb-3">Wi-Fi 同期を有効にすると、AltServer は以下の処理を自動的に行います：</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+        <li>毎日、iPhone 上のアプリの署名有効期限をチェック</li>
+        <li>期限切れ間近のアプリを検出</li>
+        <li>Wi-Fi 経由で自動的に再署名（更新）</li>
+        <li>ユーザーは何もしなくてOK</li>
+      </ol>
+      <p class="text-gray-700 mt-3">
+        つまり、<strong>PC を起動して AltServer を実行しておくだけで、アプリは常に最新状態に保たれる</strong>わけです。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="トラブル対応：よくある問題と解決策" icon="build" iconColor="text-red-600">
+  <AccordionGroup>
+    <Accordion title="インストールが失敗する">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>Apple ID のパスワードが正しく入力されているか</li>
+        <li>iOS が 14.4 以上か</li>
+        <li>iPhone の容量は十分か（アプリサイズ以上の空きが必要）</li>
+        <li>AltServer を再起動してみる</li>
+      </ul>
+    </Accordion>
+    <Accordion title="インストール後、アプリが起動しない">
+      <p class="text-gray-700 mb-2">署名が切れている可能性があります。</p>
+      <p class="text-gray-700">
+        <strong>解決法：</strong>AltStore アプリを開き、該当アプリの横に表示されている更新ボタン（↻）をタップして、
+        署名を更新してください。通常、数分で起動可能になります。
+      </p>
+    </Accordion>
+    <Accordion title="Wi-Fi 自動更新がうまくいかない">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li>PC/Mac と iPhone が<strong>同じ Wi-Fi ネットワーク</strong>に接続しているか</li>
+        <li>AltServer が PC 上でバックグラウンド実行中か（メニューバーに表示されているか）</li>
+        <li>Wi-Fi ルーターのファイアウォール設定が AltServer の通信をブロックしていないか</li>
+        <li>PC を再起動して、再度 Wi-Fi 同期をオンにしてみる</li>
+      </ul>
+    </Accordion>
+    <Accordion title="PC がない場合はどうするの？">
+      <p class="text-gray-700">
+        家族や友人の PC/Mac を借りて初回セットアップを完了させれば、その後は iPhone 上で手動で署名を更新できます。毎回 USB 接続は不要です。
+        また、SideStoreに切り替えることでPC不要での運用も可能です。
+      </p>
+    </Accordion>
+    <Accordion title="Apple ID が複数ある場合は？">
+      <p class="text-gray-700">
+        AltServer と AltStore に同じ Apple ID でサインインしてください。複数の Apple ID は対応していません。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="定期メンテナンス：署名更新の方法" icon="update">
+  <InfoBox type="error" icon="schedule" title="重要：7日ごとの署名更新を忘れずに">
+    AltStore のアプリは<strong>7日ごと</strong>に署名が切れます。
+    Wi-Fi 同期が有効なら、期限切れの2～3日前に自動更新されます。
+    手動更新の場合は、7日以内なら随時更新できます。期限を過ぎるとアプリが起動しなくなりますので注意してください。
+  </InfoBox>
+  <CardGrid>
+    <Card icon="touch_app" iconColor="text-blue-500" title="手動更新（Wi-Fi同期なし）" desc="AltStoreアプリを開き、アプリの横の更新ボタン（↻）をタップ。数分で完了。" />
+    <Card icon="autorenew" iconColor="text-green-500" title="Wi-Fi経由の自動更新（推奨）" desc="ステップ5の設定完了後は何もしなくても自動更新されます。PCを起動してAltServerを実行しておくだけでOK。" />
+  </CardGrid>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="checklist" iconColor="text-blue-500" title="事前準備" desc="iOS 14.4以上、PC/Mac、有効なApple ID（無料でOK）、USBケーブル（初回のみ）" />
+    <Card icon="construction" iconColor="text-orange-500" title="セットアップ" desc="AltServerインストール → Apple IDログイン → USB接続でAltStoreをiPhoneへ → Wi-Fi設定" />
+    <Card icon="apps" iconColor="text-green-500" title="アプリインストール" desc="AltStore内で「Get」をタップするだけ。App Storeと同じくらい簡単。" />
+    <Card icon="autorenew" iconColor="text-purple-500" title="メンテナンス" desc="Wi-Fi自動更新を設定すれば7日ごとの署名更新もほぼ自動。PCを起動しておくだけでOK。" />
+  </CardGrid>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/top3-apps-2026',
+    icon: 'star',
+    title: '入れるべきアプリ【神アプリ3選】',
+    desc: 'Delta、UTM SE、SideStore の3大アプリを徹底解説。レトロゲームから仮想マシンまで。',
+  },
+  {
+    href: '/articles/how-to-use-altstore',
+    icon: 'settings',
+    title: 'AltStoreの仕組みと使い方',
+    desc: '7日署名の仕組みやAltServerの役割など、理論・仕組み編として詳しく解説。',
+  },
+  {
+    href: '/articles/sidestore-guide',
+    icon: 'phone_iphone',
+    title: 'SideStore 完全ガイド',
+    desc: 'PCなしでサイドローディングできるSideStoreの特徴と使い方。',
+  },
+]} />
+
+</ArticleLayout>
