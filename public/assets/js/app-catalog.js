@@ -1,14 +1,16 @@
 let allApps = [];
 let filteredApps = [];
 
-const searchInput = document.getElementById('search-input');
-const categorySelect = document.getElementById('category-select');
-const distributionFilter = document.getElementById('distribution-filter');
-const notarizedFilter = document.getElementById('notarized-filter');
-const resetFilter = document.getElementById('reset-filter');
-const appGrid = document.getElementById('app-grid');
+let searchInput, categorySelect, distributionFilter, notarizedFilter, resetFilter, appGrid;
 
 async function loadApps() {
+  searchInput = document.getElementById('search-input');
+  categorySelect = document.getElementById('category-select');
+  distributionFilter = document.getElementById('distribution-filter');
+  notarizedFilter = document.getElementById('notarized-filter');
+  resetFilter = document.getElementById('reset-filter');
+  appGrid = document.getElementById('app-grid');
+
   try {
     const response = await fetch('https://script.google.com/macros/s/AKfycbxcaYOnyNaovd0ERTnVKKRxZP0x4eWSftKk-mMVCXZrbuQDw8e-aPN9sj4dSDPoGYeBsg/exec');
     const data = await response.json();
@@ -100,12 +102,6 @@ function createAppCard(app) {
   const distributionCategory = app.distributionInfo?.category || 'sideload';
   card.setAttribute('data-distribution', distributionCategory);
 
-  card.addEventListener('click', (e) => {
-    if (!e.target.closest('button')) {
-      showAppDetailModal(app.bundleIdentifier);
-    }
-  });
-
   // 配布方法バッジの設定
   let distributionBadge = '';
   if (distributionCategory === 'official') {
@@ -115,7 +111,7 @@ function createAppCard(app) {
   }
 
   card.innerHTML = `
-    <button class="absolute top-6 right-6 bg-[#007AFF] text-white font-bold text-sm px-5 py-1.5 rounded-full hover:bg-blue-600 transition" onclick="showImportModal(event, '${app.bundleIdentifier}')">
+    <button class="js-import-btn absolute top-16 text-white font-bold text-sm px-5 py-1.5 rounded-full hover:bg-blue-600 transition" style="right: 16px; background-color: #007AFF;">
       入手
     </button>
 
@@ -136,14 +132,19 @@ function createAppCard(app) {
       ${app.localizedDescription || '説明はありません'}
     </p>
   `;
-  return card;
-}
 
-function showAppDetail(bundleIdentifier) {
-  const app = allApps.find(a => a.bundleIdentifier === bundleIdentifier);
-  if (app) {
-    window.location.href = `./app-detail.html?id=${encodeURIComponent(bundleIdentifier)}`;
-  }
+  card.querySelector('.js-import-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImportModal(app);
+  });
+
+  card.addEventListener('click', (e) => {
+    if (!e.target.closest('button')) {
+      showAppDetailModal(app.bundleIdentifier);
+    }
+  });
+
+  return card;
 }
 
 function showAppDetailModal(bundleIdentifier) {
@@ -187,12 +188,12 @@ function showAppDetailModal(bundleIdentifier) {
     : 'iOS 14以上';
 
   modal.innerHTML = `
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] shadow-lg flex flex-col">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="this.closest('.fixed').remove()">
+    <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] shadow-lg flex flex-col">
+      <button class="js-close-btn absolute top-4 right-4 text-gray-400 hover:text-gray-600">
         <span class="material-symbols-outlined">close</span>
       </button>
 
-      <div class="p-6 pb-0 flex-shrink-0 bg-white">
+      <div class="p-6 pb-6 flex-1 bg-white rounded-t-3xl overflow-y-auto">
         <div class="flex items-start gap-4 mb-6">
           <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
           <div class="flex-1">
@@ -229,22 +230,20 @@ function showAppDetailModal(bundleIdentifier) {
       </div>
 
       <div class="flex gap-3 p-6 border-t border-gray-200 bg-white rounded-b-3xl flex-shrink-0">
-        <button class="flex-1 bg-[#007AFF] text-white font-bold text-sm px-4 py-2.5 rounded-full hover:bg-blue-600 transition" onclick="window.location.href = '${app.downloadURL}'">入手</button>
-        <button class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium text-sm px-4 py-2.5 rounded-full transition" onclick="showAppDetail('${app.bundleIdentifier}')">詳細を見る</button>
-        <button class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium text-sm px-4 py-2.5 rounded-full transition" onclick="this.closest('.fixed').remove()">閉じる</button>
+        <button class="js-download-btn flex-1 bg-[#007AFF] text-white font-bold text-sm px-4 py-2.5 rounded-full hover:bg-blue-600 transition">入手</button>
+        <button class="js-close-btn flex-1 bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium text-sm px-4 py-2.5 rounded-full transition">閉じる</button>
       </div>
     </div>
   `;
 
+  modal.querySelectorAll('.js-close-btn').forEach(btn => btn.addEventListener('click', () => modal.remove()));
+  modal.querySelector('.js-download-btn').addEventListener('click', () => {
+    if (app.downloadURL) window.location.href = app.downloadURL;
+  });
   document.body.appendChild(modal);
 }
 
-function showImportModal(event, bundleIdentifier) {
-  event.stopPropagation();
-
-  const app = allApps.find(a => a.bundleIdentifier === bundleIdentifier);
-  if (!app) return;
-
+function showImportModal(app) {
   const modal = document.createElement('div');
   modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50';
 
@@ -276,10 +275,13 @@ function showImportModal(event, bundleIdentifier) {
 
       <div class="space-y-2">
         <a href="${app.downloadURL}" class="block w-full bg-[#007AFF] text-white font-bold text-sm px-5 py-2 rounded-full text-center hover:bg-blue-600 transition shadow-sm" download>ダウンロード</a>
-        <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium text-sm px-5 py-2 rounded-full transition" onclick="this.closest('.fixed').remove()">キャンセル</button>
+        <button class="js-cancel-btn w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium text-sm px-5 py-2 rounded-full transition">キャンセル</button>
       </div>
     </div>
   `;
+
+  modal.querySelector('.js-cancel-btn').addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
   document.body.appendChild(modal);
 }
 
@@ -292,4 +294,8 @@ function formatBytes(bytes) {
   return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
 }
 
-document.addEventListener('DOMContentLoaded', loadApps);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadApps);
+} else {
+  loadApps();
+}
