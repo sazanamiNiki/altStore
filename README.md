@@ -2,11 +2,11 @@
 
 Apple Silicon対応デバイス向けの厳選アプリを集めたカタログサイト。AltStore日本語ラッパーポータルとして、iPhoneやiPadのサイドローディング文化を応援します。
 
-## 🐦 コンセプト
+## コンセプト
 
 文鳥（bunchoniki）をモチーフにした、白・ライトブルー基調の清潔感あるデザイン。開発元が明確なアプリ（オープンソースまたはApple公証済み）のみを厳選して掲載しています。
 
-## ✨ 主な機能
+## 主な機能
 
 - **アプリカタログ**: 6つの厳選アプリを掲載
   - Delta Emulator
@@ -18,95 +18,94 @@ Apple Silicon対応デバイス向けの厳選アプリを集めたカタログ�
 
 - **検索・フィルタリング**: キーワード検索、カテゴリーフィルタリング
 - **アプリ詳細ページ**: 詳細情報、必要環境、関連記事へのリンク
-- **教育記事**: 法律、セキュリティ、アプリ紹介など10記事
+- **教育記事**: 法律、セキュリティ、アプリ紹介など17記事
 
-## 📁 ファイル構造
+## ファイル構造
 
 ```
 altStore-jp/
-├── index.html                    # トップページ
-├── apps.html                     # アプリカタログ
-├── app-detail.html              # アプリ詳細
-├── 404.html                     # カスタムエラーページ
-├── _config.yml                  # GitHub Pages設定
-├── .nojekyll                    # Jekyll無効化
+├── src/
+│   ├── components/            # Astroコンポーネント（UI部品）
+│   ├── layouts/               # ページレイアウト
+│   │   ├── BaseLayout.astro
+│   │   └── ArticleLayout.astro
+│   ├── pages/
+│   │   ├── index.astro        # トップページ
+│   │   ├── apps.astro         # アプリカタログ
+│   │   └── articles/          # 記事ページ（MDX）
+│   ├── content/
+│   │   └── config.ts          # Content Collections定義
+│   └── styles/
+│       └── global.css         # グローバルスタイル
 │
-├── assets/
-│   ├── css/main.css            # Tailwind CSSスタイル
-│   ├── js/                      # JavaScriptモジュール
-│   │   ├── components.js       # UIコンポーネント
-│   │   ├── app-catalog.js      # カタログロジック
-│   │   ├── modal.js            # モーダル処理
-│   │   ├── seo.js              # 構造化データ
-│   │   └── main.js             # メイン処理
-│   └── data/apps.json          # アプリメタデータ
+├── public/
+│   └── assets/
+│       ├── js/                # クライアントサイドJS
+│       ├── img/               # 画像・ロゴ
+│       └── data/apps.json     # アプリメタデータ
 │
-├── articles/                    # 教育記事
-│   ├── index.html              # 記事一覧
-│   ├── smartphone-law-explained.html
-│   ├── apple-notarization.html
-│   ├── our-policy.html
-│   ├── commission-cut.html
-│   ├── payment-freedom.html
-│   ├── direct-support.html
-│   ├── delta-utm-guide.html
-│   ├── sidestore-guide.html
-│   ├── top3-apps-2026.html
-│   └── faq.html
-│
-├── privacy-policy.html          # プライバシーポリシー
-├── terms.html                   # 利用規約
-└── package.json                 # npm設定
+├── astro.config.mjs           # Astro設定
+├── tailwind.config.mjs        # Tailwind CSS設定
+└── package.json
 ```
 
-## 🚀 デプロイ
+## デプロイ
 
-このプロジェクトはGitHub Pagesでホストされています。
+このプロジェクトはGitHub Pages（Astro静的ビルド）でホストされています。
 
-**ライブURL**: `https://sazanamiNiki.github.io/altStore/` (master ブランチ)
-**デプロイプレビュー**: `https://sazanamiNiki.github.io/altStore-dev/` (develop ブランチ)
+**ライブURL**: `https://altstore-jp.bunchoniki.com`
 
-### セットアップ
+## セットアップ
 
 ```bash
-git clone https://github.com/sazanamiNiki/altStore.git
-cd altStore
+git clone https://github.com/sazanamiNiki/altStore-jp.git
+cd altStore-jp
+npm install
 ```
 
-ローカルでテストする場合は、任意のHTTPサーバーで `index.html` を開いてください。
+### 開発サーバー
 
 ```bash
-python3 -m http.server 8000
-# ブラウザで http://localhost:8000 にアクセス
+npm run dev
+# ブラウザで http://localhost:4321 にアクセス
 ```
 
-## 🛠 技術スタック
+### ビルド
 
-- **HTML5** - セマンティックマークアップ
-- **Tailwind CSS** - CDN版（GitHub Pages対応）
-- **Vanilla JavaScript** - フレームワークなし
-- **JSON** - アプリメタデータ
+```bash
+npm run build
+# dist/ にHTMLが出力される
+```
 
-## 📋 ブランチ戦略
+## 技術スタック
+
+- **Astro 4.16** - 静的サイト生成（SSG）
+- **MDX** - コンポーネント対応Markdown記事
+- **Tailwind CSS 3.4** - ユーティリティCSSフレームワーク
+- **TypeScript** - 型安全な開発
+- **Material Symbols Outlined** - アイコン
+- **Vanilla JavaScript** - クライアントサイド処理
+
+## ブランチ戦略
 
 git-flow モデルに準拠：
 
-- `main` - 本番環境（GitHub Pagesデプロイ）
+- `master` - 本番環境（GitHub Pagesデプロイ）
 - `develop` - 開発環境
 - `feature/*` - 機能開発ブランチ
 
-## 🤝 コントリビューション
+## コントリビューション
 
-記事の詳細な本文追加、新しいアプリの掲載提案などは、feature ブランチで実装し、PR を作成してください。
+記事の追加・修正、新しいアプリの掲載提案などは、feature ブランチで実装し、PR を作成してください。
 
-## 📄 ライセンス
+## ライセンス
 
-MIT License - 詳細は LICENSE ファイルを参照
+MIT License
 
-## ⚠️ 免責事項
+## 免責事項
 
 本サイトは非公式です。掲載情報は最善の努力で確認していますが、正確性を保証しません。アプリの使用は自己責任でお願いします。
 
 ---
 
-**最終更新**: 2026年1月31日
+**最終更新**: 2026年2月12日

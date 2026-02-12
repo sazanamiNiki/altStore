@@ -7,44 +7,38 @@ on:
       - develop
 
 jobs:
-  deploy-master:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy master to GitHub Pages
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages (master)
+        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./dist
           cname: altstore-jp.bunchoniki.com
-          keep_files: true
           force_orphan: true
 
-  deploy-develop:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Prepare dev deployment
-        run: |
-          mkdir -p /tmp/dev-build
-          cp -r . /tmp/dev-build/
-          cd /tmp/dev-build
-          # baseurl を /altStore-jp から /altStore-jp/dev に置換
-          find . -name "*.html" -type f -exec sed -i 's|/altStore-jp/|/altStore-jp/dev/|g' {} +
-          find . -name "*.js" -type f -exec sed -i 's|/altStore-jp/|/altStore-jp/dev/|g' {} +
-          find . -name "*.css" -type f -exec sed -i 's|/altStore-jp/|/altStore-jp/dev/|g' {} +
-
-      - name: Deploy develop to gh-pages dev folder
+      - name: Deploy to GitHub Pages (develop)
+        if: github.ref == 'refs/heads/develop'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /tmp/dev-build
+          publish_dir: ./dist
           destination_dir: dev

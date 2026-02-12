@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /dev/
-
-Sitemap: https://altstore-jp.bunchoniki.com/sitemap.xml
