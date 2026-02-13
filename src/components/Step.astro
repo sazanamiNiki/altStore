@@ -10,7 +10,7 @@ interface Props {
 const { num, title, desc, image, alt } = Astro.props;
 ---
 
-<div class="grid md:grid-cols-2 gap-6 items-center mb-14">
+<div class="grid md:grid-cols-2 gap-6 items-center mb-8">
 
   <div>
     <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold mb-2">
@@ -32,11 +32,62 @@ const { num, title, desc, image, alt } = Astro.props;
         src={image}
         alt={alt ?? title}
         loading="lazy"
-        class="w-full rounded-xl border shadow-sm"
+        class="w-full rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+        data-lightbox
       />
     )}
-
     <slot />
   </div>
-
 </div>
+
+<script>
+  function initLightbox() {
+    if (document.getElementById('lightbox-modal')) return;
+
+    const modal = document.createElement('div');
+    modal.id = 'lightbox-modal';
+    modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/80 hidden';
+    modal.innerHTML = `
+      <div class="relative max-w-screen-lg max-h-screen p-4">
+        <button id="lightbox-close" class="absolute -top-3 -right-3 text-white bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-900 transition-colors">
+          <span class="material-symbols-outlined" style="font-size:18px">close</span>
+        </button>
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    document.getElementById('lightbox-close')?.addEventListener('click', closeLightbox);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+
+  function openLightbox(src: string, alt: string) {
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    if (modal && img) {
+      img.src = src;
+      img.alt = alt;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  initLightbox();
+
+  document.querySelectorAll<HTMLImageElement>('[data-lightbox]').forEach((img) => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+</script>

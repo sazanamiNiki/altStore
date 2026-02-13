@@ -30,7 +30,7 @@ const defaultIcons = {
 const resolvedIcon = icon ?? defaultIcons[type];
 ---
 
-<div class={`p-4 rounded-lg border mb-4 ${s.box}`}>
+<div class={`p-4 rounded-lg border mb-2 ${s.box}`}>
   {title && (
     <div class={`font-bold text-sm mb-1 flex items-center gap-2 ${s.title}`}>
       <span class={`material-symbols-outlined text-base ${s.icon}`}>{resolvedIcon}</span>

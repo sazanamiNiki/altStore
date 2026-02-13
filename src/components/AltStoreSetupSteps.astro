@@ -1,0 +1,50 @@
+---
+import StepList from './StepList.astro';
+import Step from './Step.astro';
+import InfoBox from './InfoBox.astro';
+import Section from './Section.astro';
+---
+
+<Section title="セットアップ5ステップ" icon="construction" iconColor="text-blue-600">
+  <StepList>
+    <Step
+      num={1}
+      title="AltServerをダウンロード＆インストール"
+      desc="公式サイトからPC/Mac用のAltServerをダウンロードしてインストール。特別な設定は不要です。"
+      image={`${import.meta.env.BASE_URL}assets/img/download.png`}
+      alt="download"
+    >
+      <div class="mt-4">
+        <InfoBox type="info" title="AltServerのダウンロード先">
+          AltServer公式サイトの手順を参照してください。Macの手順・Windowsの手順が公式FAQに掲載されています（altstore.io）。
+        </InfoBox>
+      </div>
+    </Step>
+    <Step num={2} title="AltServerにApple IDでログイン" desc="AltServerのメニューから「Sign In」を選択し、iPhoneで使用しているApple IDでサインイン。2段階認証コードの入力が必要な場合があります。" image={`${import.meta.env.BASE_URL}assets/img/login.png`} alt="login" />
+    <Step
+      num={3}
+      title="iPhoneをUSBで接続してAltStoreをインストール"
+      desc="iPhoneをUSBケーブルでPCに接続 → AltServerメニューから「Install AltStore」を選択 → 数秒でインストール完了。"
+      image={`${import.meta.env.BASE_URL}assets/img/device-select.png`}
+      alt="device-select"
+    >
+      <div class="mt-4">
+        <InfoBox type="warning" icon="info" title="Step 3：「信頼」をタップすることを忘れずに">
+          USB接続時に「このコンピューターを信頼しますか？」というメッセージが iPhone に表示される場合は、必ず「信頼」をタップしてください。これをしないとインストールが進みません。
+        </InfoBox>
+      </div>
+    </Step>
+    <Step num={4} title="iPhoneのAltStoreを信頼する" desc="設定 → 一般 → VPNとデバイス管理で自身のApple IDの欄をタップ。「信頼」をタップして完了。" image={`${import.meta.env.BASE_URL}assets/img/allow.png`} alt="allow" />
+    <Step num={5} title="Wi-Fi経由での接続を有効化" desc="Finderで「Wi-Fi経由でiPhoneとの接続」を有効にすれば、以降はUSB接続が不要になります。" image={`${import.meta.env.BASE_URL}assets/img/connect.png`} alt="connect" />
+  </StepList>
+  <div class="mt-4 gap-4">
+    <InfoBox type="warning" icon="cable" title="接続トラブルの9割はケーブルが原因">
+      100均の「充電専用」ケーブルでは AltServer は認識しません。必ず<strong>データ転送対応のケーブル</strong>を使ってください。
+    </InfoBox>
+    <div class="text-right">
+      <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="text-blue-600 font-bold text-sm hover:underline flex items-center justify-end gap-1" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
+        おすすめの高耐久ケーブルを見る <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+  </div>
+</Section>
