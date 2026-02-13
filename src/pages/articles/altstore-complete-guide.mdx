@@ -8,6 +8,7 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import AltStoreSetupSteps from '../../components/AltStoreSetupSteps.astro';
 
 export const title = "AltStore完全ガイド：セットアップから運用まで徹底解説";
 export const h1 = "AltStore完全ガイド";
@@ -117,20 +118,7 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
   </InfoBox>
 </Section>
 
-<Section title="初期セットアップ手順" icon="construction" iconColor="text-blue-600">
-  <StepList>
-    <Step num={1} title="AltServerをダウンロード＆インストール" desc="公式サイトからPC/Mac用のAltServerをダウンロードしてインストール。Macの手順・Windowsの手順が公式FAQに掲載されています（altstore.io）。" />
-    <Step num={2} title="AltServerにApple IDでログイン" desc="AltServerを起動し、メニューから「Sign In」を選択。iPhoneで使用しているApple IDでサインイン。2段階認証コードの入力が必要な場合があります。" />
-    <Step num={3} title="iPhoneをUSBで接続してAltStoreをインストール" desc="iPhoneをUSBケーブルでPC/Macに接続 → 「このコンピューターを信頼しますか？」→「信頼」をタップ → AltServerメニューから「Install AltStore」を選択 → 数秒でiPhoneのホーム画面にAltStoreが追加される。iPhone上でAltStoreを起動し、Apple IDでサインイン。" />
-    <Step num={4} title="Wi-Fi経由での自動更新設定（推奨）" desc="PC/MacのAltServerメニューからインストール済みのiPhoneを選択 → 「Sync with [iPhone name] over Wi-Fi」オプションをオン。PC/MacとiPhoneが同じWi-Fiネットワークに接続し、AltServerをバックグラウンドで起動したままにすると自動更新が機能します。" />
-  </StepList>
-  <InfoBox type="warning" icon="info" title="自動更新と公証ステータスについて">
-    AltServer による自動更新では、7日ごとに再署名が行われます。
-    この再署名プロセスでは<strong>Apple 公証ステータスが毎回失われます</strong>が、
-    iOS のサンドボックス構造により基本的な安全性は維持されます。
-    詳しくは「<a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="font-bold underline">Apple の公証とは何か</a>」をご覧ください。
-  </InfoBox>
-</Section>
+<AltStoreSetupSteps />
 
 <Section title="アプリのインストール方法" icon="download" iconColor="text-blue-600">
   <AccordionGroup>
