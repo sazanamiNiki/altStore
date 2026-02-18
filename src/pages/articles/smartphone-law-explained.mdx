@@ -11,151 +11,450 @@ export const title = "iPhoneの「鎖国」が終わる日。スマホ新法で�
 export const h1 = "スマホ新法を徹底解説";
 export const description = "2025年に施行された「スマホソフトウェア競争促進法」により、iPhoneのアプリ配布はどう変わるのか？サイドローディングの合法化と、ユーザーへのメリットを解説します。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-02-02" icon="gavel" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-18" icon="gavel" iconColor="text-blue-500">
 
 <Section intro title="iPhoneがついに「開国」する" icon="lightbulb">
-  <p class="text-gray-700 mb-4">
-    2024年、日本で画期的な法律が成立しました。その名も<mark class="bg-yellow-100 px-1 rounded"><strong>「スマートフォンソフトウェア競争促進法」</strong></mark>（通称：スマホ新法）です。
-  </p>
-  <p class="text-gray-700 mb-4">
-    この法律により、これまでAppleが独占していた「アプリストア」や「決済システム」が、法律によって開放されることになります。つまり、iPhoneユーザーは<strong>App Store以外からもアプリをインストールできる</strong>ようになるのです。
-  </p>
-  <p class="text-gray-700">
-    ユーザーにとっては<mark class="bg-yellow-100 px-1 rounded"><strong>「選択肢が増える」というポジティブな変化</strong></mark>です。この記事では、スマホ新法の内容と、サイドローディングがどう変わるのかを詳しく解説します。
-  </p>
+  <div class="space-y-3">
+    <div class="flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100">
+      <span class="material-symbols-outlined text-blue-500">gavel</span>
+      <span class="font-bold text-blue-700 text-sm">2024年成立・2025年施行の「スマホ新法」で、iPhoneのアプリ配布が大きく変わります。</span>
+    </div>
+    <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+      <div class="flex gap-3">
+        <div class="flex-shrink-0">
+          <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんが解説するよ！</div>
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>「スマホ新法ってなに？難しそう…」って思うよね。</strong><br />
+            大丈夫！この記事ではぶんちゃんが一緒にわかりやすく解説していくよ🌸 法律の話だけど、実はあなたのiPhoneの使い方が変わる大事な話なんだ！
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+      <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">menu_book</span>
+      <div class="space-y-1">
+        <div class="font-semibold text-blue-700 text-sm">この記事のポイント</div>
+        <div class="text-gray-600 text-sm">
+          スマホ新法の中身を「4つの柱」でわかりやすく整理。サイドローディングの法的位置づけ、セキュリティの仕組み、そして<strong>あなたのiPhoneがどう変わるのか</strong>を解説します。
+        </div>
+      </div>
+    </div>
+  </div>
 </Section>
 
-<Section title="スマホ新法の「4つの柱」" icon="list">
-  <p class="text-gray-700 mb-6">
-    スマホソフトウェア競争促進法は、以下の4つの主要な規制によって、スマートフォン市場の競争を促進します。
+<Section title="30秒でわかる！法律施行でこう変わる" icon="compare_arrows" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-7 mb-4">
+    まずは「結局なにが変わるの？」をサクッと理解しましょう。
   </p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+      <div class="font-bold text-gray-500 text-xs mb-2 flex items-center gap-1">
+        <span class="material-symbols-outlined text-gray-400 text-base">lock</span>
+        施行前（これまで）
+      </div>
+      <ul class="space-y-2 text-sm text-gray-600">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
+          アプリ入手はApp Storeだけ
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
+          課金は最大30%のApple手数料
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
+          ブラウザ・検索はApple優遇
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
+          Apple純正アプリが常に優位
+        </li>
+      </ul>
+    </div>
+    <div class="p-4 bg-green-50 rounded-lg border border-green-200">
+      <div class="font-bold text-green-600 text-xs mb-2 flex items-center gap-1">
+        <span class="material-symbols-outlined text-green-500 text-base">lock_open</span>
+        施行後（これから）
+      </div>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
+          AltStore等の他社ストアもOK
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
+          PayPay・カード直接決済が可能
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
+          デフォルト設定を自由に選択
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
+          全アプリが公平に競争
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのひとこと</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>つまり「App Storeだけの世界」→「選べる世界」に変わるってこと！</strong><br />
+          今までAppleが全部決めてたけど、これからはユーザーが自分で選べるようになるんだよ✨
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<Section title="スマホ新法の「4つの柱」を詳しく解説" icon="account_balance" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-7 mb-6">
+    <mark class="bg-yellow-100 px-1 rounded"><strong>「スマートフォンソフトウェア競争促進法」</strong></mark>は、4つの柱でスマートフォン市場の競争を促進します。それぞれ見ていきましょう。
+  </p>
+
+  <h3 class="text-xl font-bold mt-6 mb-3">柱1：他社アプリストアの容認</h3>
   <AccordionGroup>
-    <Accordion title="1. 他社アプリストアの容認">
-      <p class="text-gray-700 mb-3">
+    <Accordion title="具体的に何が変わる？">
+      <p class="text-gray-700 text-sm mb-3">
         App Store以外の場所（AltStoreやSideStoreなど）からアプリをインストールできるようになります。
       </p>
-      <InfoBox type="success" icon="check_circle" title="メリット">
-        Appleの厳しい審査で却下されていたアプリ（エミュレータ、カスタムブラウザ、開発ツールなど）が、合法的に入手しやすくなります。
-      </InfoBox>
+      <CardGrid>
+        <Card icon="sports_esports" iconColor="text-purple-500" title="ゲームエミュレータ" desc="DeltaやRetroArchなど、Appleが却下していたアプリが合法的に" />
+        <Card icon="computer" iconColor="text-indigo-500" title="開発・専門ツール" desc="UTM SEなどの仮想マシンアプリや高度な開発ツール" />
+      </CardGrid>
     </Accordion>
-    <Accordion title="2. 決済システムの開放">
-      <p class="text-gray-700 mb-3">
-        手数料の高いApple決済（最大30%の手数料）を使わず、PayPayやクレジットカード直接決済などの安い決済方法を選べるようになります。
-      </p>
-      <InfoBox type="success" icon="check_circle" title="メリット">
-        開発者はコストを削減でき、ユーザーはより安価にアプリ内課金や購入を行えるようになります。
-      </InfoBox>
-    </Accordion>
-    <Accordion title="3. デフォルト設定の変更">
-      <p class="text-gray-700 mb-3">
-        ブラウザや検索エンジンを、最初から自分好みのものに変更しやすくなります。
-      </p>
-      <InfoBox type="success" icon="check_circle" title="メリット">
-        Safari以外のブラウザ（Chrome、Firefox等）や、Google以外の検索エンジンを、より自由に選択できるようになります。
-      </InfoBox>
-    </Accordion>
-    <Accordion title="4. 公平な扱い">
-      <p class="text-gray-700 mb-3">
-        Apple純正アプリだけを優遇（検索順位の上位表示など）することが禁止されます。
-      </p>
-      <InfoBox type="success" icon="check_circle" title="メリット">
-        サードパーティ製アプリが公平に競争できる環境が整い、より良いアプリが正当に評価されやすくなります。
-      </InfoBox>
+    <Accordion title="ぶんちゃんに聞いてみよう">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>これが一番大きな変化！App Store以外からもアプリが入れられるようになるよ。</strong><br />
+              AltStoreみたいなストアが「怪しいツール」じゃなくて「国が認めた正規の選択肢」になるんだ🎉
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
   </AccordionGroup>
-</Section>
 
-<Section title="サイドローディングは「合法」かつ「公式」に" icon="verified" iconColor="text-green-600">
+  <h3 class="text-xl font-bold mt-6 mb-3">柱2：決済システムの開放</h3>
   <AccordionGroup>
-    <Accordion title="「怪しい裏技」から「正当な選択肢」へ">
-      <p class="text-gray-700 mb-4">
-        この法律により、AltStoreやSideStoreのようなツールは、<mark class="bg-yellow-100 px-1 rounded"><strong>「怪しい裏技」ではなく、「国が認めた正当な競争相手」</strong></mark>としての地位を確立します。
+    <Accordion title="具体的に何が変わる？">
+      <p class="text-gray-700 text-sm mb-3">
+        Apple決済（最大30%の手数料）を使わず、より安い決済方法を選べるようになります。
       </p>
-      <p class="text-gray-700">
-        つまり、ユーザーは堂々とサイドローディングを活用して良いのです。これは、iPhoneの「閉ざされた庭」が法律によって開放される、歴史的な瞬間と言えます。
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+        <div class="p-3 bg-red-50 rounded-lg border border-red-200">
+          <div class="font-semibold text-red-700 text-xs mb-1">これまで（Apple決済のみ）</div>
+          <div class="text-gray-600 text-xs">1,000円の課金 → 開発者には700円しか届かない</div>
+        </div>
+        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div class="font-semibold text-green-700 text-xs mb-1">これから（選べる決済）</div>
+          <div class="text-gray-600 text-xs">手数料が下がり、アプリの値下げや新機能開発に</div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="ぶんちゃんに聞いてみよう">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Appleの手数料30%ってけっこう大きいんだよね。</strong><br />
+              これが開放されると、アプリの値段が安くなったり、開発者がもっといいアプリを作る余裕ができるかも💡
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+
+  <h3 class="text-xl font-bold mt-6 mb-3">柱3：デフォルト設定の変更</h3>
+  <AccordionGroup>
+    <Accordion title="具体的に何が変わる？">
+      <p class="text-gray-700 text-sm mb-3">
+        ブラウザや検索エンジンを、最初から自分好みのものに変更しやすくなります。
+      </p>
+      <CardGrid>
+        <Card icon="public" iconColor="text-blue-500" title="ブラウザ選択" desc="Safari以外のChrome、Firefox等を標準ブラウザとして設定" />
+        <Card icon="search" iconColor="text-blue-500" title="検索エンジン" desc="Google以外のDuckDuckGoなども自由に選択可能" />
+      </CardGrid>
+    </Accordion>
+  </AccordionGroup>
+
+  <h3 class="text-xl font-bold mt-6 mb-3">柱4：公平な扱い</h3>
+  <AccordionGroup>
+    <Accordion title="具体的に何が変わる？">
+      <p class="text-gray-700 text-sm mb-3">
+        Apple純正アプリだけを優遇（検索順位の上位表示など）することが禁止されます。サードパーティ製アプリが公平に競争できる環境が整います。
       </p>
     </Accordion>
-    <Accordion title="EU規制との違い">
-      <p class="text-gray-700 mb-4">
-        日本のスマホ新法は、EUのデジタル市場法（DMA）と似た内容ですが、日本独自の規制も含まれています。
-      </p>
-      <p class="text-gray-700 mb-4">
-        特に注目すべきは、<strong>2025年の施行</strong>が予定されている点です。これにより、日本のiPhoneユーザーは、EU諸国と同様の自由を手にすることになります。
-      </p>
-      <div class="bg-gray-100 rounded-lg p-4 border-2 border-dashed border-gray-300 text-center">
-        <div class="text-gray-600 text-sm flex items-center justify-center gap-2">
-          <span class="material-symbols-outlined text-gray-500 text-base">bar_chart</span>
-          施行前：App Storeのみ → 施行後：App Store + AltStore + その他ストアから選択可能
+    <Accordion title="ぶんちゃんに聞いてみよう">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Apple Musicより良い音楽アプリがあっても、Apple優遇で見つけにくかった…</strong><br />
+              なんて状況がなくなるよ。良いアプリが正当に評価される世界になるんだ🌟
+            </p>
+          </div>
         </div>
       </div>
     </Accordion>
   </AccordionGroup>
 </Section>
 
-<Section title="セキュリティは大丈夫？" icon="shield">
-  <p class="text-gray-700 mb-4">
-    多くの人が心配する「App Store以外からアプリを入れると、ウイルスに感染するのでは？」という疑問。
+<Section title="サイドローディングの法的位置づけが変わる" icon="verified" iconColor="text-green-600">
+  <p class="text-gray-700 leading-7 mb-4">
+    この法律により、AltStoreやSideStoreのようなツールは、<mark class="bg-yellow-100 px-1 rounded"><strong>「怪しい裏技」ではなく、「国が認めた正当な競争相手」</strong></mark>としての地位を確立します。
   </p>
-  <p class="text-gray-700 mb-6">
-    実は、スマホ新法では<mark class="bg-yellow-100 px-1 rounded"><strong>「セキュリティ確保のための措置」は認められています</strong></mark>。つまり、Appleによる公証（Notarization）システムは維持されるのです。
+  <AccordionGroup>
+    <Accordion title="日本とEU、似ているけど違う規制">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+        <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
+          <div class="font-semibold text-blue-700 text-xs mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-blue-500 text-base">flag</span>
+            EUデジタル市場法（DMA）
+          </div>
+          <div class="text-gray-600 text-xs">2024年3月施行。EU圏内でサードパーティストアが解禁。Appleは別手数料（Core Technology Fee）を設定。</div>
+        </div>
+        <div class="p-3 bg-red-50 rounded-lg border border-red-200">
+          <div class="font-semibold text-red-700 text-xs mb-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-red-500 text-base">flag</span>
+            日本スマホ新法
+          </div>
+          <div class="text-gray-600 text-xs">2025年施行。アプリストア開放に加え、決済・デフォルト設定・公平性の4本柱で包括的に規制。</div>
+        </div>
+      </div>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>EUが先に動いて、日本は後追いって見られがちだけど…</strong><br />
+              実は日本の法律のほうが「決済」「デフォルト設定」まで踏み込んでて、ある意味EUより広い範囲をカバーしてるんだよ💡
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="この法律でサイドローディングはどう変わる？">
+      <div class="space-y-3">
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">1</span>
+          <div class="pt-0.5">
+            <div class="font-semibold text-gray-800 text-sm">法的な後ろ盾ができる</div>
+            <div class="text-gray-500 text-xs mt-0.5">サイドローディングは「グレーゾーン」から「合法かつ公式」な選択肢に</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">2</span>
+          <div class="pt-0.5">
+            <div class="font-semibold text-gray-800 text-sm">Appleが妨害できなくなる</div>
+            <div class="text-gray-500 text-xs mt-0.5">他社ストアのインストールをAppleが意図的に難しくすることが禁止</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">3</span>
+          <div class="pt-0.5">
+            <div class="font-semibold text-gray-800 text-sm">ユーザーが堂々と選べる</div>
+            <div class="text-gray-500 text-xs mt-0.5">AltStore・SideStoreの利用に後ろめたさは一切不要</div>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="セキュリティは大丈夫？不安に答えます" icon="shield">
+  <p class="text-gray-700 leading-7 mb-4">
+    「App Store以外からアプリを入れると危険では？」これが一番多い疑問ですよね。
   </p>
-  <p class="text-gray-700 mb-4">
-    Apple公証とは、App Store以外で配布されるアプリに対して、Appleが自動で行うセキュリティチェックのことです。主な役割：
+  <p class="text-gray-700 leading-7 mb-6">
+    結論から言うと、スマホ新法では<mark class="bg-yellow-100 px-1 rounded"><strong>「セキュリティ確保のための措置」は認められています</strong></mark>。Appleの公証（Notarization）システムは維持されます。
   </p>
-  <CardGrid>
-    <Card icon="bug_report" iconColor="text-blue-500" title="マルウェアスキャン" desc="アプリにウイルスやスパイウェアが含まれていないか自動検査" />
-    <Card icon="verified_user" iconColor="text-blue-500" title="改ざんチェック" desc="ダウンロード中にアプリが改ざんされていないか確認" />
-  </CardGrid>
-  <p class="text-gray-700 mt-4 mb-4">
-    つまり、サイドローディングで入れたアプリも、<strong>Appleのお墨付き</strong>がついている限り、App Storeのアプリと同等の安全性が保証されるのです。
-  </p>
-  <InfoBox type="info" icon="library_books" title="詳しく読む">
-    <a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="text-blue-600 font-bold hover:underline">「Apple公証とは？サイドローディングが『実は安全』な技術的理由」</a>
+  <div class="mb-6">
+    <CardGrid>
+      <Card icon="bug_report" iconColor="text-blue-500" title="マルウェアスキャン" desc="アプリにウイルスやスパイウェアが含まれていないか自動検査" />
+      <Card icon="verified_user" iconColor="text-blue-500" title="改ざんチェック" desc="ダウンロード中にアプリが改ざんされていないか確認" />
+      <Card icon="shield" iconColor="text-green-500" title="サンドボックス維持" desc="アプリ同士が互いのデータにアクセスできない仕組みは不変" fullWidth />
+    </CardGrid>
+  </div>
+
+  <div class="mb-6">
+  <AccordionGroup>
+    <Accordion title="ぶんちゃん、結局安全なの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>公証済みのアプリなら、App Storeのアプリと同じレベルの安全性だよ！</strong><br />
+              ただし「どこからでもOK」ってなると怪しいサイトも出てくるから、<strong>信頼できるストアから入れる</strong>のが大事🔒
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+  </div>
+
+  <InfoBox type="info" icon="library_books" title="もっと詳しく知りたい方へ">
+    <a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="text-blue-600 font-bold hover:underline">「Apple公証とは？サイドローディングが『実は安全』な技術的理由」</a>で技術的な仕組みを解説しています。
   </InfoBox>
 </Section>
 
-<Section title="よくある質問" icon="help">
+<Section title="よくある質問にぶんちゃんが答えるよ！" icon="help">
   <AccordionGroup>
-    <Accordion title="Q1. スマホ新法はいつから施行されるの？">
-      <p class="text-gray-700">
-        A. 2025年に施行された予定です。ただし、細則は今後変更される可能性があります。
-      </p>
+    <Accordion title="スマホ新法はいつから施行されてるの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>2024年に成立して、2025年12月に施行されたよ！</strong><br />
+              ただし一部の細則はまだ運用が始まったばかり。最新情報は公正取引委員会のサイトでチェックしてね📋
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
-    <Accordion title="Q2. Androidも対象なの？">
-      <p class="text-gray-700">
-        A. はい。この法律はiPhoneだけでなく、Androidも対象です。ただし、Androidはすでに他社ストアが利用可能なため、主な影響を受けるのはiPhoneユーザーです。
-      </p>
+    <Accordion title="Androidも対象なの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>はい、Androidも対象だよ！</strong><br />
+              でもAndroidはもともと他社ストアが使えるから、一番影響を受けるのはiPhoneユーザー。つまりこの記事を読んでるあなたにとって大事な法律なんだ📱
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
-    <Accordion title="Q3. 法律施行後、今のApp Storeはなくなるの？">
-      <p class="text-gray-700">
-        A. いいえ。App Storeは引き続き利用できます。<strong>選択肢が増える</strong>だけで、従来のApp Storeも変わらず使えます。
-      </p>
+    <Accordion title="App Storeはなくなるの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>なくならないよ！App Storeはそのまま使える。</strong><br />
+              「選択肢が増える」だけだから安心してね。今までどおりApp Storeだけ使い続けてもまったく問題ないよ🌸
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
-    <Accordion title="Q4. サイドローディングは危険じゃないの？">
-      <p class="text-gray-700">
-        A. 開発元がはっきりしているアプリ（オープンソースまたは公証済み）であれば、App Storeのアプリと同等の安全性があります。ただし、<strong>ユーザー自身が信頼できるストアを選ぶ</strong>リテラシーが求められます。
-      </p>
+    <Accordion title="サイドローディングって結局危険じゃないの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>公証済み・オープンソースのアプリならApp Storeと同等の安全性！</strong><br />
+              でも「野良サイトからなんでもOK」ってわけじゃないよ。信頼できるストア（AltStore・SideStore）を使うのが鉄則🔒
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="サイドローディングって何から始めればいいの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>まずは「<a href={`${import.meta.env.BASE_URL}articles/what-is-sideloading`} class="font-bold underline">サイドローディングとは？</a>」を読んでみて！</strong><br />
+              基礎がわかったら「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」で実際にやってみよう。一緒に進めれば全然難しくないよ🎉
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
   </AccordionGroup>
 </Section>
 
 <Section title="まとめ：自由には「見る目」が必要" icon="done_all" iconColor="text-green-600">
-  <p class="text-gray-700 mb-4">
-    スマホソフトウェア競争促進法により、iPhoneの「閉ざされた庭」は開かれ、ユーザーは自由にアプリストアを選べるようになります。
-  </p>
-  <p class="text-gray-700 mb-6">
-    選択肢が増える分、<mark class="bg-yellow-100 px-1 rounded"><strong>ユーザー自身が「安全なストア」「安全なアプリ」を選ぶリテラシー</strong></mark>が求められる時代になります。
-  </p>
-  <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-    <li>スマホ新法は2025年末までに施行予定</li>
-    <li>App Store以外からもアプリをインストール可能に</li>
-    <li>決済システム、デフォルト設定、公平な扱いも開放される</li>
-    <li>サイドローディングは「合法」かつ「公式」な選択肢になる</li>
-    <li>公証システムにより、最低限の安全性は担保される</li>
-    <li>ユーザー自身のリテラシーが重要になる</li>
-  </ul>
+  <div class="space-y-2 mb-6">
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-blue-500">gavel</span>
+      <span class="text-gray-800 font-medium text-sm">スマホ新法は2025年12月に施行済み</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">store</span>
+      <span class="text-gray-800 font-medium text-sm">App Store以外からもアプリのインストールが公式に可能</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-purple-500">payments</span>
+      <span class="text-gray-800 font-medium text-sm">決済システム、デフォルト設定、公平な扱いも開放</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-orange-500">verified</span>
+      <span class="text-gray-800 font-medium text-sm">Apple公証システムにより、最低限の安全性は担保</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-red-500">visibility</span>
+      <span class="text-gray-800 font-medium text-sm">ユーザー自身が信頼できるストアを選ぶリテラシーが重要</span>
+    </div>
+  </div>
+
+  <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl mb-6">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのまとめ</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>iPhoneの「鎖国」はついに終わったよ！</strong><br />
+          でも自由って、同時に責任も伴うもの。「どのストアから入れるか」「そのアプリは信頼できるか」を自分で判断する力が必要な時代だね。このサイトでしっかり学んでいこう🌸
+        </p>
+      </div>
+    </div>
+  </div>
+
   <InfoBox type="warning" title="注意事項">
-    法律の内容や細則は施行までに変更される可能性があります。最新情報は政府公式サイトや報道をご確認ください。
+    法律の運用や細則は今後変更される可能性があります。最新情報は<a href="https://www.jftc.go.jp/" target="_blank" rel="noopener" class="text-yellow-800 font-bold hover:underline">公正取引委員会</a>や報道をご確認ください。
   </InfoBox>
 </Section>
 

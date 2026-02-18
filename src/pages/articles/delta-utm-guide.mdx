@@ -25,13 +25,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 </Section>
 
 {/* ── Part 1: Delta Emulator ── */}
-<div class="bg-white rounded-lg mb-8 border border-gray-200 overflow-hidden">
-  <div class="px-8 py-6 border-b-2 border-gray-200 bg-gray-50">
-    <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
-      <span class="material-symbols-outlined text-blue-600">videogame_asset</span>
-      Part 1: Delta Emulator
-    </h2>
-  </div>
+<Section title="Part 1: Delta Emulator" icon="videogame_asset" iconColor="text-blue-600">
 
   <Accordion title="1.1　Delta Emulatorとは">
     <p class="text-gray-700 mb-6">
@@ -89,9 +83,9 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
       <Card icon="sports_esports" title="MFi認証コントローラー" />
       <Card icon="touch_app" title="バーチャルコントローラー" desc="カスタムスキン対応" />
     </CardGrid>
-    <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800">ローカルマルチプレイヤー</h3>
+    <h4 class="text-lg font-semibold mt-6 mb-3 text-gray-800">ローカルマルチプレイヤー</h4>
     <p class="text-gray-700 mb-4">NES、SNES、N64のゲームでは最大4人までのローカルマルチプレイヤーに対応。各プレイヤーが別々のコントローラーを接続することで、友人や家族と一緒にプレイできます。</p>
-    <h3 class="text-xl font-bold mt-6 mb-3 text-gray-800">オンラインマルチプレイヤー</h3>
+    <h4 class="text-lg font-semibold mt-6 mb-3 text-gray-800">オンラインマルチプレイヤー</h4>
     <p class="text-gray-700 mb-4">Nintendo DSのオンライン対応ゲームでは、Wiimmfi、WiiLink WFC、AltWFCなどのコミュニティサーバーを経由して世界中の友人とオンラインプレイが可能です。</p>
   </Accordion>
 
@@ -115,16 +109,10 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
       <Card icon="camera_alt" iconColor="text-indigo-500" title="Game Boy Camera機能" desc="iPhoneのカメラを使用してレトロなGame Boy Camera体験を再現" />
     </CardGrid>
   </Accordion>
-</div>
+</Section>
 
 {/* ── Part 2: UTM SE ── */}
-<div class="bg-white rounded-lg mb-8 border border-gray-200 overflow-hidden">
-  <div class="px-8 py-6 border-b-2 border-gray-200 bg-gray-50">
-    <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
-      <span class="material-symbols-outlined text-blue-600">computer</span>
-      Part 2: UTM SE
-    </h2>
-  </div>
+<Section title="Part 2: UTM SE" icon="computer" iconColor="text-blue-600">
 
   <Accordion title="2.1　UTM SEとは">
     <p class="text-gray-700 mb-4">
@@ -151,7 +139,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 
   <Accordion title="2.3　インストールとセットアップ">
     <p class="text-gray-700 mb-4">UTM SEはiOS 14.0以降を搭載したデバイスで動作します。App Storeから「UTM SE」で検索してダウンロードするか、AltStore経由でインストールできます。</p>
-    <h3 class="text-xl font-bold mt-6 mb-4 text-gray-800">仮想マシンの作成手順</h3>
+    <h4 class="text-lg font-semibold mt-6 mb-4 text-gray-800">仮想マシンの作成手順</h4>
     <StepList>
       <Step num={1} title="UTM SEを起動し、「+」ボタンをタップ" />
       <Step num={2} title="「Emulate」を選択" desc="iOSでは仮想化は利用不可" />
@@ -214,9 +202,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
       <Card icon="wizard_hat" iconColor="text-indigo-500" title="改善されたウィザード" desc="RISC-V64 Ubuntu、クラシックMac OS 8.x/9.x、Windows 95/98の簡単セットアップ" fullWidth={true} />
     </CardGrid>
   </Accordion>
-</div>
-
-{/* ── FAQ ── */}
+</Section>
 <Section title="よくある質問" icon="help" id="article-faq">
   <AccordionGroup>
     <Accordion title="日本のApp StoreでDeltaはダウンロードできますか？">

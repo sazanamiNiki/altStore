@@ -5,6 +5,7 @@ interface Props {
   iconColor?: string;
   intro?: boolean;
   id?: string;
+  'data-section'?: string;
 }
 
 const {
@@ -13,7 +14,16 @@ const {
   iconColor,
   intro = false,
   id,
+  'data-section': dataSection,
 } = Astro.props;
+
+// id が未指定の場合、title から自動生成（日本語対応のスラッグ化）
+const resolvedId = id ?? (title
+  ? `section-${title.toLowerCase().replace(/[\s　]+/g, '-').replace(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF-]/g, '')}`
+  : undefined);
+
+// data-section が未指定の場合、title をそのまま使用
+const resolvedDataSection = dataSection ?? title ?? undefined;
 
 const wrapperClass = intro
   ? 'bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200'
@@ -27,7 +37,7 @@ const resolvedIconColor = iconColor ?? (intro ? 'text-blue-500' : 'text-blue-600
 const resolvedIcon = icon ?? (intro ? 'lightbulb' : 'info');
 ---
 
-<div class={wrapperClass} id={id}>
+<div class={wrapperClass} id={resolvedId} data-section={resolvedDataSection}>
   {title && (
     <h2 class={headingClass}>
       <span class={`material-symbols-outlined ${resolvedIconColor}`}>{resolvedIcon}</span>

@@ -8,22 +8,30 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import AltStoreSetupSteps from '../../components/AltStoreSetupSteps.astro';
 
 export const title = "PCなしでも更新可能？AltStoreの仕組みと導入の基本";
 export const h1 = "AltStoreの仕組みと導入";
 export const description = "AltStoreの7日間署名問題、AltServerの役割、Wi-Fi経由での自動更新の仕組みを詳しく解説。初心者でもわかる完全ガイド。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-01-31" icon="apps" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-12" icon="apps" iconColor="text-blue-500">
 
 <Section intro title="AltStoreとは何か" icon="help_outline">
-  <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-4">
-    <span class="material-symbols-outlined text-blue-500">apps</span>
-    <span class="font-bold text-blue-700 text-sm">App Storeの代替。初心者に最もやさしいサイドローディングツールです。</span>
+  <div class="space-y-3">
+    <div class="flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100">
+      <span class="material-symbols-outlined text-blue-500">apps</span>
+      <span class="font-bold text-blue-700 text-sm">App Storeの代替。初心者に最もやさしいサイドローディングツールです。</span>
+    </div>
+    <div class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+      <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">menu_book</span>
+      <div class="space-y-1">
+        <div class="font-semibold text-blue-700 text-sm">この記事の位置づけ（仕組み・理論編）</div>
+        <div class="text-gray-600 text-sm">
+          実際の手順は「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」、全体像は「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">完全ガイド</a>」をご覧ください。
+        </div>
+      </div>
+    </div>
   </div>
-  <InfoBox type="indigo" icon="auto_stories" title="この記事の位置づけ（仕組み・理論編）">
-    この記事はAltStoreの<strong>仕組み・理論編</strong>です。
-    実際の手順は「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」、全体像は「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">完全ガイド</a>」をご覧ください。
-  </InfoBox>
 </Section>
 
 <Section title="AltStoreの仕組み：なぜ7日で署名が切れるのか" icon="settings" iconColor="text-blue-600">
@@ -141,37 +149,41 @@ export const description = "AltStoreの7日間署名問題、AltServerの役割�
   </AccordionGroup>
 </Section>
 
-<Section title="実際の導入手順（概要）" icon="integration_instructions" iconColor="text-blue-600">
-  <div class="mt-4 gap-4">
-    <InfoBox type="warning" icon="cable" title="接続トラブルの9割はケーブルが原因">
-      100均の「充電専用」ケーブルでは AltServer は認識しません。必ず<strong>データ転送対応のケーブル</strong>を使ってください。
-    </InfoBox>
-    <div class="text-right">
-      <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="text-blue-600 font-bold text-sm hover:underline flex items-center justify-end gap-1" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
-        おすすめの高耐久ケーブルを見る <span class="material-symbols-outlined text-sm">open_in_new</span>
-      </a>
-    </div>
-  </div>
-</Section>
+<AltStoreSetupSteps />
 
 <Section title="PCがない場合はどうする？" icon="help_center" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="手動更新なら可能">
-      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-3">
-        <span class="material-symbols-outlined text-green-500">check_circle</span>
-        <span class="font-bold text-green-700 text-sm">PCなしでも使えます。7日ごとに手動で更新するだけです。</span>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>PCなしでもOK。7日ごとにAltStoreで更新ボタン（↻）をタップ！</strong><br />
+              アプリは消えないから焦らず、数分で復活できるよ🌸
+            </p>
+          </div>
+        </div>
       </div>
-      <p class="text-sm text-gray-600">AltStoreアプリを開いて更新ボタンをタップ。数分で完了します。</p>
     </Accordion>
     <Accordion title="代替手段：友人のPCを借りる">
-      <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-3">
-        <span class="material-symbols-outlined text-blue-500">people</span>
-        <span class="font-bold text-blue-700 text-sm">家族・友人のPCでも代用できます（同じWi-Fi接続が必要）。</span>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>友人・家族のPCを1回借りればOK。</strong><br />
+              同じWi-FiでAltServerを起動して更新すれば完了。PCが本当に無い場合はSideStoreも検討してみてね💡
+            </p>
+          </div>
+        </div>
       </div>
-      <InfoBox type="info" title="PC不要で運用したい場合はSideStoreも検討">
-        完全にPC不要で運用したい場合は、SideStoreへの切り替えも選択肢のひとつです。
-        詳しくは「<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide`} class="font-bold underline">SideStore 完全ガイド</a>」をご覧ください。
-      </InfoBox>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -179,36 +191,52 @@ export const description = "AltStoreの7日間署名問題、AltServerの役割�
 <Section title="よくある質問と対策" icon="help" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="署名が切れたアプリはどうなる？">
-      <div class="flex items-center gap-2 p-3 bg-orange-50 rounded-lg border border-orange-200 mb-3">
-        <span class="material-symbols-outlined text-orange-500">warning</span>
-        <span class="font-bold text-orange-700 text-sm">起動しなくなります（削除ではありません）。</span>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>AltStoreアプリで更新ボタン（↻）をタップするだけ！</strong><br />
+              アイコンが残ってれば削除されたわけじゃないから安心してね🌸
+            </p>
+          </div>
+        </div>
       </div>
-      <p class="text-sm text-gray-600">AltStoreアプリを開いて更新ボタン（↻）をタップ → すぐに使えるようになります。</p>
     </Accordion>
     <Accordion title="Wi-Fi自動更新がうまくいかない場合は？">
-      <ul class="space-y-2 text-sm text-gray-700">
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
-          PCとiPhoneが同じWi-Fiに接続しているか
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
-          ファイアウォールがAltServerの通信をブロックしていないか
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-blue-400 text-base mt-0.5">check_box_outline_blank</span>
-          解決しない場合はUSB接続で手動更新
-        </li>
-      </ul>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>PCとiPhoneが同じWi-Fiに接続してるか確認！</strong><br />
+              iPhoneが4G/5Gになってないかチェックしてみて。ダメならUSBで手動更新でOK💡
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
     <Accordion title="複数のiPhoneで使える？">
-      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-3">
-        <span class="material-symbols-outlined text-green-500">check_circle</span>
-        <span class="font-bold text-green-700 text-sm">可能です。同じApple IDで複数デバイス対応。</span>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>同じApple IDで複数デバイスで使えるよ！</strong><br />
+              ただし無料Apple IDは10個まで制限あり。たくさん使うなら開発者アカウントも検討してみて🌟
+            </p>
+          </div>
+        </div>
       </div>
-      <InfoBox type="warning" title="無料Apple IDのApp ID制限">
-        同時に署名できるアプリ数に上限があります。多くのアプリを使いたい場合は有料開発者アカウントを検討してください。
-      </InfoBox>
     </Accordion>
   </AccordionGroup>
 </Section>
