@@ -13,6 +13,7 @@ import Section from './Section.astro';
       desc="公式サイトからPC/Mac用のAltServerをダウンロードしてインストール。特別な設定は不要です。"
       image={`${import.meta.env.BASE_URL}assets/img/download.png`}
       alt="download"
+      fullWidth={true}
     >
       <div class="mt-4">
         <InfoBox type="info" title="AltServerのダウンロード先">
@@ -20,13 +21,21 @@ import Section from './Section.astro';
         </InfoBox>
       </div>
     </Step>
-    <Step num={2} title="AltServerにApple IDでログイン" desc="AltServerのメニューから「Sign In」を選択し、iPhoneで使用しているApple IDでサインイン。2段階認証コードの入力が必要な場合があります。" image={`${import.meta.env.BASE_URL}assets/img/login.png`} alt="login" />
+    <Step 
+      num={2} 
+      title="AltServerにApple IDでログイン" 
+      desc="AltServerのメニューから「Sign In」を選択し、iPhoneで使用しているApple IDでサインイン。2段階認証コードの入力が必要な場合があります。" 
+      image={`${import.meta.env.BASE_URL}assets/img/login.png`} 
+      alt="login" 
+      fullWidth={true}
+    />
     <Step
       num={3}
       title="iPhoneをUSBで接続してAltStoreをインストール"
       desc="iPhoneをUSBケーブルでPCに接続 → AltServerメニューから「Install AltStore」を選択 → 数秒でインストール完了。"
       image={`${import.meta.env.BASE_URL}assets/img/device-select.png`}
       alt="device-select"
+      fullWidth={true}
     >
       <div class="mt-4">
         <InfoBox type="warning" icon="info" title="Step 3：「信頼」をタップすることを忘れずに">
@@ -34,8 +43,22 @@ import Section from './Section.astro';
         </InfoBox>
       </div>
     </Step>
-    <Step num={4} title="iPhoneのAltStoreを信頼する" desc="設定 → 一般 → VPNとデバイス管理で自身のApple IDの欄をタップ。「信頼」をタップして完了。" image={`${import.meta.env.BASE_URL}assets/img/allow.png`} alt="allow" />
-    <Step num={5} title="Wi-Fi経由での接続を有効化" desc="Finderで「Wi-Fi経由でiPhoneとの接続」を有効にすれば、以降はUSB接続が不要になります。" image={`${import.meta.env.BASE_URL}assets/img/connect.png`} alt="connect" />
+    <Step 
+      num={4} 
+      title="iPhoneのAltStoreを信頼する" 
+      desc="設定 → 一般 → VPNとデバイス管理で自身のApple IDの欄をタップ。「信頼」をタップして完了。" 
+      image={`${import.meta.env.BASE_URL}assets/img/allow.png`} 
+      alt="allow" 
+      fullWidth={true}
+    />
+    <Step 
+      num={5} 
+      title="Wi-Fi経由での接続を有効化" 
+      desc="Finderで「Wi-Fi経由でiPhoneとの接続」を有効にすれば、以降はUSB接続が不要になります。" 
+      image={`${import.meta.env.BASE_URL}assets/img/connect.png`} 
+      alt="connect" 
+      fullWidth={true}
+    />
   </StepList>
   <div class="mt-4 gap-4">
     <InfoBox type="warning" icon="cable" title="接続トラブルの9割はケーブルが原因">

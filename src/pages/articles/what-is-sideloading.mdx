@@ -11,7 +11,7 @@ export const title = "iPhoneのサイドローディングとは？メリット�
 export const h1 = "サイドローディングとは";
 export const description = "サイドローディングの定義、App Storeとの違い、メリット・リスク、欧州法改正の背景を初心者向けに解説";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-02-12" icon="smartphone" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-18" icon="smartphone" iconColor="text-blue-500">
 
 <Section intro title="サイドローディングって何？" icon="help_outline">
   <p class="text-gray-700 mb-4">
@@ -140,6 +140,31 @@ export const description = "サイドローディングの定義、App Storeと�
       好きなアプリを自由に選べる代わりに、安全性は自分で判断する必要があります。
     </p>
   </div>
+</Section>
+
+<Section title="サイドローディングを始めるには" icon="rocket_launch" iconColor="text-blue-600">
+  <p class="text-gray-700 mb-4">
+    サイドローディングを始めるのに必要なものは、<strong>iPhone、PC/Mac、Apple ID、USBケーブル</strong>の4つだけです。
+  </p>
+  <div class="my-4 p-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl">
+    <div class="flex flex-col sm:flex-row gap-4 items-center">
+      <div class="flex-1">
+        <h4 class="font-bold text-gray-900 mb-1">
+          <span class="material-symbols-outlined align-middle text-blue-600 mr-1">cable</span>
+          USBケーブルは「データ転送対応」が必須
+        </h4>
+        <p class="text-sm text-gray-600 mb-3">
+          100均の充電専用ケーブルでは認識しません。初回セットアップにはデータ転送対応のケーブルが必要です。
+        </p>
+        <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-5 rounded-full transition-colors text-sm shadow-md" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
+          おすすめのケーブルを見る
+        </a>
+      </div>
+    </div>
+  </div>
+  <InfoBox type="info" icon="arrow_forward" title="次のステップ">
+    準備ができたら「<a href={`${import.meta.env.BASE_URL}articles/how-to-use-altstore`} class="font-bold underline">AltStoreの使い方</a>」で実際のインストール手順をご覧ください。
+  </InfoBox>
 </Section>
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">

@@ -6,11 +6,23 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanDiagnosis from '../../components/BunchanDiagnosis.astro';
 
 export const title = "よくある質問";
 export const description = "サイドローディング、AltStoreに関するよくある質問と回答。安全性、インストール方法、7日署名、パソコン不要の方法など、みんなが気になることを分かりやすく解説します。";
 
-<ArticleLayout title={title} description={description} date="2026-02-03" icon="help" iconColor="text-blue-500">
+<ArticleLayout title={title} description={description} date="2026-02-18" icon="help" iconColor="text-blue-500" faq={[
+  { question: "サイドローディングって危なくない？", answer: "公式のオープンソースアプリのみ紹介しているため安全です。Delta・UTMはオープンソースで透明性があり、AltStoreのコードも公開済み。iOSの基本セキュリティもそのまま維持されます。" },
+  { question: "サイドローディングって違法じゃない？", answer: "違法ではありません。個人利用は完全に合法です。EUではDMAによりサイドローディングが義務化され、日本でもスマホ新法（MSCA）により2025年末に正式認定予定です。" },
+  { question: "セキュリティは大丈夫？", answer: "信頼できるソース（公式リポジトリ）からのアプリなら問題ありません。海賊版・非公式アプリはクラッシュやバッテリー消耗の原因になるため避けてください。" },
+  { question: "Developer Mode（開発者モード）って何？", answer: "iOS 16以降の開発者向けモードです。通常は不要で、必要なアプリを入れると自動で説明が出ます。その時だけONにすればOKです。" },
+  { question: "Apple Certificateって必要なの？", answer: "不要です。普通のApple IDだけでOK。AltStoreが自動で署名してくれるため、有料のDeveloper Programへの加入は不要です。" },
+  { question: "iPhoneが重くなったりしない？", answer: "信頼できるアプリなら通常通り動作します。非公式版・海賊版は動作不安定・バッテリー消費の原因になります。" },
+  { question: "iOSアップデートしたら消えちゃう？", answer: "アプリは消えません。署名切れのみ注意が必要です。AltStoreは7日ごとに手動で再署名、SideStoreはバックグラウンドで自動更新されます。" },
+  { question: "複数のiPhoneやiPadで使える？", answer: "同じApple IDで複数デバイスに対応しています。ただし無料Apple IDでは同時インストール最大3アプリ（AltStore含む）、週10アプリまでの制限があります。" },
+  { question: "パソコンって毎回必要？", answer: "AltStoreは毎回PCに接続が必要ですが、SideStoreなら最初だけPCがあれば以降はWi-Fiのみで運用できます。SideStoreはiOS 14以降対応で7日署名も自動更新します。" },
+  { question: "AltStoreでうまくインストールできない時は？", answer: "PCとiPhoneが同じWi-Fiに接続しているか、Apple IDのパスワードが正しいか、USBケーブルがデータ転送対応か確認してください。インストール失敗の多くはケーブルが充電専用だったケースです。" },
+]}>
 
 <Section intro title="気になることを1秒で解決" icon="lightbulb">
   <p class="text-gray-600 text-sm">質問をタップして答えを確認してください。</p>
@@ -80,6 +92,19 @@ export const description = "サイドローディング、AltStoreに関する�
       </InfoBox>
     </Accordion>
   </AccordionGroup>
+  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのひとこと</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          このサイトで紹介してるアプリは全部<strong>オープンソース</strong>だよ！コードが公開されてるから、世界中の開発者が安全性をチェック済み。安心して使ってね🌸
+        </p>
+      </div>
+    </div>
+  </div>
 </Section>
 
 <Section title="技術的な質問" icon="settings">
@@ -124,6 +149,19 @@ export const description = "サイドローディング、AltStoreに関する�
       </InfoBox>
     </Accordion>
   </AccordionGroup>
+  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          難しそうに見えるけど、実際は<strong>「インストールして使うだけ」</strong>だよ！開発者モードも証明書も、AltStoreが全部自動でやってくれるから心配いらないよ👍
+        </p>
+      </div>
+    </div>
+  </div>
 </Section>
 
 <Section title="署名・アップデート・複数デバイス" icon="update">
@@ -199,11 +237,41 @@ export const description = "サイドローディング、AltStoreに関する�
           iTunesはApple公式版か（MS Store版は非推奨）
         </li>
       </ul>
+      <div class="my-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl">
+        <h4 class="font-bold text-gray-900 text-sm mb-1">
+          <span class="material-symbols-outlined align-middle text-blue-600 mr-1 text-base">cable</span>
+          USBケーブルが原因かも？
+        </h4>
+        <p class="text-xs text-gray-600 mb-2">
+          インストール失敗の多くはケーブルが「充電専用」だったケースです。データ転送対応のケーブルを使ってみてください。
+        </p>
+        <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="text-blue-600 font-bold text-sm hover:underline flex items-center gap-1" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
+          おすすめのケーブルを見る <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+      </div>
       <InfoBox type="info" title="もっと詳しく">
         <a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="text-blue-600 font-bold hover:underline">→ インストールガイドを見る</a>
       </InfoBox>
     </Accordion>
   </AccordionGroup>
+  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          7日ごとの更新が面倒なら、<strong>SideStore</strong>がおすすめ！初回だけPCがあれば、その後はiPhoneだけで全部完結するよ。インストールがうまくいかないときはまず<strong>ケーブルを確認</strong>してみてね🔌
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<Section title="あなたに合った方法を診断" icon="psychology" iconColor="text-pink-500">
+  <p class="text-gray-600 text-sm mb-4">どの方法が自分に合っているかわからない？3つの質問に答えるだけで、ぴったりの方法がわかります。</p>
+  <BunchanDiagnosis />
 </Section>
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
@@ -228,6 +296,19 @@ export const description = "サイドローディング、AltStoreに関する�
   <InfoBox type="warning" icon="info" title="このFAQについて">
     2026年2月現在の情報です。法律・仕様は変更される可能性があります。
   </InfoBox>
+  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんより</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          わからないことがあったらいつでもこのページに戻ってきてね！下の関連記事もきっと役に立つよ。一緒にサイドローディングを楽しもう🌟
+        </p>
+      </div>
+    </div>
+  </div>
 </Section>
 
 <RelatedArticles articles={[

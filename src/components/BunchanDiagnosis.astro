@@ -1,0 +1,403 @@
+---
+/**
+ * ぶんちゃん診断コンポーネント
+ * 「あなたにピッタリのサイドローディング方法」を3〜4問の質問で診断する
+ * インタラクティブなクイズUI（クライアントサイドJS）
+ *
+ * 使い方: <BunchanDiagnosis /> を任意のMDXに配置するだけ
+ * 切り戻し: このコンポーネントのimportと配置を削除するだけでOK
+ */
+---
+
+<div class="my-8 rounded-2xl border-2 border-pink-200 bg-gradient-to-br from-pink-50 via-white to-purple-50 overflow-hidden" id="bunchan-diagnosis">
+  <!-- ヘッダー -->
+  <div class="bg-gradient-to-r from-pink-100 to-purple-100 px-6 py-4 border-b border-pink-200">
+    <div class="flex items-center gap-3">
+      <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-12 h-12 rounded-full border-2 border-white shadow-sm" />
+      <div>
+        <div class="font-bold text-pink-800 text-lg">ぶんちゃん診断</div>
+        <div class="text-pink-600 text-xs">あなたにピッタリのサイドローディング方法は？</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 診断コンテンツエリア -->
+  <div class="p-6" id="diagnosis-content">
+
+    <!-- スタート画面 -->
+    <div id="diagnosis-start">
+      <div class="text-center mb-6">
+        <span class="material-symbols-outlined text-pink-400 text-5xl">quiz</span>
+        <p class="text-gray-700 text-sm mt-3 leading-relaxed">
+          <strong>たった3問</strong>で、あなたに合ったサイドローディング方法がわかります！
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mb-6">
+        <div class="text-center p-3 bg-blue-50 rounded-lg border border-blue-100">
+          <span class="material-symbols-outlined text-blue-500 text-xl">desktop_mac</span>
+          <div class="text-xs text-gray-600 mt-1">PC環境</div>
+        </div>
+        <div class="text-center p-3 bg-green-50 rounded-lg border border-green-100">
+          <span class="material-symbols-outlined text-green-500 text-xl">schedule</span>
+          <div class="text-xs text-gray-600 mt-1">手間</div>
+        </div>
+        <div class="text-center p-3 bg-purple-50 rounded-lg border border-purple-100">
+          <span class="material-symbols-outlined text-purple-500 text-xl">apps</span>
+          <div class="text-xs text-gray-600 mt-1">アプリ数</div>
+        </div>
+      </div>
+      <button
+        id="diagnosis-start-btn"
+        class="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all text-sm"
+      >
+        診断スタート！
+      </button>
+    </div>
+
+    <!-- 質問画面（JSで切り替え） -->
+    <div id="diagnosis-questions" class="hidden">
+      <!-- プログレスバー -->
+      <div class="mb-6">
+        <div class="flex justify-between text-xs text-gray-500 mb-1">
+          <span id="diagnosis-progress-text">Q1 / 3</span>
+          <span id="diagnosis-progress-pct">0%</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div id="diagnosis-progress-bar" class="bg-gradient-to-r from-pink-400 to-purple-400 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- ぶんちゃん吹き出し -->
+      <div class="flex gap-3 mb-5">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full flex-shrink-0" />
+        <div class="bg-white border border-pink-200 rounded-xl rounded-tl-none p-3 flex-1 shadow-sm">
+          <p id="diagnosis-question-text" class="text-sm font-bold text-gray-800"></p>
+          <p id="diagnosis-question-hint" class="text-xs text-gray-500 mt-1"></p>
+        </div>
+      </div>
+
+      <!-- 選択肢 -->
+      <div id="diagnosis-options" class="space-y-2"></div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div id="diagnosis-result" class="hidden">
+      <!-- ぶんちゃんの結果発表 -->
+      <div class="flex gap-3 mb-5">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full flex-shrink-0" />
+        <div class="bg-white border border-pink-200 rounded-xl rounded-tl-none p-3 flex-1 shadow-sm">
+          <p class="text-sm font-bold text-pink-700">診断結果が出たよ！</p>
+        </div>
+      </div>
+
+      <!-- メイン結果カード -->
+      <div id="diagnosis-result-card" class="mb-5 rounded-xl border-2 overflow-hidden">
+        <div id="diagnosis-result-header" class="px-5 py-4">
+          <div class="flex items-center gap-2">
+            <span id="diagnosis-result-icon" class="material-symbols-outlined text-2xl"></span>
+            <div>
+              <div class="text-xs font-bold opacity-80">あなたにおすすめ</div>
+              <div id="diagnosis-result-title" class="text-lg font-bold"></div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white px-5 py-4">
+          <p id="diagnosis-result-desc" class="text-sm text-gray-700 leading-relaxed mb-4"></p>
+
+          <!-- メリット・デメリット -->
+          <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="p-3 bg-green-50 rounded-lg border border-green-100">
+              <div class="font-bold text-green-700 text-xs mb-2 flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">thumb_up</span>メリット
+              </div>
+              <ul id="diagnosis-result-pros" class="space-y-1 text-xs text-gray-700"></ul>
+            </div>
+            <div class="p-3 bg-orange-50 rounded-lg border border-orange-100">
+              <div class="font-bold text-orange-700 text-xs mb-2 flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">info</span>注意点
+              </div>
+              <ul id="diagnosis-result-cons" class="space-y-1 text-xs text-gray-700"></ul>
+            </div>
+          </div>
+
+          <!-- 関連記事リンク -->
+          <a id="diagnosis-result-link" href="#" class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-700 font-bold text-sm hover:bg-blue-100 transition-colors">
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
+            <span id="diagnosis-result-link-text">詳しいガイドを見る</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ぶんちゃんコメント -->
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl mb-4">
+        <div class="flex gap-3">
+          <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full flex-shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+            <p id="diagnosis-result-advice" class="text-sm text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- もう一度ボタン -->
+      <button
+        id="diagnosis-retry-btn"
+        class="w-full py-3 px-6 bg-white border-2 border-pink-300 text-pink-600 font-bold rounded-xl hover:bg-pink-50 transition-colors text-sm"
+      >
+        もう一度診断する
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- データ定義 ---
+    const questions = [
+      {
+        text: 'パソコン（Mac / Windows）は持ってる？',
+        hint: 'セットアップ時に使うよ',
+        options: [
+          { label: 'Mac を持ってる', icon: 'laptop_mac', value: 'mac' },
+          { label: 'Windows を持ってる', icon: 'laptop_windows', value: 'win' },
+          { label: '持ってない / 使いたくない', icon: 'no_backpack', value: 'none' },
+        ],
+      },
+      {
+        text: '7日ごとの「再署名」作業はどう思う？',
+        hint: '無料Apple IDはアプリの署名が7日で切れるよ',
+        options: [
+          { label: '毎週やるのは面倒！自動がいい', icon: 'autorenew', value: 'auto' },
+          { label: 'PCに繋ぐだけなら問題ない', icon: 'cable', value: 'manual' },
+          { label: 'よくわからない', icon: 'help', value: 'unknown' },
+        ],
+      },
+      {
+        text: '入れたいアプリの数はどのくらい？',
+        hint: '無料Apple IDだと同時3つまで（AltStore含む）',
+        options: [
+          { label: '1〜2個だけ（Deltaだけ等）', icon: 'filter_1', value: 'few' },
+          { label: '3個以上入れたい', icon: 'apps', value: 'many' },
+          { label: 'まだ決まってない', icon: 'question_mark', value: 'undecided' },
+        ],
+      },
+    ];
+
+    const BASE = document.querySelector('#bunchan-diagnosis img')?.getAttribute('src')?.replace('assets/img/buncho.png', '') || '/';
+
+    const results = {
+      sidestore: {
+        title: 'SideStore',
+        icon: 'phone_iphone',
+        headerClass: 'bg-gradient-to-r from-green-500 to-emerald-500 text-white',
+        borderClass: 'border-green-300',
+        desc: 'PCは初回セットアップだけ。その後はiPhoneだけで署名更新が自動でできて、手間いらず！Wi-Fi経由でアプリの管理ができるので、PCを毎回出す必要がありません。',
+        pros: ['初回以降PCが不要', '署名が自動で更新される', 'Wi-Fiだけで運用可能'],
+        cons: ['初回はPC+USB接続が必要', 'iOS 17.4以降で最も安定'],
+        advice: 'SideStoreは<strong>一番ラクな方法</strong>だよ！初回だけちょっと頑張れば、あとはiPhoneだけで完結するから快適🌟 迷ったらこれにしよう！',
+        link: BASE + 'articles/altstore-complete-guide',
+        linkText: 'SideStoreのセットアップ方法を見る',
+      },
+      altstore: {
+        title: 'AltStore',
+        icon: 'desktop_mac',
+        headerClass: 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white',
+        borderClass: 'border-blue-300',
+        desc: 'PCとの接続で確実に署名管理できるスタンダードな方法。歴史が長く、情報も豊富で安定しています。毎週PCに接続するだけで簡単にアプリを管理できます。',
+        pros: ['安定性が高い', '情報・解説が豊富', 'セットアップが簡単'],
+        cons: ['7日ごとにPC接続が必要', '同時3アプリまで（無料）'],
+        advice: 'AltStoreは<strong>定番で安心</strong>の方法！毎週PCに繋ぐのが苦じゃなければ、トラブルも少なくておすすめだよ。困ったときも情報がたくさんあるから安心🔧',
+        link: BASE + 'articles/altstore-complete-guide',
+        linkText: 'AltStoreのセットアップ方法を見る',
+      },
+      altstore_win: {
+        title: 'AltStore（Windows版）',
+        icon: 'laptop_windows',
+        headerClass: 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white',
+        borderClass: 'border-blue-300',
+        desc: 'WindowsパソコンからAltStoreをセットアップ。iTunesとiCloudの公式版インストールが必要ですが、手順通りやれば問題なくセットアップできます。',
+        pros: ['Windowsで利用可能', '手順がシンプル', '情報が豊富'],
+        cons: ['iTunes公式版が必要', '7日ごとにPC接続が必要', 'ファイアウォール設定に注意'],
+        advice: 'WindowsでもAltStoreは使えるよ！ポイントは<strong>iTunes公式版</strong>（Apple公式サイトからDL）を使うこと。Microsoft Store版だとエラーになることがあるから注意してね⚠️',
+        link: BASE + 'articles/altstore-complete-guide',
+        linkText: 'Windows版セットアップガイドを見る',
+      },
+      sidestore_pcless: {
+        title: 'SideStore（PC最小限）',
+        icon: 'wifi',
+        headerClass: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white',
+        borderClass: 'border-purple-300',
+        desc: 'PCは初回のみ最小限の接続で、その後はiPhoneだけで完結。PC作業を最低限にしたい人に最適。SideStoreならWi-Fiベースで署名更新も全自動です。',
+        pros: ['PCは初回のみ', '署名が自動更新', 'スマホだけで完結'],
+        cons: ['初回だけPCが必要', 'PC完全不要ではない'],
+        advice: 'PCを持ってるけどあまり使いたくないあなたには、<strong>SideStore</strong>がピッタリ！初回だけ頑張って、あとはiPhoneだけの生活を楽しんでね📱✨',
+        link: BASE + 'articles/altstore-complete-guide',
+        linkText: 'SideStoreのセットアップ方法を見る',
+      },
+      wait_eu: {
+        title: 'EU公式ストアを待つ',
+        icon: 'hourglass_top',
+        headerClass: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white',
+        borderClass: 'border-amber-300',
+        desc: 'EUではDMA（デジタル市場法）により、AltStoreが公式マーケットプレイスとして認定済み。日本でもスマホ新法（MSCA）により2025年末以降に同様の展開が期待されています。',
+        pros: ['PCが完全に不要になる', 'Apple公認で安心', '署名の問題がなくなる'],
+        cons: ['日本での開始時期は未定', '利用できるアプリが限られる可能性'],
+        advice: '今すぐは難しいけど、日本でも<strong>公式ストアとしてのAltStore</strong>が使えるようになる日は近いよ！それまで待つのもアリだし、先にSideStoreで試してみるのもおすすめ🌸',
+        link: BASE + 'articles/smartphone-law-explained',
+        linkText: 'スマホ新法の解説を読む',
+      },
+    };
+
+    // --- 状態 ---
+    let currentQuestion = 0;
+    let answers = [];
+
+    // --- DOM要素 ---
+    const startScreen = document.getElementById('diagnosis-start');
+    const questionScreen = document.getElementById('diagnosis-questions');
+    const resultScreen = document.getElementById('diagnosis-result');
+    const startBtn = document.getElementById('diagnosis-start-btn');
+    const retryBtn = document.getElementById('diagnosis-retry-btn');
+    const progressText = document.getElementById('diagnosis-progress-text');
+    const progressPct = document.getElementById('diagnosis-progress-pct');
+    const progressBar = document.getElementById('diagnosis-progress-bar');
+    const questionText = document.getElementById('diagnosis-question-text');
+    const questionHint = document.getElementById('diagnosis-question-hint');
+    const optionsContainer = document.getElementById('diagnosis-options');
+
+    if (!startBtn || !retryBtn) return;
+
+    // --- 画面切り替え ---
+    function showScreen(screen) {
+      startScreen.classList.add('hidden');
+      questionScreen.classList.add('hidden');
+      resultScreen.classList.add('hidden');
+      screen.classList.remove('hidden');
+    }
+
+    // --- 質問描画 ---
+    function renderQuestion() {
+      const q = questions[currentQuestion];
+      const pct = Math.round((currentQuestion / questions.length) * 100);
+      progressText.textContent = `Q${currentQuestion + 1} / ${questions.length}`;
+      progressPct.textContent = `${pct}%`;
+      progressBar.style.width = `${pct}%`;
+      questionText.textContent = q.text;
+      questionHint.textContent = q.hint;
+
+      optionsContainer.innerHTML = '';
+      q.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.className =
+          'w-full flex items-center gap-3 p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-pink-300 hover:bg-pink-50 transition-all text-left';
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-gray-400 text-xl">${opt.icon}</span>
+          <span class="text-sm font-medium text-gray-800">${opt.label}</span>
+        `;
+        btn.addEventListener('click', () => selectAnswer(opt.value));
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    // --- 回答選択 ---
+    function selectAnswer(value) {
+      // 選択アニメーション
+      const buttons = optionsContainer.querySelectorAll('button');
+      buttons.forEach((btn) => {
+        btn.disabled = true;
+        btn.classList.add('opacity-50');
+      });
+      const selected = Array.from(buttons).find((btn) =>
+        btn.querySelector('span:last-child')?.textContent ===
+        questions[currentQuestion].options.find((o) => o.value === value)?.label
+      );
+      if (selected) {
+        selected.classList.remove('opacity-50', 'border-gray-200');
+        selected.classList.add('border-pink-400', 'bg-pink-50');
+      }
+
+      answers.push(value);
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }, 400);
+    }
+
+    // --- 結果判定ロジック ---
+    function determineResult() {
+      const [pc, signing, appCount] = answers;
+
+      // PCなし → 基本的にEU待ち（ただしアドバイスでSideStore初回接続も提案）
+      if (pc === 'none') {
+        return 'wait_eu';
+      }
+
+      // PC持ち + 自動署名希望 → SideStore
+      if (signing === 'auto' || signing === 'unknown') {
+        if (pc === 'win') {
+          return 'sidestore_pcless';
+        }
+        return 'sidestore';
+      }
+
+      // PC持ち + 手動OK
+      if (signing === 'manual') {
+        if (pc === 'win') {
+          return 'altstore_win';
+        }
+        return 'altstore';
+      }
+
+      // デフォルト
+      return 'sidestore';
+    }
+
+    // --- 結果表示 ---
+    function showResult() {
+      const resultKey = determineResult();
+      const r = results[resultKey];
+
+      progressBar.style.width = '100%';
+      progressPct.textContent = '100%';
+
+      document.getElementById('diagnosis-result-card').className =
+        `mb-5 rounded-xl border-2 overflow-hidden ${r.borderClass}`;
+      document.getElementById('diagnosis-result-header').className =
+        `px-5 py-4 ${r.headerClass}`;
+      document.getElementById('diagnosis-result-icon').textContent = r.icon;
+      document.getElementById('diagnosis-result-title').textContent = r.title;
+      document.getElementById('diagnosis-result-desc').textContent = r.desc;
+
+      const prosEl = document.getElementById('diagnosis-result-pros');
+      prosEl.innerHTML = r.pros.map((p) => `<li>・${p}</li>`).join('');
+
+      const consEl = document.getElementById('diagnosis-result-cons');
+      consEl.innerHTML = r.cons.map((c) => `<li>・${c}</li>`).join('');
+
+      document.getElementById('diagnosis-result-advice').innerHTML = r.advice;
+      document.getElementById('diagnosis-result-link').href = r.link;
+      document.getElementById('diagnosis-result-link-text').textContent = r.linkText;
+
+      showScreen(resultScreen);
+    }
+
+    // --- イベント ---
+    startBtn.addEventListener('click', () => {
+      currentQuestion = 0;
+      answers = [];
+      showScreen(questionScreen);
+      renderQuestion();
+    });
+
+    retryBtn.addEventListener('click', () => {
+      currentQuestion = 0;
+      answers = [];
+      showScreen(startScreen);
+    });
+  });
+</script>

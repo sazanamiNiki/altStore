@@ -14,7 +14,7 @@ export const title = "AltStore完全ガイド：セットアップから運用�
 export const h1 = "AltStore完全ガイド";
 export const description = "AltStoreの基本、7日署名の仕組み、初期セットアップ、アプリのインストール方法、トラブルシューティングまで完全網羅。初心者でも安心して使えるガイド。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-02-10" icon="apps" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-02-18" icon="apps" iconColor="text-blue-500">
 
 <Section intro title="AltStoreを使いこなすための完全ガイド" icon="lightbulb">
   <p class="text-gray-700 mb-4">
@@ -134,7 +134,7 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
     <Accordion title="方法2：IPAファイルをiPhoneで直接インストール">
       <p class="text-gray-700 mb-3">IPA ファイル（iPhone アプリのパッケージファイル）を用意して、AltStore からインストールする方法です。</p>
       <StepList>
-        <Step num={1} title="信頼できるソースから IPA ファイルをダウンロード" desc="「ファイル」アプリに保存" />
+        <Step num={1} title="信頼できるソースから IPA ファイルをダウンロード" desc="「ファイル」アプリに保存" advice="IPAファイルは<a href='/' class='font-bold underline'>うちのストア</a>からもダウンロードできるよ！安全性を確認済みのアプリだけ掲載してるから安心してね🌸" />
         <Step num={2} title="AltStore アプリを起動" />
         <Step num={3} title="下部タブの「My Apps」をタップ" />
         <Step num={4} title="左上の「+」アイコンをタップ" />
@@ -176,16 +176,48 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
 <Section title="トラブルシューティング" icon="help" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="インストールが失敗する">
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
         <li>Apple ID のパスワードが正しく入力されているか</li>
         <li>iOS が 14.4 以上か</li>
         <li>iPhone の容量は十分か（アプリサイズ以上の空きが必要）</li>
         <li>AltServer を再起動してみる</li>
         <li>USB ケーブルがデータ転送対応かどうか確認する</li>
       </ul>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>インストール失敗の9割はケーブルかApple IDが原因！</strong><br />
+              まずは100均の充電専用ケーブルを使ってないか確認してみて。それでもダメならAltServerを再起動してね💡
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="text-right mt-4">
+        <a href="https://amzn.to/3Zf1cUm" target="_blank" rel="sponsored noopener" class="text-blue-600 font-bold text-sm hover:underline flex items-center justify-end gap-1" data-affiliate-type="amazon" data-product-category="cable" onclick="if(typeof trackAffiliateClick === 'function') trackAffiliateClick('amazon', 'cable', 'lightning-cable');">
+          おすすめの高耐久ケーブルを見る <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+      </div>
     </Accordion>
     <Accordion title="インストール後、アプリが起動しない">
-      <p class="text-gray-700 mb-3"><strong>原因：</strong>署名が切れている可能性があります。</p>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl mb-4">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>署名が切れてるだけだから焦らないで！</strong><br />
+              AltStoreで更新ボタン（↻）をタップすれば数分で復活するよ🌸
+            </p>
+          </div>
+        </div>
+      </div>
       <StepList>
         <Step num={1} title="AltStore アプリを開く" />
         <Step num={2} title="該当アプリの横の更新ボタン（↻）をタップ" />
@@ -193,37 +225,81 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
       </StepList>
     </Accordion>
     <Accordion title="Wi-Fi自動更新がうまくいかない">
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
         <li>PC/Mac と iPhone が<strong>同じ Wi-Fi ネットワーク</strong>に接続しているか</li>
         <li>AltServer が PC 上でバックグラウンド実行中か（メニューバーに表示されているか）</li>
         <li>Wi-Fi ルーターのファイアウォール設定が AltServer の通信をブロックしていないか</li>
         <li>PC を再起動して、再度 Wi-Fi 同期をオンにしてみる</li>
       </ul>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>iPhoneが4G/5Gになってないかチェック！</strong><br />
+              PCと同じWi-Fiに繋がってるのが前提だよ。ダメならUSBで手動更新すればOK💡
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
     <Accordion title="複数のiPhoneで使える？">
-      <p class="text-gray-700 mb-3">
-        可能です。同じ Apple ID で複数の端末を登録すれば、複数の iPhone/iPad で AltStore を使用できます。
-      </p>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl mb-4">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>同じApple IDで複数デバイスで使えるよ！</strong><br />
+              ただし無料Apple IDだとアプリ数に制限があるから、たくさん使いたいなら開発者アカウントも検討してみて🌟
+            </p>
+          </div>
+        </div>
+      </div>
       <InfoBox type="warning" title="無料Apple IDのApp ID制限">
         無料 Apple ID には「App ID」という制限があり、同時に署名できるアプリ数には上限があります。
         多くのアプリを使いたい場合は有料開発者アカウントの利用を検討してください。
       </InfoBox>
     </Accordion>
     <Accordion title="PCがない場合はどうする？">
-      <p class="text-gray-700 mb-3">
-        家族や友人の PC/Mac を借りて初回セットアップを完了させれば、
-        その後は iPhone 上で手動で署名を更新できます。毎回 USB 接続は不要です。
-      </p>
-      <p class="text-gray-700">
-        完全に PC なしで運用したい場合は、SideStore への切り替えも選択肢のひとつです。
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl mb-4">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>友人・家族のPCを1回借りればOK！</strong><br />
+              初回セットアップさえ済めば、あとはiPhoneだけで手動更新できるよ。完全PC不要がいいならSideStoreも検討してみてね🌸
+            </p>
+          </div>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">
         詳しくは「<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide`} class="font-bold underline">SideStore 完全ガイド</a>」をご覧ください。
       </p>
     </Accordion>
     <Accordion title="Apple IDが複数ある場合は？">
-      <p class="text-gray-700">
-        AltServer と AltStore に<strong>同じ Apple ID</strong> でサインインしてください。
-        複数の Apple ID は対応していません。
-      </p>
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>AltServerとAltStoreは同じApple IDでサインインしてね！</strong><br />
+              別々のIDだとうまく動かないから要注意だよ💡
+            </p>
+          </div>
+        </div>
+      </div>
     </Accordion>
   </AccordionGroup>
 </Section>
