@@ -120,51 +120,51 @@ export const description = "PC不要でアプリを管理する日本語ガイ�
   <AccordionGroup>
     <Accordion title="Step 1：Developer Modeの有効化（iOS 16以降）">
       <p class="text-gray-700 mb-3">iOS 16以降を使用している場合、Developer Mode（開発者モード）を有効にする必要があります：</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>「設定」アプリを開く</li>
-        <li>「プライバシーとセキュリティ」をタップ</li>
-        <li>画面下部までスクロールし「デベロッパモード」をタップ</li>
-        <li>スイッチをオンにする</li>
-        <li>デバイスが再起動を要求したら「再起動」をタップ</li>
-        <li>再起動後、確認ダイアログで「オンにする」をタップ</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="「設定」アプリを開く" />
+        <Step num={2} title="「プライバシーとセキュリティ」をタップ" />
+        <Step num={3} title="画面下部までスクロールし「デベロッパモード」をタップ" />
+        <Step num={4} title="スイッチをオンにする" />
+        <Step num={5} title="デバイスが再起動を要求したら「再起動」をタップ" />
+        <Step num={6} title="再起動後、確認ダイアログで「オンにする」をタップ" />
+      </StepList>
     </Accordion>
     <Accordion title="Step 2：SideStoreのインストール（iLoader使用）">
       <p class="text-gray-700 mb-3">SideStoreの初回インストールには「iLoader」またはAltServerを使用します：</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>PC にiLoaderまたはAltServerをダウンロード・インストール</li>
-        <li>iPhoneをUSBケーブルでPCに接続</li>
-        <li>iPhoneで「このコンピュータを信頼」を選択</li>
-        <li>SideStoreのIPAファイルをダウンロード（公式GitHubから最新版を取得）</li>
-        <li>iLoaderまたはAltServerを使用してIPAをインストール</li>
-        <li>Apple IDでサインイン（新規アカウントの作成を推奨）</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="PC にiLoaderまたはAltServerをダウンロード・インストール" />
+        <Step num={2} title="iPhoneをUSBケーブルでPCに接続" />
+        <Step num={3} title="iPhoneで「このコンピュータを信頼」を選択" />
+        <Step num={4} title="SideStoreのIPAファイルをダウンロード" desc="公式GitHubから最新版を取得" />
+        <Step num={5} title="iLoaderまたはAltServerを使用してIPAをインストール" />
+        <Step num={6} title="Apple IDでサインイン" desc="新規アカウントの作成を推奨" />
+      </StepList>
     </Accordion>
     <Accordion title="Step 3：VPNの設定">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>App StoreからLocalDevVPNまたはStosVPNをダウンロード</li>
-        <li>VPNアプリを開き「接続」をタップ</li>
-        <li>「VPN構成の追加を許可」の確認が表示されたら「許可」をタップ</li>
-        <li>パスコードを入力してVPN構成を追加</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="App StoreからLocalDevVPNまたはStosVPNをダウンロード" />
+        <Step num={2} title="VPNアプリを開き「接続」をタップ" />
+        <Step num={3} title="「VPN構成の追加を許可」の確認が表示されたら「許可」をタップ" />
+        <Step num={4} title="パスコードを入力してVPN構成を追加" />
+      </StepList>
     </Accordion>
     <Accordion title="Step 4：証明書の信頼設定">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>「設定」アプリを開く</li>
-        <li>「一般」→「VPNとデバイス管理」を選択</li>
-        <li>「デベロッパApp」セクションに表示されている自分のApple IDをタップ</li>
-        <li>「[Apple ID名]を信頼」をタップし、確認画面で「信頼」を選択</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="「設定」アプリを開く" />
+        <Step num={2} title="「一般」→「VPNとデバイス管理」を選択" />
+        <Step num={3} title="「デベロッパApp」セクションに表示されている自分のApple IDをタップ" />
+        <Step num={4} title="「[Apple ID名]を信頼」をタップし、確認画面で「信頼」を選択" />
+      </StepList>
     </Accordion>
     <Accordion title="Step 5：SideStoreの初回リフレッシュ">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>VPNアプリで「接続」を確認</li>
-        <li>SideStoreを起動</li>
-        <li>iLoaderで使用したApple IDでサインイン</li>
-        <li>「My Apps」タブに移動</li>
-        <li>SideStoreの横にある「7 DAYS」カウンターをタップして手動リフレッシュ</li>
-        <li>リフレッシュ完了後、SideStoreのセットアップが完了</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="VPNアプリで「接続」を確認" />
+        <Step num={2} title="SideStoreを起動" />
+        <Step num={3} title="iLoaderで使用したApple IDでサインイン" />
+        <Step num={4} title="「My Apps」タブに移動" />
+        <Step num={5} title="SideStoreの横にある「7 DAYS」カウンターをタップして手動リフレッシュ" />
+        <Step num={6} title="リフレッシュ完了後、SideStoreのセットアップが完了" />
+      </StepList>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -172,39 +172,39 @@ export const description = "PC不要でアプリを管理する日本語ガイ�
 <Section title="アプリの追加・更新・管理" icon="manage_accounts" iconColor="text-indigo-600">
   <AccordionGroup>
     <Accordion title="方法1：ソースからインストール">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>VPNを接続</li>
-        <li>SideStoreを起動し「Browse」タブをタップ</li>
-        <li>利用可能なアプリ一覧から目的のアプリを探す</li>
-        <li>「GET」をタップしてインストール</li>
-        <li>インストール完了後、VPNを切断可能</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="VPNを接続" />
+        <Step num={2} title="SideStoreを起動し「Browse」タブをタップ" />
+        <Step num={3} title="利用可能なアプリ一覧から目的のアプリを探す" />
+        <Step num={4} title="「GET」をタップしてインストール" />
+        <Step num={5} title="インストール完了後、VPNを切断可能" />
+      </StepList>
     </Accordion>
     <Accordion title="方法2：カスタムソースの追加">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>SideStoreで「Browse」→「Sources」をタップ</li>
-        <li>右上の「+」ボタンをタップ</li>
-        <li>ソースのURLを入力して「Add Source」をタップ</li>
-        <li>追加したソースからアプリをブラウズ・インストール</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="SideStoreで「Browse」→「Sources」をタップ" />
+        <Step num={2} title="右上の「+」ボタンをタップ" />
+        <Step num={3} title="ソースのURLを入力して「Add Source」をタップ" />
+        <Step num={4} title="追加したソースからアプリをブラウズ・インストール" />
+      </StepList>
     </Accordion>
     <Accordion title="方法3：IPAファイルから直接インストール">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>IPAファイルを「ファイル」アプリに保存</li>
-        <li>VPNを接続</li>
-        <li>SideStoreで「My Apps」タブ→左上の「+」ボタンをタップ</li>
-        <li>「ファイル」からIPAを選択</li>
-        <li>インストール完了を待つ</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="IPAファイルを「ファイル」アプリに保存" />
+        <Step num={2} title="VPNを接続" />
+        <Step num={3} title="SideStoreで「My Apps」タブ→左上の「+」ボタンをタップ" />
+        <Step num={4} title="「ファイル」からIPAを選択" />
+        <Step num={5} title="インストール完了を待つ" />
+      </StepList>
     </Accordion>
     <Accordion title="アプリの更新方法">
       <p class="text-gray-700 mb-3">アプリの更新が利用可能な場合、SideStoreの「My Apps」タブにバッジが表示されます：</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>VPNを接続</li>
-        <li>SideStoreで「My Apps」タブを開く</li>
-        <li>更新が必要なアプリの横にある「UPDATE」をタップ</li>
-        <li>または上部の「Update All」で一括更新</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="VPNを接続" />
+        <Step num={2} title="SideStoreで「My Apps」タブを開く" />
+        <Step num={3} title="更新が必要なアプリの横にある「UPDATE」をタップ" />
+        <Step num={4} title="または上部の「Update All」で一括更新" />
+      </StepList>
     </Accordion>
     <Accordion title="7日間のリフレッシュについて">
       <p class="text-gray-700 mb-3">

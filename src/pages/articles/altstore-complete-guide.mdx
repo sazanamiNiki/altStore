@@ -123,24 +123,24 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
 <Section title="アプリのインストール方法" icon="download" iconColor="text-blue-600">
   <AccordionGroup>
     <Accordion title="方法1：AltStore内のアプリ一覧から">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>iPhone 上の AltStore アプリを開く</li>
-        <li>「Browse」タブでアプリ一覧を表示（Tweaked Apps、Emulators など）</li>
-        <li>インストールしたいアプリをタップして詳細ページへ</li>
-        <li>「Get」ボタンをタップ</li>
-        <li>ダウンロード完了後、「Open」ボタンが表示されればインストール成功</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="iPhone 上の AltStore アプリを開く" />
+        <Step num={2} title="「Browse」タブでアプリ一覧を表示" desc="Tweaked Apps、Emulators など" />
+        <Step num={3} title="インストールしたいアプリをタップして詳細ページへ" />
+        <Step num={4} title="「Get」ボタンをタップ" />
+        <Step num={5} title="ダウンロード完了後、「Open」ボタンが表示されればインストール成功" />
+      </StepList>
     </Accordion>
     <Accordion title="方法2：IPAファイルをiPhoneで直接インストール">
       <p class="text-gray-700 mb-3">IPA ファイル（iPhone アプリのパッケージファイル）を用意して、AltStore からインストールする方法です。</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-3">
-        <li>信頼できるソースから IPA ファイルをダウンロード（「ファイル」アプリに保存）</li>
-        <li>AltStore アプリを起動</li>
-        <li>下部タブの「My Apps」をタップ</li>
-        <li>左上の「+」アイコンをタップ</li>
-        <li>「ファイル」からダウンロードした IPA ファイルを選択</li>
-        <li>インストールが始まり、完了するとホーム画面にアプリアイコンが表示される</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="信頼できるソースから IPA ファイルをダウンロード" desc="「ファイル」アプリに保存" />
+        <Step num={2} title="AltStore アプリを起動" />
+        <Step num={3} title="下部タブの「My Apps」をタップ" />
+        <Step num={4} title="左上の「+」アイコンをタップ" />
+        <Step num={5} title="「ファイル」からダウンロードした IPA ファイルを選択" />
+        <Step num={6} title="インストール完了でホーム画面にアプリアイコンが表示" />
+      </StepList>
       <InfoBox type="warning" title="信頼できるソースからのみダウンロード">
         野良サイトからの IPA ファイルにはマルウェアが含まれている可能性があります。
         GitHub の公式リポジトリや信頼性の確認できたサイトのみを使用してください。
@@ -148,11 +148,11 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
     </Accordion>
     <Accordion title="方法3：AltServerからIPAをサイドロード（PC使用）">
       <p class="text-gray-700 mb-3">PC/Mac に IPA ファイルを保存して、AltServer 経由でインストールする方法です。カスタムアプリや個人開発アプリに便利です。</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>信頼できるソースから IPA ファイルを PC/Mac にダウンロード</li>
-        <li>AltServer メニューを開き「Sideload .ipa」などを選択</li>
-        <li>IPA ファイルを指定してインストール</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="信頼できるソースから IPA ファイルを PC/Mac にダウンロード" />
+        <Step num={2} title="AltServer メニューを開き「Sideload .ipa」などを選択" />
+        <Step num={3} title="IPA ファイルを指定してインストール" />
+      </StepList>
     </Accordion>
   </AccordionGroup>
   <InfoBox type="error" icon="error" title="アプリスロットの制限（無料Apple ID）">
@@ -186,11 +186,11 @@ export const description = "AltStoreの基本、7日署名の仕組み、初期�
     </Accordion>
     <Accordion title="インストール後、アプリが起動しない">
       <p class="text-gray-700 mb-3"><strong>原因：</strong>署名が切れている可能性があります。</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>AltStore アプリを開く</li>
-        <li>該当アプリの横の更新ボタン（↻）をタップ</li>
-        <li>署名を更新（通常、数分で起動可能になります）</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="AltStore アプリを開く" />
+        <Step num={2} title="該当アプリの横の更新ボタン（↻）をタップ" />
+        <Step num={3} title="署名を更新" desc="通常、数分で起動可能になります" />
+      </StepList>
     </Accordion>
     <Accordion title="Wi-Fi自動更新がうまくいかない">
       <ul class="list-disc pl-6 space-y-2 text-gray-700">

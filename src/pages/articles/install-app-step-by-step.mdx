@@ -71,13 +71,13 @@ export const description = "AltStoreを使ってiPhoneにアプリをインス�
 <Section title="アプリのインストール方法" icon="apps">
   <AccordionGroup>
     <Accordion title="方法1：AltStore内のアプリ一覧から">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>iPhone 上の AltStore アプリを開く</li>
-        <li>「Browse」タブでアプリ一覧を表示（Tweaked Apps、Emulators など）</li>
-        <li>インストールしたいアプリをタップ</li>
-        <li>詳細ページの「Get」ボタンをタップ</li>
-        <li>ダウンロード完了後、「Open」ボタンが表示されればインストール成功</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="iPhone 上の AltStore アプリを開く" />
+        <Step num={2} title="「Browse」タブでアプリ一覧を表示" desc="Tweaked Apps、Emulators など" />
+        <Step num={3} title="インストールしたいアプリをタップ" />
+        <Step num={4} title="詳細ページの「Get」ボタンをタップ" />
+        <Step num={5} title="ダウンロード完了後、「Open」ボタンが表示されればインストール成功" />
+      </StepList>
     </Accordion>
     <Accordion title="方法2：IPAファイルから直接インストール">
       <p class="text-gray-700 mb-3">
@@ -85,11 +85,11 @@ export const description = "AltStoreを使ってiPhoneにアプリをインス�
         を PC/Mac で用意して、AltServer からインストールする方法もあります。
         カスタムアプリや個人開発アプリをインストールしたい場合に便利です。
       </p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>信頼できるソースからIPAファイルを入手</li>
-        <li>AltServer メニューを開き「Sideload .ipa」などを選択</li>
-        <li>IPAファイルを指定してインストール</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="信頼できるソースからIPAファイルを入手" />
+        <Step num={2} title="AltServer メニューを開き「Sideload .ipa」などを選択" />
+        <Step num={3} title="IPAファイルを指定してインストール" />
+      </StepList>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -102,11 +102,11 @@ export const description = "AltStoreを使ってiPhoneにアプリをインス�
   </InfoBox>
   <AccordionGroup>
     <Accordion title="AltServer側での設定方法">
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>PC/Mac の AltServer メニューを開く</li>
-        <li>インストール済みの iPhone を選択</li>
-        <li>「Sync with [iPhone name] over Wi-Fi」オプションをオンにする</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="PC/Mac の AltServer メニューを開く" />
+        <Step num={2} title="インストール済みの iPhone を選択" />
+        <Step num={3} title="「Sync with [iPhone name] over Wi-Fi」オプションをオンにする" />
+      </StepList>
     </Accordion>
     <Accordion title="Wi-Fi同期を機能させるための必須条件">
       <ul class="list-disc pl-6 space-y-2 text-gray-700">
@@ -117,12 +117,12 @@ export const description = "AltStoreを使ってiPhoneにアプリをインス�
     </Accordion>
     <Accordion title="自動更新の仕組み">
       <p class="text-gray-700 mb-3">Wi-Fi 同期を有効にすると、AltServer は以下の処理を自動的に行います：</p>
-      <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-        <li>毎日、iPhone 上のアプリの署名有効期限をチェック</li>
-        <li>期限切れ間近のアプリを検出</li>
-        <li>Wi-Fi 経由で自動的に再署名（更新）</li>
-        <li>ユーザーは何もしなくてOK</li>
-      </ol>
+      <StepList>
+        <Step num={1} title="毎日、iPhone 上のアプリの署名有効期限をチェック" />
+        <Step num={2} title="期限切れ間近のアプリを検出" />
+        <Step num={3} title="Wi-Fi 経由で自動的に再署名（更新）" />
+        <Step num={4} title="ユーザーは何もしなくてOK" />
+      </StepList>
       <p class="text-gray-700 mt-3">
         つまり、<strong>PC を起動して AltServer を実行しておくだけで、アプリは常に最新状態に保たれる</strong>わけです。
       </p>
