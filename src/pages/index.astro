@@ -49,6 +49,8 @@ const base = import.meta.env.BASE_URL;
             <img
               src={`${base}assets/img/logo.png`}
               alt="bunchoniki Store ロゴ"
+              width="80"
+              height="80"
               class="w-1/2 opacity-95 mb-3"
             />
             <p class="text-base font-bold leading-tight text-center">
@@ -179,10 +181,10 @@ const base = import.meta.env.BASE_URL;
             <div class="relative overflow-hidden">
               <div id="featured-apps-mobile" class="flex transition-transform duration-500 ease-out"></div>
             </div>
-            <button id="prev-btn" class="opacity-30 absolute left-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition z-10">
+            <button id="prev-btn" class="opacity-30 absolute left-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition z-10" aria-label="前のアプリを表示">
               <span class="material-symbols-outlined">chevron_left</span>
             </button>
-            <button id="next-btn" class="opacity-30 absolute right-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition z-10">
+            <button id="next-btn" class="opacity-30 absolute right-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition z-10" aria-label="次のアプリを表示">
               <span class="material-symbols-outlined">chevron_right</span>
             </button>
             <div id="dots-container" class="flex justify-center gap-2 mt-6"></div>
@@ -269,6 +271,9 @@ const base = import.meta.env.BASE_URL;
               <img
                 src={`${base}assets/img/buncho.png`}
                 alt="質問に答えるマスコット「ぶんちゃん」"
+                width="32"
+                height="32"
+                loading="lazy"
                 class="w-8 h-8 rounded-full bg-sky-100 border border-blue-200 flex-shrink-0"
               />
 

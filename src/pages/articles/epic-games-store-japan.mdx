@@ -1,0 +1,346 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "Epic Games Store日本上陸。スマホ新法が拓いた『第一号』代替ストア";
+export const h1 = "Epic Games StoreのiOS版が日本でリリース";
+export const description = "2026年3月、Epic Games StoreがついにiOSで日本上陸。スマホ新法によって実現した代替アプリストアの第一号大型事例として、その背景と技術的安全性を解説します。";
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-01" icon="storefront" iconColor="text-blue-500">
+
+<Section intro title="Epic Games Storeとは" icon="help_outline">
+  <div class="space-y-3">
+    <div class="flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100">
+      <span class="material-symbols-outlined text-blue-500">store</span>
+      <span class="font-bold text-blue-700 text-sm">スマホ新法で実現した、日本初の大型代替アプリストア（2026年3月リリース）</span>
+    </div>
+    <div class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+      <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">menu_book</span>
+      <div class="space-y-1">
+        <div class="font-semibold text-blue-700 text-sm">この記事の位置づけ</div>
+        <div class="text-gray-600 text-sm">
+          法律の詳細は「<a href={`${import.meta.env.BASE_URL}articles/smartphone-law-explained`} class="font-bold underline">スマホ新法解説</a>」、
+          安全性は「<a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="font-bold underline">Apple公証とは</a>」をご覧ください。
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<Section title="なぜ実現したのか：スマホ新法（2025年12月施行）" icon="gavel" iconColor="text-blue-600">
+  <AccordionGroup>
+    <Accordion title="法律施行の前と後で何が変わった？">
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+          <div class="font-semibold text-gray-500 text-xs mb-1">施行前</div>
+          <div class="text-gray-600 text-xs">App Storeのみ、手数料30%</div>
+        </div>
+        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
+          <div class="font-semibold text-green-700 text-xs mb-1">施行後</div>
+          <div class="text-gray-600 text-xs">代替ストアOK、手数料削減可能</div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="スマホ新法って何？">
+      <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-200 mb-4">
+        <span class="material-symbols-outlined text-blue-500">info</span>
+        <span class="font-bold text-blue-700 text-sm">正式名称「特定スマートフォンソフトウェア競争促進法」。Appleに代替ストアの展開を義務付ける法律。</span>
+      </div>
+      <InfoBox type="info" icon="library_books" title="もっと詳しく">
+        <a href={`${import.meta.env.BASE_URL}articles/smartphone-law-explained`} class="text-blue-600 font-bold hover:underline">スマホ新法を徹底解説</a>で詳細を確認できます。
+      </InfoBox>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="2025年内リリース断念の裏側" icon="warning" iconColor="text-red-600">
+  <AccordionGroup>
+    <Accordion title="何があったの？タイムライン">
+      <ul class="space-y-2 text-sm text-gray-700 mb-3">
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">looks_one</span>
+          Epic、2025年12月18日（施行日）のリリースを計画
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-red-500 text-base mt-0.5">looks_two</span>
+          Apple、外部決済に最大21%の手数料＋警告画面を設定
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-orange-500 text-base mt-0.5">looks_3</span>
+          Epic CEO「不誠実で妨害的」と猛反発、公取委に苦情
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">looks_4</span>
+          2026年3月にリリース延期
+        </li>
+      </ul>
+    </Accordion>
+    <Accordion title="Appleの「抵抗」とは">
+      <CardGrid>
+        <Card icon="payments" iconColor="text-red-500" title="外部決済に21%手数料" desc="App Storeを経由しない決済にも高額な手数料" />
+        <Card icon="warning" iconColor="text-orange-500" title="警告画面の表示" desc="「危険」と誤解させるような表示" />
+        <Card icon="block" iconColor="text-gray-500" title="複雑なインストール" desc="わざと使いづらくする仕組み" fullWidth />
+      </CardGrid>
+    </Accordion>
+    <Accordion title="ぶんちゃん、結局どうなったの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>法律があっても、Appleは抵抗してきたんだ。</strong><br />
+              でもEpicも公取委に訴えるなど戦い抜いて、2026年3月にようやくリリースできる見込みになったよ🔥
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="安全性：野良アプリとは違う「Apple公証」" icon="verified" iconColor="text-green-600">
+  <AccordionGroup>
+    <Accordion title="App Store以外って危険じゃないの？">
+      <div class="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200 mb-3">
+        <span class="material-symbols-outlined text-green-500">info</span>
+        <span class="font-bold text-green-700 text-sm">Apple公証（Notarization）により最低限の安全性は担保されています。</span>
+      </div>
+      <CardGrid>
+        <Card icon="bug_report" iconColor="text-red-500" title="マルウェアスキャン" desc="ウイルスやスパイウェアの自動検査" />
+        <Card icon="security" iconColor="text-blue-500" title="改ざんチェック" desc="ダウンロード中の改ざんを確認" />
+        <Card icon="shield" iconColor="text-green-500" title="サンドボックス維持" desc="隔離環境で動作、システムへの悪影響を防止" fullWidth />
+      </CardGrid>
+    </Accordion>
+    <Accordion title="Apple公証の仕組みをもっと知りたい">
+      <InfoBox type="info" icon="library_books" title="詳細解説">
+        <a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="text-blue-600 font-bold hover:underline">Apple公証とは？</a>で技術的な仕組みを詳しく解説しています。
+      </InfoBox>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="AltStoreとの違い：コミュニティvs企業" icon="compare_arrows" iconColor="text-blue-600">
+  <AccordionGroup>
+    <Accordion title="何が違うの？比較表で見る">
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
+          <div class="font-semibold text-blue-700 text-xs mb-1">AltStore</div>
+          <div class="text-gray-600 text-xs">コミュニティ主導、オープンソース、エミュレータ中心</div>
+        </div>
+        <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+          <div class="font-semibold text-purple-700 text-xs mb-1">Epic Games Store</div>
+          <div class="text-gray-600 text-xs">企業主導、商業ゲーム配信、手数料12%</div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="詳しい違いを知りたい">
+      <div class="border border-blue-200 rounded-xl overflow-hidden mb-3">
+        <div class="bg-blue-50 px-5 py-3 border-b border-blue-200">
+          <h4 class="font-bold text-blue-700 flex items-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-blue-500 text-base">people</span>
+            AltStore（コミュニティ主導）
+          </h4>
+        </div>
+        <div class="p-5">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">check</span>
+              <span>オープンソースで透明性が高い</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">check</span>
+              <span>エミュレータやシステムツールが中心</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">check</span>
+              <span>ユーザーの自由度を最重視</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border border-purple-200 rounded-xl overflow-hidden">
+        <div class="bg-purple-50 px-5 py-3 border-b border-purple-200">
+          <h4 class="font-bold text-purple-700 flex items-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-purple-500 text-base">business</span>
+            Epic Games Store（企業主導）
+          </h4>
+        </div>
+        <div class="p-5">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-500 text-base mt-0.5">check</span>
+              <span>スマホ新法の正式な代替マーケットプレイス</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-500 text-base mt-0.5">check</span>
+              <span>商業ゲームの配信と収益化</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-500 text-base mt-0.5">check</span>
+              <span>巨額の資金による安定運営</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="ぶんちゃん、どっちを使えばいい？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>目的で使い分ければOK！</strong><br />
+              ゲームが遊びたい→Epic Games Store、エミュレータやツールが欲しい→AltStore。両方使ってもいいんだよ💡
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="よくある質問にぶんちゃんが答えるよ！" icon="help">
+  <AccordionGroup>
+    <Accordion title="Epic Games Storeって何ができるの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>フォートナイトをはじめとするEpic Gamesのゲームが遊べるよ！</strong><br />
+              App Storeを経由せず、直接Epic Games Storeからダウンロードできる。将来的には他社のゲームも配信される予定だよ🎮
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="App Storeより安く買えるの？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>可能性はあるよ！</strong><br />
+              Epic Games Storeは開発者に有利な手数料体系（12%）を採用してる。App Storeの30%と比べて安いから、その分がユーザーに還元される可能性があるんだ💰
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="AltStoreは必要なくなる？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>いいえ、それぞれの役割があるよ！</strong><br />
+              Epic Games Storeは商業ゲームが中心。一方、AltStoreはエミュレータやシステムツールなど「自由度が高いアプリ」を扱うから、共存していくと思うよ🌸
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="インストール方法は難しい？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>App Storeよりは手間がかかるかも。</strong><br />
+              Appleが設定した「警告画面」を何回か確認する必要があるけど、一度設定すればあとは普通に使えるよ。公式サイトに詳しい手順が載る予定だから、安心してね📱
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+    <Accordion title="日本以外の国でも使える？">
+      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>EU（欧州連合）では既に配信されてるよ！</strong><br />
+              EUではDMA（デジタル市場法）によって、2024年3月から代替ストアが解禁されてる。日本はそれに続く形だね🌍
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <div class="space-y-2 mb-6">
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-blue-500">gavel</span>
+      <span class="text-gray-800 font-medium text-sm">スマホ新法で代替ストアが実現</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-red-500">warning</span>
+      <span class="text-gray-800 font-medium text-sm">Appleの抵抗で2025年内は断念</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-green-500">store</span>
+      <span class="text-gray-800 font-medium text-sm">2026年3月、日本でリリース</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-purple-500">verified</span>
+      <span class="text-gray-800 font-medium text-sm">Apple公証で最低限の安全性を担保</span>
+    </div>
+    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
+      <span class="material-symbols-outlined text-orange-500">compare_arrows</span>
+      <span class="text-gray-800 font-medium text-sm">AltStoreとの共存が可能</span>
+    </div>
+  </div>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/smartphone-law-explained',
+    icon: 'gavel',
+    iconColor: 'text-blue-600',
+    title: 'スマホ新法を徹底解説',
+    desc: 'iPhoneのアプリ配布が変わる理由。法律の4つの柱とサイドローディングの法的位置づけを解説。',
+  },
+  {
+    href: '/articles/apple-notarization',
+    icon: 'verified',
+    iconColor: 'text-green-600',
+    title: 'Apple公証とは？',
+    desc: 'サイドローディングが「実は安全」な技術的理由。公証システムの仕組みと安全性の担保。',
+  },
+  {
+    href: '/articles/what-is-sideloading',
+    icon: 'smartphone',
+    title: 'サイドローディングとは？',
+    desc: 'App Storeとの違い、メリット・リスクを初心者向けに解説。基礎知識を身につけよう。',
+  },
+]} />
+
+</ArticleLayout>
