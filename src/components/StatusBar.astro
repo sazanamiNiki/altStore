@@ -14,7 +14,7 @@ const alerts: Alert[] = [
     id: 'ios-support',
     type: 'info',
     icon: 'smartphone',
-    message: '対応iOS: 17.0〜18.3 ｜ AltStore PAL / AltStore Classic 最新版対応',
+    message: 'iOS 17.0〜18.3対応｜AltStore PAL / Classic 最新版',
     active: true,
   },
 ];
@@ -34,9 +34,9 @@ const activeAlerts = alerts.filter(a => a.active);
       const s = styles[alert.type];
       return (
         <div class={`${s.bar} border-b last:border-b-0`}>
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center gap-2">
-            <span class={`material-symbols-outlined ${s.icon} text-[18px] leading-none`}>{alert.icon}</span>
-            <span class={`text-sm font-medium ${s.text}`}>{alert.message}</span>
+          <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2">
+            <span class={`material-symbols-outlined ${s.icon} text-[16px] sm:text-[18px] leading-none`}>{alert.icon}</span>
+            <span class={`text-xs sm:text-sm font-medium ${s.text}`}>{alert.message}</span>
           </div>
         </div>
       );

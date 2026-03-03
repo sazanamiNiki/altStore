@@ -70,6 +70,17 @@ altStore-jp/
 
 ## 編集ルール
 
+### デザイン・レスポンシブ規約
+
+**UI・レスポンシブ設計のルールは `./.claude/rule/design.md` を参照してください。**
+
+- **モバイルファースト**: padding/margin/font-size は必ず `sm:` プレフィックス付きのレスポンシブ値を併記
+- 固定値ベタ書き（`p-8`, `text-4xl` 等）は禁止。必ず `p-4 sm:p-8` のように記述
+- `border-gray-100` は白背景で視認不可のため禁止。`border-gray-200` 以上を使用
+- 見出しのflex配置は `items-center` ではなく `items-start` + アイコンに `flex-shrink-0`
+
+### 記事スタイルガイド
+
 記事ページ（`src/pages/articles/*.mdx`）の編集・作成ルールは `./.claude/rule/articles_style_guide.md` を参照してください。
 
 主なポイント：

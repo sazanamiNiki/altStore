@@ -11,7 +11,7 @@
 
 <div class="my-8 rounded-2xl border-2 border-pink-200 bg-gradient-to-br from-pink-50 via-white to-purple-50 overflow-hidden" id="bunchan-diagnosis">
   <!-- ヘッダー -->
-  <div class="bg-gradient-to-r from-pink-100 to-purple-100 px-6 py-4 border-b border-pink-200">
+  <div class="bg-gradient-to-r from-pink-100 to-purple-100 px-4 sm:px-6 py-3 sm:py-4 border-b border-pink-200">
     <div class="flex items-center gap-3">
       <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="診断を案内するマスコット「ぶんちゃん」" class="w-12 h-12 rounded-full border-2 border-white shadow-sm" />
       <div>
@@ -22,7 +22,7 @@
   </div>
 
   <!-- 診断コンテンツエリア -->
-  <div class="p-6" id="diagnosis-content">
+  <div class="p-4 sm:p-6" id="diagnosis-content">
 
     <!-- スタート画面 -->
     <div id="diagnosis-start">
@@ -92,20 +92,20 @@
 
       <!-- メイン結果カード -->
       <div id="diagnosis-result-card" class="mb-5 rounded-xl border-2 overflow-hidden">
-        <div id="diagnosis-result-header" class="px-5 py-4">
+        <div id="diagnosis-result-header" class="px-3 sm:px-5 py-3 sm:py-4">
           <div class="flex items-center gap-2">
             <span id="diagnosis-result-icon" class="material-symbols-outlined text-2xl"></span>
             <div>
               <div class="text-xs font-bold opacity-80">あなたにおすすめ</div>
-              <div id="diagnosis-result-title" class="text-lg font-bold"></div>
+              <div id="diagnosis-result-title" class="text-base sm:text-lg font-bold"></div>
             </div>
           </div>
         </div>
-        <div class="bg-white px-5 py-4">
-          <p id="diagnosis-result-desc" class="text-sm text-gray-700 leading-relaxed mb-4"></p>
+        <div class="bg-white px-3 sm:px-5 py-3 sm:py-4">
+          <p id="diagnosis-result-desc" class="text-sm text-gray-700 leading-relaxed mb-3 sm:mb-4"></p>
 
           <!-- メリット・デメリット -->
-          <div class="grid grid-cols-2 gap-3 mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-3 sm:mb-4">
             <div class="p-3 bg-green-50 rounded-lg border border-green-100">
               <div class="font-bold text-green-700 text-xs mb-2 flex items-center gap-1">
                 <span class="material-symbols-outlined text-sm">thumb_up</span>メリット
@@ -121,7 +121,7 @@
           </div>
 
           <!-- 関連記事リンク -->
-          <a id="diagnosis-result-link" href="#" class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-700 font-bold text-sm hover:bg-blue-100 transition-colors">
+          <a id="diagnosis-result-link" href="#" class="flex items-center gap-2 p-2.5 sm:p-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-700 font-bold text-xs sm:text-sm hover:bg-blue-100 transition-colors">
             <span class="material-symbols-outlined text-base">arrow_forward</span>
             <span id="diagnosis-result-link-text">詳しいガイドを見る</span>
           </a>
