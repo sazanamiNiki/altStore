@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# 記事の更新日を当日の日付に変更
+./tools/update-article-dates.sh
