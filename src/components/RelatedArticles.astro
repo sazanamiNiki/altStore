@@ -15,7 +15,7 @@ const { articles } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<div class="mt-4 sm:mt-6 mb-4 sm:mb-8">
+<div>
   <h3 class="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-gray-800">次に読むべきおすすめ記事</h3>
   <div class="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2">
     {articles.map(article => (

@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL;
 const useGridLayout = image && !fullWidth;
 ---
 
-<div class={`mb-4 sm:mb-8 ${useGridLayout ? 'grid md:grid-cols-2 gap-6 items-center' : ''}`}>
+<div class={`${useGridLayout ? 'grid md:grid-cols-2 gap-6 items-center' : ''}`}>
 
   <div>
     <div class="flex items-start gap-3 mb-2">

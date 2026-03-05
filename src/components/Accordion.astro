@@ -21,7 +21,7 @@ const id = `accordion-${Math.random().toString(36).slice(2, 8)}`;
   </button>
   <div
     id={id}
-    class={`accordion-content ${open ? '' : 'hidden'} px-4 sm:px-6 pb-4 sm:pb-6 pt-1`}
+    class={`accordion-content ${open ? '' : 'hidden'} px-4 sm:px-6 pb-4 sm:pb-6 pt-1 space-y-3`}
   >
     <slot />
   </div>

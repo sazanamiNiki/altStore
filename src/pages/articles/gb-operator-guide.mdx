@@ -1,0 +1,258 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+
+export const title = "GB Operator完全ガイド｜自分のカートリッジをDeltaで遊ぶ方法";
+export const h1 = "GB Operatorで自分のゲームをiPhoneで遊ぼう";
+export const description = "Epilogue GB Operatorを使って、自分が所有するゲームボーイカートリッジからROMを吸い出し、Deltaエミュレータで合法的に遊ぶ方法を解説。";
+
+export const faqData = [
+  { question: "GB Operatorとは何ですか？", answer: "Epilogue社製のUSB-Cカートリッジリーダーです。GB/GBC/GBAに対応し、ROMの吸い出しやPCでのプレイができます。価格は約8,000〜10,000円です。" },
+  { question: "ROM吸い出しは違法ですか？", answer: "自分が所有する正規カートリッジから私的利用目的で吸い出す場合は、著作権法第30条の私的複製として認められる可能性が高いです。" },
+  { question: "ゲームボーイにコピーガードはありますか？", answer: "GB/GBC/GBAにはコピーガードがないため、ROM吸い出しはコピーガード回避に該当しません。" },
+  { question: "吸い出したROMをDeltaで遊べますか？", answer: "はい。ROMファイルをiPhoneに転送し、Deltaに追加すればプレイできます。" },
+];
+
+export const howtoData = {
+  name: "GB OperatorでROMを吸い出してDeltaで遊ぶ方法",
+  description: "ゲームボーイカートリッジからROMを吸い出し、iPhoneのDeltaで遊ぶ手順",
+  steps: [
+    { name: "Playbackをインストール", text: "epilogue.coから無料ダウンロード" },
+    { name: "GB Operatorを接続", text: "USB-CでPCに接続" },
+    { name: "カートリッジを挿入", text: "端子を下にして挿入" },
+    { name: "ROMを吸い出し", text: "Backup ROMを選択して保存" },
+    { name: "iPhoneに転送", text: "AirDropやiCloud経由で転送" },
+    { name: "Deltaに追加", text: "＋ボタンからROMを追加してプレイ" },
+  ]
+};
+
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-05" icon="sd_card" iconColor="text-blue-500" faq={faqData} howto={howtoData}>
+
+<Section intro title="懐かしいゲームをiPhoneで" icon="lightbulb">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    <mark class="bg-yellow-100 px-1 rounded"><strong>GB Operator</strong></mark>を使えば、自分のゲームボーイカートリッジからROMを吸い出し、
+    Deltaで合法的にプレイできます。
+  </p>
+  <CardGrid>
+    <Card icon="sd_card" iconColor="text-blue-500" title="GB Operator" desc="USB-Cカートリッジリーダー" />
+    <Card icon="verified" iconColor="text-green-500" title="合法的に遊べる" desc="私的複製の範囲内" />
+  </CardGrid>
+  <InfoBox type="success" icon="check_circle" title="この記事でわかること">
+    <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700">
+      <li>GB Operatorの基本と購入方法</li>
+      <li>ROMを吸い出してDeltaで遊ぶ手順</li>
+      <li>法的に安全な使い方</li>
+    </ul>
+  </InfoBox>
+</Section>
+
+{/* ── GB Operatorとは ── */}
+<Section title="GB Operatorとは" icon="devices" iconColor="text-blue-600" id="what-is-gb-operator">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    Epilogue社製の<strong>USB-Cカートリッジリーダー</strong>。
+    GB/GBC/GBAカートリッジをPCに接続して、ROMの吸い出しやゲームプレイができます。
+  </p>
+  <CardGrid>
+    <Card icon="usb" iconColor="text-green-500" title="USB-C接続" desc="PCに直接接続" />
+    <Card icon="videogame_asset" iconColor="text-purple-500" title="GB/GBC/GBA対応" desc="3種類のカートリッジ" />
+    <Card icon="file_copy" iconColor="text-blue-500" title="ROM吸い出し" desc="バックアップ作成" />
+    <Card icon="verified" iconColor="text-green-500" title="偽物判定" desc="正規品か自動チェック" />
+  </CardGrid>
+
+  <AccordionGroup>
+    <Accordion title="その他の機能・対応OS">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+        <li><strong>PCでプレイ：</strong>専用ソフト「Playback」で直接プレイ可能</li>
+        <li><strong>セーブデータ管理：</strong>読み書き・バックアップに対応</li>
+        <li><strong>対応OS：</strong>Windows / macOS / Linux</li>
+      </ul>
+    </Accordion>
+    <Accordion title="価格・購入方法">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        約50〜60ドル（<strong>約8,000〜10,000円</strong>）
+      </p>
+      <InfoBox type="info" icon="shopping_cart" title="購入先">
+        <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700">
+          <li><a href="https://www.epilogue.co/product/gb-operator" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Epilogue公式サイト</a>（最安・海外発送）</li>
+          <li><a href="https://amzn.to/4rITtKI" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Amazon.co.jp</a>（国内発送・すぐ届く）</li>
+        </ul>
+      </InfoBox>
+      <div class="mt-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0">
+            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Amazonだとちょっと高くなるけど、<strong>簡単に購入できる</strong>よ！海外通販に慣れてない人はAmazonがおすすめ🛒
+            </p>
+          </div>
+        </div>
+      </div>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+{/* ── 使い方 ── */}
+<Section title="ROMを吸い出してDeltaで遊ぶ手順" icon="play_circle" iconColor="text-blue-600" id="how-to-use">
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4 flex items-start gap-2">
+    <span class="material-symbols-outlined text-blue-500 flex-shrink-0">checklist</span>
+    必要なもの
+  </h3>
+  <CardGrid>
+    <Card icon="sd_card" iconColor="text-blue-500" title="GB Operator" desc="本体" />
+    <Card icon="videogame_asset" iconColor="text-purple-500" title="カートリッジ" desc="自分所有の正規品" />
+    <Card icon="computer" iconColor="text-gray-500" title="PC" desc="Win / Mac / Linux" />
+    <Card icon="phone_iphone" iconColor="text-blue-500" title="iPhone" desc="Delta導入済み" />
+  </CardGrid>
+
+  <InfoBox type="info" icon="download" title="Deltaをまだ入れてない？">
+    <a href="/articles/delta-utm-guide" class="text-blue-600 underline font-medium">Delta/UTM SE完全ガイド</a>でインストール方法を解説しています。
+  </InfoBox>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-start gap-2">
+    <span class="material-symbols-outlined text-blue-500 flex-shrink-0">format_list_numbered</span>
+    手順
+  </h3>
+  <StepList>
+    <Step num={1} title="Playbackをインストール" desc="epilogue.coから無料ダウンロード。Win/Mac/Linux対応。" />
+    <Step num={2} title="GB Operatorを接続" desc="付属のUSB-CケーブルでPCに接続します。" />
+    <Step num={3} title="カートリッジを挿入" desc="端子を下にしてしっかり挿入。自動でゲーム情報が表示されます。" />
+    <Step num={4} title="ROMを吸い出し" desc="「Backup ROM」を選択し、保存先を指定して吸い出し開始。" advice="偽物判定も自動で行われるよ🌸" />
+    <Step num={5} title="iPhoneに転送" desc="AirDrop・iCloud Drive・ケーブル経由でROMファイルを転送。" />
+    <Step num={6} title="Deltaに追加してプレイ" desc="Deltaの＋ボタンからROMを追加。すぐにプレイ開始できます！" />
+  </StepList>
+
+  <InfoBox type="success" icon="tips_and_updates" title="セーブデータも移行OK">
+    カートリッジ内のセーブデータもバックアップ可能。続きからプレイできます。
+  </InfoBox>
+</Section>
+
+{/* ── 法的な安全性 ── */}
+<Section title="法的な安全性" icon="gavel" iconColor="text-green-600" id="legal-safety">
+  <CardGrid>
+    <Card icon="check_circle" iconColor="text-green-500" title="私的複製OK" desc="著作権法第30条" />
+    <Card icon="verified" iconColor="text-green-500" title="コピーガードなし" desc="GB系は技術的保護なし" />
+  </CardGrid>
+
+  <InfoBox type="success" icon="rule" title="守るべき5つのルール">
+    <ul class="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1.5 text-gray-700">
+      <li><strong>正規品を使用</strong> — 自分が購入したカートリッジのみ</li>
+      <li><strong>私的利用のみ</strong> — 自分・家族だけで使用</li>
+      <li><strong>配布しない</strong> — 共有・販売は禁止</li>
+      <li><strong>カートリッジを保持</strong> — 売却後はROM削除</li>
+      <li><strong>ネットからDLしない</strong> — ROMサイトは違法</li>
+    </ul>
+  </InfoBox>
+
+  <AccordionGroup>
+    <Accordion title="私的複製の法的根拠（著作権法第30条）">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        日本の著作権法第30条では、<mark class="bg-yellow-100 px-1 rounded"><strong>「個人的にまたは家庭内で使用する目的」</strong></mark>であれば、
+        著作物の複製が認められています。自分のカートリッジから自分で吸い出す行為は、この私的複製の範囲内です。
+      </p>
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        また、GB/GBC/GBAにはコピーガード（技術的保護手段）がないため、
+        ROM吸い出しはコピーガード回避にも該当しません。
+      </p>
+    </Accordion>
+
+    <Accordion title="やってはいけないこと">
+      <InfoBox type="error" icon="cancel" title="これらは著作権侵害です">
+        <ul class="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1.5 text-gray-700">
+          <li>ROMサイトからダウンロード</li>
+          <li>吸い出したROMを共有・販売</li>
+          <li>カートリッジ売却後もROMを使用</li>
+        </ul>
+      </InfoBox>
+    </Accordion>
+
+    <Accordion title="グレーゾーンについて">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        裁判例が少なく解釈が確定していない部分もあります。
+        ただし、上記のルールを守れば法的リスクは極めて低いと考えられます。
+      </p>
+      <InfoBox type="warning" icon="info" title="注意">
+        当サイトは法的アドバイスを提供する立場にありません。最終判断はご自身の責任で行ってください。
+      </InfoBox>
+    </Accordion>
+  </AccordionGroup>
+  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          もっと詳しく知りたい人は<a href="/articles/emulator-legal" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！法的な部分をしっかり解説してるよ📚
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
+{/* ── よくある質問 ── */}
+<Section title="よくある質問" icon="help" iconColor="text-blue-600" id="faq">
+  <AccordionGroup>
+    <Accordion title="GB Operatorとは？">
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        Epilogue社製のUSB-Cカートリッジリーダー。GB/GBC/GBAに対応し、約8,000〜10,000円で購入できます。
+      </p>
+    </Accordion>
+    <Accordion title="ROM吸い出しは違法？">
+      <InfoBox type="success" icon="check_circle" title="私的複製ならOK">
+        自分のカートリッジ → 自分で吸い出し → 自分で使う = 合法の可能性が高い
+      </InfoBox>
+    </Accordion>
+    <Accordion title="コピーガードは？">
+      <InfoBox type="success" icon="verified" title="GB系にコピーガードはない">
+        技術的保護手段がないため、回避には該当しません。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="Deltaで遊べる？">
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        はい。.gb / .gbc / .gba ファイルをDeltaに追加すればプレイできます。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          自分のカートリッジを吸い出して遊ぶのは<strong>完全にOK</strong>だよ！でもROMサイトからダウンロードするのは絶対ダメ。押入れに眠ってるソフトがあるなら、GB Operatorで復活させちゃおう🎮
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
+{/* ── まとめ ── */}
+<Section title="まとめ" icon="done_all" iconColor="text-green-600" id="summary">
+  <CardGrid>
+    <Card icon="sd_card" iconColor="text-blue-500" title="GB Operator" desc="USB-Cカートリッジリーダー" />
+    <Card icon="gavel" iconColor="text-green-500" title="合法的" desc="私的複製の範囲内" />
+    <Card icon="rule" iconColor="text-yellow-500" title="ルールを守る" desc="配布禁止・私的利用" />
+    <Card icon="sports_esports" iconColor="text-blue-500" title="Deltaで遊ぶ" desc="iPhoneでレトロゲーム" />
+  </CardGrid>
+</Section>
+
+<RelatedArticles articles={[
+  { href: '/articles/delta-utm-guide', icon: 'sports_esports', title: 'Delta/UTM SE完全ガイド', desc: 'Deltaエミュレータの詳しい使い方と設定方法' },
+  { href: '/articles/emulator-legal', icon: 'gavel', title: 'エミュレータと著作権', desc: 'エミュレータ利用の法的側面を詳しく解説' },
+  { href: '/articles/altstore-complete-guide', icon: 'apps', title: 'AltStore完全ガイド', desc: 'AltStoreのインストールから使い方まで' },
+]} />
+
+</ArticleLayout>

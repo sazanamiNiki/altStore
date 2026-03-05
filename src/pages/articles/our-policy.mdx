@@ -10,7 +10,7 @@ import RelatedArticles from '../../components/RelatedArticles.astro';
 export const title = "当サイトについて・運営方針";
 export const description = "bunchoniki Storeの運営方針と掲載基準。オープンソースまたはApple公証により安全性を確認したアプリのみを厳選し、初心者でも安全に利用できる情報を提供します。";
 
-<ArticleLayout title={title} description={description} date="2026-02-03" icon="policy" iconColor="text-blue-500">
+<ArticleLayout title={title} description={description} date="2026-03-05" icon="policy" iconColor="text-blue-500">
 
 <Section intro title="なぜこのサイトを作ったのか" icon="lightbulb">
   <p class="text-gray-700 mb-4">
@@ -25,36 +25,22 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
 </Section>
 
 <Section title="当サイトの特徴" icon="stars">
+  <CardGrid>
+    <Card icon="verified" iconColor="text-green-500" title="安全なアプリのみ" desc="OSS・公証で安全確認済み" />
+    <Card icon="school" iconColor="text-blue-500" title="初心者にやさしい" desc="丁寧な解説とFAQ" />
+    <Card icon="translate" iconColor="text-purple-500" title="日本語情報が充実" desc="正確でわかりやすい" />
+  </CardGrid>
   <AccordionGroup>
-    <Accordion title="1. 開発元が明確なアプリのみを厳選">
-      <p class="text-gray-700 mb-4">
-        当サイトでは、<mark class="bg-yellow-100 px-1 rounded"><strong>オープンソースまたはApple公証により安全性を確認したアプリのみ</strong></mark>を紹介しています。この2つの方法により、開発元が明確で、マルウェアやウイルスが含まれていないことを確認しています。
+    <Accordion title="安全性の確認方法について詳しく">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        当サイトでは、<mark class="bg-yellow-100 px-1 rounded"><strong>オープンソースまたはApple公証により安全性を確認したアプリのみ</strong></mark>を紹介しています。
       </p>
       <InfoBox type="success" icon="code" title="オープンソースによる透明性">
-        エミュレータなどのオープンソースアプリは、ソースコードが公開されており、誰でも内部の動作を確認できます。コードが公開されているため悪意あるコードが混入しにくく、世界中の開発者がコードをレビューし、GitHubなどで開発履歴も確認できます。
+        ソースコードが公開されており、世界中の開発者がコードをレビュー。悪意あるコードが混入しにくい仕組みです。
       </InfoBox>
       <InfoBox type="info" icon="shield" title="Apple公証による信頼性">
-        クリエイター向けツールなど、商用アプリの多くはAppleの公証（Notarization）を受けています。公証済みアプリは、Appleが安全性をチェックし、マルウェアやウイルスが含まれていないことを確認したアプリです。開発元の身元がApple Developer IDで確認されており、問題が発見された場合は証明書を取り消すことができます。
+        Appleがマルウェア・ウイルスがないことを確認。開発元の身元も確認済みです。
       </InfoBox>
-      <InfoBox type="error" icon="warning" title="出どころ不明のアプリのリスク">
-        マルウェア・ウイルスの混入、個人情報の不正な収集・送信、デバイスの動作不良、法的・規約的な問題が発生するリスクがあります。当サイトではオープンソースまたは公証済みのアプリのみを扱い、ユーザーの安全を最優先に考えています。
-      </InfoBox>
-    </Accordion>
-    <Accordion title="2. 初心者でも安心して使える">
-      <p class="text-gray-700 mb-4">
-        サイドローディングは、専門用語や技術的な知識が必要に思えるかもしれません。しかし、当サイトでは<mark class="bg-yellow-100 px-1 rounded"><strong>難しい言葉を避け、手順を詳しく解説</strong></mark>することで、初心者でも安心して利用できるようにしています。
-      </p>
-      <p class="text-gray-700">
-        また、各記事には「よくある質問」や「トラブルシューティング」を用意し、つまずきやすいポイントをカバーしています。
-      </p>
-    </Accordion>
-    <Accordion title="3. 日本語情報の充実">
-      <p class="text-gray-700 mb-4">
-        サイドローディングの情報は英語が中心で、日本語の情報源が限られています。当サイトでは、<strong>日本語で分かりやすく、かつ正確な情報</strong>を提供することを心がけています。
-      </p>
-      <p class="text-gray-700">
-        技術的な専門用語も、必要に応じて日本語の説明を付けています。
-      </p>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -167,9 +153,9 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
   <CardGrid>
-    <Card icon="verified" iconColor="text-green-500" title="開発元が明確なアプリのみ" desc="オープンソースまたは公証により安全性を確認。出どころ不明なアプリは扱いません" />
-    <Card icon="school" iconColor="text-blue-500" title="初心者でも安心" desc="難しい言葉を避け、手順を詳しく解説。よくある質問でつまずきをカバー" />
-    <Card icon="translate" iconColor="text-purple-500" title="日本語情報の充実" desc="英語中心の情報を、分かりやすい日本語で正確に提供" />
+    <Card icon="verified" iconColor="text-green-500" title="開発元が明確なアプリのみ" desc="OSSまたは公証で安全確認" />
+    <Card icon="school" iconColor="text-blue-500" title="初心者でも安心" desc="丁寧な手順解説・FAQ完備" />
+    <Card icon="translate" iconColor="text-purple-500" title="日本語情報の充実" desc="正確でわかりやすい解説" />
   </CardGrid>
   <InfoBox type="warning" icon="info" title="自己責任での利用が前提です">
     サイドローディングは便利な仕組みですが、<mark class="bg-yellow-100 px-1 rounded"><strong>自己責任での利用が前提</strong></mark>です。当サイトの情報を参考にしながら、安全に楽しくサイドローディングを活用してください。
