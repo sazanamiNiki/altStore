@@ -12,62 +12,9 @@
   - 法的・セキュリティ面での安全性情報
   - ユースケース別のアプリ紹介
 
-## ファイル構成
+## プロジェクト構成
 
-```
-altStore-jp/
-├── src/
-│   ├── components/            # Astroコンポーネント
-│   │   ├── Header.astro
-│   │   ├── Footer.astro
-│   │   ├── StatusBar.astro
-│   │   ├── Accordion.astro
-│   │   ├── AccordionGroup.astro
-│   │   ├── Card.astro
-│   │   ├── CardGrid.astro
-│   │   ├── InfoBox.astro
-│   │   ├── Section.astro
-│   │   ├── Step.astro
-│   │   ├── StepList.astro
-│   │   ├── MethodCard.astro
-│   │   └── RelatedArticles.astro
-│   ├── layouts/
-│   │   ├── BaseLayout.astro   # 基本レイアウト
-│   │   └── ArticleLayout.astro # 記事レイアウト（h1 props対応）
-│   ├── pages/
-│   │   ├── index.astro        # トップページ
-│   │   ├── apps.astro         # アプリカタログ
-│   │   └── articles/
-│   │       ├── index.astro    # 記事一覧
-│   │       ├── [slug].astro   # 動的ルート（未使用）
-│   │       └── *.mdx          # 各記事（17ファイル）
-│   ├── content/
-│   │   └── config.ts          # Content Collections定義（現在未使用）
-│   └── styles/
-│       └── global.css         # グローバルスタイル（Tailwind）
-├── public/
-│   └── assets/
-│       ├── js/                # クライアントサイドJS
-│       ├── img/               # 画像・ロゴ
-│       └── data/apps.json     # アプリメタデータ
-├── tools/
-│   ├── extract_sections.py    # セクション抽出スクリプト
-│   ├── extract_article_text.py
-│   ├── generate_article_html.py
-│   ├── update_design.py
-│   └── README.md
-├── .claude/
-│   ├── rules/
-│   │   ├── articles_style_guide.md  # 記事スタイルガイド
-│   │   ├── design.md                # デザイン・レスポンシブ規約
-│   │   └── article_sections.md      # セクション管理ルール
-│   ├── mcp.json
-│   └── settings.local.json
-├── astro.config.mjs           # Astro設定
-├── tailwind.config.mjs        # Tailwind設定
-├── package.json
-└── CLAUDE.md                  # このファイル
-```
+詳細は @.claude/rules/project-map.md を参照。
 
 ## 編集ルール
 
@@ -91,6 +38,30 @@ altStore-jp/
 - 導入セクション→メインコンテンツ→よくある質問→まとめの構成
 - 記事はMDX形式で記述し、`src/components/` のAstroコンポーネントを活用する
 - **セクション属性**: 全セクションに `id` と `data-section` 属性を付与（トークン消費削減のため）
+
+### 記事レビュー（必須）
+
+**記事の作成・編集後は、必ず `article-reviewer` サブエージェントを実行してください。**
+
+サブエージェント定義: `.claude/agents/article-reviewer.md`
+
+呼び出し方法：
+```
+article-reviewer サブエージェントを使って [記事ファイルパス] をレビューしてください
+```
+
+または Task ツールで直接呼び出し：
+```
+subagent_type: "article-reviewer"
+prompt: "[記事ファイルパス] をレビューしてください"
+```
+
+**特徴:**
+- **model: haiku** でコスト削減（1記事あたり約1円以下）
+- 読み取り専用（Read, Glob, Grep のみ）
+- スタイルガイドのチェックリストを自動検証
+
+**重要**: レビュー結果が「要修正」の場合、修正を行い再度レビューを実行すること。
 
 ## 技術スタック
 
