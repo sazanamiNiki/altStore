@@ -1,0 +1,210 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Section from '../../components/Section.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import GameCard from '../../components/GameCard.astro';
+
+import gamesData from '../../../public/assets/data/free-games.json';
+
+export const title = "Deltaで遊べる無料ゲーム特集";
+export const description = "itch.ioで無料ダウンロードできるDelta対応の自作ゲーム（homebrew）を厳選紹介。GBA、NES、SNES、ゲームボーイ向けの合法的に遊べるゲームを集めました。";
+
+export const featuredGames = gamesData.games.filter(g => g.featured);
+export const gbaGames = gamesData.games.filter(g => g.platform === 'GBA');
+export const nesGames = gamesData.games.filter(g => g.platform === 'NES');
+export const snesGames = gamesData.games.filter(g => g.platform === 'SNES');
+export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
+
+<ArticleLayout title={title} description={description} date="2026-03-05" icon="stadia_controller" iconColor="text-purple-500">
+
+<Section intro title="itch.ioで無料ゲームを探そう" icon="lightbulb">
+  <p class="text-gray-700 leading-relaxed sm:leading-7">
+    <strong>itch.io</strong>は、開発者が自作ゲームを公開しているプラットフォーム。<mark class="bg-yellow-100 px-1 rounded"><strong>GBA・NES・SNES向けの無料homebrew</strong></mark>が多数あり、Deltaで合法的に遊べます。
+  </p>
+</Section>
+
+<Section title="itch.ioとは？" icon="public" iconColor="text-blue-600" id="about-itchio">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-4">
+    インディー開発者がゲームを自由に公開できるプラットフォーム。審査不要で誰でも作品を公開でき、「Vampire Survivors」もここから生まれました。
+  </p>
+  <CardGrid>
+    <Card icon="download" iconColor="text-green-500" title="100万以上の作品" desc="無料〜有料まで多数配信" />
+    <Card icon="sports_esports" iconColor="text-orange-500" title="レトロゲーム多数" desc="GBA/NES/SNES向けhomebrew豊富" />
+    <Card icon="block" iconColor="text-blue-500" title="広告なし" desc="よくある無料Appと違い広告ゼロ" fullWidth={true} />
+  </CardGrid>
+
+  <div class="mt-4 sm:mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          <strong>「審査なし」でも大丈夫！</strong><br />
+          下のリンクからDeltaで遊べるゲームが探せるよ🌸
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 sm:mt-6">
+    <a
+      href="https://itch.io/games/free/tag-gameboy-rom"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-lg hover:from-pink-600 hover:to-red-600 transition-all"
+    >
+      <span class="material-symbols-outlined">open_in_new</span>
+      itch.ioで探す
+    </a>
+  </div>
+</Section>
+
+<Section title="おすすめピックアップ" icon="star" iconColor="text-yellow-500" id="featured-games">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {featuredGames.map((game) => (
+      <GameCard
+        name={game.name}
+        nameJa={game.nameJa}
+        platform={game.platform}
+        genre={game.genre}
+        description={game.description}
+        developer={game.developer}
+        url={game.url}
+        featured={game.featured}
+        tags={game.tags}
+      />
+    ))}
+  </div>
+</Section>
+
+<Section title="Game Boy Advance (GBA)" icon="videogame_asset" iconColor="text-purple-500" id="gba-games">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {gbaGames.map((game) => (
+      <GameCard
+        name={game.name}
+        nameJa={game.nameJa}
+        platform={game.platform}
+        genre={game.genre}
+        description={game.description}
+        developer={game.developer}
+        url={game.url}
+        featured={game.featured}
+        tags={game.tags}
+      />
+    ))}
+  </div>
+</Section>
+
+<Section title="NES（ファミコン）" icon="videogame_asset" iconColor="text-red-500" id="nes-games">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {nesGames.map((game) => (
+      <GameCard
+        name={game.name}
+        nameJa={game.nameJa}
+        platform={game.platform}
+        genre={game.genre}
+        description={game.description}
+        developer={game.developer}
+        url={game.url}
+        featured={game.featured}
+        tags={game.tags}
+      />
+    ))}
+  </div>
+</Section>
+
+<Section title="SNES（スーファミ）" icon="videogame_asset" iconColor="text-blue-500" id="snes-games">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {snesGames.map((game) => (
+      <GameCard
+        name={game.name}
+        nameJa={game.nameJa}
+        platform={game.platform}
+        genre={game.genre}
+        description={game.description}
+        developer={game.developer}
+        url={game.url}
+        featured={game.featured}
+        tags={game.tags}
+      />
+    ))}
+  </div>
+</Section>
+
+<Section title="Game Boy" icon="videogame_asset" iconColor="text-green-500" id="gb-games">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {gbGames.map((game) => (
+      <GameCard
+        name={game.name}
+        nameJa={game.nameJa}
+        platform={game.platform}
+        genre={game.genre}
+        description={game.description}
+        developer={game.developer}
+        url={game.url}
+        featured={game.featured}
+        tags={game.tags}
+      />
+    ))}
+  </div>
+</Section>
+
+<Section title="ダウンロード方法" icon="download" iconColor="text-blue-600" id="how-to-download">
+  <StepList>
+    <Step num={1} title="itch.ioでゲームページを開く" />
+    <Step num={2} title="「Download」をクリック" />
+    <Step num={3} title="ROMファイルをダウンロード" />
+    <Step num={4} title="iPhoneの「ファイル」に保存" />
+    <Step num={5} title="Deltaで「+」から追加" />
+  </StepList>
+</Section>
+
+<Section title="よくある質問" icon="help" id="faq">
+  <AccordionGroup>
+    <Accordion title="homebrewゲームとは？">
+      <p class="text-gray-700 leading-relaxed">
+        個人が開発した自作ゲーム。合法的に遊べます。
+      </p>
+    </Accordion>
+    <Accordion title="安全ですか？">
+      <p class="text-gray-700 leading-relaxed">
+        基本的に安全。ダウンロード数やレビューを確認すると安心です。
+      </p>
+    </Accordion>
+    <Accordion title="有料ゲームもある？">
+      <p class="text-gray-700 leading-relaxed">
+        有料や投げ銭形式もあります。本記事は無料ゲームを紹介しています。
+      </p>
+    </Accordion>
+    <Accordion title="日本語対応のゲームは？">
+      <p class="text-gray-700 leading-relaxed">
+        多くは英語ですが、アクションやパズルなど言語不要なジャンルも多いです。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600" id="summary">
+  <CardGrid>
+    <Card icon="public" iconColor="text-blue-500" title="itch.io" desc="インディーゲーム配信サイト" />
+    <Card icon="verified" iconColor="text-green-500" title="合法的" desc="開発者本人が公開" />
+    <Card icon="sports_esports" iconColor="text-purple-500" title="高品質" desc="商業作品レベルの完成度" />
+    <Card icon="download" iconColor="text-orange-500" title="無料" desc="すぐにダウンロード可能" />
+  </CardGrid>
+</Section>
+
+<RelatedArticles articles={[
+  { href: '/articles/delta-utm-guide', icon: 'sports_esports', title: 'Delta/UTM SE 完全ガイド', desc: 'インストールから設定まで' },
+  { href: '/articles/emulator-legal', icon: 'gavel', title: 'エミュレータの法的側面', desc: '法律と注意点' },
+  { href: '/articles/altstore-complete-guide', icon: 'apps', title: 'AltStore 完全ガイド', desc: 'インストールから使い方まで' },
+]} />
+
+</ArticleLayout>

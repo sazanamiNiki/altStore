@@ -96,7 +96,7 @@ function renderApps() {
 
 function createAppCard(app) {
   const card = document.createElement('div');
-  card.className = 'relative bg-white rounded-3xl shadow-sm p-6 text-left transition hover:shadow-md cursor-pointer';
+  card.className = 'bg-white rounded-3xl shadow-sm p-4 sm:p-6 text-left transition hover:shadow-md cursor-pointer';
 
   // 配布方法のデフォルト値を設定
   const distributionCategory = app.distributionInfo?.category || 'sideload';
@@ -111,15 +111,16 @@ function createAppCard(app) {
   }
 
   card.innerHTML = `
-    <button class="js-import-btn absolute top-16 text-white font-bold text-sm px-5 py-1.5 rounded-full hover:bg-blue-600 transition" style="right: 16px; background-color: #007AFF;">
-      入手
-    </button>
-
     <div class="flex items-start gap-4">
-      <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
+      <img src="${app.iconURL}" alt="${app.name}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
 
-      <div class="flex-1 pt-1">
-        <h3 class="font-bold text-lg text-gray-900 leading-tight line-clamp-1 w-2/3">${app.name}</h3>
+      <div class="flex-1 min-w-0 pt-1">
+        <div class="flex items-start justify-between gap-2">
+          <h3 class="font-bold text-base sm:text-lg text-gray-900 leading-tight line-clamp-1">${app.name}</h3>
+          <button class="js-import-btn flex-shrink-0 text-white font-bold text-sm px-4 py-1.5 rounded-full hover:bg-blue-600 transition" style="background-color: #007AFF;">
+            入手
+          </button>
+        </div>
         <p class="text-sm text-gray-500 mb-2">${app.developerName}</p>
         <div class="flex flex-wrap items-center gap-1">
           <span class="inline-block bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded-md">${app.category}</span>
@@ -193,29 +194,29 @@ function showAppDetailModal(bundleIdentifier) {
         <span class="material-symbols-outlined">close</span>
       </button>
 
-      <div class="p-6 pb-6 flex-1 bg-white rounded-t-3xl overflow-y-auto">
-        <div class="flex items-start gap-4 mb-6">
-          <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold text-gray-900">${app.name}</h2>
+      <div class="p-4 sm:p-6 pb-4 sm:pb-6 flex-1 bg-white rounded-t-3xl overflow-y-auto">
+        <div class="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <img src="${app.iconURL}" alt="${app.name}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">
+          <div class="flex-1 min-w-0">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">${app.name}</h2>
             <p class="text-sm text-gray-600 mb-2">${app.developerName}</p>
             <span class="inline-block bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">${app.category}</span>
           </div>
         </div>
 
-        <div class="bg-gray-50 rounded-lg p-4 mb-6 text-sm">
-          <div class="grid grid-cols-3 gap-4">
+        <div class="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 text-sm">
+          <div class="grid grid-cols-3 gap-2 sm:gap-4">
             <div>
-              <p class="text-xs text-gray-500 mb-1">バージョン</p>
-              <p class="font-bold text-gray-900">${app.version || 'N/A'}</p>
+              <p class="text-[10px] sm:text-xs text-gray-500 mb-1">バージョン</p>
+              <p class="font-bold text-xs sm:text-sm text-gray-900">${app.version || 'N/A'}</p>
             </div>
             <div>
-              <p class="text-xs text-gray-500 mb-1">サイズ</p>
-              <p class="font-bold text-gray-900">${formatBytes(app.size)}</p>
+              <p class="text-[10px] sm:text-xs text-gray-500 mb-1">サイズ</p>
+              <p class="font-bold text-xs sm:text-sm text-gray-900">${formatBytes(app.size)}</p>
             </div>
             <div>
-              <p class="text-xs text-gray-500 mb-1">必須iOS</p>
-              <p class="font-bold text-gray-900">${minOSVersion}</p>
+              <p class="text-[10px] sm:text-xs text-gray-500 mb-1">必須iOS</p>
+              <p class="font-bold text-xs sm:text-sm text-gray-900">${minOSVersion}</p>
             </div>
           </div>
         </div>
@@ -229,7 +230,7 @@ function showAppDetailModal(bundleIdentifier) {
         ${screenshotsHtml}
       </div>
 
-      <div class="flex gap-3 p-6 border-t border-gray-200 bg-white rounded-b-3xl flex-shrink-0">
+      <div class="flex gap-3 p-4 sm:p-6 border-t border-gray-200 bg-white rounded-b-3xl flex-shrink-0">
         <button class="js-download-btn flex-1 bg-[#007AFF] text-white font-bold text-sm px-4 py-2.5 rounded-full hover:bg-blue-600 transition">入手</button>
         <button class="js-close-btn flex-1 bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium text-sm px-4 py-2.5 rounded-full transition">閉じる</button>
       </div>
@@ -252,8 +253,8 @@ function showImportModal(app) {
     '';
 
   modal.innerHTML = `
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-lg">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900">アプリをダウンロード</h2>
+    <div class="bg-white rounded-3xl max-w-md w-full p-4 sm:p-6 shadow-lg">
+      <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">アプリをダウンロード</h2>
 
       <div class="flex items-start gap-4 mb-4">
         <img src="${app.iconURL}" alt="${app.name}" class="w-20 h-20 rounded-[22%] border border-gray-100 shadow-sm flex-shrink-0">

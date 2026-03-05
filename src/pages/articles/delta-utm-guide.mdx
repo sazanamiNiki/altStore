@@ -13,223 +13,209 @@ import RelatedArticles from '../../components/RelatedArticles.astro';
 export const title = "Delta/UTM SE 完全ガイド";
 export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。インストール方法から設定、パフォーマンス最適化まで詳しく解説します。";
 
-<ArticleLayout title={title} description={description} date="2026-02-11" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} description={description} date="2026-03-05" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="はじめに" icon="lightbulb">
-  <p class="text-gray-700 mb-4">
-    2024年4月、AppleはApp Storeでのエミュレータ配布ポリシーを緩和し、ゲームエミュレータや仮想化アプリの配布が可能になりました。これにより、Delta EmulatorやUTM SEといったアプリが公式に入手できるようになり、iPhoneやiPadでレトロゲームを楽しんだり、Windows/Linuxを実行したりすることが、<mark class="bg-yellow-100 px-1 rounded"><strong>脱獄なしで可能</strong></mark>になりました。
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    2024年4月、AppleはApp Storeでのエミュレータ配布ポリシーを緩和しました。
+    これにより、<mark class="bg-yellow-100 px-1 rounded"><strong>脱獄なしで</strong></mark>Delta EmulatorやUTM SEが利用可能になりました。
   </p>
-  <p class="text-gray-700 mb-4">
-    本ガイドでは、Riley Testut氏が開発したDelta Emulatorと、QEMUベースの仮想化アプリUTM SEの詳細な使い方を解説します。どちらもオープンソースで透明性が確保された安全なアプリであり、App StoreまたはAltStoreから入手可能です。
-  </p>
+  <CardGrid>
+    <Card icon="sports_esports" iconColor="text-blue-500" title="Delta Emulator" desc="レトロゲームエミュレータ" />
+    <Card icon="computer" iconColor="text-purple-500" title="UTM SE" desc="Windows/Linux仮想化" />
+  </CardGrid>
+  <InfoBox type="success" icon="verified" title="どちらも脱獄不要">
+    App StoreまたはAltStoreから正式に入手可能。オープンソースで透明性も確保されています。
+  </InfoBox>
 </Section>
 
 {/* ── Part 1: Delta Emulator ── */}
-<Section title="Part 1: Delta Emulator" icon="videogame_asset" iconColor="text-blue-600">
-
-  <Accordion title="1.1　Delta Emulatorとは">
-    <p class="text-gray-700 mb-6">
-      Delta Emulatorは、iOS向けに開発されたオールインワンのレトロゲームエミュレータです。かつて人気を博したGBA4iOSの後継として開発され、現在ではApp Storeから正式にダウンロード可能です。開発者のRiley Testut氏は、AltStoreの開発者としても知られています。
-    </p>
-    <p class="text-gray-700 mb-4">Deltaは複数のオープンソースエミュレータコアを統合しており、以下のゲーム機に対応しています：</p>
-    <CardGrid>
-      <Card icon="videogame_asset" title="Nintendo Entertainment System (NES)" desc="Nestopiaコアを使用" />
-      <Card icon="videogame_asset" title="Super Nintendo (SNES)" desc="Snes9xコアを使用" />
-      <Card icon="videogame_asset" title="Nintendo 64 (N64)" desc="mupen64plusコアを使用（OpenGL ES 3.0対応）" />
-      <Card icon="videogame_asset" title="Game Boy / Game Boy Color" desc="Gambatteコアを使用" />
-      <Card icon="videogame_asset" title="Game Boy Advance (GBA)" desc="VisualBoyAdvance-Mコアを使用" />
-      <Card icon="videogame_asset" title="Nintendo DS" desc="melonDSコアを使用" />
-      <Card icon="videogame_asset" iconColor="text-yellow-500" title="Sega Genesis" desc="Genesis Plus GXコアを使用（有料版のみ）" fullWidth={true} />
-    </CardGrid>
-  </Accordion>
-
-  <Accordion title="1.2　インストール方法">
-    <p class="text-gray-700 mb-4">Delta EmulatorはiOS 12以降を搭載したiPhone/iPadで動作します。macOSの場合はmacOS 11.0以降かつApple M1チップ搭載のMacが必要です。</p>
-    <MethodCard title="App Storeからダウンロード（米国アカウント）" icon="store">
-      米国のApp Storeアカウントをお持ちの場合、「Delta - Game Emulator」で検索してダウンロードできます。日本のApp Storeでは現時点で公開されていないため、地域設定の変更または代替方法が必要です。
-    </MethodCard>
-    <MethodCard title="AltStore経由でインストール（日本ユーザー推奨）" icon="install_mobile" recommended>
-      <StepList>
-        <Step num={1} title="AltServerをPCにインストール" desc="Windows 10以降、またはmacOS" />
-        <Step num={2} title="iPhoneをPCに接続し、AltStoreをインストール" />
-        <Step num={3} title="AltStore内の「Browse」タブでDelta Emulatorを検索" />
-        <Step num={4} title="「GET」をタップしてインストール完了" />
-      </StepList>
-    </MethodCard>
-    <MethodCard title="AltStore PAL（欧州ユーザー向け）" icon="public">
-      EUに居住している場合、AltStore PALを利用することでPCなしでDeltaをインストールできます。EUのデジタル市場法（DMA）により、サードパーティのアプリストアがiOSでも認められています。
-    </MethodCard>
-  </Accordion>
-
-  <Accordion title="1.3　ゲームROMの追加方法">
-    <p class="text-gray-700 mb-4">Delta自体にはゲームROMは含まれていません。法的に所有しているゲームのROMファイルを追加する必要があります。対応フォーマットは各プラットフォームの標準的な形式（.nes, .sfc, .z64, .gb, .gbc, .gba, .nds, .mdなど）です。</p>
-    <StepList>
-      <Step num={1} title="ROMファイルをiPhone/iPadの「ファイル」アプリに保存" />
-      <Step num={2} title="Deltaを起動し、右上の「+」ボタンをタップ" />
-      <Step num={3} title="「ファイル」から該当するROMファイルを選択" />
-      <Step num={4} title="自動的にライブラリに追加されます" />
-    </StepList>
-    <InfoBox type="info" icon="info" title="Nintendo DSについて">
-      以前はBIOSファイルが必須でしたが、現在のバージョンではBIOSファイルはオプションとなっています。また、GBAカートリッジを「挿入」するデュアルスロット機能にも対応しています。
-    </InfoBox>
-  </Accordion>
-
-  <Accordion title="1.4　コントローラー設定とマルチプレイヤー">
-    <p class="text-gray-700 mb-4">Deltaは多様なコントローラーに対応しています：</p>
-    <CardGrid>
-      <Card icon="sports_esports" title="PlayStation 4 (DualShock 4)" />
-      <Card icon="sports_esports" title="PlayStation 5 (DualSense)" />
-      <Card icon="sports_esports" title="Xbox One S / Xbox Series X|S" />
-      <Card icon="sports_esports" title="MFi認証コントローラー" />
-      <Card icon="touch_app" title="バーチャルコントローラー" desc="カスタムスキン対応" />
-    </CardGrid>
-    <h4 class="text-lg font-semibold mt-6 mb-3 text-gray-800">ローカルマルチプレイヤー</h4>
-    <p class="text-gray-700 mb-4">NES、SNES、N64のゲームでは最大4人までのローカルマルチプレイヤーに対応。各プレイヤーが別々のコントローラーを接続することで、友人や家族と一緒にプレイできます。</p>
-    <h4 class="text-lg font-semibold mt-6 mb-3 text-gray-800">オンラインマルチプレイヤー</h4>
-    <p class="text-gray-700 mb-4">Nintendo DSのオンライン対応ゲームでは、Wiimmfi、WiiLink WFC、AltWFCなどのコミュニティサーバーを経由して世界中の友人とオンラインプレイが可能です。</p>
-  </Accordion>
-
-  <Accordion title="1.5　セーブ機能とクラウド同期">
-    <CardGrid>
-      <Card icon="save" title="通常セーブ" desc="ゲーム内のセーブ機能を通常通り使用可能" />
-      <Card icon="bookmark" title="ステートセーブ" desc="任意のタイミングでゲーム状態を保存・復元" />
-      <Card icon="autorenew" title="オートセーブ" desc="バックグラウンドに移行時に自動的に状態を保存" />
-      <Card icon="cloud_sync" title="クラウド同期" desc="iCloud、Google Drive、Dropboxに対応し複数デバイス間でセーブデータを共有" fullWidth={true} />
-    </CardGrid>
-  </Accordion>
-
-  <Accordion title="1.6　Delta 2.0の新機能（2025-2026）">
-    <InfoBox type="indigo" icon="new_releases" title="最新情報（Beta）">
-      最新のDelta 2.0ベータ版では、以下の新機能が追加されています。
-    </InfoBox>
-    <CardGrid>
-      <Card icon="auto_awesome" iconColor="text-indigo-500" title="Liquid Glass UI" desc="iOS 26のデザイン言語に対応したモダンなインターフェース" />
-      <Card icon="emoji_events" iconColor="text-indigo-500" title="RetroAchievements" desc="GBC、GBA、DSゲームで実績機能が利用可能" />
-      <Card icon="videogame_asset" iconColor="text-indigo-500" title="Sega Genesis対応" desc="新しいコントローラースキンとともにメガドライブゲームをサポート" />
-      <Card icon="camera_alt" iconColor="text-indigo-500" title="Game Boy Camera機能" desc="iPhoneのカメラを使用してレトロなGame Boy Camera体験を再現" />
-    </CardGrid>
-  </Accordion>
-</Section>
-
-{/* ── Part 2: UTM SE ── */}
-<Section title="Part 2: UTM SE" icon="computer" iconColor="text-blue-600">
-
-  <Accordion title="2.1　UTM SEとは">
-    <p class="text-gray-700 mb-4">
-      UTM SEは、QEMUベースのフル機能システムエミュレータおよび仮想マシンホストです。iPhoneやiPadでWindows、Linux、その他のOSを実行することができます。「SE」は「Slow Edition」の略で、App Storeの制限に対応するためJITコンパイルの代わりにTCGインタープリターを使用しています。
-    </p>
-    <p class="text-gray-700 mb-4">
-      2024年に登場したUTM SEは、iOS App Store初のPCエミュレータとなりました。通常のUTMはサイドローディングで入手可能ですが、AppleのJIT制限によりApp Storeでは配布できませんでした。UTM SEはこの制限を回避するため、パフォーマンスは低下しますが、脱獄やJIT回避策なしで使用可能です。
-    </p>
-    <InfoBox type="warning" icon="speed" title="パフォーマンスについて">
-      「SE」はSlow Editionの略。JITなしのため通常のUTMより動作が遅くなります。実用的な速度には軽量OSの選択が重要です。
-    </InfoBox>
-  </Accordion>
-
-  <Accordion title="2.2　対応アーキテクチャ">
-    <p class="text-gray-700 mb-4">UTM SEはQEMUが対応する30以上のプロセッサアーキテクチャをエミュレート可能です：</p>
-    <CardGrid>
-      <Card icon="memory" title="x86_64 / i386" desc="Windows、Linuxの多くのディストリビューション" />
-      <Card icon="memory" title="ARM64 / ARM" desc="ARMベースのOS、Raspberry Pi OS" />
-      <Card icon="memory" title="RISC-V" desc="RISC-V64 Ubuntuなど" />
-      <Card icon="memory" title="PowerPC" desc="クラシックMac OS 8.x/9.x" />
-      <Card icon="more_horiz" title="その他" desc="MIPS、SPARC、m68kなど" fullWidth={true} />
-    </CardGrid>
-  </Accordion>
-
-  <Accordion title="2.3　インストールとセットアップ">
-    <p class="text-gray-700 mb-4">UTM SEはiOS 14.0以降を搭載したデバイスで動作します。App Storeから「UTM SE」で検索してダウンロードするか、AltStore経由でインストールできます。</p>
-    <h4 class="text-lg font-semibold mt-6 mb-4 text-gray-800">仮想マシンの作成手順</h4>
-    <StepList>
-      <Step num={1} title="UTM SEを起動し、「+」ボタンをタップ" />
-      <Step num={2} title="「Emulate」を選択" desc="iOSでは仮想化は利用不可" />
-      <Step num={3} title="OSの種類を選択" desc="Windows、Linux、Other" />
-      <Step num={4} title="ISOファイルを選択または後で追加を選択" />
-      <Step num={5} title="RAM、CPUコア数、ストレージサイズを設定" />
-      <Step num={6} title="作成完了後、仮想マシンを起動" />
-    </StepList>
-  </Accordion>
-
-  <Accordion title="2.4　Windows のインストール">
-    <p class="text-gray-700 mb-4">UTM SEでは様々なバージョンのWindowsを実行できますが、パフォーマンスの制約があるため、軽量なOSが推奨されます。</p>
-    <MethodCard title="Windows 98/XP（推奨）" icon="computer" recommended>
-      <p class="text-gray-700 text-sm mb-3">Windows 98はUTM SEで驚くほどスムーズに動作します。M1 iPad Proでは、Pentium 120相当のパフォーマンスが得られます。90年代のWindowsソフトウェアやDOSゲームを楽しむには最適な選択です。</p>
-      <CardGrid cols={3}>
-        <Card icon="memory" iconColor="text-green-500" title="推奨RAM" desc="512MB - 1GB" />
-        <Card icon="storage" iconColor="text-green-500" title="推奨ストレージ" desc="2-4GB" />
-        <Card icon="bug_report" iconColor="text-green-500" title="起動ハング対策" desc="Force PS/2 Controllerを有効に" />
-      </CardGrid>
-    </MethodCard>
-    <MethodCard title="Windows 10/11" icon="desktop_windows">
-      <p class="text-gray-700 text-sm mb-3">技術的には動作しますが、JITなしのエミュレーションではパフォーマンスが大幅に低下します。基本的な操作は可能ですが、実用的とは言いがたい速度です。</p>
-      <CardGrid cols={3}>
-        <Card icon="memory" title="推奨RAM" desc="4-8GB" />
-        <Card icon="storage" title="推奨ストレージ" desc="60-100GB" />
-        <Card icon="warning" iconColor="text-red-500" title="注意" desc="DirectX/OpenGL使用不可" />
-      </CardGrid>
-    </MethodCard>
-  </Accordion>
-
-  <Accordion title="2.5　Linuxのインストール">
-    <p class="text-gray-700 mb-4">軽量Linuxディストリビューションは、UTM SEで比較的良好に動作します。以下のディストリビューションがおすすめです：</p>
-    <CardGrid>
-      <Card icon="terminal" iconColor="text-green-500" title="Alpine Linux" desc="非常に軽量で高速起動" />
-      <Card icon="terminal" iconColor="text-green-500" title="Tiny Core Linux" desc="最小限のリソースで動作" />
-      <Card icon="terminal" iconColor="text-green-500" title="Debian（最小インストール）" desc="安定性重視" />
-      <Card icon="terminal" iconColor="text-green-500" title="Ubuntu Server" desc="GUIなしで使用推奨" />
-    </CardGrid>
-  </Accordion>
-
-  <Accordion title="2.6　パフォーマンス最適化のヒント">
-    <CardGrid>
-      <Card icon="desktop_access_disabled" iconColor="text-blue-500" title="GUIを無効化" desc="コマンドラインのみで使用するとパフォーマンス向上" />
-      <Card icon="speed" iconColor="text-blue-500" title="VirtIO使用" desc="ARM仮想マシンではVirtIOドライバでI/O性能向上" />
-      <Card icon="storage" iconColor="text-blue-500" title="QCOW2形式" desc="ディスクイメージはQCOW2形式を使用" />
-      <Card icon="block" iconColor="text-blue-500" title="不要なサービス停止" desc="バックグラウンドプロセスを最小限に" />
-      <Card icon="memory" iconColor="text-blue-500" title="スワップ無効化" desc="仮想マシン内のスワップは無効に" fullWidth={true} />
-    </CardGrid>
-  </Accordion>
-
-  <Accordion title="2.7　UTM SEの最新アップデート（2025-2026）">
-    <InfoBox type="indigo" icon="new_releases" title="最新バージョンの改善点">
-      最新バージョンでは以下の改善が行われています。
-    </InfoBox>
-    <CardGrid>
-      <Card icon="build" iconColor="text-indigo-500" title="QEMU v10.0.2" desc="バグ修正とパフォーマンス改善" />
-      <Card icon="auto_awesome" iconColor="text-indigo-500" title="Liquid Glassデザイン" desc="iOS 26のUI言語に対応" />
-      <Card icon="shortcuts" iconColor="text-indigo-500" title="Shortcuts対応" desc="自動化ワークフローとの統合" />
-      <Card icon="keyboard" iconColor="text-indigo-500" title="カスタムキーボードショートカット" desc="Ctrl+Alt+Delなどを簡単に送信" />
-      <Card icon="wizard_hat" iconColor="text-indigo-500" title="改善されたウィザード" desc="RISC-V64 Ubuntu、クラシックMac OS 8.x/9.x、Windows 95/98の簡単セットアップ" fullWidth={true} />
-    </CardGrid>
-  </Accordion>
-</Section>
-<Section title="よくある質問" icon="help" id="article-faq">
+<Section title="Delta Emulatorとは" icon="videogame_asset" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    <strong>Delta Emulator</strong>は、iOS向けのオールインワンレトロゲームエミュレータです。
+    Riley Testut氏（AltStore開発者）が開発し、複数のエミュレータコアを統合しています。
+  </p>
+  <CardGrid>
+    <Card icon="videogame_asset" iconColor="text-blue-500" title="NES/SNES/N64" desc="任天堂据置機対応" />
+    <Card icon="videogame_asset" iconColor="text-green-500" title="GB/GBC/GBA" desc="携帯ゲーム機対応" />
+    <Card icon="videogame_asset" iconColor="text-purple-500" title="Nintendo DS" desc="melonDSコア使用" />
+    <Card icon="videogame_asset" iconColor="text-yellow-500" title="Sega Genesis" desc="有料版のみ" />
+  </CardGrid>
   <AccordionGroup>
-    <Accordion title="日本のApp StoreでDeltaはダウンロードできますか？">
-      現時点では日本のApp Storeでは公開されていません。AltStore経由でのインストールが日本ユーザーにとって最も確実な方法です。米国アカウントをお持ちの場合は、地域を変更してダウンロードすることも可能です。
-    </Accordion>
-    <Accordion title="UTM SEはAltStoreの通常のUTMと何が違いますか？">
-      App Store版のUTM SEはJITコンパイルの代わりにTCGインタープリターを使用するため、パフォーマンスが低下します。AltStore経由でインストールしたUTMはJITが使えるため高速に動作します。実用的な速度を求める場合は、AltStore経由のUTMがおすすめです。
-    </Accordion>
-    <Accordion title="ROMファイルは合法的に使用できますか？">
-      自分が所有しているカートリッジからリッピングしたROMファイルは個人使用の範囲で問題ないとされますが、インターネット上からの無断ダウンロードは著作権侵害になる可能性があります。詳しくは<a href={`${import.meta.env.BASE_URL}articles/emulator-legal`} class="text-blue-600 underline">エミュレータの法的側面に関する記事</a>をご参照ください。
-    </Accordion>
-    <Accordion title="DeltaはiPhone 15以降でも動作しますか？">
-      はい、iOS 12以降を搭載したすべてのiPhoneで動作します。iPhone 15 / 16シリーズでも問題なく使用できます。新しい端末ほど高いパフォーマンスが期待できます。
+    <Accordion title="各エミュレータコアの詳細">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>NES</strong>：Nestopiaコア</li>
+        <li><strong>SNES</strong>：Snes9xコア</li>
+        <li><strong>N64</strong>：mupen64plusコア（OpenGL ES 3.0対応）</li>
+        <li><strong>GB/GBC</strong>：Gambatteコア</li>
+        <li><strong>GBA</strong>：VisualBoyAdvance-Mコア</li>
+        <li><strong>NDS</strong>：melonDSコア</li>
+        <li><strong>Genesis</strong>：Genesis Plus GXコア（有料版）</li>
+      </ul>
     </Accordion>
   </AccordionGroup>
 </Section>
 
-{/* ── まとめ ── */}
-<Section title="まとめ" icon="done_all" iconColor="text-green-600" id="article-summary">
-  <p class="text-gray-700 leading-7 mb-6">Delta EmulatorとUTM SEは、iPhoneやiPadの可能性を大きく広げるアプリです。どちらもオープンソースで開発されており、安全に使用できます。</p>
+<Section title="Deltaのインストール方法" icon="download" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    iOS 12以降で動作します。日本ユーザーは<strong>AltStore経由</strong>が最も確実です。
+  </p>
+  <div class="space-y-4 sm:space-y-6">
+    <MethodCard title="AltStore経由（日本ユーザー推奨）" icon="install_mobile" recommended>
+      <StepList>
+        <Step num={1} title="AltServerをPCにインストール" desc="Win 10以降/macOS対応" />
+        <Step num={2} title="iPhoneをPCに接続しAltStoreをインストール" />
+        <Step num={3} title="AltStore内「Browse」でDeltaを検索" />
+        <Step num={4} title="「GET」でインストール完了" />
+      </StepList>
+    </MethodCard>
+    <MethodCard title="App Store（米国アカウント）" icon="store">
+      <p class="text-gray-700 text-sm">米国のApp Storeアカウントで「Delta - Game Emulator」を検索してダウンロード。日本では未公開。</p>
+    </MethodCard>
+    <MethodCard title="AltStore PAL（欧州）" icon="public">
+      <p class="text-gray-700 text-sm">EUではDMAにより、PCなしでAltStore PALからDeltaをインストール可能。</p>
+    </MethodCard>
+  </div>
+</Section>
+
+<Section title="ゲームROMの追加方法" icon="folder" iconColor="text-green-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    Delta自体にはゲームROMは含まれていません。法的に所有しているゲームのROMファイルを追加してください。
+  </p>
+  <StepList>
+    <Step num={1} title="ROMファイルを「ファイル」に保存" desc=".nes/.sfc/.z64/.gb等対応" />
+    <Step num={2} title="Deltaを起動し「+」ボタンをタップ" />
+    <Step num={3} title="ROMファイルを選択して追加" />
+  </StepList>
+  <InfoBox type="info" icon="info" title="Nintendo DSについて">
+    BIOSファイルは現在オプションです。GBAカートリッジの「デュアルスロット」機能にも対応。
+  </InfoBox>
+</Section>
+
+<Section title="コントローラー設定" icon="sports_esports" iconColor="text-purple-600">
   <CardGrid>
-    <Card icon="sports_esports" iconColor="text-blue-500" title="Delta Emulator" desc="NES/SNES/N64/GB/GBA/NDS/Sega Genesisなど複数プラットフォームに対応したオールインワンエミュレータ" />
-    <Card icon="install_mobile" iconColor="text-blue-500" title="インストール方法" desc="日本ではAltStore経由が最も確実。米国アカウントでApp Storeからも入手可能" />
-    <Card icon="computer" iconColor="text-blue-500" title="UTM SE" desc="iPhoneでWindows/Linuxを動かせるQEMUベースの仮想化アプリ（App Store初のPCエミュレータ）" />
-    <Card icon="speed" iconColor="text-yellow-500" title="UTM SEの特性" desc="JITなしのためパフォーマンスに制限あり。Windows 98などの軽量OSが実用的" />
-    <Card icon="verified" iconColor="text-green-500" title="どちらも脱獄不要" desc="App StoreまたはAltStoreから正式に入手可能" />
-    <Card icon="new_releases" iconColor="text-indigo-500" title="2026年は最高の年" desc="Delta 2.0やUTM SEの最新アップデートで機能が大幅に向上" />
+    <Card icon="sports_esports" iconColor="text-blue-500" title="PS4/PS5コントローラー" desc="DualShock/Sense対応" />
+    <Card icon="sports_esports" iconColor="text-green-500" title="Xboxコントローラー" desc="One S/Series X|S対応" />
+    <Card icon="touch_app" iconColor="text-gray-500" title="バーチャルコントローラー" desc="カスタムスキン対応" />
+    <Card icon="group" iconColor="text-orange-500" title="マルチプレイヤー" desc="最大4人対応" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="オンラインマルチプレイヤー">
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        Nintendo DSのオンライン対応ゲームでは、Wiimmfi、WiiLink WFC、AltWFCなどのコミュニティサーバー経由で世界中のプレイヤーとオンラインプレイが可能です。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="セーブ機能とクラウド同期" icon="cloud_sync" iconColor="text-blue-600">
+  <CardGrid>
+    <Card icon="save" iconColor="text-blue-500" title="通常セーブ" desc="ゲーム内セーブ機能" />
+    <Card icon="bookmark" iconColor="text-green-500" title="ステートセーブ" desc="任意タイミングで保存" />
+    <Card icon="autorenew" iconColor="text-orange-500" title="オートセーブ" desc="バックグラウンド移行時" />
+    <Card icon="cloud_sync" iconColor="text-purple-500" title="クラウド同期" desc="iCloud/GDrive/Dropbox" />
+  </CardGrid>
+</Section>
+
+<Section title="Delta 2.0の新機能（2025-2026）" icon="new_releases" iconColor="text-indigo-600">
+  <InfoBox type="indigo" icon="auto_awesome" title="最新ベータ版の新機能">
+    Delta 2.0では、iOS 26のLiquid Glass UIに対応し、RetroAchievements（実績機能）やGame Boy Camera機能が追加されています。
+  </InfoBox>
+</Section>
+
+{/* ── Part 2: UTM SE ── */}
+<Section title="UTM SEとは" icon="computer" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    <strong>UTM SE</strong>は、QEMUベースのフル機能システムエミュレータです。
+    iPhoneやiPadでWindows、Linuxを実行できます。「SE」は「Slow Edition」の略で、JITコンパイルの代わりにTCGインタープリターを使用しています。
+  </p>
+  <CardGrid>
+    <Card icon="memory" iconColor="text-blue-500" title="x86_64/i386" desc="Windows/Linux対応" />
+    <Card icon="memory" iconColor="text-green-500" title="ARM64/ARM" desc="Raspberry Pi OS等" />
+    <Card icon="memory" iconColor="text-purple-500" title="RISC-V" desc="Ubuntu等" />
+    <Card icon="memory" iconColor="text-orange-500" title="PowerPC" desc="クラシックMac OS" />
+  </CardGrid>
+  <InfoBox type="warning" icon="speed" title="パフォーマンスについて">
+    「SE」はSlow Editionの略。JITなしのため動作が遅くなります。Windows 98など軽量OSが推奨。
+  </InfoBox>
+</Section>
+
+<Section title="UTM SEのセットアップ" icon="settings" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    iOS 14.0以降で動作。App Storeから「UTM SE」で検索、またはAltStore経由でインストール。
+  </p>
+  <StepList>
+    <Step num={1} title="UTM SEを起動し「+」をタップ" />
+    <Step num={2} title="「Emulate」を選択" desc="iOSでは仮想化は利用不可" />
+    <Step num={3} title="OSの種類を選択" desc="Windows/Linux/Other" />
+    <Step num={4} title="ISOファイルを指定" />
+    <Step num={5} title="RAM・CPU・ストレージを設定" />
+    <Step num={6} title="仮想マシンを起動" />
+  </StepList>
+</Section>
+
+<Section title="おすすめのOS" icon="window" iconColor="text-green-600">
+  <div class="space-y-4 sm:space-y-6">
+    <MethodCard title="Windows 98/XP（推奨）" icon="computer" recommended>
+      <p class="text-gray-700 text-sm mb-3 sm:mb-4">UTM SEで驚くほどスムーズに動作。M1 iPad ProでPentium 120相当のパフォーマンス。90年代のソフトやDOSゲームに最適。</p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700 text-sm">
+        <li><strong>RAM</strong>：512MB〜1GB</li>
+        <li><strong>ストレージ</strong>：2〜4GB</li>
+      </ul>
+    </MethodCard>
+    <MethodCard title="軽量Linux" icon="terminal">
+      <p class="text-gray-700 text-sm mb-3 sm:mb-4">Alpine Linux、Tiny Core Linux、Debian（最小）などが比較的良好に動作。GUIなしで使用すると高速。</p>
+    </MethodCard>
+    <MethodCard title="Windows 10/11" icon="desktop_windows">
+      <p class="text-gray-700 text-sm">技術的には動作しますが、JITなしでは実用的な速度にはなりません。</p>
+    </MethodCard>
+  </div>
+</Section>
+
+<Section title="パフォーマンス最適化" icon="tune" iconColor="text-blue-600">
+  <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+    <li><strong>GUIを無効化</strong>：コマンドラインのみで使用するとパフォーマンス向上</li>
+    <li><strong>VirtIO使用</strong>：ARM仮想マシンではVirtIOドライバでI/O性能向上</li>
+    <li><strong>QCOW2形式</strong>：ディスクイメージはQCOW2形式を使用</li>
+    <li><strong>不要なサービス停止</strong>：バックグラウンドプロセスを最小限に</li>
+  </ul>
+</Section>
+
+<Section title="よくある質問" icon="help" id="article-faq">
+  <AccordionGroup>
+    <Accordion title="日本のApp StoreでDeltaはダウンロードできる？">
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        現時点では日本のApp Storeでは公開されていません。AltStore経由でのインストールが最も確実です。
+      </p>
+    </Accordion>
+    <Accordion title="UTM SEとAltStoreのUTMの違いは？">
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        App Store版UTM SEはJITなしのため遅いです。AltStore経由のUTMはJITが使えて高速。実用性を求めるならAltStore版がおすすめ。
+      </p>
+    </Accordion>
+    <Accordion title="ROMファイルは合法的に使用できる？">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        自分のカートリッジからリッピングしたROMは個人使用の範囲で問題ないとされます。
+        インターネット上からの無断ダウンロードは著作権侵害の可能性があります。
+      </p>
+      <InfoBox type="info" icon="gavel" title="詳しくはこちら">
+        <a href={`${import.meta.env.BASE_URL}articles/emulator-legal`} class="text-blue-600 underline">エミュレータの法的側面に関する記事</a>をご参照ください。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="DeltaはiPhone 15以降でも動作する？">
+      <p class="text-gray-700 leading-relaxed sm:leading-7">
+        はい、iOS 12以降のすべてのiPhoneで動作します。新しい端末ほど高パフォーマンスが期待できます。
+      </p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600" id="article-summary">
+  <CardGrid>
+    <Card icon="sports_esports" iconColor="text-blue-500" title="Delta Emulator" desc="レトロゲーム多機種対応" />
+    <Card icon="computer" iconColor="text-purple-500" title="UTM SE" desc="iOS初のPCエミュレータ" />
+    <Card icon="verified" iconColor="text-green-500" title="脱獄不要" desc="正規ルートで入手可能" />
+    <Card icon="new_releases" iconColor="text-indigo-500" title="2026年は最高の年" desc="大幅な機能向上" />
   </CardGrid>
 </Section>
 

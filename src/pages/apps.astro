@@ -7,45 +7,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="厳選アプリの完全カタログ。カテゴリー別、キーワード検索で簡単に見つかります。"
 >
   <main class="max-w-7xl mx-auto px-4 py-12">
-    <div class="mb-12">
-      <h1 class="text-4xl font-bold mb-4">アプリカタログ</h1>
+    <div class="mb-8 sm:mb-12">
+      <h1 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">アプリカタログ</h1>
       <p class="text-gray-600">厳選アプリを検索・フィルター</p>
     </div>
 
-    <div class="bg-white rounded-lg border-2 border-gray-200 p-6 mb-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">アプリ名や作った人で探す</label>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Delta、UTM、Sidestoreなど..."
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-          />
+    <details class="bg-white rounded-lg border border-gray-200 sm:border-2 mb-6 sm:mb-8 group" id="filter-details">
+      <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer sm:cursor-default list-none [&::-webkit-details-marker]:hidden">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-gray-500 text-xl">filter_list</span>
+          <span class="font-medium text-gray-700">フィルター・検索</span>
+          <span id="active-filter-count" class="hidden bg-sky-500 text-white text-xs font-bold px-2 py-0.5 rounded-full"></span>
         </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">カテゴリーで選ぶ</label>
-          <select id="category-select" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
-            <option value="">すべてのカテゴリー</option>
+        <span class="material-symbols-outlined text-gray-400 transition-transform group-open:rotate-180 sm:hidden">expand_more</span>
+      </summary>
+      <div class="px-4 pb-4 sm:px-6 sm:pb-6 sm:pt-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">アプリ名や作った人で探す</label>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Delta、UTM、Sidestoreなど..."
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">カテゴリーで選ぶ</label>
+            <select id="category-select" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+              <option value="">すべてのカテゴリー</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-4 sm:mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-2">配布方法</label>
+          <select id="distribution-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+            <option value="">すべて表示</option>
+            <option value="official">App Store配信</option>
+            <option value="sideload">IPA配布（7日署名）</option>
           </select>
         </div>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <button id="notarized-filter" class="btn-secondary icon-with-text">
+            <span class="material-symbols-outlined check-icon">check_circle</span>
+            <span>安心マーク付きのみ</span>
+          </button>
+          <button id="reset-filter" class="btn-secondary">条件をリセット</button>
+        </div>
       </div>
-      <div class="mb-6">
-        <label class="block text-sm font-medium text-gray-700 mb-2">配布方法</label>
-        <select id="distribution-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
-          <option value="">すべて表示</option>
-          <option value="official">App Store配信</option>
-          <option value="sideload">IPA配布（7日署名）</option>
-        </select>
-      </div>
-      <div class="flex gap-4">
-        <button id="notarized-filter" class="btn-secondary icon-with-text">
-          <span class="material-symbols-outlined check-icon">check_circle</span>
-          <span>安心マーク付きのみ</span>
-        </button>
-        <button id="reset-filter" class="btn-secondary">条件をリセット</button>
-      </div>
-    </div>
+    </details>
 
     <div id="app-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
       <div class="col-span-full text-center py-8">
@@ -58,4 +68,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- app-catalog.js はPublicから参照（Google Sheets API連携） -->
   <script src="/assets/js/app-catalog.js" defer is:raw></script>
+
+  <!-- sm以上ではフィルターを常時展開 -->
+  <style>
+    @media (min-width: 640px) {
+      #filter-details {
+        pointer-events: auto;
+      }
+      #filter-details:not([open]) {
+        /* sm以上では常に開いた状態にする */
+      }
+    }
+  </style>
+  <script is:inline>
+    // sm以上ではフィルターを常時展開、モバイルでは閉じた状態で開始
+    (function() {
+      const details = document.getElementById('filter-details');
+      if (!details) return;
+      function updateOpen() {
+        if (window.innerWidth >= 640) {
+          details.setAttribute('open', '');
+        }
+      }
+      updateOpen();
+      window.addEventListener('resize', updateOpen);
+    })();
+  </script>
 </BaseLayout>

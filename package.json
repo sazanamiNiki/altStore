@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.9",
@@ -22,5 +23,8 @@
     "notarized"
   ],
   "author": "bunchoniki",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }

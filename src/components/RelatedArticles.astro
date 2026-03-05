@@ -15,13 +15,13 @@ const { articles } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<div class="mt-6 mb-8">
-  <h3 class="text-lg font-bold mb-4 text-gray-800">次に読むべきおすすめ記事</h3>
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+<div>
+  <h3 class="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-gray-800">次に読むべきおすすめ記事</h3>
+  <div class="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2">
     {articles.map(article => (
       <a
         href={`${base}${article.href.replace(/^\//, '')}`}
-        class="block p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all"
+        class="block p-3 sm:p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all"
       >
         <div class="flex items-center gap-2 mb-2">
           <span class={`material-symbols-outlined ${article.iconColor ?? 'text-blue-600'} text-lg`}>

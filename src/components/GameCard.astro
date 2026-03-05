@@ -1,0 +1,83 @@
+---
+interface Props {
+  name: string;
+  nameJa?: string;
+  platform: string;
+  platformColor?: string;
+  genre: string;
+  description: string;
+  developer: string;
+  url: string;
+  featured?: boolean;
+  tags?: string[];
+}
+
+const {
+  name,
+  nameJa,
+  platform,
+  platformColor = 'text-blue-500',
+  genre,
+  description,
+  developer,
+  url,
+  featured = false,
+  tags = [],
+} = Astro.props;
+
+const platformColors: Record<string, string> = {
+  'GBA': 'bg-purple-100 text-purple-700 border-purple-200',
+  'NES': 'bg-red-100 text-red-700 border-red-200',
+  'SNES': 'bg-blue-100 text-blue-700 border-blue-200',
+  'GB': 'bg-green-100 text-green-700 border-green-200',
+};
+
+const platformBadge = platformColors[platform] || 'bg-gray-100 text-gray-700 border-gray-200';
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`block p-4 sm:p-5 bg-white rounded-xl border hover:shadow-md transition-all ${featured ? 'border-yellow-300 ring-1 ring-yellow-200' : 'border-gray-200 hover:border-blue-300'}`}
+>
+  <div class="flex items-start gap-3 mb-3">
+    <div class="flex-1 min-w-0">
+      <div class="flex flex-wrap items-center gap-2 mb-1">
+        <span class={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${platformBadge}`}>
+          {platform}
+        </span>
+        <span class="text-xs text-gray-500">{genre}</span>
+        {featured && (
+          <span class="inline-flex items-center gap-0.5 text-xs text-yellow-600">
+            <span class="material-symbols-outlined text-sm">star</span>
+            おすすめ
+          </span>
+        )}
+      </div>
+      <h3 class="font-bold text-gray-800 text-base sm:text-lg leading-tight">
+        {nameJa || name}
+      </h3>
+      {nameJa && (
+        <p class="text-xs text-gray-500 mt-0.5">{name}</p>
+      )}
+    </div>
+    <span class="material-symbols-outlined text-gray-400 text-lg flex-shrink-0">open_in_new</span>
+  </div>
+
+  <p class="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">{description}</p>
+
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-xs text-gray-500">
+      <span class="material-symbols-outlined text-xs align-middle mr-0.5">person</span>
+      {developer}
+    </span>
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-1">
+        {tags.slice(0, 2).map((tag) => (
+          <span class="px-1.5 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">{tag}</span>
+        ))}
+      </div>
+    )}
+  </div>
+</a>

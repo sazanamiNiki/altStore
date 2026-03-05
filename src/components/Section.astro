@@ -26,12 +26,12 @@ const resolvedId = id ?? (title
 const resolvedDataSection = dataSection ?? title ?? undefined;
 
 const wrapperClass = intro
-  ? 'bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500 border border-blue-200'
-  : 'bg-white rounded-lg p-8 mb-8 border border-gray-200';
+  ? 'bg-blue-50 rounded-lg p-4 sm:p-8 mb-4 sm:mb-8 border-l-4 border-blue-500 border border-blue-200'
+  : 'bg-white rounded-lg p-4 sm:p-8 mb-4 sm:mb-8 border border-gray-200';
 
 const headingClass = intro
-  ? 'text-2xl font-bold mb-4 text-blue-700 flex items-center gap-2'
-  : 'text-2xl font-bold mb-6 pb-3 border-b-2 border-gray-200 text-gray-800 flex items-center gap-2';
+  ? 'text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-blue-700 flex items-start gap-2'
+  : 'text-xl sm:text-2xl font-bold mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-gray-200 text-gray-800 flex items-start gap-2';
 
 const resolvedIconColor = iconColor ?? (intro ? 'text-blue-500' : 'text-blue-600');
 const resolvedIcon = icon ?? (intro ? 'lightbulb' : 'info');
@@ -40,7 +40,7 @@ const resolvedIcon = icon ?? (intro ? 'lightbulb' : 'info');
 <div class={wrapperClass} id={resolvedId} data-section={resolvedDataSection}>
   {title && (
     <h2 class={headingClass}>
-      <span class={`material-symbols-outlined ${resolvedIconColor}`}>{resolvedIcon}</span>
+      <span class={`material-symbols-outlined ${resolvedIconColor} flex-shrink-0`}>{resolvedIcon}</span>
       {title}
     </h2>
   )}
