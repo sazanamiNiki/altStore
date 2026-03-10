@@ -10,7 +10,8 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "手数料 30% カット：でもアプリは安くなるのか？";
 export const h1 = "手数料カットの真実";
-export const description = "Apple が手数料を 30% から 20% に削減。でもアプリは安くなるのか？EU の実データから、その現実と AltStore の本当のメリットを解説します。";
+export const summary = "Apple手数料30%→20%削減でアプリは安くなる？EUの実データとAltStoreのメリットを解説。";
+export const description = "Appleが手数料を30%から20%に削減。でもアプリは安くなるのか？EUの実データからその現実と、AltStoreで開発者を直接支援できる本当のメリットを詳しく解説。手数料0%の魅力も詳しく紹介します。";
 
 <ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="payments" iconColor="text-blue-500">
 
@@ -132,43 +133,16 @@ export const description = "Apple が手数料を 30% から 20% に削減。で
     つまり、開発者とユーザーが<strong>直接つながる</strong>プラットフォームなのです。
   </p>
 
-  <div class="mb-6 overflow-x-auto">
-    <table class="w-full text-sm text-gray-700 border-collapse">
-      <thead>
-        <tr class="bg-gray-100 border-b border-gray-200">
-          <th class="text-left p-3 font-bold">項目</th>
-          <th class="text-left p-3 font-bold">App Store</th>
-          <th class="text-left p-3 font-bold">AltStore</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-b border-gray-200">
-          <td class="p-3"><strong>手数料</strong></td>
-          <td class="p-3">
-            <strong>EU地域：</strong>30% → 20%削減<br />
-            <strong>その他地域：</strong>15-30%<br />
-            <span class="text-xs text-gray-600">※日本市場は状況により変動</span>
-          </td>
-          <td class="p-3"><strong>0%</strong></td>
-        </tr>
-        <tr class="border-b border-gray-200">
-          <td class="p-3"><strong>開発者との関係</strong></td>
-          <td class="p-3">Apple 経由（間接的）</td>
-          <td class="p-3"><strong>ユーザーが直接支援</strong></td>
-        </tr>
-        <tr class="border-b border-gray-200">
-          <td class="p-3"><strong>支援方法</strong></td>
-          <td class="p-3">アプリ購入や課金のみ</td>
-          <td class="p-3"><strong>Patreon、寄付、直接契約など自由</strong></td>
-        </tr>
-        <tr>
-          <td class="p-3"><strong>審査</strong></td>
-          <td class="p-3">Apple の厳しい審査あり</td>
-          <td class="p-3">ユーザー主導（制限なし）</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <CardGrid>
+    <Card icon="store" iconColor="text-gray-500" title="App Store" desc="手数料15-30%" />
+    <Card icon="apps" iconColor="text-green-500" title="AltStore" desc="手数料0%" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="詳しい比較を見る">
+      <p class="text-sm text-gray-700 mb-2"><strong>App Store：</strong>Apple経由の間接的な関係。アプリ購入・課金のみ。審査あり。</p>
+      <p class="text-sm text-gray-700"><strong>AltStore：</strong>ユーザーが直接支援。Patreon、寄付など自由な方法で100%開発者へ。</p>
+    </Accordion>
+  </AccordionGroup>
 
   <InfoBox type="success" icon="favorite" title="Patreon で 100% 開発者に支援できる">
     App Store 経由では「売上の 20% を Apple に取られる」のに対して、AltStore 経由ならユーザーが直接 Patreon などで支援できます。

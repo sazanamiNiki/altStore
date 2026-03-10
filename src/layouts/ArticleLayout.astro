@@ -24,6 +24,9 @@ interface HowToData {
 interface Props {
   title: string;
   h1?: string;
+  /** ページ上部に表示する短い説明（50〜80字推奨） */
+  summary?: string;
+  /** SEO用のmeta description（100〜160字推奨） */
   description?: string;
   date?: string;
   icon?: string;
@@ -38,6 +41,7 @@ interface Props {
 const {
   title,
   h1,
+  summary,
   description,
   date,
   icon = 'shield',
@@ -46,6 +50,9 @@ const {
   faq,
   howto,
 } = Astro.props;
+
+// ページ表示用: summary があれば使用、なければ description にフォールバック
+const displaySummary = summary ?? description;
 
 const displayTitle = h1 ?? title;
 
@@ -167,7 +174,7 @@ const howtoSchema = howto
           <span class={`material-symbols-outlined ${iconColor} text-[1.75rem] sm:text-[2rem] flex-shrink-0 mt-0.5`}>{icon}</span>
           <span>{displayTitle}</span>
         </h1>
-        {description && <p class="text-gray-600 text-base mt-1">{description}</p>}
+        {displaySummary && <p class="text-gray-600 text-base mt-1">{displaySummary}</p>}
       </div>
 
       <!-- MDXコンテンツ（スキャン可能UIに変換） -->

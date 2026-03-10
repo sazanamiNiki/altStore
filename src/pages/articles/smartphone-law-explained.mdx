@@ -10,87 +10,36 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "スマホ新法で何が変わる？iPhoneのアプリ配布を徹底解説";
 export const h1 = "スマホ新法を徹底解説";
-export const description = "2025年に施行された「スマホソフトウェア競争促進法」により、iPhoneのアプリ配布はどう変わるのか？サイドローディングの合法化と、ユーザーへのメリットを解説します。";
+export const summary = "2025年施行「スマホ新法」でiPhoneが大きく変わります。4つの柱と、あなたへの影響をわかりやすく解説。";
+export const description = "2025年に施行された「スマートフォンソフトウェア競争促進法（スマホ新法）」により、iPhoneのアプリ配布・決済・デフォルト設定が大きく変わります。サイドローディングの法的位置づけ、Apple公証によるセキュリティ維持、そしてユーザーへの影響を詳しく解説します。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="gavel" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-10" icon="gavel" iconColor="text-blue-500">
 
 <Section intro title="iPhoneがついに「開国」する" icon="lightbulb">
-  <div class="space-y-3">
-    <div class="flex items-start gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100">
-      <span class="material-symbols-outlined text-blue-500">gavel</span>
-      <span class="font-bold text-blue-700 text-sm">2024年成立・2025年施行の「スマホ新法」で、iPhoneのアプリ配布が大きく変わります。</span>
-    </div>
-    <BunchanAdvice title="ぶんちゃんが解説するよ！">
-      <strong>「スマホ新法ってなに？難しそう…」って思うよね。</strong><br />
-      大丈夫！この記事ではぶんちゃんが一緒にわかりやすく解説していくよ🌸 法律の話だけど、実はあなたのiPhoneの使い方が変わる大事な話なんだ！
-    </BunchanAdvice>
-    <div class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
-      <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">menu_book</span>
-      <div class="space-y-1">
-        <div class="font-semibold text-blue-700 text-sm">この記事のポイント</div>
-        <div class="text-gray-600 text-sm">
-          スマホ新法の中身を「4つの柱」でわかりやすく整理。サイドローディングの法的位置づけ、セキュリティの仕組み、そして<strong>あなたのiPhoneがどう変わるのか</strong>を解説します。
-        </div>
-      </div>
-    </div>
-  </div>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    <strong>2024年成立・2025年施行の「スマホ新法」</strong>で、iPhoneのアプリ配布が大きく変わります。
+  </p>
+  <BunchanAdvice>
+    <strong>「スマホ新法ってなに？難しそう…」って思うよね。</strong><br />
+    大丈夫！この記事ではぶんちゃんが一緒にわかりやすく解説していくよ🌸
+  </BunchanAdvice>
 </Section>
 
 <Section title="30秒でわかる！法律施行でこう変わる" icon="compare_arrows" iconColor="text-blue-600">
-  <p class="text-gray-700 leading-7 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     まずは「結局なにが変わるの？」をサクッと理解しましょう。
   </p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-      <div class="font-bold text-gray-500 text-xs mb-2 flex items-center gap-1">
-        <span class="material-symbols-outlined text-gray-400 text-base">lock</span>
-        施行前（これまで）
-      </div>
-      <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
-          アプリ入手はApp Storeだけ
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
-          課金は最大30%のApple手数料
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
-          ブラウザ・検索はApple優遇
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-gray-400 text-base mt-0.5">close</span>
-          Apple純正アプリが常に優位
-        </li>
-      </ul>
-    </div>
-    <div class="p-4 bg-green-50 rounded-lg border border-green-200">
-      <div class="font-bold text-green-600 text-xs mb-2 flex items-center gap-1">
-        <span class="material-symbols-outlined text-green-500 text-base">lock_open</span>
-        施行後（これから）
-      </div>
-      <ul class="space-y-2 text-sm text-gray-700">
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
-          AltStore等の他社ストアもOK
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
-          PayPay・カード直接決済が可能
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
-          デフォルト設定を自由に選択
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="material-symbols-outlined text-green-500 text-base mt-0.5">check_circle</span>
-          全アプリが公平に競争
-        </li>
-      </ul>
-    </div>
-  </div>
-  <BunchanAdvice title="ぶんちゃんのひとこと">
+  <CardGrid>
+    <Card icon="lock" iconColor="text-gray-400" title="施行前（これまで）" desc="App Storeだけ・手数料30%" />
+    <Card icon="lock_open" iconColor="text-green-500" title="施行後（これから）" desc="他社ストアOK・選べる決済" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="施行前後の違いを詳しく見る">
+      <p class="text-sm text-gray-700 mb-2"><strong>施行前：</strong>アプリはApp Storeのみ、課金は最大30%手数料、ブラウザ・検索はApple優遇、純正アプリが常に優位</p>
+      <p class="text-sm text-gray-700"><strong>施行後：</strong>AltStore等の他社ストアもOK、PayPay・カード直接決済が可能、デフォルト設定を自由に選択、全アプリが公平に競争</p>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
     <strong>つまり「App Storeだけの世界」→「選べる世界」に変わるってこと！</strong><br />
     今までAppleが全部決めてたけど、これからはユーザーが自分で選べるようになるんだよ✨
   </BunchanAdvice>
@@ -123,19 +72,11 @@ export const description = "2025年に施行された「スマホソフトウェ
   <h3 class="text-xl font-bold mt-6 mb-3">柱2：決済システムの開放</h3>
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
-      <p class="text-gray-700 text-sm mb-3">
+      <p class="text-sm text-gray-700 mb-2">
         Apple決済（最大30%の手数料）を使わず、より安い決済方法を選べるようになります。
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-        <div class="p-3 bg-red-50 rounded-lg border border-red-200">
-          <div class="font-semibold text-red-700 text-xs mb-1">これまで（Apple決済のみ）</div>
-          <div class="text-gray-600 text-xs">1,000円の課金 → 開発者には700円しか届かない</div>
-        </div>
-        <div class="p-3 bg-green-50 rounded-lg border border-green-200">
-          <div class="font-semibold text-green-700 text-xs mb-1">これから（選べる決済）</div>
-          <div class="text-gray-600 text-xs">手数料が下がり、アプリの値下げや新機能開発に</div>
-        </div>
-      </div>
+      <p class="text-sm text-gray-700 mb-2"><strong>これまで：</strong>1,000円の課金 → 開発者には700円しか届かない</p>
+      <p class="text-sm text-gray-700"><strong>これから：</strong>手数料が下がり、アプリの値下げや新機能開発に</p>
     </Accordion>
     <Accordion title="ぶんちゃんに聞いてみよう">
       <BunchanAdvice>
@@ -175,76 +116,40 @@ export const description = "2025年に施行された「スマホソフトウェ
 </Section>
 
 <Section title="サイドローディングの法的位置づけが変わる" icon="verified" iconColor="text-green-600">
-  <p class="text-gray-700 leading-7 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     この法律により、AltStoreやSideStoreのようなツールは、<mark class="bg-yellow-100 px-1 rounded"><strong>「怪しい裏技」ではなく、「国が認めた正当な競争相手」</strong></mark>としての地位を確立します。
   </p>
   <AccordionGroup>
     <Accordion title="日本とEU、似ているけど違う規制">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-        <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
-          <div class="font-semibold text-blue-700 text-xs mb-1 flex items-center gap-1">
-            <span class="material-symbols-outlined text-blue-500 text-base">flag</span>
-            EUデジタル市場法（DMA）
-          </div>
-          <div class="text-gray-600 text-xs">2024年3月施行。EU圏内でサードパーティストアが解禁。Appleは別手数料（Core Technology Fee）を設定。</div>
-        </div>
-        <div class="p-3 bg-red-50 rounded-lg border border-red-200">
-          <div class="font-semibold text-red-700 text-xs mb-1 flex items-center gap-1">
-            <span class="material-symbols-outlined text-red-500 text-base">flag</span>
-            日本スマホ新法
-          </div>
-          <div class="text-gray-600 text-xs">2025年施行。アプリストア開放に加え、決済・デフォルト設定・公平性の4本柱で包括的に規制。</div>
-        </div>
-      </div>
+      <CardGrid>
+        <Card icon="flag" iconColor="text-blue-500" title="EU DMA（2024年3月）" desc="サードパーティストア解禁" />
+        <Card icon="flag" iconColor="text-red-500" title="日本スマホ新法（2025年）" desc="決済・設定まで包括規制" />
+      </CardGrid>
       <BunchanAdvice>
         <strong>EUが先に動いて、日本は後追いって見られがちだけど…</strong><br />
         実は日本の法律のほうが「決済」「デフォルト設定」まで踏み込んでて、ある意味EUより広い範囲をカバーしてるんだよ💡
       </BunchanAdvice>
     </Accordion>
     <Accordion title="この法律でサイドローディングはどう変わる？">
-      <div class="space-y-3">
-        <div class="flex items-start gap-4">
-          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">1</span>
-          <div class="pt-0.5">
-            <div class="font-semibold text-gray-800 text-sm">法的な後ろ盾ができる</div>
-            <div class="text-gray-500 text-xs mt-0.5">サイドローディングは「グレーゾーン」から「合法かつ公式」な選択肢に</div>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">2</span>
-          <div class="pt-0.5">
-            <div class="font-semibold text-gray-800 text-sm">Appleが妨害できなくなる</div>
-            <div class="text-gray-500 text-xs mt-0.5">他社ストアのインストールをAppleが意図的に難しくすることが禁止</div>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">3</span>
-          <div class="pt-0.5">
-            <div class="font-semibold text-gray-800 text-sm">ユーザーが堂々と選べる</div>
-            <div class="text-gray-500 text-xs mt-0.5">AltStore・SideStoreの利用に後ろめたさは一切不要</div>
-          </div>
-        </div>
-      </div>
+      <p class="text-sm text-gray-700 mb-2"><strong>1. 法的な後ろ盾ができる</strong> — サイドローディングは「グレーゾーン」から「合法かつ公式」な選択肢に</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>2. Appleが妨害できなくなる</strong> — 他社ストアのインストールを意図的に難しくすることが禁止</p>
+      <p class="text-sm text-gray-700"><strong>3. ユーザーが堂々と選べる</strong> — AltStore・SideStoreの利用に後ろめたさは一切不要</p>
     </Accordion>
   </AccordionGroup>
 </Section>
 
 <Section title="セキュリティは大丈夫？不安に答えます" icon="shield">
-  <p class="text-gray-700 leading-7 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     「App Store以外からアプリを入れると危険では？」これが一番多い疑問ですよね。
   </p>
-  <p class="text-gray-700 leading-7 mb-6">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     結論から言うと、スマホ新法では<mark class="bg-yellow-100 px-1 rounded"><strong>「セキュリティ確保のための措置」は認められています</strong></mark>。Appleの公証（Notarization）システムは維持されます。
   </p>
-  <div class="mb-6">
-    <CardGrid>
-      <Card icon="bug_report" iconColor="text-blue-500" title="マルウェアスキャン" desc="ウイルス・スパイ自動検査" />
-      <Card icon="verified_user" iconColor="text-purple-500" title="改ざんチェック" desc="DL中の改ざんを検出" />
-      <Card icon="shield" iconColor="text-green-500" title="サンドボックス維持" desc="アプリ間のデータ隔離" fullWidth />
-    </CardGrid>
-  </div>
-
-  <div class="mb-6">
+  <CardGrid>
+    <Card icon="bug_report" iconColor="text-blue-500" title="マルウェアスキャン" desc="ウイルス・スパイ自動検査" />
+    <Card icon="verified_user" iconColor="text-purple-500" title="改ざんチェック" desc="DL中の改ざんを検出" />
+    <Card icon="shield" iconColor="text-green-500" title="サンドボックス維持" desc="アプリ間のデータ隔離" fullWidth />
+  </CardGrid>
   <AccordionGroup>
     <Accordion title="ぶんちゃん、結局安全なの？">
       <BunchanAdvice>
@@ -253,10 +158,8 @@ export const description = "2025年に施行された「スマホソフトウェ
       </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
-  </div>
-
   <InfoBox type="info" icon="library_books" title="もっと詳しく知りたい方へ">
-    <a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="text-blue-600 font-bold hover:underline">「Apple公証とは？サイドローディングが『実は安全』な技術的理由」</a>で技術的な仕組みを解説しています。
+    <a href={`${import.meta.env.BASE_URL}articles/apple-notarization/`} class="text-blue-600 font-bold hover:underline">「Apple公証とは？サイドローディングが『実は安全』な技術的理由」</a>で技術的な仕組みを解説しています。
   </InfoBox>
 </Section>
 
@@ -296,34 +199,16 @@ export const description = "2025年に施行された「スマホソフトウェ
 </Section>
 
 <Section title="まとめ：自由には「見る目」が必要" icon="done_all" iconColor="text-green-600">
-  <div class="space-y-2 mb-6">
-    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
-      <span class="material-symbols-outlined text-blue-500">gavel</span>
-      <span class="text-gray-800 font-medium text-sm">スマホ新法は2025年12月に施行済み</span>
-    </div>
-    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
-      <span class="material-symbols-outlined text-green-500">store</span>
-      <span class="text-gray-800 font-medium text-sm">App Store以外からもアプリのインストールが公式に可能</span>
-    </div>
-    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
-      <span class="material-symbols-outlined text-purple-500">payments</span>
-      <span class="text-gray-800 font-medium text-sm">決済システム、デフォルト設定、公平な扱いも開放</span>
-    </div>
-    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
-      <span class="material-symbols-outlined text-orange-500">verified</span>
-      <span class="text-gray-800 font-medium text-sm">Apple公証システムにより、最低限の安全性は担保</span>
-    </div>
-    <div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200">
-      <span class="material-symbols-outlined text-red-500">visibility</span>
-      <span class="text-gray-800 font-medium text-sm">ユーザー自身が信頼できるストアを選ぶリテラシーが重要</span>
-    </div>
-  </div>
-
-  <BunchanAdvice title="ぶんちゃんのまとめ">
+  <CardGrid>
+    <Card icon="gavel" iconColor="text-blue-500" title="2025年12月施行済み" desc="スマホ新法が適用開始" />
+    <Card icon="store" iconColor="text-green-500" title="他社ストアOK" desc="AltStore等が公式に利用可" />
+    <Card icon="payments" iconColor="text-purple-500" title="決済も開放" desc="手数料30%から解放" />
+    <Card icon="verified" iconColor="text-orange-500" title="安全性は維持" desc="Apple公証システム継続" />
+  </CardGrid>
+  <BunchanAdvice>
     <strong>iPhoneの「鎖国」はついに終わったよ！</strong><br />
     でも自由って、同時に責任も伴うもの。「どのストアから入れるか」「そのアプリは信頼できるか」を自分で判断する力が必要な時代だね。このサイトでしっかり学んでいこう🌸
   </BunchanAdvice>
-
   <InfoBox type="warning" title="注意事項">
     法律の運用や細則は今後変更される可能性があります。最新情報は<a href="https://www.jftc.go.jp/" target="_blank" rel="noopener" class="text-yellow-800 font-bold hover:underline">公正取引委員会</a>や報道をご確認ください。
   </InfoBox>

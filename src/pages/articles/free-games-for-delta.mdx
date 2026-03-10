@@ -14,7 +14,8 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 import gamesData from '../../../public/assets/data/free-games.json';
 
 export const title = "Deltaで遊べる無料ゲーム特集";
-export const description = "itch.ioで無料ダウンロードできるDelta対応の自作ゲーム（homebrew）を厳選紹介。GBA、NES、SNES、ゲームボーイ向けの合法的に遊べるゲームを集めました。";
+export const summary = "itch.ioで無料ダウンロードできるDelta対応のhomebrewゲームを厳選。GBA、NES、SNES向けの合法ゲーム集。";
+export const description = "itch.ioで無料ダウンロードできるDelta対応の自作ゲーム（homebrew）を厳選紹介。GBA、NES、SNES、ゲームボーイ向けの合法的に遊べるゲームを集めました。インディー開発者が公開した高品質なレトロ風ゲームをDeltaで楽しもう。";
 
 export const featuredGames = gamesData.games.filter(g => g.featured);
 export const gbaGames = gamesData.games.filter(g => g.platform === 'GBA');
@@ -22,7 +23,7 @@ export const nesGames = gamesData.games.filter(g => g.platform === 'NES');
 export const snesGames = gamesData.games.filter(g => g.platform === 'SNES');
 export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
 
-<ArticleLayout title={title} description={description} date="2026-03-10" icon="stadia_controller" iconColor="text-purple-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-10" icon="stadia_controller" iconColor="text-purple-500">
 
 <Section intro title="itch.ioで無料ゲームを探そう" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7">
@@ -36,30 +37,21 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
   </p>
   <CardGrid>
     <Card icon="download" iconColor="text-green-500" title="100万以上の作品" desc="無料〜有料まで多数配信" />
-    <Card icon="sports_esports" iconColor="text-orange-500" title="レトロゲーム多数" desc="GBA/NES/SNES向けhomebrew豊富" />
+    <Card icon="sports_esports" iconColor="text-orange-500" title="レトロゲーム多数" desc="homebrew作品が豊富" />
     <Card icon="block" iconColor="text-blue-500" title="広告なし" desc="よくある無料Appと違い広告ゼロ" fullWidth={true} />
   </CardGrid>
 
   <BunchanAdvice>
     <strong>「審査なし」でも大丈夫！</strong><br />
-    下のリンクからDeltaで遊べるゲームが探せるよ🌸
+    itch.ioでDeltaで遊べるゲームを探してみよう🌸
   </BunchanAdvice>
-
-  <div class="mt-4 sm:mt-6">
-    <a
-      href="https://itch.io/games/free/tag-gameboy-rom"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-lg hover:from-pink-600 hover:to-red-600 transition-all"
-    >
-      <span class="material-symbols-outlined">open_in_new</span>
-      itch.ioで探す
-    </a>
-  </div>
+  <InfoBox type="info" icon="open_in_new" title="itch.ioで探す">
+    <a href="https://itch.io/games/free/tag-gameboy-rom" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline">itch.io - Free Game Boy ROM Games</a>
+  </InfoBox>
 </Section>
 
 <Section title="おすすめピックアップ" icon="star" iconColor="text-yellow-500" id="featured-games">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+  <CardGrid>
     {featuredGames.map((game) => (
       <GameCard
         name={game.name}
@@ -73,11 +65,11 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
         tags={game.tags}
       />
     ))}
-  </div>
+  </CardGrid>
 </Section>
 
 <Section title="Game Boy Advance (GBA)" icon="videogame_asset" iconColor="text-purple-500" id="gba-games">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+  <CardGrid>
     {gbaGames.map((game) => (
       <GameCard
         name={game.name}
@@ -91,11 +83,11 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
         tags={game.tags}
       />
     ))}
-  </div>
+  </CardGrid>
 </Section>
 
 <Section title="NES（ファミコン）" icon="videogame_asset" iconColor="text-red-500" id="nes-games">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+  <CardGrid>
     {nesGames.map((game) => (
       <GameCard
         name={game.name}
@@ -109,11 +101,11 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
         tags={game.tags}
       />
     ))}
-  </div>
+  </CardGrid>
 </Section>
 
 <Section title="SNES（スーファミ）" icon="videogame_asset" iconColor="text-blue-500" id="snes-games">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+  <CardGrid>
     {snesGames.map((game) => (
       <GameCard
         name={game.name}
@@ -127,11 +119,11 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
         tags={game.tags}
       />
     ))}
-  </div>
+  </CardGrid>
 </Section>
 
 <Section title="Game Boy" icon="videogame_asset" iconColor="text-green-500" id="gb-games">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+  <CardGrid>
     {gbGames.map((game) => (
       <GameCard
         name={game.name}
@@ -145,7 +137,7 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
         tags={game.tags}
       />
     ))}
-  </div>
+  </CardGrid>
 </Section>
 
 <Section title="ダウンロード方法" icon="download" iconColor="text-blue-600" id="how-to-download">
