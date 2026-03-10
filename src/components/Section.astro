@@ -22,8 +22,31 @@ const resolvedId = id ?? (title
   ? `section-${title.toLowerCase().replace(/[\s　]+/g, '-').replace(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF-]/g, '')}`
   : undefined);
 
-// data-section が未指定の場合、title をそのまま使用
-const resolvedDataSection = dataSection ?? title ?? undefined;
+// data-section の自動判定（article_sections.md に準拠）
+function detectSectionType(sectionTitle: string | undefined, isIntro: boolean): string {
+  if (isIntro) return 'intro';
+  if (!sectionTitle) return 'content';
+
+  const lowerTitle = sectionTitle.toLowerCase();
+
+  // FAQ判定
+  if (lowerTitle.includes('faq') || lowerTitle.includes('質問') || lowerTitle.includes('q&a')) {
+    return 'faq';
+  }
+  // まとめ判定
+  if (lowerTitle.includes('まとめ') || lowerTitle.includes('summary') || lowerTitle.includes('結論')) {
+    return 'summary';
+  }
+  // 関連記事判定
+  if (lowerTitle.includes('関連') || lowerTitle.includes('おすすめ') || lowerTitle.includes('次に読む')) {
+    return 'recommendation';
+  }
+
+  return 'content';
+}
+
+// data-section が未指定の場合、自動判定
+const resolvedDataSection = dataSection ?? detectSectionType(title, intro);
 
 const wrapperClass = intro
   ? 'bg-blue-50 rounded-lg p-4 sm:p-8 mb-4 sm:mb-8 border-l-4 border-blue-500 border border-blue-200'

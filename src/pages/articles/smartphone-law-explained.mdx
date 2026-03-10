@@ -6,8 +6,9 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
-export const title = "iPhoneの「鎖国」が終わる日。スマホ新法で何が変わる？徹底解説";
+export const title = "スマホ新法で何が変わる？iPhoneのアプリ配布を徹底解説";
 export const h1 = "スマホ新法を徹底解説";
 export const description = "2025年に施行された「スマホソフトウェア競争促進法」により、iPhoneのアプリ配布はどう変わるのか？サイドローディングの合法化と、ユーザーへのメリットを解説します。";
 
@@ -19,20 +20,10 @@ export const description = "2025年に施行された「スマホソフトウェ
       <span class="material-symbols-outlined text-blue-500">gavel</span>
       <span class="font-bold text-blue-700 text-sm">2024年成立・2025年施行の「スマホ新法」で、iPhoneのアプリ配布が大きく変わります。</span>
     </div>
-    <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-      <div class="flex gap-3">
-        <div class="flex-shrink-0">
-          <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんが解説するよ！</div>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            <strong>「スマホ新法ってなに？難しそう…」って思うよね。</strong><br />
-            大丈夫！この記事ではぶんちゃんが一緒にわかりやすく解説していくよ🌸 法律の話だけど、実はあなたのiPhoneの使い方が変わる大事な話なんだ！
-          </p>
-        </div>
-      </div>
-    </div>
+    <BunchanAdvice title="ぶんちゃんが解説するよ！">
+      <strong>「スマホ新法ってなに？難しそう…」って思うよね。</strong><br />
+      大丈夫！この記事ではぶんちゃんが一緒にわかりやすく解説していくよ🌸 法律の話だけど、実はあなたのiPhoneの使い方が変わる大事な話なんだ！
+    </BunchanAdvice>
     <div class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
       <span class="material-symbols-outlined text-blue-500 text-base mt-0.5">menu_book</span>
       <div class="space-y-1">
@@ -99,20 +90,10 @@ export const description = "2025年に施行された「スマホソフトウェ
       </ul>
     </div>
   </div>
-  <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのひとこと</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          <strong>つまり「App Storeだけの世界」→「選べる世界」に変わるってこと！</strong><br />
-          今までAppleが全部決めてたけど、これからはユーザーが自分で選べるようになるんだよ✨
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice title="ぶんちゃんのひとこと">
+    <strong>つまり「App Storeだけの世界」→「選べる世界」に変わるってこと！</strong><br />
+    今までAppleが全部決めてたけど、これからはユーザーが自分で選べるようになるんだよ✨
+  </BunchanAdvice>
 </Section>
 
 <Section title="スマホ新法の「4つの柱」を詳しく解説" icon="account_balance" iconColor="text-blue-600">
@@ -132,20 +113,10 @@ export const description = "2025年に施行された「スマホソフトウェ
       </CardGrid>
     </Accordion>
     <Accordion title="ぶんちゃんに聞いてみよう">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>これが一番大きな変化！App Store以外からもアプリが入れられるようになるよ。</strong><br />
-              AltStoreみたいなストアが「怪しいツール」じゃなくて「国が認めた正規の選択肢」になるんだ🎉
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>これが一番大きな変化！App Store以外からもアプリが入れられるようになるよ。</strong><br />
+        AltStoreみたいなストアが「怪しいツール」じゃなくて「国が認めた正規の選択肢」になるんだ🎉
+      </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
 
@@ -167,20 +138,10 @@ export const description = "2025年に施行された「スマホソフトウェ
       </div>
     </Accordion>
     <Accordion title="ぶんちゃんに聞いてみよう">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>Appleの手数料30%ってけっこう大きいんだよね。</strong><br />
-              これが開放されると、アプリの値段が安くなったり、開発者がもっといいアプリを作る余裕ができるかも💡
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>Appleの手数料30%ってけっこう大きいんだよね。</strong><br />
+        これが開放されると、アプリの値段が安くなったり、開発者がもっといいアプリを作る余裕ができるかも💡
+      </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
 
@@ -205,20 +166,10 @@ export const description = "2025年に施行された「スマホソフトウェ
       </p>
     </Accordion>
     <Accordion title="ぶんちゃんに聞いてみよう">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>Apple Musicより良い音楽アプリがあっても、Apple優遇で見つけにくかった…</strong><br />
-              なんて状況がなくなるよ。良いアプリが正当に評価される世界になるんだ🌟
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>Apple Musicより良い音楽アプリがあっても、Apple優遇で見つけにくかった…</strong><br />
+        なんて状況がなくなるよ。良いアプリが正当に評価される世界になるんだ🌟
+      </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -245,20 +196,10 @@ export const description = "2025年に施行された「スマホソフトウェ
           <div class="text-gray-600 text-xs">2025年施行。アプリストア開放に加え、決済・デフォルト設定・公平性の4本柱で包括的に規制。</div>
         </div>
       </div>
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>EUが先に動いて、日本は後追いって見られがちだけど…</strong><br />
-              実は日本の法律のほうが「決済」「デフォルト設定」まで踏み込んでて、ある意味EUより広い範囲をカバーしてるんだよ💡
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>EUが先に動いて、日本は後追いって見られがちだけど…</strong><br />
+        実は日本の法律のほうが「決済」「デフォルト設定」まで踏み込んでて、ある意味EUより広い範囲をカバーしてるんだよ💡
+      </BunchanAdvice>
     </Accordion>
     <Accordion title="この法律でサイドローディングはどう変わる？">
       <div class="space-y-3">
@@ -306,20 +247,10 @@ export const description = "2025年に施行された「スマホソフトウェ
   <div class="mb-6">
   <AccordionGroup>
     <Accordion title="ぶんちゃん、結局安全なの？">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>公証済みのアプリなら、App Storeのアプリと同じレベルの安全性だよ！</strong><br />
-              ただし「どこからでもOK」ってなると怪しいサイトも出てくるから、<strong>信頼できるストアから入れる</strong>のが大事🔒
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>公証済みのアプリなら、App Storeのアプリと同じレベルの安全性だよ！</strong><br />
+        ただし「どこからでもOK」ってなると怪しいサイトも出てくるから、<strong>信頼できるストアから入れる</strong>のが大事🔒
+      </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
   </div>
@@ -332,84 +263,34 @@ export const description = "2025年に施行された「スマホソフトウェ
 <Section title="よくある質問にぶんちゃんが答えるよ！" icon="help">
   <AccordionGroup>
     <Accordion title="スマホ新法はいつから施行されてるの？">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>2024年に成立して、2025年12月に施行されたよ！</strong><br />
-              ただし一部の細則はまだ運用が始まったばかり。最新情報は公正取引委員会のサイトでチェックしてね📋
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>2024年に成立して、2025年12月に施行されたよ！</strong><br />
+        ただし一部の細則はまだ運用が始まったばかり。最新情報は公正取引委員会のサイトでチェックしてね📋
+      </BunchanAdvice>
     </Accordion>
     <Accordion title="Androidも対象なの？">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>はい、Androidも対象だよ！</strong><br />
-              でもAndroidはもともと他社ストアが使えるから、一番影響を受けるのはiPhoneユーザー。つまりこの記事を読んでるあなたにとって大事な法律なんだ📱
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>はい、Androidも対象だよ！</strong><br />
+        でもAndroidはもともと他社ストアが使えるから、一番影響を受けるのはiPhoneユーザー。つまりこの記事を読んでるあなたにとって大事な法律なんだ📱
+      </BunchanAdvice>
     </Accordion>
     <Accordion title="App Storeはなくなるの？">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>なくならないよ！App Storeはそのまま使える。</strong><br />
-              「選択肢が増える」だけだから安心してね。今までどおりApp Storeだけ使い続けてもまったく問題ないよ🌸
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>なくならないよ！App Storeはそのまま使える。</strong><br />
+        「選択肢が増える」だけだから安心してね。今までどおりApp Storeだけ使い続けてもまったく問題ないよ🌸
+      </BunchanAdvice>
     </Accordion>
     <Accordion title="サイドローディングって結局危険じゃないの？">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>公証済み・オープンソースのアプリならApp Storeと同等の安全性！</strong><br />
-              でも「野良サイトからなんでもOK」ってわけじゃないよ。信頼できるストア（AltStore・SideStore）を使うのが鉄則🔒
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>公証済み・オープンソースのアプリならApp Storeと同等の安全性！</strong><br />
+        でも「野良サイトからなんでもOK」ってわけじゃないよ。信頼できるストア（AltStore・SideStore）を使うのが鉄則🔒
+      </BunchanAdvice>
     </Accordion>
     <Accordion title="サイドローディングって何から始めればいいの？">
-      <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              <strong>まずは「<a href={`${import.meta.env.BASE_URL}articles/what-is-sideloading`} class="font-bold underline">サイドローディングとは？</a>」を読んでみて！</strong><br />
-              基礎がわかったら「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」で実際にやってみよう。一緒に進めれば全然難しくないよ🎉
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        <strong>まずは「<a href={`${import.meta.env.BASE_URL}articles/what-is-sideloading`} class="font-bold underline">サイドローディングとは？</a>」を読んでみて！</strong><br />
+        基礎がわかったら「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」で実際にやってみよう。一緒に進めれば全然難しくないよ🎉
+      </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -438,20 +319,10 @@ export const description = "2025年に施行された「スマホソフトウェ
     </div>
   </div>
 
-  <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl mb-6">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="解説するマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのまとめ</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          <strong>iPhoneの「鎖国」はついに終わったよ！</strong><br />
-          でも自由って、同時に責任も伴うもの。「どのストアから入れるか」「そのアプリは信頼できるか」を自分で判断する力が必要な時代だね。このサイトでしっかり学んでいこう🌸
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice title="ぶんちゃんのまとめ">
+    <strong>iPhoneの「鎖国」はついに終わったよ！</strong><br />
+    でも自由って、同時に責任も伴うもの。「どのストアから入れるか」「そのアプリは信頼できるか」を自分で判断する力が必要な時代だね。このサイトでしっかり学んでいこう🌸
+  </BunchanAdvice>
 
   <InfoBox type="warning" title="注意事項">
     法律の運用や細則は今後変更される可能性があります。最新情報は<a href="https://www.jftc.go.jp/" target="_blank" rel="noopener" class="text-yellow-800 font-bold hover:underline">公正取引委員会</a>や報道をご確認ください。
