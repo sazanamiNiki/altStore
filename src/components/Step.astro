@@ -1,16 +1,19 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import bunchoImg from '../assets/images/buncho.png';
+
 interface Props {
   num: number;
   title: string;
   desc?: string;
-  image?: string;
+  image?: ImageMetadata | string;
   alt?: string;
   advice?: string;
   fullWidth?: boolean; // 画像があっても1列レイアウトを強制
 }
 
 const { num, title, desc, image, alt, advice, fullWidth = false } = Astro.props;
-const base = import.meta.env.BASE_URL;
 
 // fullWidth が true または image がない場合は1列レイアウト
 const useGridLayout = image && !fullWidth;
@@ -36,39 +39,67 @@ const useGridLayout = image && !fullWidth;
     </div>
 
     {image && !useGridLayout && (
-      <img
-        src={image}
-        alt={alt ?? title}
-        loading="lazy"
-        class="w-full max-w-full sm:max-w-sm rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3"
-        data-lightbox
-      />
+      typeof image === 'string' ? (
+        <img
+          src={image}
+          alt={alt ?? title}
+          loading="lazy"
+          class="w-full max-w-full sm:max-w-sm mx-auto rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3"
+          data-lightbox
+        />
+      ) : (
+        <Image
+          src={image}
+          alt={alt ?? title}
+          loading="lazy"
+          class="w-full max-w-full sm:max-w-sm mx-auto rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3"
+          data-lightbox
+          format="webp"
+          quality={85}
+        />
+      )
     )}
     <slot />
   </div>
 
   {image && useGridLayout && (
-    <img
-      src={image}
-      alt={alt ?? title}
-      loading="lazy"
-      class="w-full rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
-      data-lightbox
-    />
+    typeof image === 'string' ? (
+      <img
+        src={image}
+        alt={alt ?? title}
+        loading="lazy"
+        class="w-full rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+        data-lightbox
+      />
+    ) : (
+      <Image
+        src={image}
+        alt={alt ?? title}
+        loading="lazy"
+        class="w-full rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity"
+        data-lightbox
+        format="webp"
+        quality={85}
+      />
+    )
   )}
 
   {advice && (
     <div class="mt-3 flex items-start gap-2.5 buncho-advice">
-      <img
-        src={`${base}assets/img/buncho.png`}
+      <Image
+        src={bunchoImg}
         alt="アドバイスを提供するマスコット「ぶんちゃん」"
         class="w-8 h-8 rounded-full flex-shrink-0 shadow-sm ring-2 ring-yellow-200"
         loading="lazy"
+        format="webp"
+        quality={85}
+        width={32}
+        height={32}
       />
       <div class="relative bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-xl rounded-tl-none px-3.5 py-2.5 shadow-sm max-w-md">
         <div class="absolute -left-2 top-2.5 w-2 h-2 bg-yellow-50 border-l border-b border-yellow-200 rotate-45"></div>
         <p class="text-gray-700 text-xs leading-relaxed">
-          <span class="font-bold text-yellow-700 mr-1">🐥 ぶんちゃん</span>
+          <span class="font-bold text-yellow-700 mr-1">ぶんちゃん</span>
           <span set:html={advice} />
         </p>
       </div>
