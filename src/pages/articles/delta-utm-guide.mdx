@@ -11,19 +11,16 @@ import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 
 export const title = "Delta/UTM SE 完全ガイド";
-export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。インストール方法から設定、パフォーマンス最適化まで詳しく解説します。";
+export const summary = "iPhoneでレトロゲーム＆Windows/Linux。脱獄不要で動作するDeltaとUTM SEの導入・設定を徹底解説。";
+export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。App Store・AltStoreからの導入方法、ROMの追加、コントローラー設定まで解説します。";
 
-<ArticleLayout title={title} description={description} date="2026-03-10" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-10" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="はじめに" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     2024年4月、AppleはApp Storeでのエミュレータ配布ポリシーを緩和しました。
     これにより、<mark class="bg-yellow-100 px-1 rounded"><strong>脱獄なしで</strong></mark>Delta EmulatorやUTM SEが利用可能になりました。
   </p>
-  <CardGrid>
-    <Card icon="sports_esports" iconColor="text-blue-500" title="Delta Emulator" desc="レトロゲームエミュレータ" />
-    <Card icon="computer" iconColor="text-purple-500" title="UTM SE" desc="Windows/Linux仮想化" />
-  </CardGrid>
   <InfoBox type="success" icon="verified" title="どちらも脱獄不要">
     App StoreまたはAltStoreから正式に入手可能。オープンソースで透明性も確保されています。
   </InfoBox>
@@ -60,7 +57,6 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     iOS 12以降で動作します。日本ユーザーは<strong>AltStore経由</strong>が最も確実です。
   </p>
-  <div class="space-y-4 sm:space-y-6">
     <MethodCard title="AltStore経由（日本ユーザー推奨）" icon="install_mobile" recommended>
       <StepList>
         <Step num={1} title="AltServerをPCにインストール" desc="Win 10以降/macOS対応" />
@@ -75,7 +71,6 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
     <MethodCard title="AltStore PAL（欧州）" icon="public">
       <p class="text-gray-700 text-sm">EUではDMAにより、PCなしでAltStore PALからDeltaをインストール可能。</p>
     </MethodCard>
-  </div>
 </Section>
 
 <Section title="ゲームROMの追加方法" icon="folder" iconColor="text-green-600">
@@ -113,7 +108,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
     <Card icon="save" iconColor="text-blue-500" title="通常セーブ" desc="ゲーム内セーブ機能" />
     <Card icon="bookmark" iconColor="text-green-500" title="ステートセーブ" desc="任意タイミングで保存" />
     <Card icon="autorenew" iconColor="text-orange-500" title="オートセーブ" desc="バックグラウンド移行時" />
-    <Card icon="cloud_sync" iconColor="text-purple-500" title="クラウド同期" desc="iCloud/GDrive/Dropbox" />
+    <Card icon="cloud_sync" iconColor="text-purple-500" title="クラウド同期" desc="iCloud/GDrive対応" />
   </CardGrid>
 </Section>
 
@@ -155,7 +150,6 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 </Section>
 
 <Section title="おすすめのOS" icon="window" iconColor="text-green-600">
-  <div class="space-y-4 sm:space-y-6">
     <MethodCard title="Windows 98/XP（推奨）" icon="computer" recommended>
       <p class="text-gray-700 text-sm mb-3 sm:mb-4">UTM SEで驚くほどスムーズに動作。M1 iPad ProでPentium 120相当のパフォーマンス。90年代のソフトやDOSゲームに最適。</p>
       <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700 text-sm">
@@ -169,7 +163,6 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
     <MethodCard title="Windows 10/11" icon="desktop_windows">
       <p class="text-gray-700 text-sm">技術的には動作しますが、JITなしでは実用的な速度にはなりません。</p>
     </MethodCard>
-  </div>
 </Section>
 
 <Section title="パフォーマンス最適化" icon="tune" iconColor="text-blue-600">

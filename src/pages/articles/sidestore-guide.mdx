@@ -10,68 +10,31 @@ import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 
 export const title = "SideStore 完全ガイド";
-export const description = "PC不要でアプリを管理する日本語ガイド。AltStoreとの違い、VPNの仕組み、セットアップ手順、トラブルシューティングまで徹底解説。";
+export const summary = "PC不要でアプリ管理できるSideStoreの完全ガイド。AltStoreとの違い、VPNの仕組み、導入手順まで。";
+export const description = "PC不要でアプリを管理できるSideStoreの日本語完全ガイド。AltStoreとの違い、VPNの仕組み、セットアップ手順、7日署名の自動更新、トラブルシューティングまで徹底解説。初心者も安心です。";
 
 <ArticleLayout title={title} description={description} date="2026-03-10" icon="phonelink" iconColor="text-blue-500">
 
 <Section intro title="PC不要でアプリを管理する方法" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <mark class="bg-yellow-100 px-1 rounded"><strong>SideStore</strong></mark>は、初回セットアップ後は<strong>PCなしでアプリ管理が可能</strong>なサイドローディングツールです。
+    <mark class="bg-yellow-100 px-1 rounded"><strong>SideStore</strong></mark>は、初回セットアップ後は<strong>PCなしでアプリ管理が可能</strong>なサイドローディングツールです。VPN技術を活用してローカル接続のみで動作します。
   </p>
-  <CardGrid>
-    <Card icon="phone_iphone" iconColor="text-blue-500" title="PC不要で運用" desc="初回セットアップ後は完全オフ" />
-    <Card icon="vpn_key" iconColor="text-purple-500" title="VPN技術活用" desc="ローカル接続のみ" />
-  </CardGrid>
   <InfoBox type="success" icon="check_circle" title="この記事でわかること">
-    <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-      <li>SideStoreとAltStoreの違い</li>
-      <li>VPN（EM Proxy）の仕組み</li>
-      <li>初期セットアップ手順（5ステップ）</li>
-      <li>アプリの追加・更新・管理方法</li>
-      <li>トラブルシューティング</li>
-    </ul>
+    SideStoreとAltStoreの違い、VPNの仕組み、セットアップ手順、アプリの管理方法、トラブルシューティングを解説します。
   </InfoBox>
 </Section>
 
 <Section title="SideStoreとAltStoreの違い" icon="compare" iconColor="text-green-600">
-  <div class="overflow-x-auto mb-4 sm:mb-6">
-    <table class="w-full border-collapse border border-gray-200 text-xs sm:text-sm">
-      <thead>
-        <tr class="bg-gray-100">
-          <th class="border border-gray-200 px-2 sm:px-4 py-2 text-left">項目</th>
-          <th class="border border-gray-200 px-2 sm:px-4 py-2 text-left">AltStore</th>
-          <th class="border border-gray-200 px-2 sm:px-4 py-2 text-left">SideStore</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2 font-semibold">PC接続</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">毎週必要</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">初回のみ</td>
-        </tr>
-        <tr class="bg-gray-50">
-          <td class="border border-gray-200 px-2 sm:px-4 py-2 font-semibold">更新方式</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">AltServer経由</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">VPN経由</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2 font-semibold">開発体制</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">Riley Testut氏</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">コミュニティ</td>
-        </tr>
-        <tr class="bg-gray-50">
-          <td class="border border-gray-200 px-2 sm:px-4 py-2 font-semibold">VPN</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">不要</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">必要</td>
-        </tr>
-        <tr>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2 font-semibold">難易度</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">簡単</td>
-          <td class="border border-gray-200 px-2 sm:px-4 py-2">やや複雑</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <CardGrid>
+    <Card icon="computer" iconColor="text-blue-500" title="AltStore" desc="PC毎週接続・簡単" />
+    <Card icon="phone_iphone" iconColor="text-green-500" title="SideStore" desc="PC初回のみ・VPN必要" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="詳しい違いを見る">
+      <p class="text-sm text-gray-700 mb-2"><strong>AltStore：</strong>毎週PC接続が必要。AltServer経由で更新。Riley Testut氏が開発。シンプルで簡単。</p>
+      <p class="text-sm text-gray-700"><strong>SideStore：</strong>初回のみPC必要。以降はVPN経由で自動更新。コミュニティ開発でやや複雑だが自由度高い。</p>
+    </Accordion>
+  </AccordionGroup>
   <CardGrid>
     <Card icon="computer" iconColor="text-blue-500" title="AltStoreがおすすめ" desc="PC接続OK・初心者向け" />
     <Card icon="phone_iphone" iconColor="text-orange-500" title="SideStoreがおすすめ" desc="PCなし運用・上級者向け" />
