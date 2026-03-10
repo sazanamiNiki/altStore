@@ -5,11 +5,10 @@ import AccordionGroup from '../../components/AccordionGroup.astro';
 import CardGrid from '../../components/CardGrid.astro';
 import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
-import StepList from '../../components/StepList.astro';
-import Step from '../../components/Step.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
-import GameCard from '../../components/GameCard.astro';
 import BunchanAdvice from '../../components/BunchanAdvice.astro';
+import GameList from '../../components/GameList.astro';
+import DownloadSteps from '../../components/DownloadSteps.astro';
 
 import gamesData from '../../../public/assets/data/free-games.json';
 
@@ -50,104 +49,16 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
   </InfoBox>
 </Section>
 
-<Section title="おすすめピックアップ" icon="star" iconColor="text-yellow-500" id="featured-games">
-  <CardGrid>
-    {featuredGames.map((game) => (
-      <GameCard
-        name={game.name}
-        nameJa={game.nameJa}
-        platform={game.platform}
-        genre={game.genre}
-        description={game.description}
-        developer={game.developer}
-        url={game.url}
-        featured={game.featured}
-        tags={game.tags}
-      />
-    ))}
-  </CardGrid>
-</Section>
-
-<Section title="Game Boy Advance (GBA)" icon="videogame_asset" iconColor="text-purple-500" id="gba-games">
-  <CardGrid>
-    {gbaGames.map((game) => (
-      <GameCard
-        name={game.name}
-        nameJa={game.nameJa}
-        platform={game.platform}
-        genre={game.genre}
-        description={game.description}
-        developer={game.developer}
-        url={game.url}
-        featured={game.featured}
-        tags={game.tags}
-      />
-    ))}
-  </CardGrid>
-</Section>
-
-<Section title="NES（ファミコン）" icon="videogame_asset" iconColor="text-red-500" id="nes-games">
-  <CardGrid>
-    {nesGames.map((game) => (
-      <GameCard
-        name={game.name}
-        nameJa={game.nameJa}
-        platform={game.platform}
-        genre={game.genre}
-        description={game.description}
-        developer={game.developer}
-        url={game.url}
-        featured={game.featured}
-        tags={game.tags}
-      />
-    ))}
-  </CardGrid>
-</Section>
-
-<Section title="SNES（スーファミ）" icon="videogame_asset" iconColor="text-blue-500" id="snes-games">
-  <CardGrid>
-    {snesGames.map((game) => (
-      <GameCard
-        name={game.name}
-        nameJa={game.nameJa}
-        platform={game.platform}
-        genre={game.genre}
-        description={game.description}
-        developer={game.developer}
-        url={game.url}
-        featured={game.featured}
-        tags={game.tags}
-      />
-    ))}
-  </CardGrid>
-</Section>
-
-<Section title="Game Boy" icon="videogame_asset" iconColor="text-green-500" id="gb-games">
-  <CardGrid>
-    {gbGames.map((game) => (
-      <GameCard
-        name={game.name}
-        nameJa={game.nameJa}
-        platform={game.platform}
-        genre={game.genre}
-        description={game.description}
-        developer={game.developer}
-        url={game.url}
-        featured={game.featured}
-        tags={game.tags}
-      />
-    ))}
-  </CardGrid>
+<Section title="ゲーム一覧" icon="sports_esports" iconColor="text-purple-500" id="game-list">
+  <GameList games={gamesData.games} />
 </Section>
 
 <Section title="ダウンロード方法" icon="download" iconColor="text-blue-600" id="how-to-download">
-  <StepList>
-    <Step num={1} title="itch.ioでゲームページを開く" />
-    <Step num={2} title="「Download」をクリック" />
-    <Step num={3} title="ROMファイルをダウンロード" />
-    <Step num={4} title="iPhoneの「ファイル」に保存" />
-    <Step num={5} title="Deltaで「+」から追加" />
-  </StepList>
+  <DownloadSteps />
+  <BunchanAdvice>
+    ダウンロードしたファイルをタップしても追加できるよ🌸<br />
+    Safariのダウンロードをタップしてファイルを開こう！
+  </BunchanAdvice>
 </Section>
 
 <Section title="よくある質問" icon="help" id="faq">

@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   name: string;
   nameJa?: string;
@@ -8,6 +11,7 @@ interface Props {
   description: string;
   developer: string;
   url: string;
+  image?: ImageMetadata | string;
   featured?: boolean;
   tags?: string[];
 }
@@ -21,6 +25,7 @@ const {
   description,
   developer,
   url,
+  image,
   featured = false,
   tags = [],
 } = Astro.props;
@@ -33,51 +38,85 @@ const platformColors: Record<string, string> = {
 };
 
 const platformBadge = platformColors[platform] || 'bg-gray-100 text-gray-700 border-gray-200';
+
+// 画像がImageMetadataかどうかを判定
+const isImageMetadata = image && typeof image !== 'string';
 ---
 
 <a
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class={`block p-4 sm:p-5 bg-white rounded-xl border hover:shadow-md transition-all ${featured ? 'border-yellow-300 ring-1 ring-yellow-200' : 'border-gray-200 hover:border-blue-300'}`}
+  class={`block bg-white rounded-xl border hover:shadow-md transition-all overflow-hidden ${featured ? 'border-yellow-300 ring-1 ring-yellow-200' : 'border-gray-200 hover:border-blue-300'}`}
 >
-  <div class="flex items-start gap-3 mb-3">
-    <div class="flex-1 min-w-0">
-      <div class="flex flex-wrap items-center gap-2 mb-1">
-        <span class={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${platformBadge}`}>
-          {platform}
-        </span>
-        <span class="text-xs text-gray-500">{genre}</span>
-        {featured && (
-          <span class="inline-flex items-center gap-0.5 text-xs text-yellow-600">
-            <span class="material-symbols-outlined text-sm">star</span>
-            おすすめ
-          </span>
+  <div class="flex flex-col sm:flex-row">
+    {/* 画像エリア */}
+    {image ? (
+      <div class="w-full sm:w-44 md:w-52 flex-shrink-0 bg-gray-50 p-2 flex items-center justify-center">
+        {isImageMetadata ? (
+          <Image
+            src={image as ImageMetadata}
+            alt={nameJa || name}
+            class="w-full h-28 sm:h-32 object-contain rounded-lg"
+            format="webp"
+            quality={85}
+          />
+        ) : (
+          <img
+            src={image as string}
+            alt={nameJa || name}
+            class="w-full h-28 sm:h-32 object-contain rounded-lg"
+            loading="lazy"
+          />
         )}
       </div>
-      <h3 class="font-bold text-gray-800 text-base sm:text-lg leading-tight">
-        {nameJa || name}
-      </h3>
-      {nameJa && (
-        <p class="text-xs text-gray-500 mt-0.5">{name}</p>
-      )}
-    </div>
-    <span class="material-symbols-outlined text-gray-400 text-lg flex-shrink-0">open_in_new</span>
-  </div>
-
-  <p class="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">{description}</p>
-
-  <div class="flex flex-wrap items-center gap-2">
-    <span class="text-xs text-gray-500">
-      <span class="material-symbols-outlined text-xs align-middle mr-0.5">person</span>
-      {developer}
-    </span>
-    {tags.length > 0 && (
-      <div class="flex flex-wrap gap-1">
-        {tags.slice(0, 2).map((tag) => (
-          <span class="px-1.5 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">{tag}</span>
-        ))}
+    ) : (
+      <div class="hidden sm:flex w-44 md:w-52 flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 items-center justify-center p-2">
+        <span class="material-symbols-outlined text-4xl text-gray-400">sports_esports</span>
       </div>
     )}
+
+    {/* コンテンツエリア */}
+    <div class="flex-1 p-4 sm:p-5">
+      <div class="flex items-start gap-3 mb-2">
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${platformBadge}`}>
+              {platform}
+            </span>
+            <span class="text-xs text-gray-500">{genre}</span>
+            {featured && (
+              <span class="inline-flex items-center gap-0.5 text-xs text-yellow-600">
+                <span class="material-symbols-outlined text-sm">star</span>
+                おすすめ
+              </span>
+            )}
+          </div>
+          <h3 class="font-bold text-gray-800 text-base sm:text-lg leading-tight">
+            {nameJa || name}
+          </h3>
+          {nameJa && (
+            <p class="text-xs text-gray-500 mt-0.5">{name}</p>
+          )}
+        </div>
+        <span class="material-symbols-outlined text-gray-400 text-lg flex-shrink-0">open_in_new</span>
+      </div>
+
+      <p class="text-gray-600 text-sm leading-relaxed mb-3">{description}</p>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs text-gray-500">
+          <span class="material-symbols-outlined text-xs align-middle mr-0.5">person</span>
+          {developer}
+        </span>
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-1">
+            {tags.slice(0, 3).map((tag) => (
+              <span class="px-1.5 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   </div>
 </a>
