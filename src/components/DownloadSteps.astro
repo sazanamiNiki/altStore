@@ -1,0 +1,19 @@
+---
+import StepList from './StepList.astro';
+import Step from './Step.astro';
+import deltaAddImage from '../assets/images/delta-add.png';
+---
+
+<StepList>
+  <Step num={1} title="itch.ioでゲームページを開く" />
+  <Step num={2} title="「Download」からROMをダウンロード" />
+  <Step num={3} title="iPhoneの「ファイル」に保存" />
+  <Step
+    num={4}
+    title="Deltaを開き、右上の「+」ボタンをタップ"
+    desc="「ファイル」アプリから保存したROMを選択して追加します。"
+    image={deltaAddImage}
+    alt="Deltaの+ボタンをタップする画面"
+    fullWidth
+  />
+</StepList>

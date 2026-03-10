@@ -1,0 +1,53 @@
+---
+import GameCard from './GameCard.astro';
+
+// ゲーム画像のインポート
+import imgGoogleDino from '../assets/images/games/google.jpeg';
+import img2048 from '../assets/images/games/2048.jpeg';
+import imgGbBurn from '../assets/images/games/gb-burn.jpeg';
+import imgRetroid from '../assets/images/games/retroid.jpg';
+
+// 画像マッピング
+const gameImages: Record<string, ImageMetadata | undefined> = {
+  'google-dino-advance': imgGoogleDino,
+  '2048-advance': img2048,
+  'gb-burn': imgGbBurn,
+  'retroid': imgRetroid,
+};
+
+interface Game {
+  id: string;
+  name: string;
+  nameJa?: string;
+  platform: string;
+  genre: string;
+  description: string;
+  developer: string;
+  url: string;
+  featured?: boolean;
+  tags?: string[];
+}
+
+interface Props {
+  games: Game[];
+}
+
+const { games } = Astro.props;
+---
+
+<div class="space-y-4">
+  {games.map((game) => (
+    <GameCard
+      name={game.name}
+      nameJa={game.nameJa}
+      platform={game.platform}
+      genre={game.genre}
+      description={game.description}
+      developer={game.developer}
+      url={game.url}
+      image={gameImages[game.id]}
+      featured={game.featured}
+      tags={game.tags}
+    />
+  ))}
+</div>
