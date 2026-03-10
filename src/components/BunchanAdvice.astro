@@ -1,0 +1,36 @@
+---
+/**
+ * BunchanAdvice - ぶんちゃんのアドバイスボックス
+ *
+ * 記事内でマスコット「ぶんちゃん」がアドバイスを表示するコンポーネント
+ *
+ * @example
+ * <BunchanAdvice>
+ *   <strong>ポイント！</strong><br />
+ *   ここにアドバイス内容を書きます。
+ * </BunchanAdvice>
+ */
+interface Props {
+  title?: string;
+}
+
+const { title = "ぶんちゃんのアドバイス" } = Astro.props;
+---
+
+<div class="mt-3 sm:mt-4 p-3 sm:p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+  <div class="flex gap-2 sm:gap-3">
+    <div class="flex-shrink-0">
+      <img
+        src={`${import.meta.env.BASE_URL}assets/img/buncho.png`}
+        alt="アドバイスするマスコット「ぶんちゃん」"
+        class="w-9 sm:w-10 h-9 sm:h-10 rounded-full"
+      />
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="font-bold text-pink-700 text-xs sm:text-sm mb-1 sm:mb-2">{title}</div>
+      <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,10 +13,10 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
 <ArticleLayout title={title} description={description} date="2026-03-10" icon="policy" iconColor="text-blue-500">
 
 <Section intro title="なぜこのサイトを作ったのか" icon="lightbulb">
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     iPhoneのサイドローディングは、App Storeでは提供されない便利なアプリを使える画期的な仕組みです。しかし、<mark class="bg-yellow-100 px-1 rounded"><strong>日本語の情報が少なく、初心者には敷居が高い</strong></mark>という課題がありました。
   </p>
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     また、ネット上には出どころ不明なアプリや安全性が不明なアプリの情報も混在しており、<mark class="bg-yellow-100 px-1 rounded"><strong>どの情報を信じればいいのか分からない</strong></mark>という声も多く聞かれます。
   </p>
   <p class="text-gray-700">
@@ -48,7 +48,7 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
 <Section title="掲載基準" icon="rule">
   <AccordionGroup>
     <Accordion title="開発元が明確であること（必須）">
-      <p class="text-gray-700 mb-4">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
         すべての掲載アプリは、<strong>オープンソースまたはApple公証により安全性を確認している</strong>必要があります。具体的には、以下の方法で確認しています：
       </p>
       <CardGrid>
@@ -86,7 +86,7 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
   <AccordionGroup>
     <Accordion title="情報源">
       <p class="text-gray-700 mb-3">当サイトの情報は、以下のソースをもとに作成しています：</p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
         <li><strong>Apple公式ドキュメント</strong>：サイドローディングやApp Storeの規約に関する公式情報</li>
         <li><strong>各アプリの公式サイト・GitHubリポジトリ</strong>：最新のバージョン情報や機能説明、ソースコードの確認</li>
         <li><strong>実際の検証</strong>：運営者が実際にインストール・テストして確認</li>
@@ -94,7 +94,7 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
       </ul>
     </Accordion>
     <Accordion title="更新方針">
-      <p class="text-gray-700 mb-4">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
         サイドローディングの情報は急速に変化します。当サイトでは、<mark class="bg-yellow-100 px-1 rounded"><strong>最新情報を定期的に更新</strong></mark>し、古い情報を放置しないように努めています。
       </p>
       <p class="text-gray-700">
@@ -111,7 +111,7 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
   <AccordionGroup>
     <Accordion title="当サイトの責任範囲">
       <p class="text-gray-700 mb-3">bunchoniki Storeは、以下の点について責任を負いかねます：</p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
         <li><strong>デバイスの故障や不具合</strong>：サイドローディングの実行により生じたデバイスの問題</li>
         <li><strong>データの損失</strong>：アプリのインストールや使用によるデータ消失</li>
         <li><strong>法的問題</strong>：利用者の居住地域の法律に基づく問題（利用者自身で確認してください）</li>
@@ -121,7 +121,7 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
     </Accordion>
     <Accordion title="ユーザーの責任">
       <p class="text-gray-700 mb-3">サイドローディングを利用する際は、以下の点をご理解ください：</p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
         <li>当サイトの情報を参考にする場合でも、<mark class="bg-yellow-100 px-1 rounded"><strong>最終的な判断と責任は利用者自身</strong></mark>にあります</li>
         <li>アプリのインストール前に、公式サイトや利用規約を必ず確認してください</li>
         <li>法的に問題のないアプリのみを使用してください（違法コピーアプリやチートツールは対象外です）</li>
@@ -137,15 +137,15 @@ export const description = "bunchoniki Storeの運営方針と掲載基準。オ
 </Section>
 
 <Section title="お問い合わせ" icon="mail">
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     当サイトに関するご質問、誤りの報告、掲載希望のアプリに関するご連絡は、以下のメールアドレスまでお願いします。
   </p>
   <InfoBox type="info" title="お問い合わせメールアドレス">
-    <p class="text-xl font-bold text-blue-600 mt-1">
+    <p class="text-lg sm:text-xl font-bold text-blue-600 mt-1">
       <a href="mailto:contact@bunchoniki.com" class="hover:underline">contact@bunchoniki.com</a>
     </p>
-    <p class="text-gray-600 text-sm mt-2">返信には数日いただく場合がございます。あらかじめご了承ください。</p>
-    <p class="text-gray-600 text-sm mt-2">
+    <p class="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">返信には数日いただく場合がございます。あらかじめご了承ください。</p>
+    <p class="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">
       <strong>注意：</strong>個別のトラブルシューティングや技術サポートには対応しておりません。各アプリの公式サポートをご利用ください。
     </p>
   </InfoBox>

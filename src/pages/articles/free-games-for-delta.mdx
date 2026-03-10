@@ -9,6 +9,7 @@ import StepList from '../../components/StepList.astro';
 import Step from '../../components/Step.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 import GameCard from '../../components/GameCard.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 import gamesData from '../../../public/assets/data/free-games.json';
 
@@ -39,20 +40,10 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
     <Card icon="block" iconColor="text-blue-500" title="広告なし" desc="よくある無料Appと違い広告ゼロ" fullWidth={true} />
   </CardGrid>
 
-  <div class="mt-4 sm:mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="ぶんちゃん" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          <strong>「審査なし」でも大丈夫！</strong><br />
-          下のリンクからDeltaで遊べるゲームが探せるよ🌸
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    <strong>「審査なし」でも大丈夫！</strong><br />
+    下のリンクからDeltaで遊べるゲームが探せるよ🌸
+  </BunchanAdvice>
 
   <div class="mt-4 sm:mt-6">
     <a

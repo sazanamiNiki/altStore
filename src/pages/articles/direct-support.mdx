@@ -8,6 +8,7 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "アプリの寿命を決めるのは「あなた」です。直接支援（パトロン）のメリット";
 export const h1 = "直接支援のメリット";
@@ -16,33 +17,23 @@ export const description = "開発者にコーヒー1杯分を奢る文化が、
 <ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="volunteer_activism" iconColor="text-blue-500">
 
 <Section intro title="なぜ「神アプリ」は消えてしまうのか？" icon="lightbulb">
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     あなたの大好きなアプリ。もしかして、数年前に更新が止まっていたり、ダウンロード画面から消えていたりしていませんか？
   </p>
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     それは単なる運の悪さではなく、<strong>開発者の資金が枯渇した</strong>可能性があります。
   </p>
-  <p class="text-gray-700 mb-4">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     App Store の「売り切りモデル」や「広告モデル」では、アプリ開発を継続するのに十分な収入が得られません。
     <mark class="bg-yellow-100 px-1 rounded"><strong>OSのアップデート対応やサーバー維持には、継続的なコストがかかる</strong></mark>からです。
   </p>
   <p class="text-gray-700">
     その悲劇を防ぐのが、<strong>パトロン（直接支援）という考え方</strong>です。このセクションでは、その仕組みと魅力を詳しく解説します。
   </p>
-  <div class="mt-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          <strong>あなたの好きなアプリ、「更新が止まった」経験はない？</strong><br />
-          その原因は「開発者のお金が尽きた」ことが多いんだ。コーヒー1杯分の支援が、そのアプリの未来を救うこともあるんだよ☕
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    <strong>あなたの好きなアプリ、「更新が止まった」経験はない？</strong><br />
+    その原因は「開発者のお金が尽きた」ことが多いんだ。コーヒー1杯分の支援が、そのアプリの未来を救うこともあるんだよ☕
+  </BunchanAdvice>
 </Section>
 
 <Section title="「購入」ではなく「応援」する文化（Patron Culture）" icon="favorite">
@@ -95,7 +86,7 @@ export const description = "開発者にコーヒー1杯分を奢る文化が、
 </Section>
 
 <Section title="実際に支援するには？" icon="task_alt">
-  <p class="text-gray-700 mb-6">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-4 sm:mb-6">
     AltStore で支援を始めるのは非常に簡単です。以下の手順で完了します：
   </p>
   <StepList>
@@ -104,27 +95,17 @@ export const description = "開発者にコーヒー1杯分を奢る文化が、
     <Step num={3} title="Patreon アカウントを連携" desc="Patreon アカウント（なければ新規作成）でログインし、AltStore と連携します。" />
     <Step num={4} title="好きなクリエイターを支援" desc="支援したい開発者を検索し、毎月の支援額を選択。これで完了です！" />
   </StepList>
-  <p class="text-gray-700 mt-4 mb-4">
+  <p class="text-gray-700 mt-3 sm:mt-4 mb-3 sm:mb-4">
     AltStore は、連携したアカウントから支援中のクリエイターの情報を自動取得し、
     <mark class="bg-yellow-100 px-1 rounded"><strong>「ベータ版ソース」が自動的にリストに追加</strong></mark>される仕組みになっています。
   </p>
   <p class="text-gray-700">
     追加の設定は不要。支援を開始した瞬間から、ベータ版アプリやリターン特典にアクセスできます。
   </p>
-  <div class="mt-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          <strong>設定したら自動でベータ版ソースが追加されるのが便利！</strong><br />
-          Patreonで支援を始めたらAltStoreが自動検知してくれるから、難しい操作は一切ないよ🌸
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    <strong>設定したら自動でベータ版ソースが追加されるのが便利！</strong><br />
+    Patreonで支援を始めたらAltStoreが自動検知してくれるから、難しい操作は一切ないよ🌸
+  </BunchanAdvice>
 </Section>
 
 <Section title="よくある質問" icon="help">
@@ -157,7 +138,7 @@ export const description = "開発者にコーヒー1杯分を奢る文化が、
 </Section>
 
 <Section title="まとめ：支援は「投票」である" icon="done_all" iconColor="text-green-600">
-  <p class="text-gray-700 mb-6">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-4 sm:mb-6">
     <mark class="bg-yellow-100 px-1 rounded"><strong>あなたの数百円が、そのアプリが来年も存在するかどうかを決める「投票」になります。</strong></mark>
   </p>
   <CardGrid>
@@ -180,20 +161,10 @@ export const description = "開発者にコーヒー1杯分を奢る文化が、
   <InfoBox type="info" icon="favorite" title="好きなアプリには、惜しみなく「愛」と「コーヒー代」を送ろう。">
     その支援が、あなたが愛するアプリの未来を作っているのです。
   </InfoBox>
-  <div class="mt-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-2">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          <strong>「無料なのが当たり前」じゃないんだよ。</strong><br />
-          アプリを作るのには軆大な時間とお金がかかってる。「ありがとう」の気持ちを形にできるのがパトロン文化の素敵なところだね❤️
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    <strong>「無料なのが当たり前」じゃないんだよ。</strong><br />
+    アプリを作るのには膨大な時間とお金がかかってる。「ありがとう」の気持ちを形にできるのがパトロン文化の素敵なところだね❤️
+  </BunchanAdvice>
 </Section>
 
 <RelatedArticles articles={[

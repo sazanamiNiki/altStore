@@ -8,6 +8,7 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 import { Image } from 'astro:assets';
 import playbackDownloadImage from '../../assets/images/playback-download.png';
 import gbOperatorConnectImage from '../../assets/images/gb-operator-connect.jpeg';
@@ -94,19 +95,9 @@ export const howtoData = {
           <li><a href="https://amzn.to/4rITtKI" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Amazon.co.jp</a>（国内発送・すぐ届く）</li>
         </ul>
       </InfoBox>
-      <div class="mt-4 sm:mt-6 p-4 sm:p-6 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0">
-            <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              Amazonだとちょっと高くなるけど、<strong>簡単に購入できる</strong>よ！海外通販に慣れてない人はAmazonがおすすめ🛒
-            </p>
-          </div>
-        </div>
-      </div>
+      <BunchanAdvice>
+        Amazonだとちょっと高くなるけど、<strong>簡単に購入できる</strong>よ！海外通販に慣れてない人はAmazonがおすすめ🛒
+      </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -230,28 +221,20 @@ export const howtoData = {
     カートリッジ内のセーブデータもバックアップ可能。続きからプレイできます。
   </InfoBox>
 
-  <div class="mt-4 sm:mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-1">快適にゲームをプレイするならコントローラーも揃えよう</div>
-        <p class="text-sm text-gray-700 leading-relaxed mb-3">
-          Deltaでのゲームプレイをより快適にするために、Bluetooth対応のゲームコントローラーがおすすめだよ🎮
-        </p>
-        <a
-          href="https://amzn.to/4s54tlY"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-xs sm:text-sm font-medium"
-        >
-          <span class="material-symbols-outlined text-sm sm:text-base">shopping_cart</span>
-          おすすめコントローラーを見る
-        </a>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice title="快適にゲームをプレイするならコントローラーも揃えよう">
+    <p class="text-sm text-gray-700 leading-relaxed mb-3">
+      Deltaでのゲームプレイをより快適にするために、Bluetooth対応のゲームコントローラーがおすすめだよ🎮
+    </p>
+    <a
+      href="https://amzn.to/4s54tlY"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-xs sm:text-sm font-medium"
+    >
+      <span class="material-symbols-outlined text-sm sm:text-base">shopping_cart</span>
+      おすすめコントローラーを見る
+    </a>
+  </BunchanAdvice>
 </Section>
 
 {/* ── 法的な安全性 ── */}
@@ -300,19 +283,9 @@ export const howtoData = {
       </InfoBox>
     </Accordion>
   </AccordionGroup>
-  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          もっと詳しく知りたい人は<a href="/articles/emulator-legal/" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！法的な部分をしっかり解説してるよ📚
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    もっと詳しく知りたい人は<a href="/articles/emulator-legal/" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！法的な部分をしっかり解説してるよ📚
+  </BunchanAdvice>
 </Section>
 
 {/* ── よくある質問 ── */}
@@ -339,19 +312,9 @@ export const howtoData = {
       </p>
     </Accordion>
   </AccordionGroup>
-  <div class="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          自分のカートリッジを吸い出して遊ぶのは<strong>完全にOK</strong>だよ！でもROMサイトからダウンロードするのは絶対ダメ。押入れに眠ってるソフトがあるなら、GB Operatorで復活させちゃおう🎮
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    自分のカートリッジを吸い出して遊ぶのは<strong>完全にOK</strong>だよ！でもROMサイトからダウンロードするのは絶対ダメ。押入れに眠ってるソフトがあるなら、GB Operatorで復活させちゃおう🎮
+  </BunchanAdvice>
 </Section>
 
 {/* ── その他のEpilogueデバイス ── */}
@@ -376,19 +339,9 @@ export const howtoData = {
     </Accordion>
   </AccordionGroup>
 
-  <div class="mt-4 sm:mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
-    <div class="flex gap-3">
-      <div class="flex-shrink-0">
-        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
-        <p class="text-sm text-gray-700 leading-relaxed">
-          スーパーファミコンのソフトの吸い出し機も発売予定だよ🎮 GB Operatorと同じように、自分のカートリッジをバックアップして遊べるようになるよ！エミュレータで遊ぶための選択肢がどんどん増えてるね🌸
-        </p>
-      </div>
-    </div>
-  </div>
+  <BunchanAdvice>
+    スーパーファミコンのソフトの吸い出し機も発売予定だよ🎮 GB Operatorと同じように、自分のカートリッジをバックアップして遊べるようになるよ！エミュレータで遊ぶための選択肢がどんどん増えてるね🌸
+  </BunchanAdvice>
 </Section>
 
 {/* ── まとめ ── */}
