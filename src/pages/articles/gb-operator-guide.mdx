@@ -8,10 +8,20 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import { Image } from 'astro:assets';
+import playbackDownloadImage from '../../assets/images/playback-download.png';
+import gbOperatorConnectImage from '../../assets/images/gb-operator-connect.jpeg';
+import gbOperatorStandbyImage from '../../assets/images/gb-operator-standby.png';
+import gbOperatorCartridgeInImage from '../../assets/images/gb-operator-cartridge-in.jpeg';
+import gbOperatorCartridgeLoadImage from '../../assets/images/gb-operator-cartridge-load.png';
+import gbOperatorCartridgeClickImage from '../../assets/images/gb-operator-cartridge-click.png';
+import gbOperatorCartridgeBackupImage from '../../assets/images/gb-operator-cartridge-backup.png';
+import deltaSelectImage from '../../assets/images/delta-select.jpeg';
+import deltaPlayImage from '../../assets/images/delta-play.PNG';
 
-export const title = "GB Operator完全ガイド｜自分のカートリッジをDeltaで遊ぶ方法";
+export const title = "GB Operator完全ガイド - 自分のゲームボーイをiPhoneで復活";
 export const h1 = "GB Operatorで自分のゲームをiPhoneで遊ぼう";
-export const description = "Epilogue GB Operatorを使って、自分が所有するゲームボーイカートリッジからROMを吸い出し、Deltaエミュレータで合法的に遊ぶ方法を解説。";
+export const description = "Epilogue GB Operatorを使って、自分が所有するゲームボーイカートリッジからROMを吸い出し、Deltaエミュレータで合法的に遊ぶ方法を完全解説。購入方法、吸い出し手順、法的な安全性まで、必要な情報をすべてカバーします。";
 
 export const faqData = [
   { question: "GB Operatorとは何ですか？", answer: "Epilogue社製のUSB-Cカートリッジリーダーです。GB/GBC/GBAに対応し、ROMの吸い出しやPCでのプレイができます。価格は約8,000〜10,000円です。" },
@@ -33,7 +43,7 @@ export const howtoData = {
   ]
 };
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-05" icon="sd_card" iconColor="text-blue-500" faq={faqData} howto={howtoData}>
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="sd_card" iconColor="text-blue-500" faq={faqData} howto={howtoData}>
 
 <Section intro title="懐かしいゲームをiPhoneで" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -45,7 +55,7 @@ export const howtoData = {
     <Card icon="verified" iconColor="text-green-500" title="合法的に遊べる" desc="私的複製の範囲内" />
   </CardGrid>
   <InfoBox type="success" icon="check_circle" title="この記事でわかること">
-    <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700">
+    <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
       <li>GB Operatorの基本と購入方法</li>
       <li>ROMを吸い出してDeltaで遊ぶ手順</li>
       <li>法的に安全な使い方</li>
@@ -60,10 +70,10 @@ export const howtoData = {
     GB/GBC/GBAカートリッジをPCに接続して、ROMの吸い出しやゲームプレイができます。
   </p>
   <CardGrid>
-    <Card icon="usb" iconColor="text-green-500" title="USB-C接続" desc="PCに直接接続" />
+    <Card icon="usb" iconColor="text-blue-500" title="USB-C接続" desc="PCに直接接続" />
     <Card icon="videogame_asset" iconColor="text-purple-500" title="GB/GBC/GBA対応" desc="3種類のカートリッジ" />
-    <Card icon="file_copy" iconColor="text-blue-500" title="ROM吸い出し" desc="バックアップ作成" />
-    <Card icon="verified" iconColor="text-green-500" title="偽物判定" desc="正規品か自動チェック" />
+    <Card icon="file_copy" iconColor="text-green-500" title="ROM吸い出し" desc="バックアップ作成" />
+    <Card icon="verified" iconColor="text-yellow-600" title="偽物判定" desc="正規品か自動チェック" />
   </CardGrid>
 
   <AccordionGroup>
@@ -84,7 +94,7 @@ export const howtoData = {
           <li><a href="https://amzn.to/4rITtKI" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Amazon.co.jp</a>（国内発送・すぐ届く）</li>
         </ul>
       </InfoBox>
-      <div class="mt-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+      <div class="mt-4 sm:mt-6 p-4 sm:p-6 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
         <div class="flex gap-3">
           <div class="flex-shrink-0">
             <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
@@ -115,7 +125,7 @@ export const howtoData = {
   </CardGrid>
 
   <InfoBox type="info" icon="download" title="Deltaをまだ入れてない？">
-    <a href="/articles/delta-utm-guide" class="text-blue-600 underline font-medium">Delta/UTM SE完全ガイド</a>でインストール方法を解説しています。
+    <a href="/articles/delta-utm-guide/" class="text-blue-600 underline font-medium">Delta/UTM SE完全ガイド</a>でインストール方法を解説しています。
   </InfoBox>
 
   <h3 class="text-base sm:text-lg font-bold text-gray-800 mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-start gap-2">
@@ -123,28 +133,136 @@ export const howtoData = {
     手順
   </h3>
   <StepList>
-    <Step num={1} title="Playbackをインストール" desc="epilogue.coから無料ダウンロード。Win/Mac/Linux対応。" />
-    <Step num={2} title="GB Operatorを接続" desc="付属のUSB-CケーブルでPCに接続します。" />
-    <Step num={3} title="カートリッジを挿入" desc="端子を下にしてしっかり挿入。自動でゲーム情報が表示されます。" />
-    <Step num={4} title="ROMを吸い出し" desc="「Backup ROM」を選択し、保存先を指定して吸い出し開始。" advice="偽物判定も自動で行われるよ🌸" />
-    <Step num={5} title="iPhoneに転送" desc="AirDrop・iCloud Drive・ケーブル経由でROMファイルを転送。" />
-    <Step num={6} title="Deltaに追加してプレイ" desc="Deltaの＋ボタンからROMを追加。すぐにプレイ開始できます！" />
+    <Step
+      num={1}
+      title="Playbackをインストール"
+      image={playbackDownloadImage}
+      alt="Playbackダウンロードページのスクリーンショット"
+      fullWidth
+    >
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-2">
+        <a href="https://www.epilogue.co/downloads" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-medium">epilogue.co/downloads</a>から無料でダウンロードできます。
+      </p>
+    </Step>
+    <Step
+      num={2}
+      title="GB Operatorを接続"
+      image={gbOperatorConnectImage}
+      alt="GB OperatorをPCに接続している様子"
+      fullWidth
+    >
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-2">
+        付属のUSB-CケーブルでPCに接続します。
+      </p>
+      <Image
+        src={gbOperatorStandbyImage}
+        alt="Playbackアプリの待機画面"
+        class="w-full max-w-full sm:max-w-sm mx-auto rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3"
+        format="webp"
+        quality={85}
+        loading="lazy"
+      />
+    </Step>
+    <Step
+      num={3}
+      title="カートリッジを挿入"
+      image={gbOperatorCartridgeInImage}
+      alt="GB Operatorにカートリッジを挿入している様子"
+      fullWidth
+    >
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-2">
+        端子を下にしてしっかり挿入します。GB Operatorでカートリッジが表示されるよ。
+      </p>
+      <Image
+        src={gbOperatorCartridgeLoadImage}
+        alt="GB Operatorでカートリッジが読み込まれた画面"
+        class="w-full max-w-full sm:max-w-sm mx-auto rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3"
+        format="webp"
+        quality={85}
+        loading="lazy"
+      />
+    </Step>
+    <Step
+      num={4}
+      title="ROMを吸い出し"
+      image={gbOperatorCartridgeClickImage}
+      alt="カートリッジをクリックしてBackup ROMを選択"
+      fullWidth
+    >
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-2">
+        Backup ROMを選択してStartをクリックして吸い出し開始します。
+      </p>
+      <Image
+        src={gbOperatorCartridgeBackupImage}
+        alt="ROM吸い出し中の画面"
+        class="w-full max-w-full sm:max-w-sm mx-auto rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3 mb-3"
+        format="webp"
+        quality={85}
+        loading="lazy"
+      />
+      <InfoBox type="warning" icon="warning" title="注意">
+        吸い出し中はカートリッジを抜かないこと！
+      </InfoBox>
+    </Step>
+    <Step num={5} title="iPhoneに転送" desc="AirDropやiCloud経由で転送" />
+    <Step
+      num={6}
+      title="Deltaに追加してプレイ"
+      image={deltaSelectImage}
+      alt="DeltaでROMを選択してプレイ"
+      fullWidth
+    >
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-2">
+        ＋ボタンからROMを追加してプレイします。
+      </p>
+      <Image
+        src={deltaPlayImage}
+        alt="Deltaでゲームをプレイしている画面"
+        class="w-full max-w-full sm:max-w-sm mx-auto rounded-xl border shadow-sm cursor-pointer hover:opacity-90 transition-opacity mt-3"
+        format="webp"
+        quality={85}
+        loading="lazy"
+      />
+    </Step>
   </StepList>
 
   <InfoBox type="success" icon="tips_and_updates" title="セーブデータも移行OK">
     カートリッジ内のセーブデータもバックアップ可能。続きからプレイできます。
   </InfoBox>
+
+  <div class="mt-4 sm:mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">快適にゲームをプレイするならコントローラーも揃えよう</div>
+        <p class="text-sm text-gray-700 leading-relaxed mb-3">
+          Deltaでのゲームプレイをより快適にするために、Bluetooth対応のゲームコントローラーがおすすめだよ🎮
+        </p>
+        <a
+          href="https://amzn.to/4s54tlY"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-xs sm:text-sm font-medium"
+        >
+          <span class="material-symbols-outlined text-sm sm:text-base">shopping_cart</span>
+          おすすめコントローラーを見る
+        </a>
+      </div>
+    </div>
+  </div>
 </Section>
 
 {/* ── 法的な安全性 ── */}
 <Section title="法的な安全性" icon="gavel" iconColor="text-green-600" id="legal-safety">
   <CardGrid>
     <Card icon="check_circle" iconColor="text-green-500" title="私的複製OK" desc="著作権法第30条" />
-    <Card icon="verified" iconColor="text-green-500" title="コピーガードなし" desc="GB系は技術的保護なし" />
+    <Card icon="verified" iconColor="text-blue-500" title="コピーガードなし" desc="GB系は技術的保護なし" />
   </CardGrid>
 
   <InfoBox type="success" icon="rule" title="守るべき5つのルール">
-    <ul class="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1.5 text-gray-700">
+    <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
       <li><strong>正規品を使用</strong> — 自分が購入したカートリッジのみ</li>
       <li><strong>私的利用のみ</strong> — 自分・家族だけで使用</li>
       <li><strong>配布しない</strong> — 共有・販売は禁止</li>
@@ -155,14 +273,11 @@ export const howtoData = {
 
   <AccordionGroup>
     <Accordion title="私的複製の法的根拠（著作権法第30条）">
-      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-        日本の著作権法第30条では、<mark class="bg-yellow-100 px-1 rounded"><strong>「個人的にまたは家庭内で使用する目的」</strong></mark>であれば、
-        著作物の複製が認められています。自分のカートリッジから自分で吸い出す行為は、この私的複製の範囲内です。
-      </p>
-      <p class="text-gray-700 leading-relaxed sm:leading-7">
-        また、GB/GBC/GBAにはコピーガード（技術的保護手段）がないため、
-        ROM吸い出しはコピーガード回避にも該当しません。
-      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>著作権法第30条で<mark class="bg-yellow-100 px-1 rounded"><strong>「個人的・家庭内使用」</strong></mark>の複製が認められています</li>
+        <li>自分のカートリッジから自分で吸い出す行為は私的複製の範囲内です</li>
+        <li>GB/GBC/GBAにはコピーガードがないため、回避にも該当しません</li>
+      </ul>
     </Accordion>
 
     <Accordion title="やってはいけないこと">
@@ -193,7 +308,7 @@ export const howtoData = {
       <div class="flex-1 min-w-0">
         <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
         <p class="text-sm text-gray-700 leading-relaxed">
-          もっと詳しく知りたい人は<a href="/articles/emulator-legal" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！法的な部分をしっかり解説してるよ📚
+          もっと詳しく知りたい人は<a href="/articles/emulator-legal/" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！法的な部分をしっかり解説してるよ📚
         </p>
       </div>
     </div>
@@ -239,6 +354,43 @@ export const howtoData = {
   </div>
 </Section>
 
+{/* ── その他のEpilogueデバイス ── */}
+<Section title="その他のEpilogueデバイス" icon="devices_other" iconColor="text-purple-600" id="other-devices">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    Epilogue社はGB Operator以外にも、レトロゲームのアーカイブに特化したデバイスを展開しています。
+  </p>
+
+  <AccordionGroup>
+    <Accordion title="SN Operator（スーパーファミコン対応）">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        <mark class="bg-yellow-100 px-1 rounded"><strong>SN Operator</strong></mark>は、<strong>スーパーファミコン（SFC）/Super Nintendo（SNES）</strong>のカートリッジに対応したUSB-Cカートリッジリーダーです。
+        GB Operatorと同様に、ROM吸い出し・セーブデータ管理・偽造品検出機能を搭載しています。
+      </p>
+      <InfoBox type="indigo" icon="schedule" title="発売予定">
+        <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+          <li><strong>発売予定：</strong>2026年4月頃</li>
+          <li><strong>価格：</strong>¥15,400（税込）</li>
+          <li><strong>購入先：</strong><a href="https://worldgameexpress.myshopify.com/products/epilogue-sn-operator" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">World Game Express</a>（国内唯一の正規輸入代理店）</li>
+        </ul>
+      </InfoBox>
+    </Accordion>
+  </AccordionGroup>
+
+  <div class="mt-4 sm:mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl">
+    <div class="flex gap-3">
+      <div class="flex-shrink-0">
+        <img src={`${import.meta.env.BASE_URL}assets/img/buncho.png`} alt="アドバイスするマスコット「ぶんちゃん」" class="w-10 h-10 rounded-full" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-pink-700 text-sm mb-1">ぶんちゃんのアドバイス</div>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          スーパーファミコンのソフトの吸い出し機も発売予定だよ🎮 GB Operatorと同じように、自分のカートリッジをバックアップして遊べるようになるよ！エミュレータで遊ぶための選択肢がどんどん増えてるね🌸
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
 {/* ── まとめ ── */}
 <Section title="まとめ" icon="done_all" iconColor="text-green-600" id="summary">
   <CardGrid>
@@ -250,9 +402,9 @@ export const howtoData = {
 </Section>
 
 <RelatedArticles articles={[
-  { href: '/articles/delta-utm-guide', icon: 'sports_esports', title: 'Delta/UTM SE完全ガイド', desc: 'Deltaエミュレータの詳しい使い方と設定方法' },
-  { href: '/articles/emulator-legal', icon: 'gavel', title: 'エミュレータと著作権', desc: 'エミュレータ利用の法的側面を詳しく解説' },
-  { href: '/articles/altstore-complete-guide', icon: 'apps', title: 'AltStore完全ガイド', desc: 'AltStoreのインストールから使い方まで' },
+  { href: '/articles/delta-utm-guide/', icon: 'sports_esports', title: 'Delta/UTM SE完全ガイド', desc: 'Deltaエミュレータの詳しい使い方と設定方法' },
+  { href: '/articles/emulator-legal/', icon: 'gavel', title: 'エミュレータと著作権', desc: 'エミュレータ利用の法的側面を詳しく解説' },
+  { href: '/articles/altstore-complete-guide/', icon: 'apps', title: 'AltStore完全ガイド', desc: 'AltStoreのインストールから使い方まで' },
 ]} />
 
 </ArticleLayout>
