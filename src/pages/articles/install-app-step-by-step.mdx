@@ -10,23 +10,26 @@ import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 import AltStoreSetupSteps from '../../components/AltStoreSetupSteps.astro';
 import MethodCard from '../../components/MethodCard.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
-export const title = "AltStoreでアプリをインストールする方法";
+export const title = "AltStoreでアプリをインストール";
 export const h1 = "アプリのインストール方法";
-export const summary = "AltStoreでiPhoneにアプリを入れる方法を初心者向けに解説。AltServerの準備からトラブル対応まで。";
+export const summary = "AltStoreでiPhoneにアプリを入れる方法を初心者向けに丁寧に解説。AltServerの準備からトラブル対応まで。";
 export const description = "AltStoreを使ってiPhoneにアプリをインストールする方法を、初心者向けにステップバイステップで解説。AltServerの準備から実際のアプリインストール、7日署名更新、トラブル対応まで完全網羅。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="install_desktop" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-11" icon="install_desktop" iconColor="text-blue-500">
 
 <Section intro title="AltStoreでアプリを入れるって難しい？" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    「AltStoreの話をよく聞くけど、実際にアプリを入れるには何をすればいいの？」「PC/Macって絶対に必要なの？」「インストール後のメンテナンスはどうするの？」
+    「AltStoreの話をよく聞くけど、実際にアプリを入れるには何をすればいいの？」「PC/Macって絶対に必要なの？」
   </p>
-  <p class="text-gray-700">
-    実は、AltStore でアプリをインストールするのは、App Store よりも<strong>シンプルで直感的</strong>です。
-    この記事では、初心者の方でも迷わないようにステップバイステップで解説します。
-    読み終わる頃には、<strong>最初のアプリをインストール</strong>し、<strong>定期メンテナンスの方法</strong>も理解できているはずです。
-  </p>
+  <InfoBox type="success" icon="rocket_launch" title="やることは3ステップだけ">
+    USB接続 → Wi-Fi設定 → 完了。初回だけPCが必要で、以降はiPhoneのみで運用できます。
+  </InfoBox>
+  <BunchanAdvice>
+    <strong>失敗しても焦らないで！</strong><br />
+    9割はケーブルが原因だよ。データ転送対応のケーブルを使ってね🔌
+  </BunchanAdvice>
 </Section>
 
 <Section title="事前準備：インストール前に確認すること" icon="checklist">

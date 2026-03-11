@@ -6,156 +6,137 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
-export const title = "エミュレータ利用は違法？著作権と正しい遊び方";
+export const title = "エミュレータは違法？著作権と正しい遊び方";
 export const h1 = "エミュレータと著作権";
 export const summary = "エミュレータは合法？ROM吸い出しと違法ダウンロードの違いを日本の著作権法で解説。安全な楽しみ方を紹介。";
 export const description = "エミュレータの合法性、ROM吸い出し（ダンピング）の正しい知識、違法ダウンロードの危険性を日本の著作権法に基づいて解説。安全で合法的にレトロゲームを楽しむ方法をご紹介します。DeltaやGBOperatorの活用法も。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-11" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="「エミュレータ＝違法」ではない" icon="lightbulb">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    世間では「エミュレータを使うのは違法」という認識が広がっています。
-    しかし、<mark class="bg-yellow-100 px-1 rounded"><strong>実はエミュレータ自体は合法的に使用できます</strong></mark>。
-  </p>
-  <p class="text-gray-700">
-    違法になるかどうかは、「何をするか」ではなく<mark class="bg-yellow-100 px-1 rounded"><strong>「どこから ROM を入手するか」</strong></mark>で決まります。
-    この記事では、日本の著作権法に基づいて、正しい遊び方と避けるべき行為をご紹介します。
-  </p>
+  <InfoBox type="success" icon="verified" title="結論">
+    エミュレータ自体は合法。違法かどうかは「ROMの入手方法」で決まる。
+  </InfoBox>
+  <BunchanAdvice>
+    <strong>エミュレータ自体は合法だよ！</strong><br />
+    問題は「ROMをどこから入手するか」。自分のカートリッジから吸い出すのが一番安全🎮
+  </BunchanAdvice>
 </Section>
 
 <Section title="エミュレータ自体は合法" icon="gavel" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="memory" iconColor="text-blue-500" title="エミュレータとは" desc="ゲーム機を再現するソフト" />
+    <Card icon="gavel" iconColor="text-green-500" title="著作権法上の扱い" desc="複製・翻案に該当しない" />
+    <Card icon="build" iconColor="text-purple-500" title="合法的な用途" desc="開発テストツール等" />
+    <Card icon="check_circle" iconColor="text-green-500" title="DL・使用OK" desc="問題はROMの入手方法" />
+  </CardGrid>
   <AccordionGroup>
-    <Accordion title="エミュレータとは何か">
-      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-        <strong>エミュレータ</strong>は、昔のゲーム機（Nintendo、セガなど）の動作を
-        モダンなデバイス（iPhone、iPad など）上で再現するソフトウェアです。
-        本来は、ゲーム機そのものではなく、<strong>ソフトウェア</strong>です。
-      </p>
-    </Accordion>
-    <Accordion title="ソフトウェアとしての合法性">
-      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-        日本の著作権法では、<mark class="bg-yellow-100 px-1 rounded"><strong>エミュレータは「複製・翻案」に該当しない</strong></mark>という解釈が一般的です。
-        なぜなら、エミュレータは：
-      </p>
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-4">
-        <li>元のゲーム機のハードウェアの機能を「新たに実装」したもの</li>
-        <li>著作物そのものではなく、ゲームを動かすための「環境」</li>
-        <li>多数の合法的な用途がある（開発者向けのテストツールなど）</li>
+    <Accordion title="なぜ合法なのか？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>ハードウェア機能を「新たに実装」したソフトウェア</li>
+        <li>著作物そのものではなく、ゲームを動かす「環境」</li>
+        <li>開発者テストなど多数の合法用途が存在</li>
       </ul>
-      <InfoBox type="success" icon="check_circle" title="エミュレータのダウンロード・使用は違法ではありません">
-        問題は、エミュレータに入れるゲーム ROM の入手方法なのです。
-      </InfoBox>
     </Accordion>
   </AccordionGroup>
 </Section>
 
-<Section title="合法的な ROM の入手方法：自分でダンピング" icon="download">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-4 sm:mb-6">
-    <strong>ダンピング</strong>は、自分が持っているゲームカートリッジから、
-    直接 ROM（ゲームのデータ）を抽出する行為のことです。
-    正規のゲーム機とカートリッジを持っていることが前提です。
-  </p>
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    日本の著作権法 第30条では、<mark class="bg-yellow-100 px-1 rounded"><strong>「個人的にまたは家庭内で」複製することは認められている</strong></mark>
-    という「私的複製」の例外があります。つまり、以下の条件を満たせば、ROM の抽出は違法ではありません：
-  </p>
-  <CardGrid>
-    <Card icon="shopping_cart" iconColor="text-green-500" title="自分が正規品を購入・所有している" />
-    <Card icon="tune" iconColor="text-blue-500" title="自分で ROM を抽出している" desc="ダウンロードではない" />
-    <Card icon="person" iconColor="text-green-500" title="個人的な楽しみのためだけ" />
-    <Card icon="lock" iconColor="text-blue-500" title="他人と共有・販売していない" />
-  </CardGrid>
-  <InfoBox type="warning" title="暗号化解除のグレーゾーン">
-    ダンピングには、専門の周辺機器（Retrode など）が必要なことが多いです。
-    ただし、<mark class="bg-yellow-100 px-1 rounded"><strong>ゲームカートリッジの暗号化を解除するツール</strong></mark>は、
-    著作権法 30条の2（技術的保護手段の回避）にひっかかる可能性があります。
-    「自分が所有するゲームでも、暗号化を解除する行為は違法の可能性がある」という複雑な状況が生まれています。
+<Section title="合法的なROM入手：ダンピング" icon="download">
+  <InfoBox type="info" icon="info" title="ダンピングとは">
+    自分のカートリッジからROMを抽出する行為。著作権法第30条「私的複製」で認められている。
   </InfoBox>
+  <CardGrid>
+    <Card icon="shopping_cart" iconColor="text-green-500" title="正規品を所有" desc="購入済みが前提" />
+    <Card icon="tune" iconColor="text-blue-500" title="自分で抽出" desc="DLではない" />
+    <Card icon="person" iconColor="text-green-500" title="個人利用のみ" desc="家庭内で楽しむ" />
+    <Card icon="lock" iconColor="text-blue-500" title="共有・販売禁止" desc="他人に渡さない" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="注意：暗号化解除のグレーゾーン">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>ダンピングには専用機器（Retrode等）が必要</li>
+        <li>暗号化解除は著作権法30条の2に抵触の可能性</li>
+        <li>所有ゲームでも暗号化解除は違法となりうる</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
+    <strong>GB Operatorを使えば、自分のゲームを合法的にプレイできるよ！</strong><br />
+    詳しくは「<a href={`${import.meta.env.BASE_URL}articles/gb-operator-guide`} class="underline">GB Operatorガイド</a>」を見てね📚
+  </BunchanAdvice>
 </Section>
 
 <Section title="厳禁：違法ダウンロード" icon="warning" iconColor="text-red-600">
   <InfoBox type="error" icon="cancel" title="違法ダウンロードは厳禁">
-    インターネット上に無断で公開されている ROM ファイルをダウンロードする行為は、
-    <mark class="bg-yellow-100 px-1 rounded"><strong>著作権法違反</strong></mark>です。これは刑事罰（懲役・罰金）の対象になります。
+    ネット上のROMダウンロードは著作権法違反。刑事罰（懲役・罰金）の対象。
   </InfoBox>
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    違法ダウンロードは、著作権違反だけでなく、以下のような追加的な危険性があります：
-  </p>
   <CardGrid>
-    <Card icon="bug_report" iconColor="text-red-500" title="マルウェア混入" desc="ROMにウイルス混入の危険" />
-    <Card icon="phishing" iconColor="text-red-500" title="詐欺サイトへの誘導" desc="偽のDLリンクに注意" />
-    <Card icon="person_off" iconColor="text-red-500" title="個人情報の盗難" desc="情報収集目的のサイトも" />
-    <Card icon="warning" iconColor="text-red-500" title="ISP からの警告" desc="違法DL検出で警告の恐れ" />
+    <Card icon="bug_report" iconColor="text-red-500" title="マルウェア混入" desc="ウイルス感染の危険" />
+    <Card icon="phishing" iconColor="text-red-500" title="詐欺サイト誘導" desc="偽DLリンクに注意" />
+    <Card icon="person_off" iconColor="text-red-500" title="個人情報盗難" desc="情報収集目的も" />
+    <Card icon="warning" iconColor="text-red-500" title="ISP警告" desc="違法DL検出される" />
   </CardGrid>
 </Section>
 
-<Section title="正規ゲームの販売が続いている理由" icon="storefront">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-4 sm:mb-6">
-    多くのレトロゲームは、Nintendo Switch Online などのサブスクリプションサービスで
-    合法的にプレイできるようになっています。
-  </p>
-  <InfoBox type="success" icon="recommend" title="推奨：正規品購入＋ダンピング">
-    オリジナルのカートリッジは、中古ゲーム店やオークションサイトで購入可能です。
-    <mark class="bg-yellow-100 px-1 rounded"><strong>正規品を購入してからダンピングする</strong></mark>という方法が、
-    最も確実で安全な方法です。
+<Section title="おすすめの合法プレイ方法" icon="storefront">
+  <CardGrid>
+    <Card icon="subscriptions" iconColor="text-blue-500" title="Switch Online" desc="レトロゲーム配信中" />
+    <Card icon="store" iconColor="text-green-500" title="中古カートリッジ" desc="店舗・オークション" />
+    <Card icon="usb" iconColor="text-purple-500" title="ダンピング機器" desc="GB Operator等" />
+    <Card icon="favorite" iconColor="text-red-500" title="開発者支援" desc="正規購入で還元" />
+  </CardGrid>
+  <InfoBox type="success" icon="recommend" title="おすすめ">
+    正規品を購入→ダンピングが最も確実で安全な方法。
   </InfoBox>
-  <p class="text-gray-700 mt-3 sm:mt-4">
-    レトロゲームの開発者やパブリッシャーも、今も新しいプロジェクトに取り組んでいます。
-    <strong>正規版を購入することで、開発者を支援できる</strong>という側面も重要です。
-  </p>
 </Section>
 
-<Section title="当サイトのスタンス：サイドローディングで安全に楽しむ" icon="policy">
+<Section title="当サイトのスタンス" icon="policy">
   <InfoBox type="info" title="当サイトの方針">
-    当サイト「bunchoniki Store」は、
-    <mark class="bg-yellow-100 px-1 rounded"><strong>「安全で、かつ合法的」なサイドローディングの楽しみ方</strong></mark>を啓蒙することが目標です。
-    エミュレータは素晴らしいツールですが、それを使う際の倫理観・法的知識が重要です。
-    <mark class="bg-yellow-100 px-1 rounded"><strong>違法ダウンロードへの誘導、具体的なサイト名の提供、
-    ROM 入手方法の詳しい説明は、当サイトでは一切行いません</strong></mark>。
+    「安全で合法的」なサイドローディングを啓蒙。違法DL誘導・ROMサイト紹介は一切しません。
   </InfoBox>
-  <InfoBox type="success" icon="checklist" title="安全で合法的な楽しみ方">
-    代わりに、以下の方法をお勧めします：Nintendo Switch Online で正規配信されているゲームを楽しむ、中古市場で正規カートリッジを購入して自分でダンピング、クラウドゲームサービス（Apple Arcade など）で新作を試す、独立系の開発者が作った新しいレトロ風ゲームを応援する。
-  </InfoBox>
+  <CardGrid>
+    <Card icon="subscriptions" iconColor="text-blue-500" title="Switch Online" desc="正規配信を楽しむ" />
+    <Card icon="shopping_cart" iconColor="text-green-500" title="中古購入+ダンピング" desc="自分で吸い出す" />
+    <Card icon="cloud" iconColor="text-purple-500" title="Apple Arcade" desc="新作ゲームを試す" />
+    <Card icon="favorite" iconColor="text-red-500" title="インディー応援" desc="レトロ風新作を支援" />
+  </CardGrid>
 </Section>
 
 <Section title="よくある質問" icon="help">
   <AccordionGroup>
-    <Accordion title="Q. ゲームをもう販売していないゲーム会社の場合は？">
-      <p class="text-gray-700">
-        <strong>A.</strong> それでも著作権は存在しており、会社が存在しなくなっても、
-        著作権は法的に保護されています。しかし、実際のところ、
-        廃業した企業のゲームをエミュレータでプレイすることに対して、
-        著作権者が訴訟を起こすことは稀です。ただし、グレーゾーンである以上、
-        リスクがゼロではないことは理解しておくべきです。
-      </p>
+    <Accordion title="Q. 廃業したゲーム会社のゲームは？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>会社がなくても著作権は存在し保護されている</li>
+        <li>訴訟は稀だがグレーゾーン、リスクはゼロではない</li>
+      </ul>
     </Accordion>
-    <Accordion title="Q. エミュレータ配信サイトからダウンロードしたら、罪に問われる？">
-      <p class="text-gray-700">
-        <strong>A.</strong> はい、著作権法違反となり、刑事罰の対象になります。
-        法改正により、違法ダウンロードは厳しく取り締まられるようになっています。
-        ISP（プロバイダ）が違法ダウンロードを検出して警告することもあります。
-      </p>
+    <Accordion title="Q. ROM配信サイトからDLしたら？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>著作権法違反で刑事罰の対象</li>
+        <li>ISPが検出して警告することもある</li>
+      </ul>
     </Accordion>
-    <Accordion title="Q. VPN を使えば大丈夫？">
-      <p class="text-gray-700">
-        <strong>A.</strong> いいえ。VPN を使っても著作権違反の行為自体に変わりはなく、
-        違法性は消えません。警察の捜査が及べば、VPN でも足取りは追跡できます。
-        また、違法行為に加えて詐欺サイトの被害を受ける可能性も高まります。
-      </p>
+    <Accordion title="Q. VPNを使えば大丈夫？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>違法性は消えない、捜査で追跡可能</li>
+        <li>詐欺サイト被害のリスクも高まる</li>
+      </ul>
     </Accordion>
   </AccordionGroup>
 </Section>
 
-<Section title="まとめ" icon="done_all">
-  <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-    <li><mark class="bg-yellow-100 px-1 rounded"><strong>エミュレータ自体は合法</strong></mark>です。問題は ROM の入手方法です。</li>
-    <li><mark class="bg-yellow-100 px-1 rounded"><strong>合法的な入手方法</strong></mark>は、自分が購入したカートリッジからダンピングすることです。</li>
-    <li><mark class="bg-yellow-100 px-1 rounded"><strong>違法ダウンロードは厳禁</strong></mark>。法的リスク＋セキュリティリスクが伴います。</li>
-    <li>Nintendo Switch Online などの正規サービスを活用しましょう。</li>
-    <li>当サイトは、違法行為を助長することはありません。安全で合法的な楽しみ方のみをお勧めします。</li>
-  </ul>
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid cols={3}>
+    <Card icon="gavel" iconColor="text-green-500" title="エミュレータ" desc="→ 合法" />
+    <Card icon="usb" iconColor="text-blue-500" title="ダンピング" desc="→ 合法（私的複製）" />
+    <Card icon="download" iconColor="text-red-500" title="違法DL" desc="→ 厳禁" />
+  </CardGrid>
+  <BunchanAdvice>
+    <strong>正規品を買ってダンピングが一番安全！</strong><br />
+    Switch Onlineやカートリッジ購入で、安心してレトロゲームを楽しもう🎮
+  </BunchanAdvice>
 </Section>
 
 <RelatedArticles articles={[

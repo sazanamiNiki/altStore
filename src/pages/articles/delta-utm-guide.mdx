@@ -9,29 +9,29 @@ import InfoBox from '../../components/InfoBox.astro';
 import MethodCard from '../../components/MethodCard.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "Delta/UTM SE 完全ガイド";
 export const summary = "iPhoneでレトロゲーム＆Windows/Linux。脱獄不要で動作するDeltaとUTM SEの導入・設定を徹底解説。";
 export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。App Store・AltStoreからの導入方法、ROMの追加、コントローラー設定まで解説します。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-10" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-11" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="はじめに" icon="lightbulb">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    2024年4月、AppleはApp Storeでのエミュレータ配布ポリシーを緩和しました。
-    これにより、<mark class="bg-yellow-100 px-1 rounded"><strong>脱獄なしで</strong></mark>Delta EmulatorやUTM SEが利用可能になりました。
-  </p>
   <InfoBox type="success" icon="verified" title="どちらも脱獄不要">
-    App StoreまたはAltStoreから正式に入手可能。オープンソースで透明性も確保されています。
+    2024年4月のポリシー緩和で、App Store/AltStoreから正式入手可能に。オープンソースで安全。
   </InfoBox>
+  <BunchanAdvice>
+    <strong>Deltaでレトロゲーム、UTM SEでWindows！</strong><br />
+    どちらも脱獄不要で安心して使えるよ🎮
+  </BunchanAdvice>
 </Section>
 
 {/* ── Part 1: Delta Emulator ── */}
 <Section title="Delta Emulatorとは" icon="videogame_asset" iconColor="text-blue-600">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <strong>Delta Emulator</strong>は、iOS向けのオールインワンレトロゲームエミュレータです。
-    Riley Testut氏（AltStore開発者）が開発し、複数のエミュレータコアを統合しています。
-  </p>
+  <InfoBox type="info" icon="sports_esports" title="オールインワン エミュレータ">
+    Riley Testut氏（AltStore開発者）が開発。複数のエミュレータコアを統合したiOS向けアプリ。
+  </InfoBox>
   <CardGrid>
     <Card icon="videogame_asset" iconColor="text-blue-500" title="NES/SNES/N64" desc="任天堂据置機対応" />
     <Card icon="videogame_asset" iconColor="text-green-500" title="GB/GBC/GBA" desc="携帯ゲーム機対応" />
@@ -40,65 +40,78 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
   </CardGrid>
   <AccordionGroup>
     <Accordion title="各エミュレータコアの詳細">
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li><strong>NES</strong>：Nestopiaコア</li>
-        <li><strong>SNES</strong>：Snes9xコア</li>
-        <li><strong>N64</strong>：mupen64plusコア（OpenGL ES 3.0対応）</li>
-        <li><strong>GB/GBC</strong>：Gambatteコア</li>
-        <li><strong>GBA</strong>：VisualBoyAdvance-Mコア</li>
-        <li><strong>NDS</strong>：melonDSコア</li>
-        <li><strong>Genesis</strong>：Genesis Plus GXコア（有料版）</li>
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>NES</strong>：Nestopia / <strong>SNES</strong>：Snes9x</li>
+        <li><strong>N64</strong>：mupen64plus（OpenGL ES 3.0）</li>
+        <li><strong>GB/GBC</strong>：Gambatte / <strong>GBA</strong>：VBA-M</li>
+        <li><strong>NDS</strong>：melonDS / <strong>Genesis</strong>：Genesis Plus GX</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
+    <strong>遊ぶゲームがないならこちらをチェック！</strong><br />
+    「<a href={`${import.meta.env.BASE_URL}articles/free-games-for-delta/`} class="underline">Delta用無料ゲーム特集</a>」で合法的に遊べるゲームを紹介してるよ🎮
+  </BunchanAdvice>
+</Section>
+
+<Section title="Deltaのインストール方法" icon="download" iconColor="text-blue-600">
+  <InfoBox type="info" icon="info" title="動作要件">
+    iOS 12以降。日本ユーザーはAltStore経由が最も確実。
+  </InfoBox>
+  <MethodCard title="AltStore経由（日本ユーザー推奨）" icon="install_mobile" recommended>
+    <StepList>
+      <Step num={1} title="AltServerをPCにインストール" desc="Win 10以降/macOS対応" />
+      <Step num={2} title="iPhoneをPCに接続しAltStoreをインストール" />
+      <Step num={3} title="AltStore内「Browse」でDeltaを検索" />
+      <Step num={4} title="「GET」でインストール完了" />
+    </StepList>
+  </MethodCard>
+  <AccordionGroup>
+    <Accordion title="他の入手方法">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>App Store（米国）</strong>：米国アカウントで「Delta - Game Emulator」を検索</li>
+        <li><strong>AltStore PAL（欧州）</strong>：DMAによりPCなしでインストール可能</li>
       </ul>
     </Accordion>
   </AccordionGroup>
 </Section>
 
-<Section title="Deltaのインストール方法" icon="download" iconColor="text-blue-600">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    iOS 12以降で動作します。日本ユーザーは<strong>AltStore経由</strong>が最も確実です。
-  </p>
-    <MethodCard title="AltStore経由（日本ユーザー推奨）" icon="install_mobile" recommended>
-      <StepList>
-        <Step num={1} title="AltServerをPCにインストール" desc="Win 10以降/macOS対応" />
-        <Step num={2} title="iPhoneをPCに接続しAltStoreをインストール" />
-        <Step num={3} title="AltStore内「Browse」でDeltaを検索" />
-        <Step num={4} title="「GET」でインストール完了" />
-      </StepList>
-    </MethodCard>
-    <MethodCard title="App Store（米国アカウント）" icon="store">
-      <p class="text-gray-700 text-sm">米国のApp Storeアカウントで「Delta - Game Emulator」を検索してダウンロード。日本では未公開。</p>
-    </MethodCard>
-    <MethodCard title="AltStore PAL（欧州）" icon="public">
-      <p class="text-gray-700 text-sm">EUではDMAにより、PCなしでAltStore PALからDeltaをインストール可能。</p>
-    </MethodCard>
-</Section>
-
 <Section title="ゲームROMの追加方法" icon="folder" iconColor="text-green-600">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    Delta自体にはゲームROMは含まれていません。法的に所有しているゲームのROMファイルを追加してください。
-  </p>
+  <InfoBox type="warning" icon="warning" title="ROMは自分で用意">
+    Delta自体にゲームは含まれません。自分で所有するカートリッジから吸い出したROMを使用してください。
+  </InfoBox>
   <StepList>
     <Step num={1} title="ROMファイルを「ファイル」に保存" desc=".nes/.sfc/.z64/.gb等対応" />
     <Step num={2} title="Deltaを起動し「+」ボタンをタップ" />
     <Step num={3} title="ROMファイルを選択して追加" />
   </StepList>
-  <InfoBox type="info" icon="info" title="Nintendo DSについて">
-    BIOSファイルは現在オプションです。GBAカートリッジの「デュアルスロット」機能にも対応。
-  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="Nintendo DSの補足">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>BIOSファイルは現在オプション（なくても動作）</li>
+        <li>GBAカートリッジの「デュアルスロット」機能にも対応</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
+    <strong>ROMの吸い出しにはGB Operatorがおすすめ！</strong><br />
+    「<a href={`${import.meta.env.BASE_URL}articles/gb-operator-guide/`} class="underline">GB Operator完全ガイド</a>」で詳しく解説してるよ📚
+  </BunchanAdvice>
 </Section>
 
 <Section title="コントローラー設定" icon="sports_esports" iconColor="text-purple-600">
   <CardGrid>
-    <Card icon="sports_esports" iconColor="text-blue-500" title="PS4/PS5コントローラー" desc="DualShock/Sense対応" />
-    <Card icon="sports_esports" iconColor="text-green-500" title="Xboxコントローラー" desc="One S/Series X|S対応" />
-    <Card icon="touch_app" iconColor="text-gray-500" title="バーチャルコントローラー" desc="カスタムスキン対応" />
-    <Card icon="group" iconColor="text-orange-500" title="マルチプレイヤー" desc="最大4人対応" />
+    <Card icon="sports_esports" iconColor="text-blue-500" title="PS4/PS5" desc="DualShock/Sense対応" />
+    <Card icon="sports_esports" iconColor="text-green-500" title="Xbox" desc="One S/Series X|S対応" />
+    <Card icon="touch_app" iconColor="text-gray-500" title="バーチャル" desc="カスタムスキン対応" />
+    <Card icon="group" iconColor="text-orange-500" title="マルチ" desc="最大4人ローカル対戦" />
   </CardGrid>
   <AccordionGroup>
     <Accordion title="オンラインマルチプレイヤー">
-      <p class="text-gray-700 leading-relaxed sm:leading-7">
-        Nintendo DSのオンライン対応ゲームでは、Wiimmfi、WiiLink WFC、AltWFCなどのコミュニティサーバー経由で世界中のプレイヤーとオンラインプレイが可能です。
-      </p>
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>Nintendo DSのオンライン対応ゲームで利用可能</li>
+        <li>Wiimmfi、WiiLink WFC、AltWFC経由で世界中と対戦</li>
+      </ul>
     </Accordion>
   </AccordionGroup>
 </Section>
@@ -120,25 +133,28 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 
 {/* ── Part 2: UTM SE ── */}
 <Section title="UTM SEとは" icon="computer" iconColor="text-blue-600">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <strong>UTM SE</strong>は、QEMUベースのフル機能システムエミュレータです。
-    iPhoneやiPadでWindows、Linuxを実行できます。「SE」は「Slow Edition」の略で、JITコンパイルの代わりにTCGインタープリターを使用しています。
-  </p>
+  <InfoBox type="info" icon="computer" title="QEMUベースのシステムエミュレータ">
+    iPhoneやiPadでWindows/Linuxを実行。「SE」はSlow Edition（JITなし）の略。
+  </InfoBox>
   <CardGrid>
     <Card icon="memory" iconColor="text-blue-500" title="x86_64/i386" desc="Windows/Linux対応" />
     <Card icon="memory" iconColor="text-green-500" title="ARM64/ARM" desc="Raspberry Pi OS等" />
     <Card icon="memory" iconColor="text-purple-500" title="RISC-V" desc="Ubuntu等" />
     <Card icon="memory" iconColor="text-orange-500" title="PowerPC" desc="クラシックMac OS" />
   </CardGrid>
-  <InfoBox type="warning" icon="speed" title="パフォーマンスについて">
-    「SE」はSlow Editionの略。JITなしのため動作が遅くなります。Windows 98など軽量OSが推奨。
+  <InfoBox type="warning" icon="speed" title="パフォーマンス注意">
+    JITなしのため動作が遅め。Windows 98など軽量OSを推奨。
   </InfoBox>
+  <BunchanAdvice>
+    <strong>WindowsやLinuxがiPadで動くなんて夢みたい！</strong><br />
+    M1以降のiPadならサクサク動くよ。古いソフトも復活できる💻
+  </BunchanAdvice>
 </Section>
 
 <Section title="UTM SEのセットアップ" icon="settings" iconColor="text-blue-600">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    iOS 14.0以降で動作。App Storeから「UTM SE」で検索、またはAltStore経由でインストール。
-  </p>
+  <InfoBox type="info" icon="info" title="動作要件">
+    iOS 14.0以降。App Storeで「UTM SE」検索、またはAltStore経由でインストール。
+  </InfoBox>
   <StepList>
     <Step num={1} title="UTM SEを起動し「+」をタップ" />
     <Step num={2} title="「Emulate」を選択" desc="iOSでは仮想化は利用不可" />
@@ -150,55 +166,59 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 </Section>
 
 <Section title="おすすめのOS" icon="window" iconColor="text-green-600">
-    <MethodCard title="Windows 98/XP（推奨）" icon="computer" recommended>
-      <p class="text-gray-700 text-sm mb-3 sm:mb-4">UTM SEで驚くほどスムーズに動作。M1 iPad ProでPentium 120相当のパフォーマンス。90年代のソフトやDOSゲームに最適。</p>
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700 text-sm">
-        <li><strong>RAM</strong>：512MB〜1GB</li>
-        <li><strong>ストレージ</strong>：2〜4GB</li>
+  <CardGrid>
+    <Card icon="computer" iconColor="text-green-500" title="Win 98/XP（推奨）" desc="サクサク動作" />
+    <Card icon="terminal" iconColor="text-blue-500" title="軽量Linux" desc="Alpine/Tiny Core" />
+    <Card icon="desktop_windows" iconColor="text-gray-400" title="Win 10/11" desc="非実用的" />
+    <Card icon="memory" iconColor="text-purple-500" title="推奨スペック" desc="RAM 512MB〜1GB" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="各OSの詳細">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>Win 98/XP</strong>：M1 iPadでPentium 120相当。90年代ソフト・DOSゲームに最適</li>
+        <li><strong>軽量Linux</strong>：Alpine、Tiny Core、Debian最小構成。GUIなしで高速</li>
+        <li><strong>Win 10/11</strong>：動作はするがJITなしで実用不可</li>
       </ul>
-    </MethodCard>
-    <MethodCard title="軽量Linux" icon="terminal">
-      <p class="text-gray-700 text-sm mb-3 sm:mb-4">Alpine Linux、Tiny Core Linux、Debian（最小）などが比較的良好に動作。GUIなしで使用すると高速。</p>
-    </MethodCard>
-    <MethodCard title="Windows 10/11" icon="desktop_windows">
-      <p class="text-gray-700 text-sm">技術的には動作しますが、JITなしでは実用的な速度にはなりません。</p>
-    </MethodCard>
+    </Accordion>
+  </AccordionGroup>
 </Section>
 
 <Section title="パフォーマンス最適化" icon="tune" iconColor="text-blue-600">
-  <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
-    <li><strong>GUIを無効化</strong>：コマンドラインのみで使用するとパフォーマンス向上</li>
-    <li><strong>VirtIO使用</strong>：ARM仮想マシンではVirtIOドライバでI/O性能向上</li>
-    <li><strong>QCOW2形式</strong>：ディスクイメージはQCOW2形式を使用</li>
-    <li><strong>不要なサービス停止</strong>：バックグラウンドプロセスを最小限に</li>
-  </ul>
+  <CardGrid>
+    <Card icon="terminal" iconColor="text-blue-500" title="GUIを無効化" desc="CLIのみで高速化" />
+    <Card icon="speed" iconColor="text-green-500" title="VirtIO使用" desc="I/O性能向上" />
+    <Card icon="storage" iconColor="text-purple-500" title="QCOW2形式" desc="ディスク最適化" />
+    <Card icon="block" iconColor="text-orange-500" title="サービス停止" desc="不要プロセス削減" />
+  </CardGrid>
 </Section>
 
 <Section title="よくある質問" icon="help" id="article-faq">
   <AccordionGroup>
-    <Accordion title="日本のApp StoreでDeltaはダウンロードできる？">
-      <p class="text-gray-700 leading-relaxed sm:leading-7">
-        現時点では日本のApp Storeでは公開されていません。AltStore経由でのインストールが最も確実です。
-      </p>
+    <Accordion title="日本のApp StoreでDeltaは？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>日本のApp Storeでは未公開</li>
+        <li>AltStore経由でのインストールが最も確実</li>
+      </ul>
     </Accordion>
-    <Accordion title="UTM SEとAltStoreのUTMの違いは？">
-      <p class="text-gray-700 leading-relaxed sm:leading-7">
-        App Store版UTM SEはJITなしのため遅いです。AltStore経由のUTMはJITが使えて高速。実用性を求めるならAltStore版がおすすめ。
-      </p>
+    <Accordion title="UTM SEとAltStore版UTMの違いは？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>UTM SE</strong>：JITなし、動作が遅い</li>
+        <li><strong>AltStore版UTM</strong>：JIT有効、高速動作</li>
+        <li>実用性を求めるならAltStore版がおすすめ</li>
+      </ul>
     </Accordion>
     <Accordion title="ROMファイルは合法的に使用できる？">
-      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-        自分のカートリッジからリッピングしたROMは個人使用の範囲で問題ないとされます。
-        インターネット上からの無断ダウンロードは著作権侵害の可能性があります。
-      </p>
-      <InfoBox type="info" icon="gavel" title="詳しくはこちら">
-        <a href={`${import.meta.env.BASE_URL}articles/emulator-legal`} class="text-blue-600 underline">エミュレータの法的側面に関する記事</a>をご参照ください。
-      </InfoBox>
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>自分のカートリッジからの吸い出しは個人使用でOK</li>
+        <li>ネット上からの無断DLは著作権侵害の可能性</li>
+        <li>詳細：<a href={`${import.meta.env.BASE_URL}articles/emulator-legal/`} class="text-blue-600 underline">エミュレータの法的側面</a></li>
+      </ul>
     </Accordion>
-    <Accordion title="DeltaはiPhone 15以降でも動作する？">
-      <p class="text-gray-700 leading-relaxed sm:leading-7">
-        はい、iOS 12以降のすべてのiPhoneで動作します。新しい端末ほど高パフォーマンスが期待できます。
-      </p>
+    <Accordion title="iPhone 15以降でも動作する？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>iOS 12以降のすべてのiPhoneで動作</li>
+        <li>新しい端末ほど高パフォーマンス</li>
+      </ul>
     </Accordion>
   </AccordionGroup>
 </Section>
