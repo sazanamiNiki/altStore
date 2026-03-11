@@ -8,20 +8,25 @@ import Card from '../../components/Card.astro';
 import InfoBox from '../../components/InfoBox.astro';
 import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "SideStore 完全ガイド";
 export const summary = "PC不要でアプリ管理できるSideStoreの完全ガイド。AltStoreとの違い、VPNの仕組み、導入手順まで。";
-export const description = "PC不要でアプリを管理できるSideStoreの日本語完全ガイド。AltStoreとの違い、VPNの仕組み、セットアップ手順、7日署名の自動更新、トラブルシューティングまで徹底解説。初心者も安心です。";
+export const description = "PC不要でアプリを管理できるSideStoreの日本語完全ガイド。AltStoreとの違い、VPNの仕組み、セットアップ手順、7日署名の自動更新、トラブルシューティングまで初心者にもわかりやすく徹底解説。";
 
-<ArticleLayout title={title} description={description} date="2026-03-10" icon="phonelink" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-11" icon="phonelink" iconColor="text-blue-500">
 
 <Section intro title="PC不要でアプリを管理する方法" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <mark class="bg-yellow-100 px-1 rounded"><strong>SideStore</strong></mark>は、初回セットアップ後は<strong>PCなしでアプリ管理が可能</strong>なサイドローディングツールです。VPN技術を活用してローカル接続のみで動作します。
+    <mark class="bg-yellow-100 px-1 rounded"><strong>SideStore</strong></mark>は、初回セットアップ後は<strong>PCなしでアプリ管理が可能</strong>なサイドローディングツールです。
   </p>
-  <InfoBox type="success" icon="check_circle" title="この記事でわかること">
-    SideStoreとAltStoreの違い、VPNの仕組み、セットアップ手順、アプリの管理方法、トラブルシューティングを解説します。
+  <InfoBox type="success" icon="check_circle" title="SideStoreのポイント">
+    初回のみPC接続が必要。以降はiPhone単独でアプリ管理が可能です。
   </InfoBox>
+  <BunchanAdvice>
+    <strong>「PCを毎回接続するのが面倒」ならSideStoreがぴったり！</strong><br />
+    初回だけPCを使えば、あとはiPhoneだけで完結するよ📱
+  </BunchanAdvice>
 </Section>
 
 <Section title="SideStoreとAltStoreの違い" icon="compare" iconColor="text-green-600">
