@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "lastUpdated": "2026-03-10",
+    "source": "itch.io"
+  },
+  "games": [
+    {
+      "id": "google-dino-advance",
+      "name": "Google Dino Advance",
+      "nameJa": "Google恐竜ゲーム Advance",
+      "platform": "GBA",
+      "genre": "無限ランナー",
+      "description": "Chrome恐竜ゲームのGBA版デメイク。ローカル協力プレイにも対応した人気作。",
+      "developer": "frzit",
+      "url": "https://frzit.itch.io/google-dino-advance",
+      "featured": true,
+      "tags": ["デメイク", "無限ランナー", "協力プレイ"]
+    },
+    {
+      "id": "2048-advance",
+      "name": "2048 Advance",
+      "nameJa": "2048 Advance",
+      "platform": "GBA",
+      "genre": "パズル",
+      "description": "人気パズルゲーム2048のGBA移植版。シンプルで中毒性の高いタイルパズル。",
+      "developer": "Basil Termini",
+      "url": "https://basil-termini.itch.io/2048-advance",
+      "featured": true,
+      "tags": ["パズル", "デメイク", "カジュアル"]
+    },
+    {
+      "id": "gb-burn",
+      "name": "GB Burn",
+      "nameJa": "GB Burn",
+      "platform": "GB",
+      "genre": "シューティング",
+      "description": "クラシックなアーケードシューティングへのオマージュ。戦闘機を操り敵基地を破壊せよ。",
+      "developer": "biscuitlocker",
+      "url": "https://biscuitlocker.itch.io/gb-burn",
+      "featured": true,
+      "tags": ["シューティング", "アーケード", "レトロ"]
+    },
+    {
+      "id": "retroid",
+      "name": "Retroid",
+      "nameJa": "Retroid",
+      "platform": "GB",
+      "genre": "ブロック崩し",
+      "description": "アルカノイド風ブロック崩し。20ステージ、6種類のパワーアップ、ボス戦も搭載。",
+      "developer": "Jonas Fischbach",
+      "url": "https://jonas-fischbach.itch.io/retroid",
+      "featured": true,
+      "tags": ["アーケード", "パズル", "チップチューン"]
+    }
+  ],
+  "platforms": [
+    { "id": "GBA", "name": "Game Boy Advance", "icon": "videogame_asset", "color": "text-purple-500" },
+    { "id": "NES", "name": "Nintendo Entertainment System", "icon": "videogame_asset", "color": "text-red-500" },
+    { "id": "SNES", "name": "Super Nintendo", "icon": "videogame_asset", "color": "text-blue-500" },
+    { "id": "GB", "name": "Game Boy / Game Boy Color", "icon": "videogame_asset", "color": "text-green-500" }
+  ]
+}
