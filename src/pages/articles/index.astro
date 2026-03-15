@@ -51,7 +51,7 @@ const categories = [
 ];
 ---
 
-<BaseLayout title="記事一覧" description="サイドローディング、Apple公証、AltStoreに関する詳細な記事。">
+<BaseLayout title="記事一覧" description="AltStore・SideStoreの使い方、サイドローディングの安全性・法的情報、エミュレータの著作権まで。初心者向けガイドから上級者向けの技術解説まで20本以上の記事を掲載。">
   <main class="max-w-6xl mx-auto px-4 py-6 sm:py-12">
     <div class="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b-2 border-blue-200 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-4 sm:p-8 rounded-xl">
       <h1 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-3 text-slate-800 flex items-center gap-2 sm:gap-3">
@@ -59,6 +59,7 @@ const categories = [
         記事一覧
       </h1>
       <p class="text-gray-600 text-base sm:text-lg">サイドローディングやアプリについての詳細解説</p>
+      <p class="text-gray-600 text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed">AltStoreやSideStoreの使い方、サイドローディングの安全性と法的情報、エミュレータの著作権問題まで、初心者にもわかりやすく解説しています。はじめての方は「<a href={`${base}articles/what-is-sideloading/`} class="text-blue-600 underline font-medium">サイドローディングとは</a>」からどうぞ。</p>
     </div>
 
     {categories.map(category => (

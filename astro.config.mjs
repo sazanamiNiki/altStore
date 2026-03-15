@@ -41,6 +41,17 @@ export default defineConfig({
   base: rawBase || '/',
   trailingSlash: 'always',
   redirects: generateRedirects(), 
-  integrations: [tailwind({ applyBaseStyles: false }), mdx(), sitemap()],
+  integrations: [
+    tailwind({ applyBaseStyles: false }),
+    mdx(),
+    sitemap({
+      serialize(item) {
+        // 記事ページにlastmodを付与（各記事のdate情報はビルド時に静的生成されるため、
+        // ここではサイトマップ生成時の日付をフォールバックとして使用）
+        item.lastmod = new Date();
+        return item;
+      },
+    }),
+  ],
   output: 'static',
 });
