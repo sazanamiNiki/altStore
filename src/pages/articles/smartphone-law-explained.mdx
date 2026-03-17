@@ -13,7 +13,7 @@ export const h1 = "スマホ新法を徹底解説";
 export const summary = "2025年施行「スマホ新法」でiPhoneが大きく変わります。4つの柱と、あなたへの影響をわかりやすく解説。";
 export const description = "2025年に施行された「スマートフォンソフトウェア競争促進法（スマホ新法）」により、iPhoneのアプリ配布・決済・デフォルト設定が大きく変わります。サイドローディングの法的位置づけ、Apple公証によるセキュリティ維持、そしてユーザーへの影響を詳しく解説します。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-10" icon="gavel" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-17" icon="gavel" iconColor="text-blue-500">
 
 <Section intro title="iPhoneがついに「開国」する" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -31,12 +31,12 @@ export const description = "2025年に施行された「スマートフォンソ
   </p>
   <CardGrid>
     <Card icon="lock" iconColor="text-gray-400" title="施行前（これまで）" desc="App Storeだけ・手数料30%" />
-    <Card icon="lock_open" iconColor="text-green-500" title="施行後（これから）" desc="他社ストアOK・選べる決済" />
+    <Card icon="lock_open" iconColor="text-green-500" title="施行後（これから）" desc="他社ストアOK・手数料大幅減" />
   </CardGrid>
   <AccordionGroup>
     <Accordion title="施行前後の違いを詳しく見る">
       <p class="text-sm text-gray-700 mb-2"><strong>施行前：</strong>アプリはApp Storeのみ、課金は最大30%手数料、ブラウザ・検索はApple優遇、純正アプリが常に優位</p>
-      <p class="text-sm text-gray-700"><strong>施行後：</strong>AltStore等の他社ストアもOK、PayPay・カード直接決済が可能、デフォルト設定を自由に選択、全アプリが公平に競争</p>
+      <p class="text-sm text-gray-700"><strong>施行後：</strong>AltStore PAL等の他社ストアが稼働中（iOS 26.2以降）、外部決済やリンク決済が可能（手数料は大幅減だが完全0%ではない）、デフォルト設定を自由に選択、全アプリが公平に競争</p>
     </Accordion>
   </AccordionGroup>
   <BunchanAdvice>
@@ -54,7 +54,7 @@ export const description = "2025年に施行された「スマートフォンソ
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
       <p class="text-gray-700 text-sm mb-3">
-        App Store以外の場所（AltStoreやSideStoreなど）からアプリをインストールできるようになります。
+        App Store以外の代替マーケットプレイスからアプリをインストールできるようになります。実際に<strong>AltStore PAL</strong>が2025年12月18日から日本で無料稼働中です（iOS 26.2以降が必要）。
       </p>
       <CardGrid>
         <Card icon="sports_esports" iconColor="text-purple-500" title="ゲームエミュレータ" desc="Delta等が合法的に入手可" />
@@ -73,15 +73,17 @@ export const description = "2025年に施行された「スマートフォンソ
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
       <p class="text-sm text-gray-700 mb-2">
-        Apple決済（最大30%の手数料）を使わず、より安い決済方法を選べるようになります。
+        Apple決済（最大30%の手数料）を使わず、より安い決済方法を選べるようになります。ただし、<strong>外部決済でもAppleへの手数料は完全に0%にはなりません</strong>。
       </p>
-      <p class="text-sm text-gray-700 mb-2"><strong>これまで：</strong>1,000円の課金 → 開発者には700円しか届かない</p>
-      <p class="text-sm text-gray-700"><strong>これから：</strong>手数料が下がり、アプリの値下げや新機能開発に</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>これまで：</strong>1,000円の課金 → 開発者には700円しか届かない（手数料30%）</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>これから（代替ストア経由）：</strong>手数料5%（Core Technology Commission）に大幅減</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>これから（App Store内の外部決済リンク）：</strong>手数料15%</p>
+      <p class="text-sm text-gray-700"><strong>これから（App Store内でApple決済利用）：</strong>10%（小規模開発者等）または21%に引き下げ</p>
     </Accordion>
     <Accordion title="ぶんちゃんに聞いてみよう">
       <BunchanAdvice>
-        <strong>Appleの手数料30%ってけっこう大きいんだよね。</strong><br />
-        これが開放されると、アプリの値段が安くなったり、開発者がもっといいアプリを作る余裕ができるかも💡
+        <strong>Appleの手数料30%が大幅に下がるよ！</strong><br />
+        代替ストア経由なら5%、App Store内の外部リンク決済でも15%まで下がるんだ。完全に0%にはならないけど、開発者の負担は大きく減るよ💡
       </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
@@ -167,8 +169,8 @@ export const description = "2025年に施行された「スマートフォンソ
   <AccordionGroup>
     <Accordion title="スマホ新法はいつから施行されてるの？">
       <BunchanAdvice>
-        <strong>2024年に成立して、2025年12月に施行されたよ！</strong><br />
-        ただし一部の細則はまだ運用が始まったばかり。最新情報は公正取引委員会のサイトでチェックしてね📋
+        <strong>2024年に成立して、2025年12月18日に施行されたよ！</strong><br />
+        代替マーケットプレイスを使うには<strong>iOS 26.2以降</strong>が必要だよ。最新情報は公正取引委員会のサイトでチェックしてね📋
       </BunchanAdvice>
     </Accordion>
     <Accordion title="Androidも対象なの？">
@@ -201,8 +203,8 @@ export const description = "2025年に施行された「スマートフォンソ
 <Section title="まとめ：自由には「見る目」が必要" icon="done_all" iconColor="text-green-600">
   <CardGrid>
     <Card icon="gavel" iconColor="text-blue-500" title="2025年12月施行済み" desc="スマホ新法が適用開始" />
-    <Card icon="store" iconColor="text-green-500" title="他社ストアOK" desc="AltStore等が公式に利用可" />
-    <Card icon="payments" iconColor="text-purple-500" title="決済も開放" desc="手数料30%から解放" />
+    <Card icon="store" iconColor="text-green-500" title="他社ストア稼働中" desc="AltStore PALが日本で利用可" />
+    <Card icon="payments" iconColor="text-purple-500" title="決済も開放" desc="手数料5〜21%に大幅減" />
     <Card icon="verified" iconColor="text-orange-500" title="安全性は維持" desc="Apple公証システム継続" />
   </CardGrid>
   <BunchanAdvice>

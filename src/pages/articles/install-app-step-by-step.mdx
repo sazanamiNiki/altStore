@@ -14,25 +14,52 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "AltStoreでアプリをインストール";
 export const h1 = "アプリのインストール方法";
-export const summary = "AltStoreでiPhoneにアプリを入れる方法を初心者向けに丁寧に解説。AltServerの準備からトラブル対応まで。";
-export const description = "AltStoreを使ってiPhoneにアプリをインストールする方法を、初心者向けにステップバイステップで解説。AltServerの準備から実際のアプリインストール、7日署名更新、トラブル対応まで完全網羅。";
+export const summary = "AltStoreでiPhoneにアプリを入れる方法を初心者向けに解説。AltStore PALならPC不要、AltServerの準備からトラブル対応まで。";
+export const description = "AltStoreを使ってiPhoneにアプリをインストールする方法を、初心者向けにステップバイステップで解説。AltStore PALならPC不要・7日制限なし。AltServerの準備から実際のアプリインストール、トラブル対応まで完全網羅。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-11" icon="install_desktop" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="install_desktop" iconColor="text-blue-500">
 
 <Section intro title="AltStoreでアプリを入れるって難しい？" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     「AltStoreの話をよく聞くけど、実際にアプリを入れるには何をすればいいの？」「PC/Macって絶対に必要なの？」
   </p>
-  <InfoBox type="success" icon="rocket_launch" title="やることは3ステップだけ">
+  <InfoBox type="indigo" icon="new_releases" title="AltStore PALなら、もっと簡単に">
+    日本では<strong>AltStore PAL</strong>が無料で利用可能（2025年12月18日〜）。Safariからインストールするだけで、<strong>PC不要・7日制限なし</strong>で運用できます（iOS 26.2以降）。下の「AltStore PALでインストール」セクションをご覧ください。
+  </InfoBox>
+  <InfoBox type="success" icon="rocket_launch" title="AltStore Classicなら3ステップ">
     USB接続 → Wi-Fi設定 → 完了。初回だけPCが必要で、以降はiPhoneのみで運用できます。
   </InfoBox>
-  <BunchanAdvice>
+  <BunchanAdvice alt="ぶんちゃんが励ましている">
     <strong>失敗しても焦らないで！</strong><br />
-    9割はケーブルが原因だよ。データ転送対応のケーブルを使ってね🔌
+    AltStore PALならPCいらずで超簡単。Classicの場合も、9割はケーブルが原因だよ🔌
   </BunchanAdvice>
 </Section>
 
-<Section title="事前準備：インストール前に確認すること" icon="checklist">
+<Section title="AltStore PALでインストール（PC不要・推奨）" icon="storefront" iconColor="text-green-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    日本ではAltStore PAL（代替アプリマーケットプレイス）が利用可能です。<strong>PCもUSBケーブルも不要</strong>で、Safariからインストールするだけです。
+  </p>
+  <CardGrid>
+    <Card icon="phone_iphone" iconColor="text-blue-500" title="iOS 26.2以降" desc="設定→一般で確認" />
+    <Card icon="language" iconColor="text-green-500" title="日本のApp Storeアカウント" desc="日本国内で操作" />
+  </CardGrid>
+  <StepList>
+    <Step num={1} title="Safariでaltstore.ioにアクセス" desc="必ずSafariブラウザを使用してください" />
+    <Step num={2} title="「Download」をタップ" desc="「マーケットプレイスのインストール」確認が表示されます" />
+    <Step num={3} title="設定アプリで許可する" desc="「AltStore LLCからのマーケットプレイスを許可」を選択" />
+    <Step num={4} title="再度altstore.ioで「Download」をタップ" desc="「App Marketplaceをインストール」を選択" />
+    <Step num={5} title="AltStore PALからアプリをインストール" desc="AltStore PALを開き、好きなアプリを「Get」でインストール" />
+  </StepList>
+  <InfoBox type="success" icon="check_circle" title="7日制限なし・自動更新不要">
+    AltStore PAL経由でインストールしたアプリは、<strong>7日ごとの署名更新が不要</strong>です。AltServerやWi-Fi同期の設定も必要ありません。
+  </InfoBox>
+  <BunchanAdvice alt="ぶんちゃんがAltStore PALについて説明している">
+    <strong>AltStore PALが一番カンタン！</strong><br />
+    Safariでダウンロードして許可するだけ。Epic Gamesのおかげで完全無料だよ🌸
+  </BunchanAdvice>
+</Section>
+
+<Section title="AltStore Classicの事前準備" icon="checklist">
   <CardGrid>
     <Card icon="phone_iphone" iconColor="text-blue-500" title="iOS 14.4以上" desc="設定→一般で確認" />
     <Card icon="computer" iconColor="text-gray-600" title="PC / Mac" desc="初回セットアップに必要" />
@@ -141,9 +168,11 @@ export const description = "AltStoreを使ってiPhoneにアプリをインス�
       </ul>
     </Accordion>
     <Accordion title="PC がない場合はどうするの？">
+      <p class="text-gray-700 mb-2">
+        日本にいるなら、<strong>AltStore PAL</strong>が最適です。Safariからインストールするだけで、PC不要・7日制限なし・完全無料で利用できます（iOS 26.2以降）。
+      </p>
       <p class="text-gray-700">
-        家族や友人の PC/Mac を借りて初回セットアップを完了させれば、その後は iPhone 上で手動で署名を更新できます。毎回 USB 接続は不要です。
-        また、SideStoreに切り替えることでPC不要での運用も可能です。
+        AltStore Classicを使う場合は、家族や友人の PC/Mac を借りて初回セットアップを完了させれば、その後は iPhone 上で手動で署名を更新できます。
       </p>
     </Accordion>
     <Accordion title="Apple ID が複数ある場合は？">
@@ -168,10 +197,10 @@ export const description = "AltStoreを使ってiPhoneにアプリをインス�
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
   <CardGrid>
-    <Card icon="checklist" iconColor="text-blue-500" title="事前準備" desc="iOS 14.4以上+PC必要" />
-    <Card icon="construction" iconColor="text-orange-500" title="セットアップ" desc="PC→USB→Wi-Fi設定" />
-    <Card icon="apps" iconColor="text-green-500" title="アプリインストール" desc="「Get」タップで簡単導入" />
-    <Card icon="autorenew" iconColor="text-purple-500" title="メンテナンス" desc="Wi-Fi自動更新で手放し運用" />
+    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL（推奨）" desc="PC不要・7日制限なし・無料" />
+    <Card icon="construction" iconColor="text-orange-500" title="Classic：セットアップ" desc="PC→USB→Wi-Fi設定" />
+    <Card icon="apps" iconColor="text-blue-500" title="アプリインストール" desc="「Get」タップで簡単導入" />
+    <Card icon="autorenew" iconColor="text-purple-500" title="Classic：メンテナンス" desc="Wi-Fi自動更新で手放し運用" />
   </CardGrid>
 </Section>
 

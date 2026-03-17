@@ -13,16 +13,16 @@ export const title = "よくある質問";
 export const summary = "サイドローディング・AltStoreの疑問を一問一答で解決。安全性・合法性から署名・設定まで網羅します。";
 export const description = "サイドローディング・AltStoreに関するよくある質問と回答を一問一答形式で解説。安全性・合法性、Developer Mode、7日署名、複数デバイス対応、パソコン不要の方法など、初心者が気になる疑問をすべて解決します。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-11" icon="help" iconColor="text-blue-500" faq={[
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-17" icon="help" iconColor="text-blue-500" faq={[
   { question: "サイドローディングって危なくない？", answer: "公式のオープンソースアプリのみ紹介しているため安全です。Delta・UTMはオープンソースで透明性があり、AltStoreのコードも公開済み。iOSの基本セキュリティもそのまま維持されます。" },
-  { question: "サイドローディングって違法じゃない？", answer: "違法ではありません。個人利用は完全に合法です。EUではDMAによりサイドローディングが義務化され、日本でもスマホ新法（MSCA）により2025年末に正式認定予定です。" },
+  { question: "サイドローディングって違法じゃない？", answer: "違法ではありません。個人利用は完全に合法です。EUではDMAによりサイドローディングが義務化され、日本でもスマホ新法（MSCA）が2025年12月18日に施行済みです。" },
   { question: "セキュリティは大丈夫？", answer: "信頼できるソース（公式リポジトリ）からのアプリなら問題ありません。海賊版・非公式アプリはクラッシュやバッテリー消耗の原因になるため避けてください。" },
   { question: "Developer Mode（開発者モード）って何？", answer: "iOS 16以降の開発者向けモードです。通常は不要で、必要なアプリを入れると自動で説明が出ます。その時だけONにすればOKです。" },
   { question: "Apple Certificateって必要なの？", answer: "不要です。普通のApple IDだけでOK。AltStoreが自動で署名してくれるため、有料のDeveloper Programへの加入は不要です。" },
   { question: "iPhoneが重くなったりしない？", answer: "信頼できるアプリなら通常通り動作します。非公式版・海賊版は動作不安定・バッテリー消費の原因になります。" },
   { question: "iOSアップデートしたら消えちゃう？", answer: "アプリは消えません。署名切れのみ注意が必要です。AltStoreは7日ごとに手動で再署名、SideStoreはバックグラウンドで自動更新されます。" },
   { question: "複数のiPhoneやiPadで使える？", answer: "同じApple IDで複数デバイスに対応しています。ただし無料Apple IDでは同時インストール最大3アプリ（AltStore含む）、週10アプリまでの制限があります。" },
-  { question: "パソコンって毎回必要？", answer: "AltStoreは毎回PCに接続が必要ですが、SideStoreなら最初だけPCがあれば以降はWi-Fiのみで運用できます。SideStoreはiOS 14以降対応で7日署名も自動更新します。" },
+  { question: "パソコンって毎回必要？", answer: "AltStore PAL（代替マーケットプレイス）ならPC不要でSafariからインストール可能です。AltStore Classicは毎回PCに接続が必要ですが、SideStoreなら最初だけPCがあれば以降はWi-Fiのみで運用できます。" },
   { question: "AltStoreでうまくインストールできない時は？", answer: "PCとiPhoneが同じWi-Fiに接続しているか、Apple IDのパスワードが正しいか、USBケーブルがデータ転送対応か確認してください。インストール失敗の多くはケーブルが充電専用だったケースです。" },
 ]}>
 
@@ -49,7 +49,7 @@ export const description = "サイドローディング・AltStoreに関する�
 
     <Accordion title="Q. サイドローディングって違法じゃない？">
       <p class="text-sm text-gray-700 mb-2"><strong>違法ではありません。</strong>個人利用は完全に合法です。</p>
-      <p class="text-sm text-gray-700 mb-2">EUではDMAによりサイドローディングが義務化。日本でもスマホ新法（MSCA）により2025年末に正式認定予定です。</p>
+      <p class="text-sm text-gray-700 mb-2">EUではDMAによりサイドローディングが義務化。日本でもスマホ新法（MSCA）が<strong>2025年12月18日に施行済み</strong>で、AltStore PALなどの代替マーケットプレイスが正式に利用可能です。</p>
       <InfoBox type="success" title="このサイトのアプリはすべて合法配布の公式アプリです。" />
     </Accordion>
 
@@ -115,9 +115,10 @@ export const description = "サイドローディング・AltStoreに関する�
     </Accordion>
 
     <Accordion title="Q. パソコンって毎回必要？">
-      <p class="text-sm text-gray-700 mb-2"><strong>AltStore：</strong>毎回PCに接続が必要。<strong>SideStore（推奨）：</strong>最初だけPCがあれば、以降はWi-Fiのみ。</p>
-      <InfoBox type="success" title="おすすめ">
-        SideStoreはiOS 14以降対応。7日署名も自動更新します。
+      <p class="text-sm text-gray-700 mb-2"><strong>AltStore PAL（おすすめ）：</strong>PC不要。Safariからインストールするだけ。7日制限もなし。</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>AltStore Classic：</strong>毎回PCに接続が必要。<strong>SideStore：</strong>最初だけPCがあれば、以降はWi-Fiのみ。</p>
+      <InfoBox type="success" icon="phone_iphone" title="PC不要の選択肢">
+        日本ではMSCA法の施行により、AltStore PAL（代替マーケットプレイス）がiOS 26.2以降で無料利用可能です。PCもケーブルも不要で始められます。
       </InfoBox>
     </Accordion>
 
@@ -140,7 +141,7 @@ export const description = "サイドローディング・AltStoreに関する�
     </Accordion>
   </AccordionGroup>
   <BunchanAdvice>
-    7日ごとの更新が面倒なら、<strong>SideStore</strong>がおすすめ！初回だけPCがあれば、その後はiPhoneだけで全部完結するよ。インストールがうまくいかないときはまず<strong>ケーブルを確認</strong>してみてね🔌
+    一番かんたんなのは<strong>AltStore PAL</strong>！PCもケーブルもいらないし、7日制限もないよ。PCを使う場合は<strong>SideStore</strong>なら初回だけPCがあればOK。インストールがうまくいかないときはまず<strong>ケーブルを確認</strong>してみてね🔌
   </BunchanAdvice>
 </Section>
 
@@ -156,11 +157,11 @@ export const description = "サイドローディング・AltStoreに関する�
   <CardGrid>
     <Card icon="security" iconColor="text-green-500" title="公式リポジトリから" desc="信頼できるソースのみ使用" />
     <Card icon="autorenew" iconColor="text-blue-500" title="SideStoreで自動更新" desc="7日署名を自動管理" />
-    <Card icon="gavel" iconColor="text-purple-500" title="完全に合法" desc="日本でも新法対応予定" />
+    <Card icon="gavel" iconColor="text-purple-500" title="完全に合法" desc="日本でもMSCA法施行済み" />
     <Card icon="badge" iconColor="text-orange-500" title="無料IDでOK" desc="同時3アプリまで利用可" />
   </CardGrid>
   <InfoBox type="warning" icon="info" title="このFAQについて">
-    2026年2月現在の情報です。法律・仕様は変更される可能性があります。
+    2026年3月現在の情報です。法律・仕様は変更される可能性があります。
   </InfoBox>
   <BunchanAdvice>
     わからないことがあったらいつでもこのページに戻ってきてね！下の関連記事もきっと役に立つよ。一緒にサイドローディングを楽しもう🌟

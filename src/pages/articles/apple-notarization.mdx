@@ -13,7 +13,7 @@ export const h1 = "Apple公証とは";
 export const summary = "野良アプリは危険？Apple公証（Notarization）とサンドボックスで守られたサイドローディングの安全性を解説。";
 export const description = "「野良アプリは危険」は本当か？Appleの公証システム（Notarization）とサンドボックス構造から、サイドローディングの安全性を技術的に解説。マルウェア検査・改ざん防止の仕組みを詳しく紹介します。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="shield" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="shield" iconColor="text-blue-500">
 
 <Section intro title="サイドローディング＝危険？それは思い込みかもしれません" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -25,9 +25,9 @@ export const description = "「野良アプリは危険」は本当か？Apple�
   </p>
   <InfoBox type="info" title="この記事について">
     この記事では、<strong>Apple公証（Notarization）</strong>という技術的なセキュリティシステムについて解説しています。
-    ただし、<strong>すべてのサイドローディングアプリが公証を受けているわけではありません</strong>。
-    エミュレータ（Delta、UTMなど）はオープンソースで開発されており、透明性が高いことが安全性の根拠となっています。
-    一方、クリエイターアプリなどの商用アプリは、Apple公証を受けることで安全性を証明しています。
+    <strong>代替マーケットプレイス（AltStore PAL等）経由で配布されるすべてのアプリは、Apple公証が必須</strong>です。
+    一方、無料の開発者アカウントで直接IPAファイルをインストールする場合は、公証の対象外となります。
+    エミュレータ（Delta、UTMなど）はオープンソースで開発されており、透明性が高いことも安全性の根拠です。
   </InfoBox>
   <BunchanAdvice>
     <strong>「野良アプリ＝危険」は思い込み！</strong><br />
@@ -37,7 +37,7 @@ export const description = "「野良アプリは危険」は本当か？Apple�
 
 <Section title="Apple公証（Notarization）とは" icon="verified" iconColor="text-green-600">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <strong>Apple公証（Notarization）</strong>とは、App Store 外で配布されるアプリに対して、Apple が自動で行う<strong>セキュリティチェック</strong>のことです。主な役割は2つです：
+    <strong>Apple公証（Notarization）</strong>とは、App Store 外で配布されるアプリに対して、Apple が<strong>自動チェックと人間によるレビューを組み合わせて</strong>行う<strong>ベースラインセキュリティレビュー</strong>のことです。代替マーケットプレイス（AltStore PAL等）経由で配布される<strong>すべてのiOSアプリは公証が必須</strong>です。主な役割は2つです：
   </p>
   <CardGrid>
     <Card icon="bug_report" iconColor="text-red-500" title="マルウェアスキャン" desc="ウイルス・スパイ自動検査" />
@@ -45,13 +45,14 @@ export const description = "「野良アプリは危険」は本当か？Apple�
   </CardGrid>
 
   <CardGrid>
-    <Card icon="store" iconColor="text-blue-500" title="App Store審査" desc="人による品質審査" />
-    <Card icon="verified" iconColor="text-green-500" title="公証" desc="自動セキュリティ検査" />
+    <Card icon="store" iconColor="text-blue-500" title="App Store審査" desc="品質・ポリシーの総合審査" />
+    <Card icon="verified" iconColor="text-green-500" title="公証" desc="自動+人的セキュリティ検査" />
   </CardGrid>
   <AccordionGroup>
     <Accordion title="審査と公証の違いを詳しく見る">
-      <p class="text-sm text-gray-700 mb-2"><strong>App Store審査：</strong>人間による品質・ポリシー審査。数時間〜数日かかることも。</p>
-      <p class="text-sm text-gray-700"><strong>公証：</strong>自動スキャンでウイルス・改ざんのみチェック。数分で完了。</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>App Store審査：</strong>人間による品質・ポリシーの総合審査。コンテンツの適切性やビジネスモデルも審査対象。数時間〜数日かかることも。</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>公証（Notarization）：</strong>自動チェックと人間によるレビューの組み合わせで実施。マルウェア・ウイルスの検出、アプリの基本機能の確認、重大な詐欺の防止に焦点を当てたベースラインレビューです。</p>
+      <p class="text-sm text-gray-700"><strong>重要な違い：</strong>公証はセキュリティ・プライバシー・デバイス保全に特化した基準レビューであり、App Storeのコンテンツ品質基準やビジネス慣行の審査は含まれません。</p>
     </Accordion>
   </AccordionGroup>
   <InfoBox type="success" title="重要ポイント">
@@ -222,20 +223,24 @@ export const description = "「野良アプリは危険」は本当か？Apple�
 
 <Section title="重要：7日署名と公証の関係" icon="warning" iconColor="text-yellow-600">
   <InfoBox type="warning" title="7日署名では公証が失われます">
-    AltStoreやSideStoreでIPAファイルとしてインストールしたアプリは、<strong>7日ごとに再署名が必要</strong>です。
+    AltStoreやSideStoreで<strong>無料の開発者アカウント</strong>を使いIPAファイルとしてインストールしたアプリは、<strong>7日ごとに再署名が必要</strong>です。
     この再署名プロセスでは、<mark class="bg-yellow-100 px-1 rounded"><strong>元の公証ステータスが失われます</strong></mark>。
     つまり、初回インストール時は公証済みアプリとして保護されますが、
     7日後の自動更新以降は、<strong>公証なしの状態</strong>で動作することになります。
     ただし、iOSの<strong>サンドボックス構造</strong>により、アプリはシステムから隔離されているため、
     公証が失われても基本的な安全性は維持されます。
   </InfoBox>
-  <InfoBox type="success" icon="check_circle" title="公証を維持する方法">
+  <InfoBox type="success" icon="check_circle" title="7日制限なしで利用する方法">
     <ul class="mt-1 space-y-1">
-      <li><strong>App Storeから配信されるアプリを使用：</strong>App Store経由のアプリは公証が永続的に維持されます</li>
+      <li><strong>代替マーケットプレイス経由でインストール：</strong>AltStore PAL等の代替マーケットプレイスからインストールしたアプリは、7日制限なしで永続的に利用可能です。公証も維持されます</li>
       <li><strong>有料開発者アカウント（年額99ドル）を使用：</strong>永続的な署名が可能になります</li>
-      <li><strong>信頼できるソースからのみインストール：</strong>初回の公証チェックで安全性を確保できます</li>
+      <li><strong>App Storeから配信されるアプリを使用：</strong>App Store経由のアプリは公証が永続的に維持されます</li>
     </ul>
   </InfoBox>
+  <BunchanAdvice>
+    <strong>AltStore PAL（代替マーケットプレイス版）なら7日制限なし！</strong><br />
+    日本でもiOS 26.2以降でAltStore PALが使えるから、7日ごとの再署名から解放されるよ🎉
+  </BunchanAdvice>
 </Section>
 
 <RelatedArticles articles={[

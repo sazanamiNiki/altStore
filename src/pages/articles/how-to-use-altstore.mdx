@@ -14,24 +14,54 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "AltStoreの使い方と仕組み｜初心者向け導入ガイド";
 export const h1 = "AltStoreの使い方と仕組み";
-export const summary = "AltStoreの使い方を初心者向けに解説。7日署名の仕組み、Wi-Fi自動更新、PCなしでの運用方法までわかります。";
-export const description = "AltStoreの使い方・インストール方法を初心者向けに解説。7日間署名の仕組み、AltServerによるWi-Fi自動更新、PCなしでの運用方法まで、基礎から丁寧にガイド。これを読めばAltStoreの全体像と始め方がわかります。";
+export const summary = "AltStoreの使い方を初心者向けに解説。AltStore PALの日本対応情報、7日署名の仕組み、PCなしでの運用方法までわかります。";
+export const description = "AltStoreの使い方・インストール方法を初心者向けに解説。日本対応のAltStore PALなら7日制限なし・PC不要。AltStore Classicの7日間署名の仕組み、AltServerによるWi-Fi自動更新まで、基礎から丁寧にガイド。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-15" icon="apps" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-17" icon="apps" iconColor="text-blue-500">
 
 <Section intro title="AltStoreとは何か" icon="help_outline">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     <strong>App Storeの代替</strong>として使える、初心者に最もやさしいサイドローディングツールです。
   </p>
-  <InfoBox type="success" icon="check_circle" title="このガイドで習得できること">
-    ✓ 7日署名の仕組み ✓ Wi-Fi自動更新の設定 ✓ PC不要オプション（SideStore）
+  <InfoBox type="indigo" icon="new_releases" title="AltStore PALが日本で無料利用可能に">
+    2025年12月18日より、日本でも<strong>AltStore PAL</strong>が利用可能になりました。Epic Games MegaGrantにより<strong>完全無料</strong>で、PC不要・7日制限なしで運用できます（iOS 26.2以降）。詳しくは下のセクションで解説します。
   </InfoBox>
-  <BunchanAdvice>
+  <InfoBox type="success" icon="check_circle" title="このガイドで習得できること">
+    ✓ AltStore ClassicとPALの違い ✓ 7日署名の仕組み ✓ Wi-Fi自動更新の設定 ✓ PC不要オプション
+  </InfoBox>
+  <BunchanAdvice alt="ぶんちゃんがアドバイスしている">
     この記事では「仕組み」を解説するよ！実際の手順は「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」を見てね🌸
   </BunchanAdvice>
 </Section>
 
-<Section title="AltStoreの仕組み：なぜ7日で署名が切れるのか" icon="settings" iconColor="text-blue-600">
+<Section title="AltStore ClassicとAltStore PALの違い" icon="compare" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStoreには<strong>Classic</strong>（従来版）と<strong>PAL</strong>（代替アプリマーケットプレイス版）の2種類があります。
+  </p>
+  <CardGrid>
+    <Card icon="apps" iconColor="text-orange-500" title="AltStore Classic" desc="PC必要・7日署名制限あり" />
+    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL" desc="PC不要・7日制限なし・無料" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="AltStore Classic（従来版）とは" open>
+      <p class="text-sm text-gray-700 mb-2">2019年から提供されている従来のサイドローディングツールです。PCのAltServerと連携して動作し、無料Apple IDでは<strong>7日ごとに署名の更新</strong>が必要です。</p>
+      <p class="text-sm text-gray-600">世界中どこでも利用でき、App Storeにないアプリを自由にインストールできます。</p>
+    </Accordion>
+    <Accordion title="AltStore PAL（代替マーケットプレイス版）とは">
+      <p class="text-sm text-gray-700 mb-2">EUのデジタル市場法（DMA）や日本のスマートフォン新法（MSCA）に基づき、Appleが認めた<strong>代替アプリマーケットプレイス</strong>として動作するバージョンです。</p>
+      <p class="text-sm text-gray-700 mb-2">Epic Games MegaGrantにより<strong>完全無料</strong>で利用可能。Safariからインストールするだけで、<strong>PC不要・7日制限なし</strong>で運用できます。</p>
+      <p class="text-sm text-gray-600">日本ではiOS 26.2以降のiPhoneで利用できます（2025年12月18日〜）。</p>
+    </Accordion>
+    <Accordion title="どちらを選ぶべき？">
+      <BunchanAdvice alt="ぶんちゃんがどちらを選ぶべきかアドバイスしている">
+        <strong>日本にいるならAltStore PALが断然おすすめ！</strong><br />
+        PC不要で7日制限もないから、手間がゼロになるよ。iOS 26.2以降ならSafariからすぐにインストールできるよ🌸
+      </BunchanAdvice>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="AltStore Classicの仕組み：なぜ7日で署名が切れるのか" icon="settings" iconColor="text-blue-600">
   <CardGrid>
     <Card icon="shopping_bag" iconColor="text-green-500" title="App Store" desc="Appleが永続的に署名を提供" />
     <Card icon="apps" iconColor="text-orange-500" title="AltStore" desc="無料Apple IDは7日間のみ有効" />
@@ -86,22 +116,31 @@ export const description = "AltStoreの使い方・インストール方法を�
 <AltStoreSetupSteps />
 
 <Section title="PCがない場合はどうする？" icon="help_center" iconColor="text-blue-600">
+  <InfoBox type="success" icon="storefront" title="AltStore PALならPC不要">
+    日本ではAltStore PALが利用可能です。Safariからインストールするだけで、<strong>PC不要・7日制限なし</strong>で運用できます（iOS 26.2以降）。
+  </InfoBox>
   <CardGrid>
-    <Card icon="touch_app" iconColor="text-orange-500" title="手動更新" desc="7日ごとに更新ボタンをタップ" />
+    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL" desc="PC不要・7日制限なし（推奨）" />
+    <Card icon="touch_app" iconColor="text-orange-500" title="Classic手動更新" desc="7日ごとに更新ボタンをタップ" />
     <Card icon="people" iconColor="text-blue-500" title="PCを借りる" desc="1回AltServerを起動すればOK" />
-    <Card icon="smartphone" iconColor="text-green-500" title="SideStoreに移行" desc="以降はiPhoneのみで完結" />
   </CardGrid>
   <AccordionGroup>
-    <Accordion title="手動更新なら可能">
-      <BunchanAdvice>
+    <Accordion title="最良の選択肢：AltStore PALを使う" open>
+      <BunchanAdvice alt="ぶんちゃんがAltStore PALをおすすめしている">
+        <strong>日本にいるならAltStore PALが一番ラク！</strong><br />
+        Safariでaltstore.ioにアクセスしてダウンロードするだけ。PCもいらないし7日制限もないよ🌸
+      </BunchanAdvice>
+    </Accordion>
+    <Accordion title="AltStore Classicの場合：手動更新なら可能">
+      <BunchanAdvice alt="ぶんちゃんが手動更新について説明している">
         <strong>PCなしでもOK。7日ごとにAltStoreで更新ボタン（↻）をタップ！</strong><br />
         アプリは消えないから焦らず、数分で復活できるよ🌸
       </BunchanAdvice>
     </Accordion>
     <Accordion title="代替手段：友人のPCを借りる">
-      <BunchanAdvice>
+      <BunchanAdvice alt="ぶんちゃんがPCを借りる方法について説明している">
         <strong>友人・家族のPCを1回借りればOK。</strong><br />
-        同じWi-FiでAltServerを起動して更新すれば完了。PCが本当に無い場合はSideStoreも検討してみてね💡
+        同じWi-FiでAltServerを起動して更新すれば完了。PCが本当に無い場合はAltStore PALかSideStoreも検討してみてね💡
       </BunchanAdvice>
     </Accordion>
   </AccordionGroup>
@@ -132,10 +171,10 @@ export const description = "AltStoreの使い方・インストール方法を�
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
   <CardGrid>
-    <Card icon="schedule" iconColor="text-orange-500" title="7日ごとに再署名" desc="無料Apple IDの制限" />
-    <Card icon="wifi" iconColor="text-blue-500" title="Wi-Fi自動更新" desc="AltServerで手間ゼロ" />
-    <Card icon="smartphone" iconColor="text-green-500" title="PCなしでもOK" desc="手動更新で運用可能" />
-    <Card icon="workspace_premium" iconColor="text-purple-500" title="有料で制限解除" desc="年額99ドルで7日制限なし" />
+    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL（推奨）" desc="PC不要・7日制限なし・無料" />
+    <Card icon="schedule" iconColor="text-orange-500" title="Classic：7日ごとに再署名" desc="無料Apple IDの制限" />
+    <Card icon="wifi" iconColor="text-blue-500" title="Classic：Wi-Fi自動更新" desc="AltServerで手間ゼロ" />
+    <Card icon="smartphone" iconColor="text-green-600" title="Classic：PCなしでもOK" desc="手動更新で運用可能" />
   </CardGrid>
   <InfoBox type="info" title="次のステップ">
     仕組みがわかったら、実際にやってみましょう！「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法（実践編）</a>」で画像付きの手順を確認できます。
