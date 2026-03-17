@@ -12,7 +12,7 @@ export const title = "【2026最新】神アプリ3選";
 export const summary = "Delta、UTM SE、SideStoreの3つを厳選。iPhoneの自由を広げるオープンソースアプリを紹介。";
 export const description = "2026年最新のiOS向け厳選アプリTOP3を紹介。ゲームエミュレータDelta、仮想マシンUTM SE、PC不要のSideStore。すべてオープンソースで安全性が確認されたアプリをAltStore/SideStore経由で入手する方法を解説します。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-11" icon="star" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-17" icon="star" iconColor="text-blue-500">
 
 <Section intro title="2026年おすすめアプリTOP3" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="3つの共通点">
@@ -33,11 +33,18 @@ export const description = "2026年最新のiOS向け厳選アプリTOP3を紹�
     <Card icon="group" iconColor="text-purple-500" title="4人マルチ" desc="ローカル対戦可能" />
   </CardGrid>
   <AccordionGroup>
-    <Accordion title="注意点">
+    <Accordion title="入手方法と注意点">
       <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
         <li>ROMは自分で用意（<a href={`${import.meta.env.BASE_URL}articles/emulator-legal/`} class="text-blue-600 underline">合法的な入手方法</a>）</li>
-        <li>日本App Store未公開 → AltStore経由で入手</li>
+        <li>日本App Store未公開 → <strong>AltStore PAL（日本対応済み・PCなし）</strong>で入手可能</li>
         <li>一部N64タイトルで互換性問題あり</li>
+      </ul>
+    </Accordion>
+    <Accordion title="Delta 2.0ベータの新機能">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>RetroAchievements</strong>：全機種で実績解除に対応（NES/SNES/N64/GB/GBA/DS/Genesis）</li>
+        <li><strong>Sega Genesis対応</strong>：チートコード対応・新コントローラースキン追加</li>
+        <li><strong>Liquid Glass UI</strong>：iOS 26に合わせたモダンなデザイン</li>
       </ul>
     </Accordion>
   </AccordionGroup>
@@ -64,6 +71,13 @@ export const description = "2026年最新のiOS向け厳選アプリTOP3を紹�
         <li>性能はPentium 120相当（Win10/11は非実用的）</li>
         <li>GPU非対応（3Dゲーム不可）</li>
         <li>ストレージ20GB〜必要</li>
+      </ul>
+    </Accordion>
+    <Accordion title="最近の新機能">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>改善されたウィザード</strong>：Win 95/98/XP・クラシックMac OS・RISC-V等のテンプレートを追加</li>
+        <li><strong>Shortcuts対応</strong>：App Intentsで仮想マシンの起動・操作を自動化</li>
+        <li><strong>入力自動化</strong>：キーボード・マウス操作をスクリプトで送信可能</li>
       </ul>
     </Accordion>
   </AccordionGroup>

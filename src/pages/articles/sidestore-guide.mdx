@@ -14,14 +14,14 @@ export const title = "SideStore 完全ガイド";
 export const summary = "PC不要でアプリ管理できるSideStoreの完全ガイド。AltStoreとの違い、VPNの仕組み、導入手順まで。";
 export const description = "PC不要でアプリを管理できるSideStoreの日本語完全ガイド。AltStoreとの違い、VPNの仕組み、セットアップ手順、7日署名の自動更新、トラブルシューティングまで初心者にもわかりやすく徹底解説。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-11" icon="phonelink" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-17" icon="phonelink" iconColor="text-blue-500">
 
 <Section intro title="PC不要でアプリを管理する方法" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     <mark class="bg-yellow-100 px-1 rounded"><strong>SideStore</strong></mark>は、初回セットアップ後は<strong>PCなしでアプリ管理が可能</strong>なサイドローディングツールです。
   </p>
   <InfoBox type="success" icon="check_circle" title="SideStoreのポイント">
-    初回のみPC接続が必要。以降はiPhone単独でアプリ管理が可能です。
+    初回のみPC接続が必要。以降はiPhone単独でアプリ管理が可能です。iOS 26.2以降の方は<a href="#日本ユーザー向けaltstore-pal-という選択肢" class="text-blue-600 underline">AltStore PAL</a>も検討を。
   </InfoBox>
   <BunchanAdvice>
     <strong>「PCを毎回接続するのが面倒」ならSideStoreがぴったり！</strong><br />
@@ -46,15 +46,49 @@ export const description = "PC不要でアプリを管理できるSideStoreの�
   </CardGrid>
 </Section>
 
+<Section title="日本ユーザー向け：AltStore PAL という選択肢" icon="storefront" iconColor="text-indigo-500">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    2025年12月、Appleが日本でサードパーティ製マーケットプレイスを解禁したことを受け、<mark class="bg-yellow-100 px-1 rounded"><strong>AltStore PAL</strong></mark>が日本で利用可能になりました。
+    Epic Gamesの助成により<strong>無料</strong>で利用できます。
+  </p>
+  <CardGrid>
+    <Card icon="storefront" iconColor="text-indigo-500" title="AltStore PAL" desc="PC不要・7日制限なし" />
+    <Card icon="phone_iphone" iconColor="text-green-500" title="SideStore" desc="PC初回のみ・VPN必要" />
+  </CardGrid>
+  <InfoBox type="indigo" icon="new_releases" title="AltStore PAL（日本版）の特徴">
+    <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+      <li><strong>PC不要：</strong>Webサイトから直接インストール</li>
+      <li><strong>7日制限なし：</strong>マーケットプレイス経由のため署名期限切れの心配不要</li>
+      <li><strong>無料：</strong>Epic Gamesの助成によりサブスク不要</li>
+      <li><strong>要件：</strong>iOS 26.2以降 + 日本のApp Storeアカウント</li>
+    </ul>
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="AltStore PALとSideStoreの使い分け">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>AltStore PALがおすすめ：</strong>iOS 26.2以降の端末を持っている方。PC不要・7日制限なしで最も手軽</li>
+        <li><strong>SideStoreがおすすめ：</strong>iOS 14〜26.1の端末を使っている方、またはマーケットプレイスに登録されていないアプリ（IPA）を自由にインストールしたい方</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
+    <strong>iOS 26.2以降のiPhoneなら、まずAltStore PALを試してみて！</strong><br />
+    PC不要で7日制限もないから、いちばん簡単だよ。それ以外のiOSバージョンならSideStoreが活躍するよ📱
+  </BunchanAdvice>
+</Section>
+
 <Section title="VPN（EM Proxy）を使用した仕組み" icon="vpn_key" iconColor="text-purple-600">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     SideStoreは「EM Proxy」技術を使い、<strong>VPN経由でPC不要のインストール</strong>を実現します。
     VPNはデバイス内部のループバック接続のみで、外部通信は行いません。
   </p>
   <CardGrid>
-    <Card icon="vpn_key" iconColor="text-purple-500" title="LocalDevVPN" desc="App Storeで無料入手" />
-    <Card icon="verified" iconColor="text-green-500" title="StosVPN（推奨）" desc="公式製・オフライン対応" />
+    <Card icon="vpn_key" iconColor="text-green-500" title="LocalDevVPN（推奨）" desc="App Storeで無料入手" />
+    <Card icon="block" iconColor="text-gray-400" title="StosVPN（配信終了）" desc="App Storeから削除済み" />
   </CardGrid>
+  <InfoBox type="error" icon="warning" title="StosVPN は App Store から削除されました">
+    StosVPNは2026年3月にApp Storeから削除されました。新規ダウンロードはできません。<strong>既にインストール済みの方は引き続き使用可能</strong>です。新規の方は<strong>LocalDevVPN</strong>をApp Storeからダウンロードしてください。
+  </InfoBox>
   <InfoBox type="warning" icon="schedule" title="VPN接続のタイミング">
     VPNはインストール・更新・リフレッシュ時のみ接続。常時接続は不要です。
   </InfoBox>
@@ -65,15 +99,14 @@ export const description = "PC不要でアプリを管理できるSideStoreの�
         App Storeの「LocalDevVPN」を使用してVPNトンネルを作成し、「Jitterbug」のループバック方式で署名を行います。
       </p>
     </Accordion>
-    <Accordion title="StosVPNの利点（推奨）">
+    <Accordion title="StosVPNについて（配信終了）">
       <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-        2025年4月リリースのSideStoreチーム公式VPN。LocalDevVPNより多くの利点があります：
+        StosVPNはSideStoreチーム公式のVPNアプリでしたが、<strong>2026年3月にApp Storeから削除</strong>されました。
       </p>
       <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li><strong>オフライン対応:</strong> オフラインでもJIT有効化可能</li>
-        <li><strong>セルラー対応:</strong> モバイル回線でも正常動作</li>
-        <li><strong>省電力:</strong> SideStoreのトラフィックのみルーティング</li>
-        <li><strong>高安定性:</strong> WireGuardベースより安定</li>
+        <li><strong>既にインストール済みの場合：</strong>そのまま使用可能</li>
+        <li><strong>新規インストール：</strong>App Storeからダウンロード不可</li>
+        <li><strong>代替手段：</strong>LocalDevVPNをApp Storeからダウンロード</li>
       </ul>
     </Accordion>
   </AccordionGroup>
@@ -84,7 +117,7 @@ export const description = "PC不要でアプリを管理できるSideStoreの�
     初回のみPCが必要です。<strong>5つのステップ</strong>で完了します。
   </p>
   <CardGrid>
-    <Card icon="smartphone" iconColor="text-blue-500" title="対応iOS" desc="iOS 14.0 - 18.4" />
+    <Card icon="smartphone" iconColor="text-blue-500" title="対応iOS" desc="iOS 14.0 - 26.x" />
     <Card icon="computer" iconColor="text-gray-500" title="PC（初回のみ）" desc="Win10以降/macOS" />
   </CardGrid>
   <InfoBox type="info" icon="checklist" title="必要なもの">
@@ -118,7 +151,7 @@ export const description = "PC不要でアプリを管理できるSideStoreの�
     </Accordion>
     <Accordion title="Step 3：VPNの設定">
       <StepList>
-        <Step num={1} title="App StoreからLocalDevVPNまたはStosVPNをダウンロード" />
+        <Step num={1} title="App StoreからLocalDevVPNをダウンロード" desc="StosVPNは配信終了。LocalDevVPNを使用" />
         <Step num={2} title="VPNアプリを開き「接続」をタップ" />
         <Step num={3} title="「VPN構成の追加を許可」の確認が表示されたら「許可」をタップ" />
         <Step num={4} title="パスコードを入力してVPN構成を追加" />
@@ -225,7 +258,7 @@ export const description = "PC不要でアプリを管理できるSideStoreの�
       <p class="text-gray-700 mb-2"><strong>原因：</strong>VPN構成またはネットワークの問題</p>
       <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
         <li>「設定」→「VPNとデバイス管理」→「VPN」でプロファイルを削除し再設定</li>
-        <li>LocalDevVPNの代わりにStosVPNを試す</li>
+        <li>LocalDevVPNを再インストール</li>
         <li>デバイスを再起動</li>
       </ul>
     </Accordion>
@@ -258,12 +291,13 @@ export const description = "PC不要でアプリを管理できるSideStoreの�
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
   <CardGrid>
     <Card icon="phone_iphone" iconColor="text-blue-500" title="PC不要運用" desc="初回セットアップ後は完結" />
-    <Card icon="vpn_key" iconColor="text-purple-500" title="VPN必須" desc="ローカル接続のみ使用" />
+    <Card icon="vpn_key" iconColor="text-purple-500" title="VPN必須" desc="LocalDevVPNを使用" />
     <Card icon="schedule" iconColor="text-yellow-500" title="7日間ルール" desc="週1リフレッシュ忘れずに" />
     <Card icon="apps" iconColor="text-green-500" title="3アプリ制限" desc="LiveContainerで回避可" />
   </CardGrid>
   <p class="text-gray-700 leading-relaxed sm:leading-7 mt-4 sm:mt-6 mb-3 sm:mb-4">
     <strong>SideStore</strong>はPCなし運用派に、<strong>AltStore</strong>はシンプル派におすすめです。
+    <strong>iOS 26.2以降</strong>の方は、PC不要・7日制限なしの<strong>AltStore PAL</strong>も選択肢に入ります。
   </p>
   <InfoBox type="info" title="公式リソース">
     <ul class="mt-1 space-y-1.5 sm:space-y-2">

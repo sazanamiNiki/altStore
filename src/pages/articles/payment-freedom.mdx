@@ -14,7 +14,7 @@ export const h1 = "App Store vs Web決済";
 export const summary = "同じサービスでも年額5,000円の差！スマホ新法で変わった決済の自由とYouTube・Spotifyの価格差を解説。";
 export const description = "「アプリで払うと高い」は本当か？スマホ新法で自由になった決済手段のメリット・デメリットと、YouTubeやSpotifyでの価格差の実例を詳しく解説。年間5,000円以上の節約術も詳しく紹介いたします。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-10" icon="credit_card" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="credit_card" iconColor="text-blue-500">
 
 <Section intro title="同じサービスなのに値段が違う？" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -27,7 +27,7 @@ export const description = "「アプリで払うと高い」は本当か？ス�
     この価格差の正体は<strong>「Apple税」</strong>と呼ばれる手数料（15〜30%）です。アプリ内で決済すると、Appleが手数料を徴収するため、その分が価格に上乗せされているのです。
   </p>
   <p class="text-gray-700">
-    しかし、2025年から施行された<mark class="bg-yellow-100 px-1 rounded"><strong>日本の「スマホソフトウェア競争促進法」（通称：スマホ新法）</strong></mark>により、アプリ開発者は<strong>Web決済への誘導が正式に許可</strong>されるようになりました。この記事では、それぞれの決済方法のメリット・デメリットと、<strong>賢い使い分けの方法</strong>を解説します。
+    2025年12月に施行された<mark class="bg-yellow-100 px-1 rounded"><strong>日本の「スマートフォンソフトウェア競争促進法（MSCA）」（通称：スマホ新法）</strong></mark>により、アプリ開発者は<strong>Web決済への誘導が正式に許可</strong>されました。この記事では、それぞれの決済方法のメリット・デメリットと、<strong>賢い使い分けの方法</strong>を解説します。
   </p>
   <BunchanAdvice>
     <strong>YouTube Premiumだけで年間4,800円の差！知らないと損だよ！</strong><br />
@@ -59,8 +59,17 @@ export const description = "「アプリで払うと高い」は本当か？ス�
       </ul>
     </Accordion>
   </AccordionGroup>
-  <InfoBox type="warning" icon="info" title="スマホ新法（2025年施行）とは？">
-    正式名称は「特定ソフトウェアに係る競争の促進に関する法律」。Apple（iOS）やGoogle（Android）といったプラットフォームが、<strong>決済手段を独占することを禁止</strong>し、アプリ開発者が外部決済（Web決済）への誘導を自由にできるようにした法律です。これにより、ユーザーは<mark class="bg-yellow-100 px-1 rounded"><strong>より安い価格で同じサービスを利用できる</strong></mark>ようになりました。
+  <InfoBox type="warning" icon="info" title="スマホ新法（2025年12月施行済み）とは？">
+    正式名称は「スマートフォンにおいて利用される特定ソフトウェアに係る競争の促進に関する法律」（MSCA）。2025年12月18日に施行済みです。Apple（iOS）やGoogle（Android）といったプラットフォームが、<strong>決済手段を独占することを禁止</strong>し、アプリ開発者が外部決済（Web決済）への誘導を自由にできるようにした法律です。これにより、ユーザーは<mark class="bg-yellow-100 px-1 rounded"><strong>より安い価格で同じサービスを利用できる</strong></mark>ようになりました。
+  </InfoBox>
+  <InfoBox type="info" icon="payments" title="日本のApple手数料：3段階の区分">
+    MSCA施行後、日本のApple手数料は3段階に分かれました。
+    <ul class="mt-2 space-y-1">
+      <li><strong>App Store + IAP：</strong>21%（ストアサービス）+ 5%（決済処理）= 26%</li>
+      <li><strong>外部決済リンク：</strong>15%（アプリ内リンクからWebで決済した場合）</li>
+      <li><strong>代替ストア：</strong>5%（AltStore PALなど代替マーケットプレイス経由）</li>
+    </ul>
+    <p class="mt-2 text-sm text-gray-600">※ Small Business Program参加者（年間売上100万ドル未満）はさらに低い料率が適用されます。</p>
   </InfoBox>
 </Section>
 
@@ -164,7 +173,7 @@ export const description = "「アプリで払うと高い」は本当か？ス�
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
   <ul class="list-disc pl-6 space-y-3 text-gray-700 mb-6">
     <li><strong class="text-blue-600">価格差の正体：</strong>アプリ経由の決済はApple手数料（15〜30%）が上乗せされるため、Web決済より高い。</li>
-    <li><strong class="text-blue-600">スマホ新法の影響：</strong>2025年施行の日本の法律により、アプリ開発者はWeb決済への誘導が正式に許可され、ユーザーは選択肢が増えた。</li>
+    <li><strong class="text-blue-600">スマホ新法の影響：</strong>2025年12月施行のMSCAにより、アプリ開発者はWeb決済への誘導が正式に許可。Apple手数料はApp Store 26%・外部リンク15%・代替ストア5%の3段階に。</li>
     <li><strong class="text-blue-600">ルール1：大手サブスクはWeb一択：</strong>YouTube、Spotify、NetflixなどはWebで契約すれば年間約5,000円の節約。</li>
     <li><strong class="text-blue-600">ルール2：解約忘れが怖いならApp Store：</strong>iPhone設定から一括管理できる安心感。多少高くても「管理代」と割り切る。</li>
     <li><strong class="text-blue-600">ルール3：推し活はWeb決済：</strong>PatreonやGitHub Sponsorsで直接支援することで、手数料を減らして開発者に届ける。</li>

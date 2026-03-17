@@ -15,7 +15,7 @@ export const title = "Delta/UTM SE 完全ガイド";
 export const summary = "iPhoneでレトロゲーム＆Windows/Linux。脱獄不要で動作するDeltaとUTM SEの導入・設定を徹底解説。";
 export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。App Store・AltStoreからの導入方法、ROMの追加、コントローラー設定まで解説します。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-11" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-17" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="はじめに" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="どちらも脱獄不要">
@@ -36,7 +36,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
     <Card icon="videogame_asset" iconColor="text-blue-500" title="NES/SNES/N64" desc="任天堂据置機対応" />
     <Card icon="videogame_asset" iconColor="text-green-500" title="GB/GBC/GBA" desc="携帯ゲーム機対応" />
     <Card icon="videogame_asset" iconColor="text-purple-500" title="Nintendo DS" desc="melonDSコア使用" />
-    <Card icon="videogame_asset" iconColor="text-yellow-500" title="Sega Genesis" desc="有料版のみ" />
+    <Card icon="videogame_asset" iconColor="text-yellow-500" title="Sega Genesis" desc="ベータ版（Patreon向け）" />
   </CardGrid>
   <AccordionGroup>
     <Accordion title="各エミュレータコアの詳細">
@@ -56,21 +56,24 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 
 <Section title="Deltaのインストール方法" icon="download" iconColor="text-blue-600">
   <InfoBox type="info" icon="info" title="動作要件">
-    iOS 12以降。日本ユーザーはAltStore経由が最も確実。
+    iOS 12以降。日本ユーザーはAltStore PAL経由がおすすめ（PCなし・無料）。
   </InfoBox>
-  <MethodCard title="AltStore経由（日本ユーザー推奨）" icon="install_mobile" recommended>
+  <MethodCard title="AltStore PAL経由（日本ユーザー推奨）" icon="install_mobile" recommended>
     <StepList>
-      <Step num={1} title="AltServerをPCにインストール" desc="Win 10以降/macOS対応" />
-      <Step num={2} title="iPhoneをPCに接続しAltStoreをインストール" />
-      <Step num={3} title="AltStore内「Browse」でDeltaを検索" />
-      <Step num={4} title="「GET」でインストール完了" />
+      <Step num={1} title="AltStore PALをインストール" desc="altstore.io からDL（iOS 26.2以降）" />
+      <Step num={2} title="AltStore PAL内「Browse」でDeltaを検索" />
+      <Step num={3} title="「GET」でインストール完了" desc="PCなしでOK" />
     </StepList>
   </MethodCard>
+  <InfoBox type="success" icon="flag" title="日本で利用可能に">
+    2025年12月のMSCA（スマートフォン特定ソフトウェア競争促進法）施行により、日本でも代替アプリマーケットプレイスが解禁。AltStore PALは翌日に日本対応を開始しました。
+  </InfoBox>
   <AccordionGroup>
     <Accordion title="他の入手方法">
       <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
         <li><strong>App Store（米国）</strong>：米国アカウントで「Delta - Game Emulator」を検索</li>
         <li><strong>AltStore PAL（欧州）</strong>：DMAによりPCなしでインストール可能</li>
+        <li><strong>AltStore Classic（従来方式）</strong>：PCに接続してインストール（全地域対応）</li>
       </ul>
     </Accordion>
   </AccordionGroup>
@@ -127,8 +130,21 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 
 <Section title="Delta 2.0の新機能（2025-2026）" icon="new_releases" iconColor="text-indigo-600">
   <InfoBox type="indigo" icon="auto_awesome" title="最新ベータ版の新機能">
-    Delta 2.0では、iOS 26のLiquid Glass UIに対応し、RetroAchievements（実績機能）やGame Boy Camera機能が追加されています。
+    Delta 2.0ベータでは、iOS 26のLiquid Glass UIに対応し、Sega Genesis対応やRetroAchievements（実績機能）が全機種で利用可能になりました。
   </InfoBox>
+  <CardGrid>
+    <Card icon="emoji_events" iconColor="text-yellow-500" title="RetroAchievements" desc="全機種で実績解除対応" />
+    <Card icon="videogame_asset" iconColor="text-green-500" title="Sega Genesis完全対応" desc="チートコードも対応" />
+    <Card icon="auto_awesome" iconColor="text-blue-500" title="Liquid Glass UI" desc="iOS 26対応デザイン" />
+    <Card icon="sports_esports" iconColor="text-purple-500" title="コントローラー操作強化" desc="メニューもパッドで操作" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="Delta Cameraについて">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        「Delta Camera」はDelta本体とは別のスタンドアロンアプリです。Riley Testut氏が開発し、Game Boy Cameraのレトロな撮影体験をiPhoneで再現します。現在はPatreon支援者向けにベータ配信中で、後日一般公開予定です。
+      </p>
+    </Accordion>
+  </AccordionGroup>
 </Section>
 
 {/* ── Part 2: UTM SE ── */}
@@ -196,8 +212,9 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
   <AccordionGroup>
     <Accordion title="日本のApp StoreでDeltaは？">
       <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
-        <li>日本のApp Storeでは未公開</li>
-        <li>AltStore経由でのインストールが最も確実</li>
+        <li>日本のApp Storeでは未公開ですが、<strong>AltStore PAL（日本対応済み）</strong>からPCなしでインストール可能</li>
+        <li>iOS 26.2以降・日本のApp Storeアカウントが必要</li>
+        <li>従来のAltStore Classic（PC接続方式）も引き続き利用可能</li>
       </ul>
     </Accordion>
     <Accordion title="UTM SEとAltStore版UTMの違いは？">

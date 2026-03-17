@@ -15,7 +15,7 @@ export const h1 = "UTMの活用事例";
 export const summary = "iPad/iPhoneでWindows・Linuxを動かすUTMアプリ。JIT対応で高速。古いOSやLinux学習に最適。";
 export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMアプリの完全ガイド。JITコンパイル対応で高速実行。古いOSの実行、Linux学習環境、クロスプラットフォーム開発の活用法を解説します。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-11" icon="desktop_windows" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="desktop_windows" iconColor="text-blue-500">
 
 <Section intro title="iPad で本当に別の OS が動く時代" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -61,8 +61,14 @@ export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMア�
     <strong>JIT（Just-In-Time）コンパイル</strong>は、プログラムの実行速度を大幅に改善する技術です。
     Windowsなどのx86コードをARMベースのiPadで動かす際、JITがあると高速に動作します。
   </p>
-  <InfoBox type="warning" icon="public" title="JIT有効化には特別な対応が必要">
-    iOS/iPadOSでは<strong>JITを使うには特別な権限が必要</strong>です。
+  <InfoBox type="warning" icon="error" title="iOS 26ではJIT有効化が不可能に">
+    <strong>iOS 26以降では、AltJIT等の従来のJIT有効化手法が動作しません。</strong>
+    Appleがメモリ保護の制限を強化したため、JITを利用した高速エミュレーションが技術的に不可能になりました。
+    JIT版UTMを利用中の方は、<strong>iOS 26へのアップデート前に十分ご注意ください</strong>。
+    UTM SEはJITを使用しないため影響を受けません。
+  </InfoBox>
+  <InfoBox type="info" icon="public" title="JIT有効化には特別な対応が必要">
+    iOS 25以前でも、JITを使うには特別な権限が必要です。
     EU地域ではDMA（デジタル市場法）により許可されていますが、日本を含むその他の地域では制限されています。
   </InfoBox>
   <h3 class="text-base sm:text-lg font-bold text-gray-800 mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-start gap-2">
@@ -95,6 +101,17 @@ export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMア�
     <li><strong>ストレージ消費量</strong>：各仮想マシンが独立したOSディスクを持つため、256GB以上のiPadを推奨</li>
     <li><strong>ネットワーク機能</strong>：仮想マシンはiPadのWi-Fi経由でインターネット接続が可能</li>
   </ul>
+</Section>
+
+<Section title="日本での代替マーケットプレイス対応" icon="flag" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    2025年12月のMSCA（スマートフォン特定ソフトウェア競争促進法）施行により、日本でもAltStore PALなどの代替アプリマーケットプレイスが利用可能になりました。
+    UTM SEはApp Storeから入手できますが、JIT対応版のUTMはAltStore PAL経由でインストールできます。
+  </p>
+  <InfoBox type="warning" icon="warning" title="JIT問題はMSCAとは別">
+    日本でのマーケットプレイス解禁はアプリの入手手段を広げますが、<strong>iOS 26でのJIT無効化はOSレベルの技術的制約</strong>であり、MSCA/DMAの規制とは無関係です。
+    JIT版UTMをインストールできても、iOS 26上ではJITが動作しない点にご注意ください。
+  </InfoBox>
 </Section>
 
 <Section title="UTM の入手と導入" icon="download" iconColor="text-blue-600">

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-03-10",
+    "lastUpdated": "2026-03-17",
     "source": "itch.io"
   },
   "games": [
@@ -17,6 +17,30 @@
       "tags": ["デメイク", "無限ランナー", "協力プレイ"]
     },
     {
+      "id": "goodboy-galaxy-demo",
+      "name": "Goodboy Galaxy DEMO",
+      "nameJa": "Goodboy Galaxy デモ版",
+      "platform": "GBA",
+      "genre": "探索プラットフォーマー",
+      "description": "犬のMaxwellが未知の惑星を探索するメトロイドヴァニア風アクション。製品版レベルの完成度を誇る無料デモ。",
+      "developer": "Goodboy Galaxy",
+      "url": "https://goodboygalaxy.itch.io/goodboy-galaxy-demo",
+      "featured": true,
+      "tags": ["プラットフォーマー", "探索", "高品質"]
+    },
+    {
+      "id": "varooom-3d",
+      "name": "Varooom 3D",
+      "nameJa": "Varooom 3D",
+      "platform": "GBA",
+      "genre": "3Dレーシング",
+      "description": "GBAで60FPSの3Dレーシングを実現した驚異の技術デモ。GBA Jam 2021受賞作。ソースコード公開済み。",
+      "developer": "GValiente",
+      "url": "https://gvaliente.itch.io/varooom-3d",
+      "featured": true,
+      "tags": ["レーシング", "3D", "オープンソース"]
+    },
+    {
       "id": "2048-advance",
       "name": "2048 Advance",
       "nameJa": "2048 Advance",
@@ -27,6 +51,40 @@
       "url": "https://basil-termini.itch.io/2048-advance",
       "featured": true,
       "tags": ["パズル", "デメイク", "カジュアル"]
+    },
+    {
+      "id": "anguna",
+      "name": "Anguna",
+      "nameJa": "Anguna",
+      "platform": "GBA",
+      "genre": "アクションアドベンチャー",
+      "description": "ゼルダ風のGBAアクションアドベンチャー。ダンジョン探索、アイテム収集、ボス戦が楽しめるhomebrewの名作。",
+      "developer": "gauauu",
+      "url": "https://gauauu.itch.io/anguna",
+      "tags": ["アドベンチャー", "ゼルダ風", "ダンジョン"]
+    },
+    {
+      "id": "spacegulls",
+      "name": "Spacegulls",
+      "nameJa": "Spacegulls",
+      "platform": "NES",
+      "genre": "プラットフォーマー",
+      "description": "宇宙を舞台にした鳥のプラットフォーマー。2人協力プレイ対応。NESdev Compo 2020/21で1位を獲得。",
+      "developer": "Morphcat Games",
+      "url": "https://morphcatgames.itch.io/spacegulls",
+      "featured": true,
+      "tags": ["プラットフォーマー", "協力プレイ", "受賞作"]
+    },
+    {
+      "id": "from-below",
+      "name": "FROM BELOW",
+      "nameJa": "FROM BELOW",
+      "platform": "NES",
+      "genre": "パズル",
+      "description": "クラーケンと戦うテトリス風パズル。ハードドロップやロックディレイなど現代的なシステムを搭載した本格NESゲーム。",
+      "developer": "Matt Hughson",
+      "url": "https://mhughson.itch.io/from-below",
+      "tags": ["パズル", "テトリス風", "NES実機対応"]
     },
     {
       "id": "gb-burn",

@@ -13,7 +13,7 @@ export const h1 = "エミュレータと著作権";
 export const summary = "エミュレータは合法？ROM吸い出しと違法ダウンロードの違いを日本の著作権法で解説。安全な楽しみ方を紹介。";
 export const description = "エミュレータの合法性、ROM吸い出し（ダンピング）の正しい知識、違法ダウンロードの危険性を日本の著作権法に基づいて解説。安全で合法的にレトロゲームを楽しむ方法をご紹介します。DeltaやGBOperatorの活用法も。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-11" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="「エミュレータ＝違法」ではない" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="結論">
@@ -104,6 +104,46 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
   </CardGrid>
 </Section>
 
+<Section title="最新機種のエミュレータと訴訟リスク" icon="report" iconColor="text-red-600">
+  <InfoBox type="error" icon="warning" title="最新機種のエミュは訴訟リスク大">
+    レトロゲーム機のエミュレータは基本合法だが、<strong>現行機種のエミュレータは権利者から厳しく取り締まられている</strong>。
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="Yuzu和解事件（2024年3月）" open>
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        Nintendo Switchエミュレータ<strong>「Yuzu」</strong>の開発元Tropic Haze LLCが、2024年3月に任天堂と<mark class="bg-yellow-100 px-1 rounded"><strong>240万ドル（約3.6億円）</strong></mark>で和解し、開発を即時停止しました。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+        <li>任天堂は「Yuzuの合法的な使い方はない」と主張</li>
+        <li>暗号化解除（技術的保護手段の回避）が争点に</li>
+        <li>和解条件：開発停止、ドメイン譲渡、全コピー破棄</li>
+        <li>姉妹プロジェクトの3DSエミュ「Citra」も同時に開発終了</li>
+      </ul>
+    </Accordion>
+    <Accordion title="GitHub大量DMCA通知（2026年2月）">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        2026年2月、任天堂はGitHub上の<strong>Switch系エミュレータ13件以上</strong>にDMCA削除通知を一斉送付しました。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+        <li>対象：Citron、Eden、Suyu、Ryubing、MeloNXなどYuzuフォーク含む全般</li>
+        <li>「技術的保護手段（TPM）を違法に回避している」と主張</li>
+        <li>ほとんどのプロジェクトが削除・開発停止に追い込まれた</li>
+      </ul>
+    </Accordion>
+    <Accordion title="レトロ vs 現行機種の違い">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>GB/GBC/GBA等（レトロ）：</strong>コピーガードがなく、エミュレータの合法性が広く認められている</li>
+        <li><strong>Switch等（現行機種）：</strong>暗号化などの技術的保護手段が施されており、その回避は法的リスクが高い</li>
+        <li><strong>Delta等のレトロエミュ：</strong>レトロゲーム機が対象のため、上記のリスクには該当しない</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
+    <strong>レトロゲームのエミュレータは安心して使えるよ！</strong><br />
+    でも最新ゲーム機のエミュは法的リスクが高いから要注意。DeltaはGB/GBA等のレトロ機専用だから問題ないよ🎮
+  </BunchanAdvice>
+</Section>
+
 <Section title="よくある質問" icon="help">
   <AccordionGroup>
     <Accordion title="Q. 廃業したゲーム会社のゲームは？">
@@ -122,6 +162,13 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
       <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
         <li>違法性は消えない、捜査で追跡可能</li>
         <li>詐欺サイト被害のリスクも高まる</li>
+      </ul>
+    </Accordion>
+    <Accordion title="Q. 最新ゲーム機のエミュは使える？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>技術的保護手段の回避が問題となり、訴訟リスクが非常に高い</li>
+        <li>Yuzu（Switch）は240万ドルで和解し開発停止済み</li>
+        <li>Deltaのようなレトロ機エミュは問題なし</li>
       </ul>
     </Accordion>
   </AccordionGroup>
