@@ -13,7 +13,7 @@ export const h1 = "Apple公証とは";
 export const summary = "野良アプリは危険？Apple公証（Notarization）とサンドボックスで守られたサイドローディングの安全性を解説。";
 export const description = "「野良アプリは危険」は本当か？Appleの公証システム（Notarization）とサンドボックス構造から、サイドローディングの安全性を技術的に解説。マルウェア検査・改ざん防止の仕組みを詳しく紹介します。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="shield" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-17" icon="shield" iconColor="text-blue-500">
 
 <Section intro title="サイドローディング＝危険？それは思い込みかもしれません" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -154,10 +154,10 @@ export const description = "「野良アプリは危険」は本当か？Apple�
       <li>セキュリティ更新が長期間されていないアプリ</li>
     </ul>
   </InfoBox>
-  <p class="text-gray-700 mt-4 bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+  <InfoBox type="info" title="サイドローディングの秘訣">
     <mark class="bg-yellow-100 px-1 rounded"><strong>正しい知識を持ち、信頼できるソースを選ぶこと。</strong></mark>
     これがサイドローディングを安全に楽しむための秘訣です。
-  </p>
+  </InfoBox>
 </Section>
 
 <Section title="関連する技術用語の解説" icon="library_books">
