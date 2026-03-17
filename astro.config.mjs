@@ -5,50 +5,44 @@ import sitemap from '@astrojs/sitemap';
 import fs from 'node:fs';
 import path from 'node:path';
 
-function generateRedirects() {
-  const redirects = {};
+// 記事MDXファイルからdate属性を抽出してURL→日付のマッピングを生成
+function getArticleDates() {
+  const dates = {};
   const articlesDir = path.resolve('./src/pages/articles');
 
   if (fs.existsSync(articlesDir)) {
-    try {
-      const files = fs.readdirSync(articlesDir);
-      for (const file of files) {
-        // 下書きファイル（_で始まる）やindex.astroを除外
-        if (file.startsWith('_') || file === 'index.astro') {
-          continue;
-        }
+    const files = fs.readdirSync(articlesDir);
+    for (const file of files) {
+      if (file.startsWith('_') || file === 'index.astro') continue;
+      if (!file.endsWith('.mdx') && !file.endsWith('.md')) continue;
 
-        if (file.endsWith('.mdx') || file.endsWith('.md') || file.endsWith('.astro')) {
-          const slug = file.replace(/\.(mdx?|astro)$/, '');
-          redirects[`/articles/${slug}.html`] = `/articles/${slug}/`;
-          console.log(`[Redirect] /articles/${slug}.html → /articles/${slug}/`);
-        }
+      const slug = file.replace(/\.(mdx?|md)$/, '');
+      const content = fs.readFileSync(path.join(articlesDir, file), 'utf-8');
+      const dateMatch = content.match(/date="(\d{4}-\d{2}-\d{2})"/);
+      if (dateMatch) {
+        dates[`/articles/${slug}/`] = dateMatch[1];
       }
-      console.log(`[Redirect] ${Object.keys(redirects).length}件のリダイレクトを生成しました`);
-    } catch (error) {
-      console.error('[Redirect] リダイレクト生成中にエラーが発生しました:', error);
     }
-  } else {
-    console.warn('[Redirect] articlesディレクトリが見つかりません');
   }
-  return redirects;
+  return dates;
 }
 
+const articleDates = getArticleDates();
 const rawBase = '';
 
 export default defineConfig({
   site: 'https://altstore-jp.bunchoniki.com',
   base: rawBase || '/',
   trailingSlash: 'always',
-  redirects: generateRedirects(), 
   integrations: [
     tailwind({ applyBaseStyles: false }),
     mdx(),
     sitemap({
       serialize(item) {
-        // 記事ページにlastmodを付与（各記事のdate情報はビルド時に静的生成されるため、
-        // ここではサイトマップ生成時の日付をフォールバックとして使用）
-        item.lastmod = new Date();
+        // 記事ページはArticleLayoutのdate属性を使用、それ以外はビルド日時
+        const urlPath = new URL(item.url).pathname;
+        const articleDate = articleDates[urlPath];
+        item.lastmod = articleDate ? new Date(articleDate) : new Date();
         return item;
       },
     }),
