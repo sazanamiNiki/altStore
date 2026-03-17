@@ -70,11 +70,21 @@ const articleSchema = {
     "datePublished": date,
     "dateModified": date,
   }),
-  "publisher": {
+  "author": {
     "@type": "Organization",
     "name": "bunchoniki Store",
     "url": siteUrl,
   },
+  "publisher": {
+    "@type": "Organization",
+    "name": "bunchoniki Store",
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/assets/img/logo.png`,
+    },
+  },
+  "image": `${siteUrl}/assets/img/logo.png`,
   "url": canonicalUrl,
   "inLanguage": "ja",
 };

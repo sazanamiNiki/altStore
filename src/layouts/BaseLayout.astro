@@ -33,14 +33,11 @@ const websiteSchema = {
   "url": siteUrl,
   "description": "サイドローディングの総合情報サイト。AltStore・SideStoreの使い方、安全性、法的情報を日本語で解説。",
   "inLanguage": "ja",
-  // サイト内検索のSearchActionを定義
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${siteUrl}/articles/?q={search_term_string}`
-    },
-    "query-input": "required name=search_term_string"
+  "publisher": {
+    "@type": "Organization",
+    "name": "bunchoniki Store",
+    "url": siteUrl,
+    "logo": `${siteUrl}/assets/img/logo.png`
   }
 };
 
