@@ -1,0 +1,60 @@
+---
+/**
+ * BunchanHero - ぶんちゃんのアドバイス（ヒーローセクション）
+ *
+ * ぶんちゃん + 見出し説明 → 区切り線 → 詳細コンテンツ の構成。
+ *
+ * @example
+ * <BunchanHero title="ぶんちゃんのワンポイント" icon="stadia_controller" desc="homebrewゲームの楽しみ方">
+ *   <p>詳しい説明をここに書く</p>
+ * </BunchanHero>
+ */
+import { Image } from 'astro:assets';
+import bunchoImage from '../assets/images/buncho.png';
+
+interface Props {
+  title?: string;
+  icon?: string;
+  iconColor?: string;
+  desc?: string;
+}
+
+const { title = "ぶんちゃんのアドバイス", icon, iconColor = "text-pink-400", desc } = Astro.props;
+---
+
+<div class="my-6 sm:my-8 p-5 sm:p-8 bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 border border-pink-200 rounded-2xl shadow-sm">
+  <!-- ヘッダー: ぶんちゃん + アイコン + 説明文 -->
+  <div class="flex items-center gap-3 sm:gap-4 text-center sm:text-left">
+    <div class="flex-shrink-0">
+      <Image
+        src={bunchoImage}
+        alt="ぶんちゃん"
+        width={96}
+        height={96}
+        format="webp"
+        quality={85}
+        class="w-14 sm:w-16 h-14 sm:h-16 rounded-full border-2 border-pink-200 shadow-md"
+      />
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="font-bold text-pink-700 text-sm sm:text-base flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-pink-400 text-lg sm:text-xl flex-shrink-0">auto_awesome</span>
+        {title}
+      </div>
+      {desc && (
+        <div class="flex items-center gap-1.5 mt-1.5 sm:mt-2">
+          {icon && <span class={`material-symbols-outlined ${iconColor} text-base sm:text-lg flex-shrink-0`}>{icon}</span>}
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed">{desc}</p>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- 区切り線 -->
+  <hr class="my-4 sm:my-5 border-pink-200" />
+
+  <!-- コンテンツエリア -->
+  <div class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+    <slot />
+  </div>
+</div>

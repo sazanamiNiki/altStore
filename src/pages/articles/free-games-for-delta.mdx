@@ -9,6 +9,10 @@ import RelatedArticles from '../../components/RelatedArticles.astro';
 import BunchanAdvice from '../../components/BunchanAdvice.astro';
 import GameList from '../../components/GameList.astro';
 import DownloadSteps from '../../components/DownloadSteps.astro';
+import BunchanHero from '../../components/BunchanHero.astro';
+import { Image } from 'astro:assets';
+import renameBefore from '../../assets/images/rename-before.jpeg';
+import renameAfter from '../../assets/images/rename-after.jpeg';
 
 import gamesData from '../../../public/assets/data/free-games.json';
 
@@ -28,6 +32,10 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
   <p class="text-gray-700 leading-relaxed sm:leading-7">
     <strong>itch.io</strong>は、開発者が自作ゲームを公開しているプラットフォーム。<mark class="bg-yellow-100 px-1 rounded"><strong>GBA・NES・SNES向けの無料homebrew</strong></mark>が多数あり、Deltaで合法的に遊べます。
   </p>
+  <InfoBox type="success" icon="install_mobile" title="まずはDeltaをインストール">
+    Deltaで遊ぶにはエミュレータアプリが必要です。App Storeから無料でダウンロードできます。<br />
+    <a href="https://apps.apple.com/jp/app/delta-game-emulator/id1048524688" target="_blank" rel="noopener noreferrer" class="text-green-700 font-bold hover:underline">Delta - Game Emulator（App Store）→</a>
+  </InfoBox>
 </Section>
 
 <Section title="itch.ioとは？" icon="public" iconColor="text-blue-600" id="about-itchio">
@@ -60,6 +68,42 @@ export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
     Safariのダウンロードをタップしてファイルを開こう！
   </BunchanAdvice>
 </Section>
+
+<BunchanHero title="Deltaを自分だけのカスタマイズ" icon="tune" iconColor="text-indigo-400" desc="見た目を変えてもっと楽しもう">
+  <div class="space-y-5 sm:space-y-6">
+    <div>
+      <div class="flex items-center gap-2 mb-2 sm:mb-3">
+        <span class="material-symbols-outlined text-purple-500 text-lg sm:text-xl flex-shrink-0">image</span>
+        <strong class="text-gray-900">タイトルサムネイルの変更</strong>
+      </div>
+      <p class="text-gray-600 text-xs sm:text-sm mb-3">画像と名前を変更しておくと目当てのゲームをすぐ探せるよ🌸</p>
+      <div class="flex items-center gap-2 sm:gap-4 justify-center">
+        <div class="text-center">
+          <Image src={renameBefore} alt="サムネイル変更前" format="webp" quality={85} class="rounded-lg border border-gray-200 shadow-sm w-40 sm:w-52" />
+          <p class="text-xs text-gray-400 mt-1">Before</p>
+        </div>
+        <span class="material-symbols-outlined text-pink-400 text-xl sm:text-2xl flex-shrink-0">arrow_forward</span>
+        <div class="text-center">
+          <Image src={renameAfter} alt="サムネイル変更後" format="webp" quality={85} class="rounded-lg border border-gray-200 shadow-sm w-40 sm:w-52" />
+          <p class="text-xs text-gray-400 mt-1">After</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-pink-100" />
+
+    <div>
+      <div class="flex items-center gap-2 mb-2 sm:mb-3">
+        <span class="material-symbols-outlined text-blue-500 text-lg sm:text-xl flex-shrink-0">opacity</span>
+        <strong class="text-gray-900">ボタンの透明度の変更</strong>
+      </div>
+      <p class="text-gray-600 text-xs sm:text-sm mb-3">ボタンが邪魔な時は透明度を変えて画面を見やすくしよう！</p>
+      <div class="flex justify-center">
+        <video src={`${import.meta.env.BASE_URL}assets/video/delta-opacity.mp4`} controls muted playsinline class="rounded-lg border border-gray-200 shadow-sm w-64 sm:w-80" aria-label="ボタン透明度の調整画面" />
+      </div>
+    </div>
+  </div>
+</BunchanHero>
 
 <Section title="よくある質問" icon="help" id="faq">
   <AccordionGroup>
