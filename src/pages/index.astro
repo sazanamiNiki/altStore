@@ -370,7 +370,20 @@ const appListSchema = featuredApps.length > 0 ? {
         <div class="text-center mb-8 sm:mb-10">
           <span class="material-symbols-outlined text-3xl sm:text-4xl text-indigo-500 mb-2 block">sports_esports</span>
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">iPhoneでレトロゲームを遊ぼう</h2>
-          <p class="text-gray-600 mt-2 text-sm sm:text-base">Deltaエミュレータで、懐かしのGB・ファミコン・スーファミ・N64がiPhoneで復活</p>
+          <p class="text-gray-600 mt-2 text-sm sm:text-base">App Storeから無料でダウンロードできるDeltaエミュレータで、懐かしのGB・ファミコン・スーファミ・N64が復活</p>
+        </div>
+
+        <!-- プレイ動画（3台のスマホ風に斜め配置） -->
+        <div class="flex justify-center items-end mb-8 sm:mb-10 -space-x-6 sm:-space-x-8">
+          <div class="w-24 sm:w-32 -rotate-[8deg] rounded-2xl overflow-hidden shadow-lg border-[3px] border-gray-900 bg-black relative z-0">
+            <video src={`${base}assets/video/delta-gameplay-2.mp4`} autoplay muted playsinline class="w-full delta-video" aria-label="2048 Advanceのプレイ画面" />
+          </div>
+          <div class="w-60 sm:w-72 rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-900 bg-black relative z-10">
+            <video src={`${base}assets/video/delta-gameplay.mp4`} autoplay muted playsinline class="w-full delta-video" aria-label="Google Dino Advanceのプレイ画面" />
+          </div>
+          <div class="w-24 sm:w-32 rotate-[8deg] rounded-2xl overflow-hidden shadow-lg border-[3px] border-gray-900 bg-black relative z-0">
+            <video src={`${base}assets/video/delta-gameplay-3.mp4`} autoplay muted playsinline class="w-full delta-video" aria-label="ブロック崩しのプレイ画面" />
+          </div>
         </div>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -511,6 +524,15 @@ const appListSchema = featuredApps.length > 0 ? {
       </div>
     </section>
   </main>
+
+  <!-- Delta動画: 3秒間隔でリピート -->
+  <script>
+    document.querySelectorAll('.delta-video').forEach(video => {
+      video.addEventListener('ended', () => {
+        setTimeout(() => (video as HTMLVideoElement).play(), 3000);
+      });
+    });
+  </script>
 
   <!-- スライドショー操作のみ（コンテンツはSSR済み） -->
   <script>
