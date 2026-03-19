@@ -15,7 +15,7 @@ export const title = "Delta/UTM SE 完全ガイド";
 export const summary = "iPhoneでレトロゲーム＆Windows/Linux。脱獄不要で動作するDeltaとUTM SEの導入・設定を徹底解説。";
 export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。App Store・AltStoreからの導入方法、ROMの追加、コントローラー設定まで解説します。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-17" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-19" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="はじめに" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="どちらも脱獄不要">
@@ -56,24 +56,23 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 
 <Section title="Deltaのインストール方法" icon="download" iconColor="text-blue-600">
   <InfoBox type="info" icon="info" title="動作要件">
-    iOS 12以降。日本ユーザーはAltStore PAL経由がおすすめ（PCなし・無料）。
+    iOS 12以降。App Storeから無料でダウンロードできます。
   </InfoBox>
-  <MethodCard title="AltStore PAL経由（日本ユーザー推奨）" icon="install_mobile" recommended>
+  <MethodCard title="App Storeからインストール（最も簡単）" icon="install_mobile" recommended>
     <StepList>
-      <Step num={1} title="AltStore PALをインストール" desc="altstore.io からDL（iOS 26.2以降）" />
-      <Step num={2} title="AltStore PAL内「Browse」でDeltaを検索" />
-      <Step num={3} title="「GET」でインストール完了" desc="PCなしでOK" />
+      <Step num={1} title="App Storeで「Delta」と検索" desc="正式名称「Delta - Game Emulator」" />
+      <Step num={2} title="「入手」をタップしてインストール" desc="無料・広告なし" />
     </StepList>
+    <InfoBox type="success" icon="open_in_new" title="App Storeリンク">
+      <a href="https://apps.apple.com/jp/app/delta-game-emulator/id1048524688" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline">Delta - Game Emulator（App Store）</a>
+    </InfoBox>
   </MethodCard>
-  <InfoBox type="success" icon="flag" title="日本で利用可能に">
-    2025年12月のMSCA（スマートフォン特定ソフトウェア競争促進法）施行により、日本でも代替アプリマーケットプレイスが解禁。AltStore PALは翌日に日本対応を開始しました。
-  </InfoBox>
   <AccordionGroup>
-    <Accordion title="他の入手方法">
+    <Accordion title="AltStore経由のインストール方法">
       <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
-        <li><strong>App Store（米国）</strong>：米国アカウントで「Delta - Game Emulator」を検索</li>
-        <li><strong>AltStore PAL（欧州）</strong>：DMAによりPCなしでインストール可能</li>
-        <li><strong>AltStore Classic（従来方式）</strong>：PCに接続してインストール（全地域対応）</li>
+        <li><strong>AltStore PAL</strong>：日本対応済み。PCなしでインストール可能（iOS 26.2以降）</li>
+        <li><strong>AltStore Classic（従来方式）</strong>：PCに接続してインストール（全地域対応・7日ごとの再署名が必要）</li>
+        <li>AltStore経由はJIT有効化が可能で、Fast Forwardが約3倍速になるメリットがあります</li>
       </ul>
     </Accordion>
   </AccordionGroup>
@@ -82,6 +81,10 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 <Section title="ゲームROMの追加方法" icon="folder" iconColor="text-green-600">
   <InfoBox type="warning" icon="warning" title="ROMは自分で用意">
     Delta自体にゲームは含まれません。自分で所有するカートリッジから吸い出したROMを使用してください。
+  </InfoBox>
+  <InfoBox type="info" icon="stadia_controller" title="カートリッジがなくても遊べる">
+    itch.ioで公開されている無料のhomebrewゲームならすぐにDeltaで遊べます。
+    <a href={`${import.meta.env.BASE_URL}articles/free-games-for-delta/`} class="text-blue-600 font-bold hover:underline">無料ゲーム特集を見る →</a>
   </InfoBox>
   <StepList>
     <Step num={1} title="ROMファイルを「ファイル」に保存" desc=".nes/.sfc/.z64/.gb等対応" />
@@ -210,11 +213,12 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 
 <Section title="よくある質問" icon="help" id="article-faq">
   <AccordionGroup>
-    <Accordion title="日本のApp StoreでDeltaは？">
+    <Accordion title="App Store版とAltStore版の違いは？">
       <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
-        <li>日本のApp Storeでは未公開ですが、<strong>AltStore PAL（日本対応済み）</strong>からPCなしでインストール可能</li>
-        <li>iOS 26.2以降・日本のApp Storeアカウントが必要</li>
-        <li>従来のAltStore Classic（PC接続方式）も引き続き利用可能</li>
+        <li>アプリ自体は同じ。対応ハード・基本機能に差はありません</li>
+        <li><strong>App Store版</strong>：インストール簡単、JITは原則不可（Fast Forward ~1.5倍）</li>
+        <li><strong>AltStore版</strong>：JIT有効化可能（Fast Forward ~3倍）、ベータ版に先行アクセス可</li>
+        <li>普通に遊ぶならApp Store版で十分です</li>
       </ul>
     </Accordion>
     <Accordion title="UTM SEとAltStore版UTMの違いは？">
