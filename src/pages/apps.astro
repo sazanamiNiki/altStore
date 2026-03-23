@@ -60,7 +60,7 @@ const appListSchema = allApps.length > 0 ? {
 
 <BaseLayout
   title="アプリカタログ"
-  description="厳選アプリの完全カタログ。カテゴリー別、キーワード検索で簡単に見つかります。"
+  description="iPhone向けサイドローディングアプリの厳選カタログ。Delta・UTM・SideStoreなど、安全性を確認済みのアプリをカテゴリー別に掲載。App Store配信・IPA配布の配布方法でフィルター可能。"
 >
   <Fragment slot="schema">
     <Schema data={breadcrumbSchema} />
@@ -70,7 +70,8 @@ const appListSchema = allApps.length > 0 ? {
   <main class="max-w-7xl mx-auto px-4 py-12">
     <div class="mb-8 sm:mb-12">
       <h1 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">アプリカタログ</h1>
-      <p class="text-gray-600">厳選アプリを検索・フィルター</p>
+      <p class="text-gray-600 mb-3">iPhoneで使える厳選サイドローディングアプリを掲載しています。すべて公式ソースから取得し、安全性を確認済みです。</p>
+      <p class="text-sm text-gray-500">App Storeから直接入手できるアプリと、AltStore/SideStore経由でインストールするIPAアプリの両方を扱っています。</p>
     </div>
 
     <details class="bg-white rounded-lg border border-gray-200 sm:border-2 mb-6 sm:mb-8 group" id="filter-details">
@@ -119,12 +120,32 @@ const appListSchema = allApps.length > 0 ? {
     </details>
 
     <div id="app-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-      <div class="col-span-full text-center py-8">
-        <p class="text-gray-500">アプリを読み込み中です</p>
-      </div>
+      {allApps.length > 0 ? allApps.map(app => (
+        <div class="app-card-ssr bg-white rounded-xl p-4 border border-gray-200">
+          <div class="flex items-start gap-3">
+            <img src={app.iconURL} alt={app.name} width="60" height="60" loading="lazy" class="w-14 h-14 rounded-[22%] border border-gray-100 shadow-sm" />
+            <div class="flex-1 min-w-0">
+              <h3 class="font-bold text-base text-gray-900 line-clamp-1">{app.name}</h3>
+              <p class="text-sm text-gray-500">{app.developerName}</p>
+              <div class="flex items-center gap-1 mt-1">
+                <span class="inline-block text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md">{app.category}</span>
+                {(app.distributionInfo?.category || 'sideload') === 'official'
+                  ? <span class="inline-block text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-md">App Store</span>
+                  : <span class="inline-block text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-md">IPA配布</span>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      )) : (
+        <div class="col-span-full text-center py-8">
+          <p class="text-gray-500">アプリを読み込み中です</p>
+        </div>
+      )}
     </div>
 
     <div id="modal-container"></div>
+
   </main>
 
   <!-- app-catalog.js はPublicから参照（Google Sheets API連携） -->

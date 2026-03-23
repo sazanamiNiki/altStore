@@ -18,7 +18,7 @@ import gamesData from '../../../public/assets/data/free-games.json';
 
 export const title = "Deltaで遊べる無料ゲーム特集";
 export const summary = "itch.ioで無料ダウンロードできるDelta対応のhomebrewゲームを厳選。GBA・GB向けの合法ゲーム集。";
-export const description = "itch.ioで無料ダウンロードできるDelta対応の自作ゲーム（homebrew）を厳選紹介。GBA、ゲームボーイ向けの合法的に遊べるゲームを集めました。インディー開発者が公開した高品質なレトロ風ゲームをDeltaで楽しもう。";
+export const description = "iPhoneのDeltaエミュレータで遊べる無料ゲーム（homebrew）を厳選紹介。itch.ioからダウンロードできるGBA・ゲームボーイ向けの合法ゲームを集めました。インディー開発者が公開した高品質なレトロ風ゲームをiPhoneで楽しもう。";
 
 export const featuredGames = gamesData.games.filter(g => g.featured);
 export const gbaGames = gamesData.games.filter(g => g.platform === 'GBA');
@@ -26,7 +26,7 @@ export const nesGames = gamesData.games.filter(g => g.platform === 'NES');
 export const snesGames = gamesData.games.filter(g => g.platform === 'SNES');
 export const gbGames = gamesData.games.filter(g => g.platform === 'GB');
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-19" icon="stadia_controller" iconColor="text-purple-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-03-23" icon="stadia_controller" iconColor="text-purple-500">
 
 <Section intro title="itch.ioで無料ゲームを探そう" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7">

@@ -51,6 +51,14 @@ const faqItems = [
 
 const siteUrl = 'https://altstore-jp.bunchoniki.com';
 
+// 最新情報データ
+const recentUpdates = [
+  { date: '2026-03-23', title: 'Delta無料ゲーム特集にカスタマイズガイドを追加', href: `${base}articles/free-games-for-delta/` },
+  { date: '2026-03-19', title: 'Delta完全ガイドをApp Store版対応に更新', href: `${base}articles/delta-utm-guide/` },
+  { date: '2026-03-17', title: 'Epic Games Store日本上陸の記事を公開', href: `${base}articles/epic-games-store-japan/` },
+  { date: '2026-03-17', title: 'GB Operator完全ガイドを公開', href: `${base}articles/gb-operator-guide/` },
+];
+
 // FAQPageスキーマ
 const faqSchema = {
   "@context": "https://schema.org",
@@ -112,7 +120,7 @@ const appListSchema = featuredApps.length > 0 ? {
 
 <BaseLayout
   title="サイドローディング総合情報 - 厳選アプリカタログ"
-  description="Apple Silicon対応デバイス向けの厳選アプリを集めたカタログ。Delta、UTM、SideStoreなど。"
+  description="iPhoneのサイドローディング総合情報サイト。AltStore・SideStoreの使い方、Delta・UTMなどの厳選アプリ紹介、安全ガイドを日本語で提供。"
 >
   <Schema slot="schema" data={faqSchema} />
   <Schema slot="schema" data={breadcrumbSchema} />
@@ -211,6 +219,26 @@ const appListSchema = featuredApps.length > 0 ? {
   </div>
 </section>
 
+
+    <!-- 最新情報セクション -->
+    <section class="py-6 sm:py-8 px-4 bg-blue-50/60 border-t border-blue-100">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-2 mb-3 sm:mb-4">
+          <span class="material-symbols-outlined text-blue-600 text-xl">update</span>
+          <h2 class="text-base sm:text-lg font-bold text-gray-900">最新の更新</h2>
+        </div>
+        <ul class="space-y-2">
+          {recentUpdates.map(item => (
+            <li>
+              <a href={item.href} class="flex items-baseline gap-2 sm:gap-3 group">
+                <time class="text-xs text-gray-400 tabular-nums flex-shrink-0">{item.date.slice(5)}</time>
+                <span class="text-sm text-gray-700 group-hover:text-blue-600 transition">{item.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
 
     <!-- 特徴セクション -->
     <section class="py-12 sm:py-14 lg:py-16 px-4 bg-slate-50">
@@ -484,11 +512,9 @@ const appListSchema = featuredApps.length > 0 ? {
       <div class="max-w-2xl mx-auto space-y-6">
         <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-900">よくある質問</h2>
         {faqItems.map(item => (
-          <details class="group bg-white rounded-xl border border-gray-200 p-4 shadow-sm transition">
+          <div class="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
 
-            <!-- 質問ヘッダー（常時表示） -->
-            <summary class="cursor-pointer flex items-center gap-3 list-none">
-
+            <div class="flex items-center gap-3">
               <img
                 src={`${base}assets/img/buncho.png`}
                 alt="質問に答えるマスコット「ぶんちゃん」"
@@ -497,29 +523,20 @@ const appListSchema = featuredApps.length > 0 ? {
                 loading="lazy"
                 class="w-8 h-8 rounded-full bg-sky-100 border border-blue-200 flex-shrink-0"
               />
-
               <h3 class="font-semibold text-sm text-gray-900 flex-1">
                 {item.q}
               </h3>
+            </div>
 
-              <!-- 開閉アイコン -->
-              <span class="text-gray-400 transition group-open:rotate-180">⌄</span>
-            </summary>
-
-
-            <!-- 回答（開いたときだけ表示・SEOには有効） -->
             <div class="mt-3 ml-0 sm:ml-11 text-sm text-gray-600 leading-6 space-y-3">
-
               <p set:html={item.a} />
-
               <p
                 class="bg-blue-50 text-blue-800 px-3 py-2 rounded-lg text-xs leading-5"
                 set:html={`<strong>ポイント：</strong> ${item.tip}`}
               />
-
             </div>
 
-          </details>
+          </div>
         ))}
       </div>
     </section>
