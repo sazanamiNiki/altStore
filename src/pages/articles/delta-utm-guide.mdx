@@ -13,9 +13,9 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "Delta/UTM SE 完全ガイド";
 export const summary = "iPhoneでレトロゲーム＆Windows/Linux。脱獄不要で動作するDeltaとUTM SEの導入・設定を徹底解説。";
-export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。App Store・AltStoreからの導入方法、ROMの追加、コントローラー設定まで解説します。";
+export const description = "iPhoneで脱獄なしにレトロゲームやWindows/Linuxを動かせるDelta EmulatorとUTM SEの完全ガイド。App Store・AltStoreからの導入方法、ROMの追加、コントローラー設定、Sega Genesis対応やRetroAchievementsなど最新機能まで詳しく解説します。";
 
-<ArticleLayout title={title} summary={summary} description={description} date="2026-03-19" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} summary={summary} description={description} date="2026-04-09" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="はじめに" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="どちらも脱獄不要">
@@ -153,7 +153,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
 {/* ── Part 2: UTM SE ── */}
 <Section title="UTM SEとは" icon="computer" iconColor="text-blue-600">
   <InfoBox type="info" icon="computer" title="QEMUベースのシステムエミュレータ">
-    iPhoneやiPadでWindows/Linuxを実行。「SE」はSlow Edition（JITなし）の略。
+    iPhoneやiPadでWindows/Linuxを実行。「SE」はSlow Edition（JITなし）の略。最新版はQEMU v10.0.2ベースで、Liquid Glass UI（iOS 26）やApp Intents（ショートカット自動化）に対応。
   </InfoBox>
   <CardGrid>
     <Card icon="memory" iconColor="text-blue-500" title="x86_64/i386" desc="Windows/Linux対応" />
@@ -177,7 +177,7 @@ export const description = "iPhoneで脱獄なしにレトロゲームやWindows
   <StepList>
     <Step num={1} title="UTM SEを起動し「+」をタップ" />
     <Step num={2} title="「Emulate」を選択" desc="iOSでは仮想化は利用不可" />
-    <Step num={3} title="OSの種類を選択" desc="Windows/Linux/Other" />
+    <Step num={3} title="OSの種類を選択" desc="Win 95/98/Mac OS 8等のテンプレートあり" />
     <Step num={4} title="ISOファイルを指定" />
     <Step num={5} title="RAM・CPU・ストレージを設定" />
     <Step num={6} title="仮想マシンを起動" />

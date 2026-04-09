@@ -16,7 +16,7 @@ export const h1 = "AltStore完全ガイド";
 export const summary = "AltStoreの基本、7日署名、セットアップ、インストール、トラブル対処までを1ページで完全網羅。";
 export const description = "AltStoreの基本から7日署名の仕組み、AltServerのセットアップ、アプリのインストール方法、Wi-Fi自動更新の設定、トラブルシューティングまで完全網羅。サイドローディング初心者でも安心して使える統合ガイドです。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-17" icon="apps" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-09" icon="apps" iconColor="text-blue-500">
 
 <Section intro title="AltStoreを使いこなすための完全ガイド" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -26,8 +26,8 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
     このガイドでは、AltStore の基礎知識から実際のセットアップ手順、日常的なメンテナンス方法、
     そしてトラブルが起きた時の対処法まで、<strong>全てをまとめて解説</strong>します。
   </p>
-  <InfoBox type="indigo" icon="new_releases" title="AltStore PALが日本で無料利用可能に">
-    2025年12月18日より、日本でも<strong>AltStore PAL</strong>（代替アプリマーケットプレイス版）が利用可能になりました。Epic Games MegaGrantにより<strong>完全無料</strong>。PC不要・7日制限なしで運用できます（iOS 26.2以降）。
+  <InfoBox type="indigo" icon="new_releases" title="AltStore PAL v2.3 — Fediverse統合で世界初の連合型ストアに">
+    AltStore PALは日本で<strong>完全無料</strong>稼働中（iOS 26.2以降）。最新のv2.3では<strong>Fediverse統合</strong>（Mastodon/Bluesky連携）、<strong>Liquid Glass UI</strong>、<strong>日本風アイコン</strong>が追加されました。Exploreページでアプリを発見しやすくなっています。
   </InfoBox>
   <InfoBox type="info" icon="auto_stories" title="より詳しく学ぶための関連記事">
     このページは、AltStore に関する全ての情報を1つにまとめた<strong>統合ガイド・リファレンス編</strong>です。
@@ -75,6 +75,7 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
         <li><strong>7日制限なし</strong>：マーケットプレイスアプリは署名切れなし</li>
         <li><strong>完全無料</strong>：Epic Games MegaGrantにより年会費不要</li>
         <li><strong>日本・EU対応</strong>：iOS 26.2以降（日本は2025年12月18日〜）</li>
+        <li><strong>v2.3の新機能</strong>：Fediverse統合（Mastodon/Bluesky連携）、Exploreページ、Liquid Glass UI、日本風アイコン</li>
         <li>Apple公証済みアプリのみ配信</li>
       </ul>
     </Accordion>
@@ -86,8 +87,8 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
         <li><strong>世界中で利用可能</strong>：地域制限なし</li>
         <li>非公証アプリもインストール可能</li>
       </ul>
-      <InfoBox type="warning" icon="warning" title="StosVPNについて">
-        SideStoreの動作に必要なStosVPNは、2025年11月にApp Storeから削除されました。既にインストール済みであれば引き続き利用できますが、新規ユーザーは入手が困難です。
+      <InfoBox type="warning" icon="warning" title="StosVPN → LocalDevVPNへ移行">
+        SideStoreの動作に必要だったStosVPNはApp Storeから削除されました。現在は代替の<strong>LocalDevVPN</strong>がApp Storeから入手可能です。新規ユーザーはLocalDevVPNを使用してください。
       </InfoBox>
     </Accordion>
   </AccordionGroup>
@@ -282,8 +283,8 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
     <Accordion title="詳しい違いを見る">
       <p class="text-sm text-gray-700 mb-2"><strong>AltStore Classic：</strong>毎週PC接続が必要、AltServer経由で更新、VPN不要、セットアップ簡単</p>
       <p class="text-sm text-gray-700 mb-2"><strong>SideStore：</strong>初回のみPC必要、VPN経由で完全オンデバイス、やや複雑なセットアップ</p>
-      <InfoBox type="warning" icon="warning" title="SideStoreの注意点：StosVPNの入手困難化">
-        SideStoreの動作に必要な<strong>StosVPN</strong>は、2025年11月にApp Storeから削除されました。既にインストール済みのユーザーは引き続き利用できますが、新規ユーザーは入手が困難です。PC不要での運用を希望する場合は、<strong>AltStore PAL</strong>の利用を検討してください。
+      <InfoBox type="warning" icon="warning" title="SideStoreの注意点：VPNアプリの変更">
+        SideStoreの動作に必要だった<strong>StosVPN</strong>はApp Storeから削除されました。代替として<strong>LocalDevVPN</strong>がApp Storeから入手可能です。PC不要での運用を希望する場合は、<strong>AltStore PAL</strong>の利用がより簡単です。
       </InfoBox>
     </Accordion>
   </AccordionGroup>
