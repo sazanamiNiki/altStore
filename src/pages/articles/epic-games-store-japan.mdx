@@ -9,21 +9,21 @@ import RelatedArticles from '../../components/RelatedArticles.astro';
 import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
 export const title = "Epic Games Store日本上陸と最新動向";
-export const h1 = "Epic Games StoreのiOS版が日本でリリース";
-export const summary = "Epic Games StoreがiOS日本上陸へ。フォートナイト配信再開、AltStore PALの資金調達やFediverse統合の最新動向を解説。";
-export const description = "Epic Games StoreがiOSで日本上陸へ。スマートフォンソフトウェア競争促進法（スマホ新法）によって代替アプリストアが解禁され、AltStore PALが無料で正式稼働中。フォートナイトの配信再開や600万ドル資金調達、Fediverse統合など最新動向を詳しく解説します。";
+export const h1 = "Epic Games Store iOS日本版の現状と最新動向";
+export const summary = "Epic Games Store iOS日本版は手数料問題で未リリース。AltStore PALは無料稼働中。代替ストアの現状と最新動向を解説。";
+export const description = "Epic Games Store iOS日本版はAppleの手数料体系への反発から未リリース。一方AltStore PALは無料で正式稼働中。スマホ新法施行後の代替アプリストアの現状、Appleとの訴訟の最新動向、Setapp Mobile撤退など、2026年4月時点の最新情報を詳しく解説します。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-03-17" icon="storefront" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-09" icon="storefront" iconColor="text-blue-500">
 
 <Section intro title="Epic Games Storeとは" icon="help_outline">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <mark class="bg-yellow-100 px-1 rounded"><strong>スマホ新法で実現した、日本向け大型代替アプリストア</strong></mark>（2026年3月リリース予定）
+    <mark class="bg-yellow-100 px-1 rounded"><strong>スマホ新法で代替ストアが解禁。しかしEpic Games Storeは手数料問題で日本未リリース</strong></mark>
   </p>
-  <InfoBox type="indigo" icon="update" title="2026年3月 最新情報">
-    AltStore PALが日本で無料稼働中。フォートナイトもAltStore PAL経由で配信再開済みです。AltStore PALは600万ドルの資金調達を完了し、Fediverse（Mastodon）統合も実装。Epic Games Store iOS日本版も3月中のリリースを目指しています。
+  <InfoBox type="warning" icon="update" title="2026年4月 最新情報">
+    Epic Games Store iOS日本版は、Appleの手数料体系への反発から<strong>依然として未リリース</strong>です。一方、AltStore PALは日本で無料稼働中。フォートナイトもAltStore PAL経由で配信されています。米国ではAppleが連邦最高裁への上告を準備中で、法廷闘争は長期化の様相です。
   </InfoBox>
   <BunchanAdvice>
-    App Store以外からゲームをダウンロードできる時代が来たよ！フォートナイトもAltStore PALで遊べるし、Epic Games Storeも間もなくだね🎮
+    App Store以外からアプリをダウンロードできる時代が来たよ！ただしEpic Games Storeはまだ日本に来ていないんだ。AltStore PALでフォートナイトは遊べるよ🎮
   </BunchanAdvice>
 </Section>
 
@@ -50,13 +50,13 @@ export const description = "Epic Games StoreがiOSで日本上陸へ。スマー
 
 <Section title="Appleとの攻防：手数料問題" icon="warning" iconColor="text-red-600">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    当初2025年12月18日（施行日）リリース予定でしたが、<strong>Appleの手数料体系</strong>を巡る対立により2026年3月へ延期されました。
+    当初2025年12月18日（施行日）リリース予定でしたが、<strong>Appleの手数料体系</strong>を巡る対立により、2026年4月現在も<strong>日本未リリース</strong>のままです。
   </p>
   <CardGrid>
     <Card icon="looks_one" iconColor="text-blue-500" title="施行日リリースを計画" desc="Epic Games" />
     <Card icon="looks_two" iconColor="text-red-500" title="3段階の手数料を発表" desc="Apple抵抗" />
-    <Card icon="looks_3" iconColor="text-orange-500" title="「不誠実」と反発" desc="Epic CEO" />
-    <Card icon="looks_4" iconColor="text-green-500" title="2026年3月に延期" desc="リリース目指す" />
+    <Card icon="looks_3" iconColor="text-orange-500" title="「ジャンクフィー」と批判" desc="Epic CEO" />
+    <Card icon="looks_4" iconColor="text-red-500" title="日本リリースを拒否" desc="手数料が原因" />
   </CardGrid>
   <AccordionGroup>
     <Accordion title="Appleの3段階手数料とは">
@@ -75,9 +75,17 @@ export const description = "Epic Games StoreがiOSで日本上陸へ。スマー
         <li><strong>複雑なインストール手順</strong> — わざと使いづらい仕組み</li>
       </ul>
     </Accordion>
+    <Accordion title="米国での最新訴訟動向（2026年4月）">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>2026年4月7日</strong> — Appleが第9巡回区控訴裁判所に判決執行の一時停止（stay）を要請</li>
+        <li>連邦最高裁への上告を準備中</li>
+        <li>Epicは「単なる遅延戦術」と痛烈に批判</li>
+        <li>Epicは日本の<strong>公正取引委員会にも正式に苦情を申し立てる意向</strong>を表明</li>
+      </ul>
+    </Accordion>
   </AccordionGroup>
   <BunchanAdvice>
-    法律があっても、Appleは3段階の手数料で抵抗してきたんだ。でもEpicも戦い抜いて、リリースに向けて動いてるよ
+    法律があっても、Appleは3段階の手数料で抵抗してきたんだ。Epicは日本リリースを事実上拒否し、公正取引委員会への苦情申立ても検討中だよ
   </BunchanAdvice>
 </Section>
 
@@ -88,22 +96,20 @@ export const description = "Epic Games StoreがiOSで日本上陸へ。スマー
   <CardGrid>
     <Card icon="check_circle" iconColor="text-green-500" title="AltStore PALで配信中" desc="正式に利用可能" />
     <Card icon="sports_esports" iconColor="text-purple-500" title="約6年ぶりのiOS復帰" desc="2020年以来の復活" />
-    <Card icon="schedule" iconColor="text-blue-500" title="Epic Games Storeも準備中" desc="3月中リリース予定" />
+    <Card icon="block" iconColor="text-red-500" title="Epic Games Storeは未リリース" desc="手数料問題で停滞" />
   </CardGrid>
   <AccordionGroup>
     <Accordion title="フォートナイトiOS復帰の経緯">
       <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
         <li><strong>2020年8月</strong> — EpicがAppleの手数料を回避 → App Storeから削除</li>
-        <li><strong>2025年12月</strong> — スマホ新法施行、Epic CEOが「Appleの手数料は不誠実」とEpic Games Store日本リリースを延期</li>
-        <li><strong>2026年3月初旬</strong> — AltStore PAL経由でフォートナイトが配信開始</li>
-        <li><strong>2026年3月6日</strong> — 一時的に配信が停止（準備段階のミスの可能性）</li>
-        <li><strong>2026年3月中旬</strong> — AltStore PAL経由での配信が再開、正式に利用可能に</li>
-        <li><strong>2026年3月中</strong> — Epic Games Store iOS日本版の正式リリースも予定</li>
+        <li><strong>2025年12月</strong> — スマホ新法施行、Epic CEOがAppleの手数料を「competition-crushing junk fees」と批判し日本展開を拒否</li>
+        <li><strong>2026年3月</strong> — AltStore PAL経由でフォートナイトが配信開始・利用可能に</li>
+        <li><strong>2026年4月</strong> — Epic Games Store iOS日本版は依然として未リリース。Epicは公正取引委員会への苦情申立てを検討中</li>
       </ul>
     </Accordion>
   </AccordionGroup>
-  <InfoBox type="success" icon="check_circle" title="現在の状況（2026年3月17日時点）">
-    フォートナイトはAltStore PAL経由でダウンロード・プレイ可能です。iOS 26.2以降のiPhoneなら、AltStore PALからインストールできます。Epic Games Store iOS日本版のリリース後はそちらからも入手可能になる見込みです。
+  <InfoBox type="success" icon="check_circle" title="現在の状況（2026年4月時点）">
+    フォートナイトはAltStore PAL経由でダウンロード・プレイ可能です。iOS 26.2以降のiPhoneなら、AltStore PALからインストールできます。Epic Games Store iOS日本版のリリース時期は未定です。
   </InfoBox>
 </Section>
 
@@ -144,11 +150,14 @@ export const description = "Epic Games StoreがiOSで日本上陸へ。スマー
   <InfoBox type="indigo" icon="hub" title="最新：Fediverse（Mastodon）統合を実装">
     2026年3月11日のアップデート（v2.3）で、AltStore PALが<strong>世界初の分散型アプリマーケットプレイス</strong>になりました。独自のMastodonサーバーを立ち上げ、開発者のアプリ情報がMastodon・Threads・Blueskyで閲覧・いいね可能に。アプリ内からMastodonやBlueskyアカウントでログインして直接いいねもできます。
   </InfoBox>
-  <InfoBox type="info" icon="tips_and_updates" title="目的で使い分けよう">
+  <InfoBox type="warning" icon="report" title="代替ストアの苦戦">
+    Setapp Mobile（MacPaw社）は2026年2月16日にサービス終了。AppleのCore Technology Fee等の手数料構造が原因で「ビジネスモデルに合わない」と判断されました。代替ストア全般が経済的に苦戦している状況です。
+  </InfoBox>
+  <InfoBox type="info" icon="tips_and_updates" title="現在の選択肢">
     <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700">
-      <li><strong>ゲームを遊びたい</strong> → AltStore PAL（フォートナイト配信中）/ Epic Games Store（リリース後）</li>
+      <li><strong>ゲームを遊びたい</strong> → AltStore PAL（フォートナイト配信中）</li>
       <li><strong>エミュレータやツールが欲しい</strong> → AltStore PAL（利用可能）</li>
-      <li>両方使ってもOK！</li>
+      <li>Epic Games Storeは未リリース。リリース時期未定</li>
     </ul>
   </InfoBox>
   <AccordionGroup>
@@ -161,12 +170,12 @@ export const description = "Epic Games StoreがiOSで日本上陸へ。スマー
         <li>Delta（エミュレータ）やUTM、フォートナイト等が利用可能</li>
         <li>PC不要・無料で使える</li>
       </ul>
-      <h4 class="font-bold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base">Epic Games Store（3月中リリース予定）</h4>
+      <h4 class="font-bold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-base">Epic Games Store（未リリース）</h4>
       <ul class="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1.5 text-gray-700">
-        <li>こちらもスマホ新法に基づく正式な代替マーケットプレイス</li>
-        <li>フォートナイト等の商業ゲームの配信</li>
-        <li>開発者手数料12%（App Storeの30%より有利）</li>
-        <li>巨額の資金による安定運営</li>
+        <li>スマホ新法に基づく代替マーケットプレイスとして計画</li>
+        <li>Appleの手数料体系（代替ストア税5%等）への反発から日本リリースを拒否中</li>
+        <li>開発者手数料12%を予定（App Storeの30%より有利）</li>
+        <li>リリース時期は未定。公正取引委員会への苦情申立てを検討中</li>
       </ul>
     </Accordion>
     <Accordion title="AltStore PALの資金調達とFediverse統合">
@@ -223,7 +232,7 @@ export const description = "Epic Games StoreがiOSで日本上陸へ。スマー
     <Card icon="gavel" iconColor="text-blue-500" title="スマホ新法で実現" desc="代替ストアが義務化" />
     <Card icon="check_circle" iconColor="text-green-500" title="フォートナイト復活" desc="AltStore PALで配信中" />
     <Card icon="verified" iconColor="text-purple-500" title="Apple公証で安全" desc="マルウェア検査済み" />
-    <Card icon="schedule" iconColor="text-orange-500" title="Epic Store間もなく" desc="3月中リリース予定" />
+    <Card icon="block" iconColor="text-red-500" title="Epic Storeは未リリース" desc="手数料問題で停滞中" />
   </CardGrid>
 </Section>
 

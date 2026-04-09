@@ -13,9 +13,9 @@ import BunchanAdvice from '../../components/BunchanAdvice.astro';
 export const title = "iPadでWindowsが動く？UTM活用事例";
 export const h1 = "UTMの活用事例";
 export const summary = "iPad/iPhoneでWindows・Linuxを動かすUTMアプリ。JIT対応で高速。古いOSやLinux学習に最適。";
-export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMアプリの完全ガイド。JITコンパイル対応で高速実行。古いOSの実行、Linux学習環境、クロスプラットフォーム開発の活用法を解説します。";
+export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMアプリの完全ガイド。JITコンパイル対応で高速実行が可能。古いOSの実行、Linux学習環境の構築、クロスプラットフォーム開発の活用法を初心者向けに解説します。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="desktop_windows" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-04-09" icon="desktop_windows" iconColor="text-blue-500">
 
 <Section intro title="iPad で本当に別の OS が動く時代" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -35,7 +35,7 @@ export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMア�
 <Section title="UTM とは何か" icon="info" iconColor="text-blue-600">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     <strong>UTM</strong>は、iOS/iPadOS上で動作する<strong>仮想マシン（Virtual Machine）</strong>エミュレータです。
-    QEMUという強力なオープンソース仮想化エンジンをベースにしており、iPad上でWindows 11、Linux、古いmacOSなど複数のOSを実行できます。
+    QEMU v10.0.2をベースにしており、iPad上でWindows 11、Linux、古いmacOSなど複数のOSを実行できます。最新版ではiOS 26の<strong>Liquid Glassデザイン</strong>に対応し、<strong>App Intents</strong>によるショートカット自動化も可能になりました。
   </p>
   <CardGrid>
     <Card icon="window" iconColor="text-blue-500" title="Windows" desc="Win 11 ARM版対応" />
@@ -97,6 +97,9 @@ export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMア�
     日本を含むDMA対象外の地域では、JITが使えない場合があります。
     その場合、x86コードをARMに変換する処理が毎回行われるため、<strong>速度が大幅に低下します</strong>。
   </InfoBox>
+  <InfoBox type="indigo" icon="auto_awesome" title="UTM 5.0ベータの新機能">
+    UTM 5.0（ベータ）では<strong>Vulkan 1.3サポート</strong>（MoltenVK経由）が追加され、Linux VM内での3Dグラフィックスが大幅に向上。M1以降のiPadではHypervisorも利用可能になっています。
+  </InfoBox>
   <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
     <li><strong>ストレージ消費量</strong>：各仮想マシンが独立したOSディスクを持つため、256GB以上のiPadを推奨</li>
     <li><strong>ネットワーク機能</strong>：仮想マシンはiPadのWi-Fi経由でインターネット接続が可能</li>
@@ -122,7 +125,7 @@ export const description = "iPad/iPhone上でWindowsやLinuxを動かすUTMア�
   <StepList>
     <Step num={1} title="公式サイトから UTM をダウンロード" desc="getutm.appから最新版を入手（無料）" />
     <Step num={2} title="UTM をインストールし、起動" />
-    <Step num={3} title="「+」ボタンから新しい仮想マシンを作成" />
+    <Step num={3} title="「+」ボタンから新しい仮想マシンを作成" desc="Win 95/98・Mac OS 8.x/9.x・RISC-V64 Ubuntuのテンプレートあり" />
     <Step num={4} title="OS インストールメディア（ISO）を指定" />
     <Step num={5} title="OS インストールを進める" desc="初回は数十分〜数時間かかる場合あり" />
   </StepList>

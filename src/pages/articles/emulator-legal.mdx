@@ -13,7 +13,7 @@ export const h1 = "エミュレータと著作権";
 export const summary = "エミュレータは合法？ROM吸い出しと違法ダウンロードの違いを日本の著作権法で解説。安全な楽しみ方を紹介。";
 export const description = "エミュレータの合法性、ROM吸い出し（ダンピング）の正しい知識、違法ダウンロードの危険性を日本の著作権法に基づいて解説。安全で合法的にレトロゲームを楽しむ方法をご紹介します。DeltaやGBOperatorの活用法も。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-03-17" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-04-09" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="「エミュレータ＝違法」ではない" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="結論">
@@ -130,6 +130,16 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
         <li>ほとんどのプロジェクトが削除・開発停止に追い込まれた</li>
       </ul>
     </Accordion>
+    <Accordion title="任天堂の公式見解（2026年）">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        任天堂の知的財産担当者が東京eSportsFesta（2026年）にて、<mark class="bg-yellow-100 px-1 rounded"><strong>「エミュレータ自体は合法」</strong></mark>と認める発言をしました。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>エミュレータそのものの開発・使用は合法</li>
+        <li>ただし<strong>暗号化の回避</strong>、<strong>著作権保護プログラムのコピー</strong>、<strong>海賊版への誘導</strong>は違法</li>
+        <li>レトロゲーム機（GB/GBA等）のエミュレータは問題なし</li>
+      </ul>
+    </Accordion>
     <Accordion title="レトロ vs 現行機種の違い">
       <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
         <li><strong>GB/GBC/GBA等（レトロ）：</strong>コピーガードがなく、エミュレータの合法性が広く認められている</li>
@@ -175,7 +185,7 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
 </Section>
 
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
-  <CardGrid cols={3}>
+  <CardGrid>
     <Card icon="gavel" iconColor="text-green-500" title="エミュレータ" desc="→ 合法" />
     <Card icon="usb" iconColor="text-blue-500" title="ダンピング" desc="→ 合法（私的複製）" />
     <Card icon="download" iconColor="text-red-500" title="違法DL" desc="→ 厳禁" />
