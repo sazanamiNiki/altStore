@@ -33,14 +33,14 @@ const faqItems = [
     tip: 'このサイト以外から野良アプリを入れる時は注意してください。信頼できるリポジトリからインストールすることが何より大切です。',
   },
   {
-    q: 'Q. AltStoreでうまくインストールできない時は？',
-    a: 'よくある原因をチェックしてみてください：<ul class="list-disc list-inside mb-4 space-y-2"><li>PCとiPhoneがちゃんと繋がってる？</li><li>Apple IDのパスワードは合ってる？</li><li>PCのファイアウォール（セキュリティ）で遮られてない？</li><li>AltStoreとiOSは最新版？</li></ul>',
-    tip: `ステップバイステップで見たい場合：「<a href="${base}articles/install-app-step-by-step/" class="font-bold underline">アプリをインストールする方法</a>」で画像付きで説明しています。`,
+    q: 'Q. AltStore PALってどんなアプリ？',
+    a: '2025年12月18日のスマートフォン新法（MSCA）施行により、日本でも利用可能になった<strong>代替アプリマーケットプレイス</strong>です。iOS 26.2以降のiPhoneなら、Safariからそのままインストールできます。従来のAltStore Classicと違って<strong>PC不要・USBケーブル不要・7日ごとの署名更新も不要</strong>なので、一般ユーザーにとって圧倒的に使いやすい方法です。Epic Games MegaGrantの支援により完全無料で利用できます。',
+    tip: `詳しい始め方：「<a href="${base}articles/install-app-step-by-step/" class="font-bold underline">アプリをインストールする方法</a>」で画像付きで解説しています。`,
   },
   {
-    q: 'Q. 「7日署名」って何？',
-    a: 'サイドローディングしたアプリは、7日ごとに「署名」という許可証を更新しないと使えなくなります。でも心配しないで。このサイトで紹介しているアプリはほとんどがWi-Fi接続時に自動更新されるので、あなたが何かする必要はありません。',
-    tip: '新しいAltStoreなら自動更新に対応しているので、インストール後は放っておいても大丈夫。',
+    q: 'Q. 「7日署名」って何？PALなら本当に制限なし？',
+    a: '従来のAltStore Classicは、個人開発者向けのApple ID仕組みを使ってアプリをインストールするため、7日ごとに「署名」という許可証を更新する必要がありました。一方<strong>AltStore PAL（代替マーケットプレイス）</strong>は、スマホ新法で認められた正規の配布ルートを使うため、この7日制限が<strong>完全に撤廃</strong>されています。インストールしたらずっと使い続けられます。',
+    tip: 'iOS 26.2以降をお使いなら、7日制限のないAltStore PALが最もおすすめです。',
   },
   {
     q: 'Q. ここのアプリって本当に安全？',
@@ -53,10 +53,10 @@ const siteUrl = 'https://altstore-jp.bunchoniki.com';
 
 // 最新情報データ
 const recentUpdates = [
+  { date: '2026-04-11', title: 'AltStore PAL完全ガイドを公開', href: `${base}articles/altstore-pal-guide/` },
+  { date: '2026-04-11', title: 'AltStore PAL対応アプリ一覧を公開', href: `${base}articles/altstore-pal-apps/` },
+  { date: '2026-04-11', title: '代替マーケットプレイスとは？を公開', href: `${base}articles/alternative-marketplace/` },
   { date: '2026-03-23', title: 'Delta無料ゲーム特集にカスタマイズガイドを追加', href: `${base}articles/free-games-for-delta/` },
-  { date: '2026-03-19', title: 'Delta完全ガイドをApp Store版対応に更新', href: `${base}articles/delta-utm-guide/` },
-  { date: '2026-03-17', title: 'Epic Games Store日本上陸の記事を公開', href: `${base}articles/epic-games-store-japan/` },
-  { date: '2026-03-17', title: 'GB Operator完全ガイドを公開', href: `${base}articles/gb-operator-guide/` },
 ];
 
 // FAQPageスキーマ
@@ -88,13 +88,16 @@ const articleListSchema = {
   "@type": "ItemList",
   "name": "サイドローディング解説記事",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "iPhoneのサイドローディングとは？", "url": `${siteUrl}/articles/what-is-sideloading/` },
-    { "@type": "ListItem", "position": 2, "name": "AltStoreの使い方", "url": `${siteUrl}/articles/how-to-use-altstore/` },
-    { "@type": "ListItem", "position": 3, "name": "アプリをインストールする方法", "url": `${siteUrl}/articles/install-app-step-by-step/` },
-    { "@type": "ListItem", "position": 4, "name": "野良アプリの安全ガイド", "url": `${siteUrl}/articles/safety-guide/` },
-    { "@type": "ListItem", "position": 5, "name": "Delta/UTM SE 完全ガイド", "url": `${siteUrl}/articles/delta-utm-guide/` },
-    { "@type": "ListItem", "position": 6, "name": "エミュレータは違法？著作権と正しい遊び方", "url": `${siteUrl}/articles/emulator-legal/` },
-    { "@type": "ListItem", "position": 7, "name": "手数料30%カットの衝撃", "url": `${siteUrl}/articles/commission-cut/` },
+    { "@type": "ListItem", "position": 1, "name": "AltStore PAL完全ガイド", "url": `${siteUrl}/articles/altstore-pal-guide/` },
+    { "@type": "ListItem", "position": 2, "name": "AltStore PAL対応アプリ一覧", "url": `${siteUrl}/articles/altstore-pal-apps/` },
+    { "@type": "ListItem", "position": 3, "name": "代替マーケットプレイスとは？", "url": `${siteUrl}/articles/alternative-marketplace/` },
+    { "@type": "ListItem", "position": 4, "name": "iPhoneのサイドローディングとは？", "url": `${siteUrl}/articles/what-is-sideloading/` },
+    { "@type": "ListItem", "position": 5, "name": "AltStoreの使い方", "url": `${siteUrl}/articles/how-to-use-altstore/` },
+    { "@type": "ListItem", "position": 6, "name": "アプリをインストールする方法", "url": `${siteUrl}/articles/install-app-step-by-step/` },
+    { "@type": "ListItem", "position": 7, "name": "野良アプリの安全ガイド", "url": `${siteUrl}/articles/safety-guide/` },
+    { "@type": "ListItem", "position": 8, "name": "Delta/UTM SE 完全ガイド", "url": `${siteUrl}/articles/delta-utm-guide/` },
+    { "@type": "ListItem", "position": 9, "name": "エミュレータは違法？著作権と正しい遊び方", "url": `${siteUrl}/articles/emulator-legal/` },
+    { "@type": "ListItem", "position": 10, "name": "手数料30%カットの衝撃", "url": `${siteUrl}/articles/commission-cut/` },
   ]
 };
 
@@ -120,7 +123,7 @@ const appListSchema = featuredApps.length > 0 ? {
 
 <BaseLayout
   title="サイドローディング総合情報 - 厳選アプリカタログ"
-  description="iPhoneのサイドローディング総合情報サイト。AltStore・SideStoreの使い方、Delta・UTMなどの厳選アプリ紹介、安全ガイドを日本語で提供。"
+  description="日本でAltStore PALが無料で使えるようになりました（iOS 26.2以降・PC不要）。AltStore PALの始め方、Delta・UTMなどの厳選アプリ紹介、安全ガイドを日本語で提供するサイドローディング総合情報サイト。"
 >
   <Schema slot="schema" data={faqSchema} />
   <Schema slot="schema" data={breadcrumbSchema} />
@@ -134,8 +137,9 @@ const appListSchema = featuredApps.length > 0 ? {
 
     <div class="grid gap-6 sm:gap-8 lg:grid-cols-2 items-center">
       <div class="flex flex-col justify-center">
-        <span class="inline-block text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full w-fit mb-5">
-          信頼できるリポジトリ
+        <span class="inline-flex items-center gap-1 text-xs font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full w-fit mb-5">
+          <span class="material-symbols-outlined text-[14px] leading-none">new_releases</span>
+          日本で無料利用可能（iOS 26.2以降）
         </span>
 
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900">
@@ -144,19 +148,19 @@ const appListSchema = featuredApps.length > 0 ? {
         </h1>
 
         <p class="mt-5 text-gray-600 leading-relaxed max-w-md">
-          日本向けの安全なAltStoreリポジトリ。
-          公式ソースのみ掲載し、初心者でも安心して利用できます。
+          <strong class="text-gray-900">AltStore PAL</strong>が日本でついに無料で使えるようになりました。<br />
+          <strong class="text-blue-600">PC不要・7日制限なし</strong>で、Safariからそのままインストール。初心者でも安心の日本語ガイド付き。
         </p>
 
-        <div class="mt-6 sm:mt-8 flex items-center gap-4 sm:gap-5">
-          <a href={`${base}apps`}
-            class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium shadow hover:bg-blue-700 transition">
-            アプリを探す →
+        <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+          <a href={`${base}articles/install-app-step-by-step/`}
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium shadow hover:bg-blue-700 transition">
+            AltStore PALで始める →
           </a>
 
-          <a href={`${base}articles/`}
-            class="text-sm text-gray-500 hover:underline">
-            初めての方はこちら
+          <a href={`${base}apps`}
+            class="inline-flex items-center justify-center text-sm text-gray-600 hover:text-blue-600 hover:underline">
+            アプリカタログを見る
           </a>
         </div>
       </div>
@@ -189,30 +193,24 @@ const appListSchema = featuredApps.length > 0 ? {
     <div class="mt-6 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-3">
       <div class="bg-white border border-gray-200 p-3 sm:p-4 rounded-xl">
         <div class="flex items-center gap-2 mb-1">
-          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
-          </svg>
-          <h3 class="font-semibold text-sm">公式ソース直結</h3>
+          <span class="material-symbols-outlined text-blue-600 text-[20px]">laptop_mac</span>
+          <h3 class="font-semibold text-sm">PC不要</h3>
         </div>
-        <p class="text-xs text-gray-600">開発者の公式リポジトリから直接取得。</p>
+        <p class="text-xs text-gray-600">Safariからそのままインストール。</p>
       </div>
       <div class="bg-white border border-gray-200 p-3 sm:p-4 rounded-xl">
         <div class="flex items-center gap-2 mb-1">
-          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12"/>
-          </svg>
-          <h3 class="font-semibold text-sm">厳格な安全基準</h3>
+          <span class="material-symbols-outlined text-blue-600 text-[20px]">all_inclusive</span>
+          <h3 class="font-semibold text-sm">7日制限なし</h3>
         </div>
-        <p class="text-xs text-gray-600">オープンソース確認と公証チェック。</p>
+        <p class="text-xs text-gray-600">代替マーケットプレイスで署名切れから解放。</p>
       </div>
       <div class="bg-white border border-gray-200 p-3 sm:p-4 rounded-xl">
         <div class="flex items-center gap-2 mb-1">
-          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-          </svg>
-          <h3 class="font-semibold text-sm">初心者にやさしい</h3>
+          <span class="material-symbols-outlined text-blue-600 text-[20px]">translate</span>
+          <h3 class="font-semibold text-sm">日本語で解説</h3>
         </div>
-        <p class="text-xs text-gray-600">日本語で丁寧に解説。</p>
+        <p class="text-xs text-gray-600">初心者向けのステップバイステップガイド。</p>
       </div>
     </div>
 
@@ -254,49 +252,64 @@ const appListSchema = featuredApps.length > 0 ? {
               <span class="material-symbols-outlined feature-icon">language</span>
             </div>
             <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-900">日本語対応</h3>
-            <p class="text-sm sm:text-base text-gray-700 leading-relaxed">AltStoreやDeltaの公式ドキュメントは英語のみ。当サイトではセットアップ手順から法的な注意点まで、すべて日本語で解説しています。</p>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed">AltStore PALやDeltaの公式ドキュメントは英語のみ。当サイトではセットアップ手順から法的な注意点まで、すべて日本語で解説しています。</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- 配布方法の違い -->
+    <!-- AltStore PAL を推すセクション -->
     <section class="py-10 sm:py-14 px-4 bg-white border-t border-gray-200">
       <div class="max-w-6xl mx-auto">
 
-        <h2 class="text-xl sm:text-2xl font-bold text-center mb-2 text-gray-900">
-          配布方法の違い
-        </h2>
-        <p class="text-sm sm:text-base text-gray-600 text-center max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
-          サイドローディングアプリには「App Store経由」と「IPA配布」の2つの入手方法があります。2024年以降、DeltaやUTMなど一部のアプリはApp Storeでも配信されるようになりましたが、App Storeに載っていないアプリはAltStoreやSideStoreを使ってインストールします。
-        </p>
+        <div class="text-center mb-6 sm:mb-8">
+          <span class="inline-flex items-center gap-1 text-xs font-semibold bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full mb-3">
+            <span class="material-symbols-outlined text-[14px] leading-none">new_releases</span>
+            2025年12月18日〜 日本対応
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold mb-2 text-gray-900">
+            いま選ぶなら <span class="text-indigo-600">AltStore PAL</span>
+          </h2>
+          <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            iOS 26.2以降、日本でも代替アプリマーケットプレイス版の<strong>AltStore PAL</strong>が無料で使えるようになりました。Safariからインストールするだけで、<strong>PC不要・7日制限なし</strong>。従来のセットアップ作業はもう必要ありません。
+          </p>
+        </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
-          <a href={`${base}articles/altstore-complete-guide/`} class="bg-green-50 rounded-xl p-5 sm:p-6 border border-green-200 hover:shadow-md hover:border-green-300 transition-all block">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="material-symbols-outlined text-green-600">storefront</span>
-              <h3 class="text-lg font-semibold text-gray-900">App Store配信</h3>
+          <!-- AltStore PAL（推奨） -->
+          <a href={`${base}articles/install-app-step-by-step/`} class="relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-5 sm:p-6 border-2 border-indigo-300 hover:shadow-lg hover:border-indigo-400 transition-all block">
+            <span class="absolute -top-3 left-5 inline-block bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">おすすめ</span>
+            <div class="flex items-center gap-2 mb-3 mt-1">
+              <span class="material-symbols-outlined text-indigo-600">storefront</span>
+              <h3 class="text-lg font-semibold text-gray-900">AltStore PAL</h3>
+              <span class="text-xs text-gray-500 ml-auto">代替マーケットプレイス</span>
             </div>
-            <p class="text-sm text-gray-700 leading-relaxed mb-3">AppleのApp Storeからダウンロードする方法です。通常のアプリと同じ手順で使えるため、初心者にはこちらがおすすめです。</p>
-            <ul class="text-sm text-gray-600 space-y-1.5">
-              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span>自動更新で常に最新版</li>
-              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span>署名の更新作業が不要</li>
-              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span>PCなしでiPhoneだけで完結</li>
+            <p class="text-sm text-gray-700 leading-relaxed mb-3">iOS 26.2以降の日本向け最新ルート。Safariから直接インストールできて、一般ユーザーにとって最もハードルが低い方法です。</p>
+            <ul class="text-sm text-gray-700 space-y-1.5">
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-600 text-base">check_circle</span><strong>PC・USBケーブル不要</strong></li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-600 text-base">check_circle</span><strong>7日ごとの署名更新が不要</strong></li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-600 text-base">check_circle</span>完全無料（2025年12月18日〜）</li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-600 text-base">check_circle</span>自動更新対応</li>
             </ul>
+            <span class="inline-block mt-4 text-sm font-semibold text-indigo-600">インストール手順を見る →</span>
           </a>
 
-          <a href={`${base}articles/how-to-use-altstore/`} class="bg-yellow-50 rounded-xl p-5 sm:p-6 border border-yellow-200 hover:shadow-md hover:border-yellow-300 transition-all block">
+          <!-- AltStore Classic / SideStore（上級者向け） -->
+          <a href={`${base}articles/altstore-complete-guide/`} class="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all block">
             <div class="flex items-center gap-2 mb-3">
-              <span class="material-symbols-outlined text-yellow-600">package_2</span>
-              <h3 class="text-lg font-semibold text-gray-900">IPA配布（7日署名）</h3>
+              <span class="material-symbols-outlined text-gray-500">build</span>
+              <h3 class="text-lg font-semibold text-gray-900">AltStore Classic / SideStore</h3>
+              <span class="text-xs text-gray-500 ml-auto">従来型</span>
             </div>
-            <p class="text-sm text-gray-700 leading-relaxed mb-3">AltStoreやSideStoreを使って、開発者が配布するIPAファイルを直接インストールする方法です。App Storeにないアプリも導入できます。</p>
+            <p class="text-sm text-gray-700 leading-relaxed mb-3">PCを使う従来ルート。iOS 26.2未満の端末を使っている方や、PAL非対応のアプリを入れたい方向けです。</p>
             <ul class="text-sm text-gray-600 space-y-1.5">
-              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-yellow-500 text-base">info</span>7日ごとに署名の更新が必要</li>
-              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-yellow-500 text-base">info</span>初回セットアップにPCが必要</li>
-              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-green-500 text-base">check_circle</span>Wi-Fi接続時に自動更新可能</li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-gray-400 text-base">info</span><strong>Classic：</strong>毎回PC接続が必要</li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-gray-400 text-base">info</span><strong>SideStore：</strong>初回のみPC必要、以降はWi-Fiで自動更新</li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-gray-400 text-base">info</span>7日ごとの署名更新が必要</li>
+              <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-gray-400 text-base">info</span>個人開発者向けApple ID仕組みを利用</li>
             </ul>
+            <span class="inline-block mt-4 text-sm font-semibold text-gray-700">完全ガイドを見る →</span>
           </a>
 
         </div>
@@ -596,19 +609,20 @@ const appListSchema = featuredApps.length > 0 ? {
             <span class="material-symbols-outlined text-blue-500">play_circle</span>
             はじめかた
           </h3>
-          <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングの仕組みを理解し、AltStoreのセットアップからアプリのインストールまでを順を追って解説します。</p>
+          <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングの基本から、AltStore PALを使った最短インストール手順までを順を追って解説します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <a href={`${base}articles/altstore-pal-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PAL完全ガイド</h4>
+              <p class="text-xs text-gray-500">仕組みから始め方までを総合解説</p>
+            </a>
+            <a href={`${base}articles/install-app-step-by-step/`} class="bg-white rounded-xl p-4 sm:p-5 border-2 border-indigo-300 hover:border-indigo-400 hover:shadow-md transition-all relative">
+              <span class="absolute -top-2 right-3 inline-block bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">おすすめ</span>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PALで始める</h4>
+              <p class="text-xs text-gray-500">PC不要・7日制限なし・完全無料</p>
+            </a>
             <a href={`${base}articles/what-is-sideloading/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">サイドローディングとは？</h4>
               <p class="text-xs text-gray-500">App Store以外からアプリを入れる方法</p>
-            </a>
-            <a href={`${base}articles/how-to-use-altstore/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStoreの使い方</h4>
-              <p class="text-xs text-gray-500">7日署名とWi-Fi自動更新の仕組み</p>
-            </a>
-            <a href={`${base}articles/install-app-step-by-step/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">アプリインストール手順</h4>
-              <p class="text-xs text-gray-500">PC準備からインストールまで完全ガイド</p>
             </a>
           </div>
         </div>
@@ -625,13 +639,13 @@ const appListSchema = featuredApps.length > 0 ? {
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">野良アプリの安全ガイド</h4>
               <p class="text-xs text-gray-500">ウイルスから身を守る3つの鉄則</p>
             </a>
+            <a href={`${base}articles/alternative-marketplace/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-all">
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">代替マーケットプレイスとは？</h4>
+              <p class="text-xs text-gray-500">App Storeの外の正規配布ルート</p>
+            </a>
             <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-all">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">エミュレータと著作権</h4>
               <p class="text-xs text-gray-500">日本国内での正しい遊び方を解説</p>
-            </a>
-            <a href={`${base}articles/smartphone-law-explained/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-all">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">スマートフォン新法</h4>
-              <p class="text-xs text-gray-500">2025年施行の競争促進法を解説</p>
             </a>
           </div>
         </div>
@@ -644,6 +658,10 @@ const appListSchema = featuredApps.length > 0 ? {
           </h3>
           <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングで使える注目アプリの使い方や活用テクニックを紹介します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <a href={`${base}articles/altstore-pal-apps/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PAL対応アプリ一覧</h4>
+              <p class="text-xs text-gray-500">PALで入手できる主要アプリと選び方</p>
+            </a>
             <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Delta & UTM SE 完全ガイド</h4>
               <p class="text-xs text-gray-500">エミュレータの導入から設定まで</p>
@@ -651,10 +669,6 @@ const appListSchema = featuredApps.length > 0 ? {
             <a href={`${base}articles/utm-windows-on-ios/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">UTMで仮想化を活用</h4>
               <p class="text-xs text-gray-500">iPadでWindowsやLinuxを動かす</p>
-            </a>
-            <a href={`${base}articles/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">すべての記事を見る</h4>
-              <p class="text-xs text-gray-500">全20本の記事一覧へ</p>
             </a>
           </div>
         </div>

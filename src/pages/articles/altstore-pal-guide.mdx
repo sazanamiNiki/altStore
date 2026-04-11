@@ -1,0 +1,286 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
+
+export const title = "AltStore PAL完全ガイド";
+export const h1 = "AltStore PAL完全ガイド：日本で無料の代替マーケットプレイス";
+export const summary = "日本で無料の代替マーケットプレイスAltStore PALの仕組み、Classicとの違い、始め方を完全網羅。";
+export const description = "日本で無料利用可能なAltStore PALを徹底解説。代替マーケットプレイスの仕組み、AltStore Classicとの違い、Epic Games MegaGrantで完全無料の背景、iOS 26.2の要件、インストール手順、v2.3の新機能まで1ページで完全網羅。";
+
+export const faqData = [
+  {
+    question: "AltStore PALは本当に無料ですか？",
+    answer: "はい、完全無料です。EpicGames MegaGrantによりAltStore LLCが開発者手数料（Core Technology Commission）を負担しているため、ユーザーは費用なしで利用できます。",
+  },
+  {
+    question: "AltStore Classicとの違いは何ですか？",
+    answer: "AltStore PALは代替マーケットプレイスとして動作するため、PC不要・7日ごとの署名更新不要・署名が永続するという大きな違いがあります。一方で配信アプリはApple公証済みのものに限られます。",
+  },
+  {
+    question: "iOS 26.2以降でしか使えないのはなぜですか？",
+    answer: "日本のスマホ新法（MSCA）に基づく代替マーケットプレイス機能は、iOS 26.2で日本リージョン向けに解禁されたためです。iOS 26.1以前では利用できません。",
+  },
+  {
+    question: "PALで配信されていないアプリを入れたい場合は？",
+    answer: "AltStore ClassicやSideStoreを併用することで、PALにないアプリもインストール可能です。PALは「公証済みの安全なアプリを手軽に」という位置付けで、従来のサイドローディングを完全には置き換えません。",
+  },
+];
+
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-11" icon="storefront" iconColor="text-indigo-500" faq={faqData}>
+
+<Section intro title="AltStore PALとは？" icon="lightbulb">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    <mark class="bg-yellow-100 px-1 rounded"><strong>AltStore PAL</strong></mark>は、日本のスマートフォン新法（MSCA）施行と同時に<strong>2025年12月18日から日本で無料で使えるようになった代替アプリマーケットプレイス</strong>です。
+  </p>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    従来のAltStore Classicと違い、<strong>PC不要・7日ごとの署名更新不要</strong>。Safariから直接インストールでき、一度入れたら制限なしで使い続けられます。iPhoneでサイドローディングを始めるなら、今もっとも手軽な選択肢です。
+  </p>
+  <InfoBox type="success" icon="check_circle" title="このガイドの要点">
+    ✓ PALとClassicの違い ✓ なぜ無料なのか ✓ 利用条件 ✓ インストール手順 ✓ v2.3の新機能
+  </InfoBox>
+  <BunchanAdvice alt="ぶんちゃんがAltStore PALを案内している">
+    <strong>iOS 26.2以降なら、まずAltStore PALを試してみて！</strong><br />
+    PC不要で7日制限もないから、一般ユーザーにいちばんやさしい方法だよ🌸
+  </BunchanAdvice>
+</Section>
+
+<Section title="AltStore Classicとの違い" icon="compare" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStore PALは、従来のAltStore Classicとはまったく異なる仕組みで動きます。一番の違いは、<strong>「代替マーケットプレイス」という正規の配布ルート</strong>を使っていること。これによって、Classicで必要だった面倒な作業がすべて不要になっています。
+  </p>
+  <CardGrid>
+    <Card icon="storefront" iconColor="text-indigo-500" title="AltStore PAL" desc="PC不要・永続署名" />
+    <Card icon="build" iconColor="text-gray-500" title="AltStore Classic" desc="PC必須・7日更新" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="PC/USBケーブル" open>
+      <p class="text-sm text-gray-700 mb-2"><strong>PAL：</strong>完全に不要。Safariで<a href="https://altstore.io" class="text-blue-600 underline">altstore.io</a>にアクセスしてインストールするだけ。</p>
+      <p class="text-sm text-gray-700"><strong>Classic：</strong>初回セットアップと7日ごとの署名更新にPC/Macが必要。AltServerを起動した状態でUSB接続またはWi-Fi同期が前提。</p>
+    </Accordion>
+    <Accordion title="7日署名の制限">
+      <p class="text-sm text-gray-700 mb-2"><strong>PAL：</strong>署名の有効期限がありません。一度インストールしたアプリはずっと使えます。</p>
+      <p class="text-sm text-gray-700">
+        <strong>Classic：</strong>無料Apple IDで署名しているため、7日ごとに再署名が必要です。Wi-Fi自動更新を設定すれば多くの作業は自動化できますが、根本的には制限が残ります。
+      </p>
+    </Accordion>
+    <Accordion title="配信されるアプリ">
+      <p class="text-sm text-gray-700 mb-2"><strong>PAL：</strong><mark class="bg-yellow-100 px-1 rounded"><strong>Apple公証済みアプリのみ</strong></mark>が配信されます。すべてのアプリがAppleによるセキュリティレビュー（Notarization）を通過しています。</p>
+      <p class="text-sm text-gray-700">
+        <strong>Classic：</strong>非公証のアプリもインストール可能。自由度は高いですが、ユーザー自身が出どころを確認する責任があります。
+      </p>
+    </Accordion>
+    <Accordion title="対応地域">
+      <p class="text-sm text-gray-700 mb-2"><strong>PAL：</strong>EU諸国と日本のみ。それぞれMSCA / DMA（競争促進法）が施行されているリージョンです。</p>
+      <p class="text-sm text-gray-700"><strong>Classic：</strong>世界中どこでも利用可能。</p>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice alt="ぶんちゃんが使い分けを案内している">
+    <strong>PALとClassicは「対立関係」じゃなくて「役割分担」だよ。</strong><br />
+    まずはPALで始めて、PALにないアプリがどうしても欲しくなったらClassicも併用するのがおすすめ🌸
+  </BunchanAdvice>
+</Section>
+
+<Section title="なぜ完全無料で使えるのか" icon="savings" iconColor="text-green-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStore PALが完全無料で提供されているのは、<strong>Epic Games MegaGrant</strong>という支援プログラムのおかげです。
+  </p>
+  <AccordionGroup>
+    <Accordion title="代替マーケットプレイス運営の負担" open>
+      <p class="text-sm text-gray-700 mb-2">Apple は代替マーケットプレイスの運営者に対して<strong>Core Technology Commission</strong>という手数料を課しています。配信されるアプリ経由でダウンロード/インストール1件あたり<strong>5%</strong>（日本のMSCAルール）が発生します。</p>
+      <p class="text-sm text-gray-700">小規模な運営者にとっては決して小さくない負担で、実際Setapp Mobileは2026年2月にサービス終了しました。</p>
+    </Accordion>
+    <Accordion title="Epic Games MegaGrantによる支援">
+      <p class="text-sm text-gray-700 mb-2">Epic Games は、Apple との訴訟で知られる一方、独立系開発者を支援するMegaGrantプログラムを運営しています。AltStoreはこの支援を受けることで、<strong>ユーザーから料金を徴収せずに運営を続けられる</strong>体制になっています。</p>
+      <p class="text-sm text-gray-700">同じ仕組みは2024年にDMAが施行されたEU加盟国で先行して導入されており、2025年12月18日から日本でも利用できるようになりました。</p>
+    </Accordion>
+    <Accordion title="ユーザーの費用負担は一切なし">
+      <p class="text-sm text-gray-700">ダウンロード料金・年会費・サブスク料金、すべて不要です。PALで配信されている個々のアプリは有料の場合もありますが、<mark class="bg-yellow-100 px-1 rounded"><strong>AltStore PAL自体は完全無料</strong></mark>です。</p>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="info" icon="info" title="手数料の仕組みはユーザーには見えない">
+    Core Technology Commissionは開発者とAppleの間の話で、エンドユーザーには直接関係しません。興味があれば「<a href={`${import.meta.env.BASE_URL}articles/commission-cut/`} class="font-bold underline">手数料30%カットの衝撃</a>」で詳しく解説しています。
+  </InfoBox>
+</Section>
+
+<Section title="利用条件：使える端末と環境" icon="checklist" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStore PALを使うために必要な条件は以下のとおりです。いずれも日本のユーザーにとって大きなハードルではありません。
+  </p>
+  <CardGrid>
+    <Card icon="phone_iphone" iconColor="text-blue-500" title="iOS 26.2以降" desc="設定→一般で確認" />
+    <Card icon="language" iconColor="text-green-500" title="日本のApp Store" desc="日本リージョン必須" />
+    <Card icon="person" iconColor="text-orange-500" title="Apple ID" desc="普段使いのIDでOK" />
+    <Card icon="wifi" iconColor="text-indigo-500" title="ネット接続" desc="Safari経由でDL" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="iOS 26.2以降が必要な理由">
+      <p class="text-sm text-gray-700 mb-2">日本のスマホ新法（MSCA）に基づく代替マーケットプレイス機能が、<strong>iOS 26.2で日本リージョン向けに有効化</strong>されたためです。iOS 26.1以前や、他国リージョンのiPhoneでは利用できません。</p>
+      <p class="text-sm text-gray-700">現在iOS 26.1以前を使っている方は、<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide/`} class="text-blue-600 underline">AltStore Classic</a>または<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide/`} class="text-blue-600 underline">SideStore</a>を検討してください。</p>
+    </Accordion>
+    <Accordion title="日本のApp Storeアカウントが必要">
+      <p class="text-sm text-gray-700">AltStore PALは日本リージョン専用に配信されているため、<strong>日本のApp Storeアカウント</strong>でサインインしている必要があります。海外在住の方や海外リージョンのアカウントを使っている方は、一時的に日本リージョンに切り替える必要があります。</p>
+    </Accordion>
+    <Accordion title="必要なくなった条件（Classicとの比較）">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>PC/Mac：<strong>不要</strong>（Classicでは必須）</li>
+        <li>USBケーブル：<strong>不要</strong>（Classicでは初回必須）</li>
+        <li>AltServerのインストール：<strong>不要</strong></li>
+        <li>Wi-Fi自動更新の設定：<strong>不要</strong></li>
+        <li>7日ごとの署名更新：<strong>不要</strong></li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="インストール手順ダイジェスト" icon="download" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStore PALのインストールは、ブラウザでWebサイトを開いて数回タップするだけ。ここでは流れをざっくり示します。画面付きの詳細手順は実践ガイドを参照してください。
+  </p>
+  <StepList>
+    <Step num={1} title="Safariでaltstore.ioを開く" desc="必ずSafariを使用。他のブラウザでは動作しません" />
+    <Step num={2} title="「Download」ボタンをタップ" desc="マーケットプレイスのインストール確認が表示されます" />
+    <Step num={3} title="設定アプリで許可する" desc="「AltStore LLCからのマーケットプレイスを許可」を選択" />
+    <Step num={4} title="もう一度「Download」をタップ" desc="今度はApp Marketplace本体がインストールされます" />
+    <Step num={5} title="AltStore PALからアプリを入手" desc="ExploreやBrowseで気になるアプリを「Get」ボタンでインストール" advice="Apple公証済みのアプリだけが並んでるから、安心して選べるよ🌸" />
+  </StepList>
+  <InfoBox type="success" icon="autorenew" title="一度入れたら自動で完結">
+    Classicのような署名更新や同期作業は一切不要です。インストールしたアプリはPALが自動でアップデートを管理します。
+  </InfoBox>
+  <InfoBox type="info" icon="menu_book" title="画像付きの完全な手順">
+    より詳しい画像付きステップは「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step/`} class="font-bold underline">アプリをインストールする方法</a>」の「AltStore PALでインストール」セクションをご覧ください。
+  </InfoBox>
+</Section>
+
+<Section title="PALで何ができる？配信アプリの概観" icon="apps" iconColor="text-purple-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStore PALで入手できるアプリは、Apple公証を通過した安全なアプリに限られます。とはいえ、<strong>App Storeの制約に縛られないため、App Storeでは配信できない種類のアプリ</strong>が充実しています。
+  </p>
+  <CardGrid cols={3}>
+    <Card icon="sports_esports" iconColor="text-indigo-500" title="Delta" desc="レトロゲームエミュ" />
+    <Card icon="computer" iconColor="text-blue-500" title="UTMフル版" desc="仮想マシン実行環境" />
+    <Card icon="videogame_asset" iconColor="text-purple-500" title="フォートナイト" desc="Epic Gamesの代表作" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="Delta（PAL版）" open>
+      <p class="text-sm text-gray-700 mb-2">DeltaはApp Storeからもダウンロードできますが、日本のApp Storeで一部機能が制限されている場合、AltStore PAL経由で入手することで補完できる場合があります。詳しくは<a href={`${import.meta.env.BASE_URL}articles/delta-utm-guide/`} class="text-blue-600 underline">Delta &amp; UTM SE 完全ガイド</a>で解説しています。</p>
+    </Accordion>
+    <Accordion title="UTM（フル版）">
+      <p class="text-sm text-gray-700 mb-2">App Store版の「UTM SE」はQEMU v9.1.2ベースの制限版ですが、AltStore PAL経由で配信されるフルUTMはQEMU v10.0.2に対応し、Liquid Glass UIなど最新機能も利用できます。</p>
+      <InfoBox type="warning" icon="warning" title="iOS 26以降のJIT無効化に注意">
+        iOS 26ではJITコンパイルが無効化されているため、JITを前提とした機能はフルUTMでも動作しません。詳しくは<a href={`${import.meta.env.BASE_URL}articles/utm-windows-on-ios/`} class="text-blue-600 underline">UTMで仮想化を活用</a>をご覧ください。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="フォートナイト">
+      <p class="text-sm text-gray-700">2020年のApp Store削除以来、日本でフォートナイトをiPhoneで遊ぶ手段は事実上消えていました。Epic Games Store iOS日本版が未リリースの現在、<strong>AltStore PAL経由のインストールが日本国内で唯一の正規ルート</strong>です。詳しくは<a href={`${import.meta.env.BASE_URL}articles/epic-games-store-japan/`} class="text-blue-600 underline">Epic Games Store日本上陸</a>をご覧ください。</p>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="info" icon="menu_book" title="配信アプリの全体像はこちら">
+    PALで入手できるアプリの一覧や、App Store版との違いは「<a href={`${import.meta.env.BASE_URL}articles/altstore-pal-apps/`} class="font-bold underline">AltStore PAL対応アプリ一覧</a>」で詳しく紹介しています。
+  </InfoBox>
+</Section>
+
+<Section title="v2.3の新機能" icon="new_releases" iconColor="text-indigo-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    2026年3月にリリースされたAltStore PAL v2.3では、世界初の試みや日本ユーザー向けの配慮が加わりました。
+  </p>
+  <CardGrid>
+    <Card icon="hub" iconColor="text-indigo-500" title="Fediverse統合" desc="Mastodon連携で「いいね」" />
+    <Card icon="auto_awesome" iconColor="text-blue-500" title="Liquid Glass UI" desc="iOS 26対応デザイン" />
+    <Card icon="explore" iconColor="text-purple-500" title="Exploreページ" desc="アプリ発見がより簡単" />
+    <Card icon="brush" iconColor="text-pink-500" title="日本風アイコン" desc="日本ユーザー向け配慮" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="世界初のFediverse連合型ストア">
+      <p class="text-sm text-gray-700 mb-2">MastodonやBlueskyのアカウントでAltStore PALにサインインすると、気になったアプリに「いいね」できるようになりました。これはFediverse（分散SNS）と連携する初のアプリストアです。</p>
+      <p class="text-sm text-gray-700">従来のApp StoreのレビューやランキングはAppleが完全に管理していましたが、PALでは<strong>SNSと連動した分散型の評価システム</strong>を実現しています。</p>
+    </Accordion>
+    <Accordion title="Liquid Glass UI（iOS 26対応）">
+      <p class="text-sm text-gray-700">iOS 26で導入されたLiquid Glassデザインに合わせて、AltStore PALのUIがガラス質の半透明エフェクトに一新されました。iOS標準アプリと並べても違和感がありません。</p>
+    </Accordion>
+    <Accordion title="Exploreページ">
+      <p class="text-sm text-gray-700">v2.3では<strong>Exploreページ</strong>でアプリの発見がより簡単になりました。気になるアプリをブラウズしやすくなっています。</p>
+    </Accordion>
+    <Accordion title="日本風アイコン">
+      <p class="text-sm text-gray-700">v2.3では日本ユーザー向けに<strong>日本風アイコン</strong>が追加されました。日本上陸に合わせた地域ローカライズの一環です。</p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="よくあるトラブルと対処" icon="help" iconColor="text-red-600">
+  <AccordionGroup>
+    <Accordion title="「Download」ボタンが反応しない">
+      <p class="text-sm text-gray-700 mb-2">Safari以外のブラウザ（Chrome、Firefox等）では動作しません。必ず<strong>Safariで開き直して</strong>ください。</p>
+      <p class="text-sm text-gray-700">また、iOSが26.2未満の場合もこのエラーが出ます。「設定→一般→情報」でiOSバージョンを確認してください。</p>
+    </Accordion>
+    <Accordion title="「この地域では利用できません」と表示される">
+      <p class="text-sm text-gray-700">Apple IDのリージョン（国・地域）が日本以外になっている可能性があります。設定アプリのApple IDメニューから国/地域を日本に変更してください。</p>
+    </Accordion>
+    <Accordion title="マーケットプレイスの許可設定が見つからない">
+      <p class="text-sm text-gray-700">設定アプリから代替マーケットプレイスの許可設定を確認し、「AltStore LLC」が表示されていればオンにしてください（メニュー名はiOSのバージョンにより異なります）。</p>
+    </Accordion>
+    <Accordion title="PALには欲しいアプリがない">
+      <p class="text-sm text-gray-700 mb-2">PALは公証済みアプリのみ配信のため、従来のサイドローディングと比べると選択肢は限定されます。</p>
+      <BunchanAdvice alt="ぶんちゃんが併用を提案している">
+        <strong>PALにないアプリは、AltStore ClassicやSideStoreで補うのが現実的！</strong><br />
+        ふたつを併用しても問題ないから、使い分けでいこう🌸
+      </BunchanAdvice>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="laptop_mac" iconColor="text-blue-500" title="PC不要" desc="Safariから直接導入" />
+    <Card icon="all_inclusive" iconColor="text-indigo-500" title="7日制限なし" desc="永続署名で手間ゼロ" />
+    <Card icon="savings" iconColor="text-green-500" title="完全無料" desc="Epic MegaGrantの支援" />
+    <Card icon="verified" iconColor="text-purple-500" title="公証済み" desc="Appleのセキュリティ通過" />
+  </CardGrid>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mt-4 sm:mt-6">
+    iOS 26.2以降のiPhoneをお使いなら、まずAltStore PALから始めるのが最短ルートです。PALに無いアプリが必要になったら、ClassicやSideStoreを後から併用する方針で十分です。
+  </p>
+  <BunchanAdvice alt="ぶんちゃんが導入を後押ししている">
+    <strong>はじめてのサイドローディングなら、迷わずAltStore PALから！</strong><br />
+    設定は数分で終わるし、以降の手間はほぼゼロだよ🌸
+  </BunchanAdvice>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/install-app-step-by-step/',
+    icon: 'install_desktop',
+    iconColor: 'text-green-600',
+    title: 'アプリをインストールする方法',
+    desc: '画像付きの実践的なPAL導入手順をステップバイステップで解説。',
+  },
+  {
+    href: '/articles/altstore-pal-apps/',
+    icon: 'apps',
+    iconColor: 'text-indigo-600',
+    title: 'AltStore PAL対応アプリ一覧',
+    desc: 'PALで入手できる主要アプリとApp Store版との違い。',
+  },
+  {
+    href: '/articles/alternative-marketplace/',
+    icon: 'store',
+    iconColor: 'text-purple-600',
+    title: '代替マーケットプレイスとは？',
+    desc: 'PALの位置付けを制度面から理解する概念解説。',
+  },
+  {
+    href: '/articles/altstore-complete-guide/',
+    icon: 'menu_book',
+    iconColor: 'text-blue-600',
+    title: 'AltStore完全ガイド',
+    desc: 'Classic含めた統合版ガイド。トラブル対応まで網羅。',
+  },
+]} />
+
+</ArticleLayout>

@@ -1,0 +1,212 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
+
+export const title = "代替マーケットプレイスとは？";
+export const h1 = "代替アプリマーケットプレイスとは？日本の現状と仕組み";
+export const summary = "App Storeの外に生まれたApple公認の正規配布ルート、代替マーケットプレイスの仕組みと日本の現状を解説。";
+export const description = "代替アプリマーケットプレイスの仕組みを日本向けに解説。MSCA施行の背景、AltStore PAL・Epic Games Store・Setapp Mobileの現状、従来のサイドローディングや公証との関係まで、制度面から体系的に理解できる解説記事。";
+
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-11" icon="store" iconColor="text-purple-500">
+
+<Section intro title="「代替マーケットプレイス」という新しい配布ルート" icon="lightbulb">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    「AltStore PALは代替マーケットプレイスです」という説明をよく聞くようになりました。でも、そもそも<strong>代替マーケットプレイス</strong>って何でしょうか？
+  </p>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    この記事では、代替マーケットプレイスの概念、日本で使える仕組み、そしてAltStore PALや従来のサイドローディングとの位置関係を<strong>制度面から</strong>整理します。
+  </p>
+  <BunchanAdvice alt="ぶんちゃんが制度面を案内している">
+    <strong>代替マーケットプレイスは「App Storeの外側にできた、Apple公認の正規ルート」。</strong><br />
+    野良アプリを入れるサイドローディングとは似てるようで別物なんだよ🌸
+  </BunchanAdvice>
+</Section>
+
+<Section title="従来の配布モデル：App Store一強時代" icon="history_edu" iconColor="text-gray-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    iPhoneが登場してから十数年間、アプリを入手する正規ルートは<strong>App Storeただ一つ</strong>でした。
+  </p>
+  <CardGrid>
+    <Card icon="storefront" iconColor="text-blue-500" title="App Store" desc="Apple唯一の配信窓口" />
+    <Card icon="block" iconColor="text-red-500" title="他の配布ルート" desc="正規には存在しない" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="App Storeモデルの特徴" open>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>すべてのアプリがAppleの審査を通過</li>
+        <li>売上の15〜30%がAppleへの手数料</li>
+        <li>課金はApple経由のみ（外部決済禁止）</li>
+        <li>配信の可否はApple次第</li>
+      </ul>
+    </Accordion>
+    <Accordion title="従来のサイドローディング（Classic / SideStore）">
+      <p class="text-sm text-gray-700 mb-2">App Storeの外にアプリを入れる方法として、AltStore ClassicやSideStoreが存在していました。これらは<strong>個人開発者向けの仕組み（Free Apple ID provisioning）を利用した抜け道</strong>で、Apple公認のルートではありませんでした。</p>
+      <p class="text-sm text-gray-700">そのため、7日ごとの署名更新や3アプリ上限といった制約があり、一般ユーザーにとってはハードルが高い方法でした。</p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="代替マーケットプレイスとは何か" icon="store" iconColor="text-purple-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    代替マーケットプレイスは、<strong>App Store以外にもアプリ配信を担う、正規のアプリストア</strong>です。Apple自身がAlternative Marketplace APIを通じて運営を認めています。
+  </p>
+  <InfoBox type="indigo" icon="new_releases" title="サイドローディングとの根本的な違い">
+    従来のサイドローディングが「個人開発者の抜け道を使った方法」だったのに対し、代替マーケットプレイスは<strong>Appleが制度的に認めた正規の配布ルート</strong>です。7日制限や署名更新といった従来のサイドローディングの制約は、このルートでは最初から存在しません。
+  </InfoBox>
+  <AccordionGroup>
+    <Accordion title="代替マーケットプレイスの特徴" open>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>正規ルート：</strong>Apple公認のAlternative Marketplace APIで動作</li>
+        <li><strong>永続署名：</strong>署名切れがない（7日制限なし）</li>
+        <li><strong>公証必須：</strong>配信アプリはすべてApple公証を通過</li>
+        <li><strong>リージョン限定：</strong>対応法律が施行された国のみ</li>
+        <li><strong>運営手数料：</strong>開発者は5%程度のCTCをAppleに支払う（ユーザーには不可視）</li>
+      </ul>
+    </Accordion>
+    <Accordion title="生まれた背景：反独占の法整備">
+      <p class="text-sm text-gray-700 mb-2">代替マーケットプレイスは、各国の競争法・反独占法への対応としてAppleが解禁したものです。</p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>EU：</strong>デジタル市場法（DMA）に基づき2024年3月から解禁</li>
+        <li><strong>日本：</strong>スマートフォン新法（MSCA）に基づき2025年12月18日から解禁</li>
+      </ul>
+    </Accordion>
+    <Accordion title="開発者・ユーザー双方のメリット">
+      <p class="text-sm text-gray-700 mb-2"><strong>開発者：</strong>App Store審査に通らない/通したくないアプリも配信可能。外部決済の自由度が高い。</p>
+      <p class="text-sm text-gray-700"><strong>ユーザー：</strong>App Storeにない選択肢にアクセスできる。PCや特別な知識なしで利用可能。</p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="日本で利用可能・予定の代替マーケットプレイス" icon="public" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    2026年4月時点で、日本で使える、または予定されている代替マーケットプレイスをまとめます。
+  </p>
+  <CardGrid cols={3}>
+    <Card icon="storefront" iconColor="text-indigo-500" title="AltStore PAL" desc="稼働中（無料）" />
+    <Card icon="videogame_asset" iconColor="text-orange-500" title="Epic Games Store" desc="未リリース" />
+    <Card icon="block" iconColor="text-red-500" title="Setapp Mobile" desc="2026年2月終了" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="AltStore PAL（稼働中）" open>
+      <p class="text-sm text-gray-700 mb-2">2025年12月18日のMSCA施行と同時に、日本で<strong>無料で正式リリース</strong>されました。Epic Games MegaGrantの支援により完全無料で、iOS 26.2以降のiPhoneで利用可能です。</p>
+      <p class="text-sm text-gray-700">現時点で日本で唯一稼働している主要な代替マーケットプレイスで、フォートナイトやDelta、フルUTMなどが配信されています。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/altstore-pal-guide/`} class="text-blue-600 underline">AltStore PAL完全ガイド</a>」をご覧ください。</p>
+    </Accordion>
+    <Accordion title="Epic Games Store iOS日本版（未リリース）">
+      <p class="text-sm text-gray-700 mb-2">当初2025年12月18日（施行日）のリリース予定でしたが、<strong>Appleの手数料体系</strong>を巡るEpic Gamesとの対立により、2026年4月現在も<strong>日本では未リリース</strong>のままです。</p>
+      <p class="text-sm text-gray-700">米国ではAppleが連邦最高裁への上告を準備中で、法廷闘争は長期化しています。詳細は「<a href={`${import.meta.env.BASE_URL}articles/epic-games-store-japan/`} class="text-blue-600 underline">Epic Games Store日本上陸</a>」で解説しています。</p>
+    </Accordion>
+    <Accordion title="Setapp Mobile（サービス終了）">
+      <p class="text-sm text-gray-700 mb-2">MacPawのサブスクリプション型アプリサービス「Setapp」のモバイル版として、EUで代替マーケットプレイスを展開していました。しかし<strong>2026年2月にサービス終了</strong>を発表しました。</p>
+      <p class="text-sm text-gray-700">Core Technology Commissionの負担が重く、採算が取れなかったことが背景にあります。代替マーケットプレイス運営の経済的な難しさを示す事例です。</p>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="warning" icon="info" title="新規参入は限定的">
+    代替マーケットプレイスの運営は想像以上にハードルが高く、Setapp Mobileの撤退が示すように、新規参入の例は多くありません。<strong>当面は AltStore PAL が日本の代替マーケットプレイスの事実上の受け皿</strong>になる見通しです。
+  </InfoBox>
+</Section>
+
+<Section title="従来のサイドローディングとの違い" icon="compare" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    「代替マーケットプレイス」と「従来のサイドローディング」は、ユーザー目線では似たように見えますが、<strong>制度的にはまったく異なる</strong>ものです。
+  </p>
+  <CardGrid>
+    <Card icon="verified" iconColor="text-green-500" title="代替マーケットプレイス" desc="Apple公認の正規ルート" />
+    <Card icon="build" iconColor="text-orange-500" title="従来サイドローディング" desc="個人開発者向け仕組みの流用" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="仕組みの違い" open>
+      <p class="text-sm text-gray-700 mb-2"><strong>代替マーケットプレイス（AltStore PAL）：</strong>Apple の Alternative Marketplace API を使い、マーケットプレイスとして正式に認可されて動作。永続署名で配信される。</p>
+      <p class="text-sm text-gray-700">
+        <strong>従来のサイドローディング（Classic / SideStore）：</strong>無料Apple IDの個人開発者向け provisioning profile を利用し、開発者テスト名目でアプリをインストール。7日で署名が切れる。
+      </p>
+    </Accordion>
+    <Accordion title="法的な位置付け">
+      <p class="text-sm text-gray-700 mb-2"><strong>代替マーケットプレイス：</strong>EUのDMAや日本のMSCAによってApple が受け入れを義務付けられた仕組み。完全に合法で、Apple自身が正規ルートとして認めている。</p>
+      <p class="text-sm text-gray-700">
+        <strong>従来のサイドローディング：</strong>個人利用の範囲では合法だが、Apple との利用規約上は「グレー」な位置付け。正規ルートではないが黙認されている状態。
+      </p>
+    </Accordion>
+    <Accordion title="配信できるアプリ">
+      <p class="text-sm text-gray-700 mb-2"><strong>代替マーケットプレイス：</strong>Apple公証を通過したアプリのみ。公証は通常の App Store 審査よりは緩いが、マルウェア等の安全性は Apple が確認済み。</p>
+      <p class="text-sm text-gray-700"><strong>従来のサイドローディング：</strong>公証を経ないIPAファイルも含め、技術的にはほとんど何でもインストール可能。その分、出どころの確認はユーザーの責任。</p>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="info" icon="menu_book" title="公証について詳しく">
+    代替マーケットプレイスと公証の関係は「<a href={`${import.meta.env.BASE_URL}articles/apple-notarization/`} class="font-bold underline">Appleの公証とは何か</a>」で詳しく解説しています。
+  </InfoBox>
+</Section>
+
+<Section title="制度面の要点：MSCAとDMA" icon="gavel" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    代替マーケットプレイスを支えているのは、各国の反独占法です。日本ではスマートフォン新法（MSCA）、EUではデジタル市場法（DMA）が根拠となっています。
+  </p>
+  <AccordionGroup>
+    <Accordion title="スマートフォン新法（MSCA）" open>
+      <p class="text-sm text-gray-700 mb-2"><strong>正式名：</strong>スマートフォン特定ソフトウェア競争促進法（Mobile Software Competition Act）</p>
+      <p class="text-sm text-gray-700 mb-2"><strong>成立：</strong>2024年、<strong>施行：</strong>2025年12月18日</p>
+      <p class="text-sm text-gray-700">指定された巨大IT事業者（Apple、Google）に対して、アプリ配信の独占を制限し、代替マーケットプレイスや外部決済の受け入れを義務付けます。</p>
+    </Accordion>
+    <Accordion title="デジタル市場法（DMA）">
+      <p class="text-sm text-gray-700 mb-2"><strong>地域：</strong>EU、<strong>施行：</strong>2024年3月</p>
+      <p class="text-sm text-gray-700">EU加盟国のiPhoneユーザーに対して代替マーケットプレイスの利用を可能にした法律。日本のMSCAより先行しており、AltStore PAL EU版もここから生まれました。</p>
+    </Accordion>
+    <Accordion title="施行後も完全解放ではない">
+      <p class="text-sm text-gray-700">両法律とも「既存の独占を大きく制限する」ものであって、「Apple のすべての規制を撤廃する」ものではありません。公証やリージョン制限、Core Technology Commission などの仕組みは依然として残っています。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/smartphone-law-explained/`} class="text-blue-600 underline">スマートフォン新法解説</a>」をご覧ください。</p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="gavel" iconColor="text-blue-500" title="法整備で解禁" desc="MSCA / DMAが根拠" />
+    <Card icon="verified" iconColor="text-green-500" title="Apple公認ルート" desc="正規の配布方法" />
+    <Card icon="store" iconColor="text-indigo-500" title="日本はPALのみ" desc="事実上の独占状態" />
+    <Card icon="compare" iconColor="text-purple-500" title="サイドローディングと別物" desc="仕組みも制度も異なる" />
+  </CardGrid>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mt-4 sm:mt-6">
+    代替マーケットプレイスは、App Store一強時代を終わらせた<strong>制度的な転換点</strong>です。日本では2026年4月時点でAltStore PALが事実上の唯一の選択肢ですが、これは「選択肢がない」のではなく「新しいルートが開かれ、最初の実装が動き始めた」ことを意味します。
+  </p>
+  <BunchanAdvice alt="ぶんちゃんが総括している">
+    <strong>「サイドローディング」と「代替マーケットプレイス」は、似てるけど別物！</strong><br />
+    日本で今すぐ試せるのは AltStore PAL だよ。制度面を理解したら、実際に触ってみよう🌸
+  </BunchanAdvice>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/altstore-pal-guide/',
+    icon: 'storefront',
+    iconColor: 'text-indigo-600',
+    title: 'AltStore PAL完全ガイド',
+    desc: '日本唯一の稼働中代替マーケットプレイスの始め方。',
+  },
+  {
+    href: '/articles/smartphone-law-explained/',
+    icon: 'gavel',
+    iconColor: 'text-blue-600',
+    title: 'スマートフォン新法解説',
+    desc: 'MSCAの全体像と施行後の変化を詳しく解説。',
+  },
+  {
+    href: '/articles/apple-notarization/',
+    icon: 'verified',
+    iconColor: 'text-green-600',
+    title: 'Appleの公証とは',
+    desc: '代替マーケットプレイスで必須となる公証制度の解説。',
+  },
+  {
+    href: '/articles/epic-games-store-japan/',
+    icon: 'videogame_asset',
+    iconColor: 'text-purple-600',
+    title: 'Epic Games Store日本上陸',
+    desc: '未リリースの理由と最新動向をまとめた実例記事。',
+  },
+]} />
+
+</ArticleLayout>
