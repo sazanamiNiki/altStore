@@ -1,0 +1,219 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
+
+export const title = "AltStore PAL対応アプリ一覧";
+export const h1 = "AltStore PALで入手できる主要アプリ";
+export const summary = "日本のAltStore PALで入手できる代表的アプリとApp Store版との違いをまとめて解説。";
+export const description = "AltStore PALで配信されている主要アプリを紹介。Delta、UTMフル版、フォートナイトなど、日本のApp Storeでは入手困難/制限されているアプリを代替マーケットプレイスから入手する方法を日本向けに解説します。";
+
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-11" icon="apps" iconColor="text-indigo-500">
+
+<Section intro title="PALだから入手できるアプリがある" icon="lightbulb">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    「AltStore PALが無料で使えるのはわかったけど、実際に何が入るの？」──この記事ではその疑問に答えます。
+  </p>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    PALは<strong>Apple公証を通過したアプリだけ</strong>が配信される代替マーケットプレイスです。App Storeよりも審査基準がゆるやかな分、<strong>App Storeでは配信できない機能や種類のアプリ</strong>が並んでいます。
+  </p>
+  <BunchanAdvice alt="ぶんちゃんがPALのアプリ事情を案内している">
+    <strong>PALは「App Storeの代わり」じゃなくて「App Storeの外側」だよ。</strong><br />
+    App Storeにも同名アプリがある場合があるけど、機能や自由度が違うことが多いよ🌸
+  </BunchanAdvice>
+</Section>
+
+<Section title="代表的なPAL対応アプリ" icon="star" iconColor="text-yellow-500">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    2026年4月時点で、日本のAltStore PALから入手できる主要アプリを紹介します。どれもPALで入れる明確な理由があるものばかりです。
+  </p>
+  <CardGrid cols={3}>
+    <Card icon="sports_esports" iconColor="text-indigo-500" title="Delta" desc="レトロゲーム総合" />
+    <Card icon="computer" iconColor="text-blue-500" title="UTMフル版" desc="仮想マシン実行" />
+    <Card icon="videogame_asset" iconColor="text-purple-500" title="フォートナイト" desc="日本で唯一の正規ルート" />
+  </CardGrid>
+  <InfoBox type="info" icon="info" title="配信ラインナップは随時拡充中">
+    AltStore PALは比較的新しい代替マーケットプレイスのため、配信アプリは随時追加されています。最新のラインナップはAltStore PALのExploreページで直接確認できます。
+  </InfoBox>
+</Section>
+
+<Section title="Delta（エミュレータ）" icon="sports_esports" iconColor="text-indigo-500">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    Deltaは、ゲームボーイ・ファミコン・スーファミ・N64・ニンテンドーDSなど複数のレトロゲーム機に対応したエミュレータアプリです。開発者はRileyTestutさん（AltStore自身の開発者でもあります）。
+  </p>
+  <AccordionGroup>
+    <Accordion title="App Store版とPAL版の併存" open>
+      <p class="text-sm text-gray-700 mb-2">Delta自体は2024年にApp Storeで正式配信が始まり、日本のApp Storeからもダウンロードできます。一方で、AltStore PAL経由でも配信が続いており、どちらから入手しても Delta 本体を利用できます。</p>
+      <p class="text-sm text-gray-700">
+        日本のApp Storeでは地域やレギュレーションの都合で一部機能が制限されることがあります。そうした場合、<strong>AltStore PAL は代替の入手ルート</strong>として機能します。
+      </p>
+    </Accordion>
+    <Accordion title="どちらを選ぶ？">
+      <p class="text-sm text-gray-700 mb-2">
+        日常的にレトロゲームを遊ぶだけなら、まずはApp Store版のDeltaで十分です。PAL経由を選ぶ理由があるとすれば、以下のようなケースです。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>日本のApp Store版で使えない機能を使いたい</li>
+        <li>代替マーケットプレイス経由の配布ルートを試したい</li>
+        <li>AltStore PAL 全体の使い勝手を体験したい</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="info" icon="menu_book" title="Deltaの使い方">
+    Delta全般の使い方やROMの合法的な入手方法は「<a href={`${import.meta.env.BASE_URL}articles/delta-utm-guide/`} class="font-bold underline">Delta &amp; UTM SE 完全ガイド</a>」で詳しく解説しています。
+  </InfoBox>
+</Section>
+
+<Section title="UTM（フル版）" icon="computer" iconColor="text-blue-500">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    UTMは、iPhoneやiPad上でWindows・Linux・古いmacOSなどを動かせる仮想マシンアプリです。PALで入手できる<strong>フルUTM版</strong>は、App Store版の「UTM SE」とは明確な機能差があります。
+  </p>
+  <CardGrid>
+    <Card icon="storefront" iconColor="text-green-500" title="App Store版（UTM SE）" desc="QEMU v9.1.2" />
+    <Card icon="apps" iconColor="text-indigo-500" title="PAL版（フルUTM）" desc="QEMU v10.0.2" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="UTM SE と フルUTM の違い" open>
+      <p class="text-sm text-gray-700 mb-2">App Store版の<strong>UTM SE</strong>はSlow Edition（低速版）の略で、App Storeの制約に合わせて機能を削ったバージョンです。QEMU v9.1.2をベースにしています。</p>
+      <p class="text-sm text-gray-700">
+        一方、AltStore PAL経由で入手できる<strong>フルUTM</strong>はQEMU v10.0.2に対応し、より多くのゲストOSや機能を扱えます。Liquid Glass UI（iOS 26デザイン）にも対応しています。
+      </p>
+    </Accordion>
+    <Accordion title="iOS 26以降のJIT制約に注意">
+      <InfoBox type="warning" icon="warning" title="iOS 26ではJITが無効化されています">
+        <p class="text-sm mb-2">iOS 26以降では、AltJIT等の従来のJIT有効化手法が動作しません。フルUTMをインストールできても、<strong>JIT前提の機能はiOS 26上では動作しない</strong>点に注意してください。</p>
+        <p class="text-sm">これはMSCAやDMAの規制とは無関係で、OSレベルの技術的制約です。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/utm-windows-on-ios/`} class="font-bold underline">UTMで仮想化を活用</a>」をご覧ください。</p>
+      </InfoBox>
+    </Accordion>
+    <Accordion title="フルUTMが必要なシーン">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>より新しいゲストOS（Windows 11、最新Linuxディストリビューション等）を使いたい</li>
+        <li>Liquid Glass UIで最新デザインを楽しみたい</li>
+        <li>App Intentsによるショートカット自動化を使いたい</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="フォートナイト" icon="videogame_asset" iconColor="text-purple-500">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    フォートナイトは、Epic Gamesが開発する世界的人気のバトルロイヤルゲームです。2020年のApp Store削除以来、日本のiPhoneでは事実上プレイできない状態が続いていました。
+  </p>
+  <AccordionGroup>
+    <Accordion title="なぜ日本ではPAL経由が唯一の正規ルートなのか" open>
+      <p class="text-sm text-gray-700 mb-2">Epic Games Store iOS日本版は、Appleの手数料体系への反発から<strong>2026年4月時点で未リリース</strong>です。</p>
+      <p class="text-sm text-gray-700">
+        一方AltStore PALは日本で無料稼働中で、フォートナイトもPAL経由で配信されています。つまり現状、<mark class="bg-yellow-100 px-1 rounded"><strong>日本国内で合法的にiPhoneでフォートナイトを遊ぶにはAltStore PAL経由の一択</strong></mark>です。
+      </p>
+    </Accordion>
+    <Accordion title="インストール方法">
+      <p class="text-sm text-gray-700">AltStore PALをインストール後、ExploreページまたはBrowseタブからフォートナイトを探し、「Get」ボタンでインストールします。他のPAL対応アプリと完全に同じ手順です。</p>
+    </Accordion>
+    <Accordion title="Epic Games Storeとの関係">
+      <p class="text-sm text-gray-700">Epic Games Store iOS日本版が将来リリースされても、フォートナイトはおそらく両方のマーケットプレイスで配信されます。現状は<strong>PALが唯一の受け皿</strong>という状態です。</p>
+    </Accordion>
+  </AccordionGroup>
+  <InfoBox type="info" icon="menu_book" title="Epic Games Storeの最新動向">
+    Epic Games Store iOS日本版の現状や背景は「<a href={`${import.meta.env.BASE_URL}articles/epic-games-store-japan/`} class="font-bold underline">Epic Games Store日本上陸</a>」で詳しく解説しています。
+  </InfoBox>
+</Section>
+
+<Section title="PALに配信される条件：なぜ選ばれたアプリなのか" icon="verified" iconColor="text-green-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    代替マーケットプレイスに並ぶアプリは、無条件に何でもインストールできるわけではありません。AltStore PALで配信されるには、以下の条件を満たす必要があります。
+  </p>
+  <CardGrid>
+    <Card icon="verified_user" iconColor="text-green-600" title="Apple公証必須" desc="セキュリティレビュー通過" />
+    <Card icon="build_circle" iconColor="text-blue-500" title="AltStore審査" desc="AltStore LLCが管理" />
+    <Card icon="payments" iconColor="text-purple-500" title="CTC 5%" desc="開発者側の手数料" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="Apple公証（Notarization）" open>
+      <p class="text-sm text-gray-700 mb-2">
+        代替マーケットプレイス経由で配信されるすべてのアプリは、<strong>Apple公証（Notarization）</strong>が必須です。これはAppleがマルウェアやウイルスなどを検出するベースラインセキュリティレビューで、自動チェックと人間によるレビューが組み合わされます。
+      </p>
+      <p class="text-sm text-gray-700">つまり、PALに並んでいるアプリは「Apple審査に比べれば緩いものの、最低限の安全性はAppleが確認済み」という立ち位置です。詳しくは<a href={`${import.meta.env.BASE_URL}articles/apple-notarization/`} class="text-blue-600 underline">Appleの公証とは</a>をご覧ください。</p>
+    </Accordion>
+    <Accordion title="AltStore LLCによる配信審査">
+      <p class="text-sm text-gray-700">
+        Apple公証の上に、AltStore LLC自体が配信可否の判断を行います。AltStoreはコミュニティ色の強いプラットフォームで、開発者と直接の関係を持つアプリを優先的に扱う傾向があります。
+      </p>
+    </Accordion>
+    <Accordion title="Core Technology Commission（開発者手数料）">
+      <p class="text-sm text-gray-700 mb-2">日本のMSCAルールでは、代替マーケットプレイス経由でインストールされたアプリに対して、<strong>開発者がAppleに5%</strong>のCore Technology Commission（CTC）を支払います。</p>
+      <p class="text-sm text-gray-700">これはユーザーには見えない開発者側の話ですが、参入のハードルになる要素でもあります。「<a href={`${import.meta.env.BASE_URL}articles/commission-cut/`} class="text-blue-600 underline">手数料30%カットの衝撃</a>」で詳しく扱っています。</p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="PALにないアプリが欲しい場合" icon="help_center" iconColor="text-orange-500">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    PALに並ぶアプリは、従来のサイドローディング（AltStore Classic / SideStore）で入手できる野良アプリと比べると、まだ数が少ないのが現状です。「欲しいアプリがPALにない」というのはよくある状況です。
+  </p>
+  <AccordionGroup>
+    <Accordion title="AltStore Classicを併用する" open>
+      <p class="text-sm text-gray-700 mb-2">PALでは配信されない非公証アプリや実験的なIPAは、AltStore Classicで個別にインストールできます。PALと同時使用しても問題ありません。</p>
+      <p class="text-sm text-gray-700">Classicのセットアップは「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide/`} class="text-blue-600 underline">AltStore完全ガイド</a>」を参考にしてください。</p>
+    </Accordion>
+    <Accordion title="SideStoreを検討する">
+      <p class="text-sm text-gray-700">PCを毎回接続するのが面倒な方には、初回だけPCで設定すれば以降はWi-Fiで運用できるSideStoreも選択肢です。「<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide/`} class="text-blue-600 underline">SideStore完全ガイド</a>」で詳しく解説しています。</p>
+    </Accordion>
+    <Accordion title="他の代替マーケットプレイスを待つ">
+      <p class="text-sm text-gray-700">Epic Games Store iOS日本版など、将来的に他の代替マーケットプレイスが日本に上陸する可能性もあります。最新動向は「<a href={`${import.meta.env.BASE_URL}articles/alternative-marketplace/`} class="text-blue-600 underline">代替マーケットプレイスとは？</a>」でまとめています。</p>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="sports_esports" iconColor="text-indigo-500" title="Delta" desc="代替の入手ルート" />
+    <Card icon="computer" iconColor="text-blue-500" title="フルUTM" desc="QEMU v10で柔軟" />
+    <Card icon="videogame_asset" iconColor="text-purple-500" title="フォートナイト" desc="日本で唯一の正規ルート" />
+    <Card icon="add_circle" iconColor="text-green-500" title="今後拡充予定" desc="新着は随時追加" />
+  </CardGrid>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mt-4 sm:mt-6">
+    AltStore PALで入手できるアプリには、「App Storeでも入手可能だがPALを代替ルートとして使えるもの」と「日本ではPALでしか入手できないもの」の2種類があります。目的に合わせて使い分けることで、iPhoneの活用範囲が広がります。
+  </p>
+  <BunchanAdvice alt="ぶんちゃんがアプリ選びを後押ししている">
+    <strong>まずはAltStore PALを入れて、Exploreページをのぞいてみて！</strong><br />
+    気になるアプリが見つかったら、記事で詳しく調べるのもありだよ🌸
+  </BunchanAdvice>
+</Section>
+
+<RelatedArticles articles={[
+  {
+    href: '/articles/altstore-pal-guide/',
+    icon: 'storefront',
+    iconColor: 'text-indigo-600',
+    title: 'AltStore PAL完全ガイド',
+    desc: 'PALの仕組みと始め方を基礎から理解する総合ガイド。',
+  },
+  {
+    href: '/articles/delta-utm-guide/',
+    icon: 'sports_esports',
+    iconColor: 'text-blue-600',
+    title: 'Delta & UTM SE 完全ガイド',
+    desc: 'レトロゲームと仮想マシンの導入から設定まで詳細解説。',
+  },
+  {
+    href: '/articles/epic-games-store-japan/',
+    icon: 'videogame_asset',
+    iconColor: 'text-purple-600',
+    title: 'Epic Games Store日本上陸',
+    desc: 'フォートナイトの現状やEpic Games Storeの動向を解説。',
+  },
+  {
+    href: '/articles/top3-apps-2026/',
+    icon: 'star',
+    iconColor: 'text-yellow-500',
+    title: '神アプリ3選',
+    desc: '2026年の厳選アプリTOP3を徹底解説。',
+  },
+]} />
+
+</ArticleLayout>

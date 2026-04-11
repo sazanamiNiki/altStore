@@ -9,6 +9,7 @@ const categories = [
     label: 'アプリ・ガイド',
     articles: [
       { href: '/articles/top3-apps-2026/', title: '神アプリ3選', desc: '2026最新の厳選アプリTOP3', tag: '人気', tagColor: 'text-red-600 bg-red-50' },
+      { href: '/articles/altstore-pal-apps/', title: 'AltStore PAL対応アプリ一覧', desc: 'PALで入手できる主要アプリとApp Store版との違い', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
       { href: '/articles/delta-utm-guide/', title: 'Delta / UTM SE', desc: 'iPhoneでレトロゲームやPCを動かす', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
       { href: '/articles/gb-operator-guide/', title: 'GB Operator完全ガイド', desc: '自分のカートリッジをDeltaで遊ぶ合法的な方法', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
       { href: '/articles/free-games-for-delta/', title: 'Deltaで遊べる無料ゲーム', desc: 'itch.ioで入手できる合法homebrew特集', tag: '紹介', tagColor: 'text-purple-600 bg-purple-50' },
@@ -19,9 +20,10 @@ const categories = [
   {
     label: 'はじめかた',
     articles: [
+      { href: '/articles/altstore-pal-guide/', title: 'AltStore PAL完全ガイド', desc: '日本で無料の代替マーケットプレイスを徹底解説', tag: 'おすすめ', tagColor: 'text-indigo-600 bg-indigo-50' },
+      { href: '/articles/install-app-step-by-step/', title: 'AltStore PALで始める ［最短ルート］', desc: 'PC不要・7日制限なし・無料で使える最新の導入手順', tag: '実践', tagColor: 'text-green-600 bg-green-50' },
       { href: '/articles/what-is-sideloading/', title: 'サイドローディングとは', desc: 'App Storeに頼らない新しいアプリの入手方法', tag: '入門', tagColor: 'text-blue-600 bg-blue-50' },
-      { href: '/articles/how-to-use-altstore/', title: 'AltStoreの使い方 ［仕組み編］', desc: '7日署名の仕組みやAltServerの役割を詳しく解説', tag: '入門', tagColor: 'text-blue-600 bg-blue-50' },
-      { href: '/articles/install-app-step-by-step/', title: 'アプリをインストールする方法 ［実践編］', desc: 'セットアップ手順に特化したステップバイステップガイド', tag: '実践', tagColor: 'text-green-600 bg-green-50' },
+      { href: '/articles/how-to-use-altstore/', title: 'AltStoreの使い方 ［仕組み編］', desc: 'PALとClassicの違い、7日署名の仕組みを解説', tag: '入門', tagColor: 'text-blue-600 bg-blue-50' },
       { href: '/articles/altstore-complete-guide/', title: 'AltStore完全ガイド ［統合版］', desc: '基礎知識からトラブル対応まで全てを1ページにまとめた包括的ガイド', tag: '統合', tagColor: 'text-blue-600 bg-blue-50' },
     ],
   },
@@ -30,6 +32,7 @@ const categories = [
     articles: [
       { href: '/articles/safety-guide/', title: '安全ガイド', desc: 'ウイルスから身を守る3つの鉄則', tag: '安全', tagColor: 'text-green-600 bg-green-50' },
       { href: '/articles/apple-notarization/', title: 'Apple公証とは', desc: 'サイドローディングが安全な仕組み', tag: '安全', tagColor: 'text-green-600 bg-green-50' },
+      { href: '/articles/alternative-marketplace/', title: '代替マーケットプレイスとは？', desc: 'App Storeの外に生まれた正規配布ルートの仕組み', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
       { href: '/articles/emulator-legal/', title: 'エミュレータと著作権', desc: '日本国内での正しい遊び方', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
       { href: '/articles/smartphone-law-explained/', title: 'スマホ新法解説', desc: 'iPhoneのアプリ配布が変わる理由', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
       { href: '/articles/epic-games-store-japan/', title: 'Epic Games Store日本上陸', desc: 'スマホ新法が拓いた代替ストア第一号', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
@@ -77,7 +80,7 @@ const articleListSchema = {
 };
 ---
 
-<BaseLayout title="記事一覧" description="iPhoneサイドローディングの解説記事一覧。AltStore・SideStoreの使い方、Delta・UTMガイド、安全性・著作権の法的情報まで。初心者向けガイドから上級者向けの技術解説まで20本以上を掲載。">
+<BaseLayout title="記事一覧" description="iPhoneサイドローディングの解説記事一覧。日本で無料の代替マーケットプレイス「AltStore PAL」の始め方、Delta・UTMガイド、安全性・著作権の法的情報まで。初心者向けガイドから上級者向けの技術解説まで20本以上を掲載。">
   <Fragment slot="schema">
     <Schema data={breadcrumbSchema} />
     <Schema data={articleListSchema} />
@@ -90,7 +93,7 @@ const articleListSchema = {
         記事一覧
       </h1>
       <p class="text-gray-600 text-base sm:text-lg">サイドローディングやアプリについての詳細解説</p>
-      <p class="text-gray-600 text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed">AltStoreやSideStoreの使い方、サイドローディングの安全性と法的情報、エミュレータの著作権問題まで、初心者にもわかりやすく解説しています。はじめての方は「<a href={`${base}articles/what-is-sideloading/`} class="text-blue-600 underline font-medium">サイドローディングとは</a>」からどうぞ。</p>
+      <p class="text-gray-600 text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed">日本で無料で使える<strong class="text-indigo-600">AltStore PAL</strong>の始め方、サイドローディングの安全性と法的情報、エミュレータの著作権問題まで、初心者にもわかりやすく解説しています。いますぐ始めたい方は「<a href={`${base}articles/install-app-step-by-step/`} class="text-blue-600 underline font-medium">AltStore PALで始める</a>」、仕組みから知りたい方は「<a href={`${base}articles/what-is-sideloading/`} class="text-blue-600 underline font-medium">サイドローディングとは</a>」からどうぞ。</p>
     </div>
 
     {categories.map(category => (
