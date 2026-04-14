@@ -71,9 +71,10 @@ const articleSchema = {
     "dateModified": date,
   }),
   "author": {
-    "@type": "Organization",
-    "name": "bunchoniki Store",
-    "url": siteUrl,
+    "@type": "Person",
+    "name": "bunchoniki",
+    "url": `${siteUrl}/articles/our-policy/`,
+    "description": "2019年からAltStore等のサイドローディングツールを使い続けるiOSユーザー。日本語圏の情報格差を埋める活動。"
   },
   "publisher": {
     "@type": "Organization",
@@ -197,6 +198,32 @@ const howtoSchema = howto
           <p class="text-gray-500 text-sm">最終更新: {date}</p>
         </div>
       )}
+
+      <!-- Author情報: E-E-A-T強化のため記事末尾に運営者情報を表示 -->
+      <aside class="mt-6 sm:mt-8 p-4 sm:p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100" itemscope itemtype="https://schema.org/Person">
+        <div class="flex items-start gap-3 sm:gap-4">
+          <img
+            src={`${import.meta.env.BASE_URL}assets/img/buncho.png`}
+            alt="運営者のアイコン"
+            width="48"
+            height="48"
+            class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white ring-2 ring-blue-200 flex-shrink-0"
+            loading="lazy"
+          />
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs sm:text-sm font-bold text-blue-700">この記事を書いた人</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-1" itemprop="name">bunchoniki</h3>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed" itemprop="description">
+              2019年からAltStore等のサイドローディングツールを実機で使い続けるiOSユーザー。日本語圏の情報格差を埋めるため、記事で紹介するアプリは全て自身のiPhoneで動作確認済み。
+            </p>
+            <a href={`${import.meta.env.BASE_URL}articles/our-policy/`} class="inline-block mt-2 text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium" itemprop="url">
+              運営者プロフィール・運営方針 →
+            </a>
+          </div>
+        </div>
+      </aside>
     </article>
   </main>
 </BaseLayout>

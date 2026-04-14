@@ -53,9 +53,9 @@ const siteUrl = 'https://altstore-jp.bunchoniki.com';
 
 // 最新情報データ
 const recentUpdates = [
-  { date: '2026-04-11', title: 'AltStore PAL完全ガイドを公開', href: `${base}articles/altstore-pal-guide/` },
-  { date: '2026-04-11', title: 'AltStore PAL対応アプリ一覧を公開', href: `${base}articles/altstore-pal-apps/` },
-  { date: '2026-04-11', title: '代替マーケットプレイスとは？を公開', href: `${base}articles/alternative-marketplace/` },
+  { date: '2026-04-11', title: 'AltStore PALの使い方ガイドを公開', href: `${base}articles/altstore-pal-guide/` },
+  { date: '2026-04-11', title: 'AltStore PALで遊べるアプリ一覧を公開', href: `${base}articles/altstore-pal-apps/` },
+  { date: '2026-04-11', title: 'スマホ新法で解禁：代替アプリストア解説を公開', href: `${base}articles/alternative-marketplace/` },
   { date: '2026-03-23', title: 'Delta無料ゲーム特集にカスタマイズガイドを追加', href: `${base}articles/free-games-for-delta/` },
 ];
 
@@ -88,9 +88,9 @@ const articleListSchema = {
   "@type": "ItemList",
   "name": "サイドローディング解説記事",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "AltStore PAL完全ガイド", "url": `${siteUrl}/articles/altstore-pal-guide/` },
-    { "@type": "ListItem", "position": 2, "name": "AltStore PAL対応アプリ一覧", "url": `${siteUrl}/articles/altstore-pal-apps/` },
-    { "@type": "ListItem", "position": 3, "name": "代替マーケットプレイスとは？", "url": `${siteUrl}/articles/alternative-marketplace/` },
+    { "@type": "ListItem", "position": 1, "name": "AltStore PALの使い方と始め方", "url": `${siteUrl}/articles/altstore-pal-guide/` },
+    { "@type": "ListItem", "position": 2, "name": "AltStore PALで入るアプリ一覧", "url": `${siteUrl}/articles/altstore-pal-apps/` },
+    { "@type": "ListItem", "position": 3, "name": "スマホ新法で解禁：代替アプリストアとは", "url": `${siteUrl}/articles/alternative-marketplace/` },
     { "@type": "ListItem", "position": 4, "name": "iPhoneのサイドローディングとは？", "url": `${siteUrl}/articles/what-is-sideloading/` },
     { "@type": "ListItem", "position": 5, "name": "AltStoreの使い方", "url": `${siteUrl}/articles/how-to-use-altstore/` },
     { "@type": "ListItem", "position": 6, "name": "アプリをインストールする方法", "url": `${siteUrl}/articles/install-app-step-by-step/` },
@@ -612,8 +612,8 @@ const appListSchema = featuredApps.length > 0 ? {
           <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングの基本から、AltStore PALを使った最短インストール手順までを順を追って解説します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             <a href={`${base}articles/altstore-pal-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PAL完全ガイド</h4>
-              <p class="text-xs text-gray-500">仕組みから始め方までを総合解説</p>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PALの使い方</h4>
+              <p class="text-xs text-gray-500">Safariから無料で始めるインストール手順</p>
             </a>
             <a href={`${base}articles/install-app-step-by-step/`} class="bg-white rounded-xl p-4 sm:p-5 border-2 border-indigo-300 hover:border-indigo-400 hover:shadow-md transition-[border-color,box-shadow,transform] relative">
               <span class="absolute -top-2 right-3 inline-block bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">おすすめ</span>
@@ -640,8 +640,8 @@ const appListSchema = featuredApps.length > 0 ? {
               <p class="text-xs text-gray-500">ウイルスから身を守る3つの鉄則</p>
             </a>
             <a href={`${base}articles/alternative-marketplace/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">代替マーケットプレイスとは？</h4>
-              <p class="text-xs text-gray-500">App Storeの外の正規配布ルート</p>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">スマホ新法の代替アプリストア</h4>
+              <p class="text-xs text-gray-500">MSCAで解禁された制度を解説</p>
             </a>
             <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">エミュレータと著作権</h4>
@@ -659,8 +659,8 @@ const appListSchema = featuredApps.length > 0 ? {
           <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングで使える注目アプリの使い方や活用テクニックを紹介します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             <a href={`${base}articles/altstore-pal-apps/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
-              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PAL対応アプリ一覧</h4>
-              <p class="text-xs text-gray-500">PALで入手できる主要アプリと選び方</p>
+              <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">PALで遊べるアプリ</h4>
+              <p class="text-xs text-gray-500">Delta・フォートナイト・UTMフル版</p>
             </a>
             <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Delta & UTM SE 完全ガイド</h4>

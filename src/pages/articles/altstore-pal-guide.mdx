@@ -10,10 +10,10 @@ import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
-export const title = "AltStore PAL完全ガイド";
-export const h1 = "AltStore PAL完全ガイド：日本で無料の代替マーケットプレイス";
-export const summary = "日本で無料の代替マーケットプレイスAltStore PALの仕組み、Classicとの違い、始め方を完全網羅。";
-export const description = "日本で無料利用可能なAltStore PALを徹底解説。代替マーケットプレイスの仕組み、AltStore Classicとの違い、Epic Games MegaGrantで完全無料の背景、iOS 26.2の要件、インストール手順、v2.3の新機能まで1ページで完全網羅。";
+export const title = "AltStore PALの使い方と始め方";
+export const h1 = "AltStore PALの使い方：日本で無料で使う始め方ガイド";
+export const summary = "iOS 26.2以降で無料で使えるAltStore PALの始め方を徹底解説。Safariから数ステップでインストールできます。";
+export const description = "AltStore PALの使い方・始め方を日本向けに徹底解説。Safariからのインストール手順、必要なiOSバージョン、AltStore Classicとの違い、Epic Games MegaGrantで完全無料の背景、v2.3の新機能まで網羅。";
 
 export const faqData = [
   {
@@ -34,7 +34,7 @@ export const faqData = [
   },
 ];
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-11" icon="storefront" iconColor="text-indigo-500" faq={faqData}>
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-14" icon="storefront" iconColor="text-indigo-500" ogImage="/assets/og/altstore-pal-guide.png" faq={faqData}>
 
 <Section intro title="AltStore PALとは？" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -130,7 +130,7 @@ export const faqData = [
     <Card icon="videogame_asset" iconColor="text-purple-500" title="フォートナイト" desc="日本で唯一の正規ルート" />
   </CardGrid>
   <InfoBox type="info" icon="menu_book" title="配信アプリの全体像">
-    詳しくは「<a href={`${import.meta.env.BASE_URL}articles/altstore-pal-apps/`} class="font-bold underline">AltStore PAL対応アプリ一覧</a>」で紹介しています。
+    詳しくは「<a href={`${import.meta.env.BASE_URL}articles/altstore-pal-apps/`} class="font-bold underline">PALで遊べるアプリ一覧</a>」で紹介しています。
   </InfoBox>
 </Section>
 
@@ -193,15 +193,15 @@ export const faqData = [
     href: '/articles/altstore-pal-apps/',
     icon: 'apps',
     iconColor: 'text-indigo-600',
-    title: 'AltStore PAL対応アプリ一覧',
-    desc: 'PALで入手できる主要アプリとApp Store版との違い。',
+    title: 'PALで遊べるアプリ一覧',
+    desc: 'Delta・フォートナイト・UTMフル版などPAL経由で入手できるアプリ。',
   },
   {
     href: '/articles/alternative-marketplace/',
     icon: 'store',
     iconColor: 'text-purple-600',
-    title: '代替マーケットプレイスとは？',
-    desc: 'PALの位置付けを制度面から理解する概念解説。',
+    title: 'スマホ新法の代替アプリストア',
+    desc: 'PALを支える法制度（MSCA）を俯瞰する解説記事。',
   },
   {
     href: '/articles/altstore-complete-guide/',
