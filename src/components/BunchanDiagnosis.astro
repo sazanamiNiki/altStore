@@ -27,28 +27,28 @@
     <!-- スタート画面 -->
     <div id="diagnosis-start">
       <div class="text-center mb-6">
-        <span class="material-symbols-outlined text-pink-400 text-5xl">quiz</span>
+        <span class="material-symbols-outlined text-pink-400 text-5xl" aria-hidden="true">quiz</span>
         <p class="text-gray-700 text-sm mt-3 leading-relaxed">
           <strong>たった3問</strong>で、あなたに合ったサイドローディング方法がわかります！
         </p>
       </div>
       <div class="grid grid-cols-3 gap-2 mb-6">
         <div class="text-center p-3 bg-blue-50 rounded-lg border border-blue-100">
-          <span class="material-symbols-outlined text-blue-500 text-xl">desktop_mac</span>
+          <span class="material-symbols-outlined text-blue-500 text-xl" aria-hidden="true">desktop_mac</span>
           <div class="text-xs text-gray-600 mt-1">PC環境</div>
         </div>
         <div class="text-center p-3 bg-green-50 rounded-lg border border-green-100">
-          <span class="material-symbols-outlined text-green-500 text-xl">schedule</span>
+          <span class="material-symbols-outlined text-green-500 text-xl" aria-hidden="true">schedule</span>
           <div class="text-xs text-gray-600 mt-1">手間</div>
         </div>
         <div class="text-center p-3 bg-purple-50 rounded-lg border border-purple-100">
-          <span class="material-symbols-outlined text-purple-500 text-xl">apps</span>
+          <span class="material-symbols-outlined text-purple-500 text-xl" aria-hidden="true">apps</span>
           <div class="text-xs text-gray-600 mt-1">アプリ数</div>
         </div>
       </div>
       <button
         id="diagnosis-start-btn"
-        class="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all text-sm"
+        class="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-[box-shadow] text-sm touch-manipulation"
       >
         診断スタート！
       </button>
@@ -94,7 +94,7 @@
       <div id="diagnosis-result-card" class="mb-5 rounded-xl border-2 overflow-hidden">
         <div id="diagnosis-result-header" class="px-3 sm:px-5 py-3 sm:py-4">
           <div class="flex items-center gap-2">
-            <span id="diagnosis-result-icon" class="material-symbols-outlined text-2xl"></span>
+            <span id="diagnosis-result-icon" class="material-symbols-outlined text-2xl" aria-hidden="true"></span>
             <div>
               <div class="text-xs font-bold opacity-80">あなたにおすすめ</div>
               <div id="diagnosis-result-title" class="text-base sm:text-lg font-bold"></div>
@@ -108,21 +108,21 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-3 sm:mb-4">
             <div class="p-3 bg-green-50 rounded-lg border border-green-100">
               <div class="font-bold text-green-700 text-xs mb-2 flex items-center gap-1">
-                <span class="material-symbols-outlined text-sm">thumb_up</span>メリット
+                <span class="material-symbols-outlined text-sm" aria-hidden="true">thumb_up</span>メリット
               </div>
               <ul id="diagnosis-result-pros" class="space-y-1 text-xs text-gray-700"></ul>
             </div>
             <div class="p-3 bg-orange-50 rounded-lg border border-orange-100">
               <div class="font-bold text-orange-700 text-xs mb-2 flex items-center gap-1">
-                <span class="material-symbols-outlined text-sm">info</span>注意点
+                <span class="material-symbols-outlined text-sm" aria-hidden="true">info</span>注意点
               </div>
               <ul id="diagnosis-result-cons" class="space-y-1 text-xs text-gray-700"></ul>
             </div>
           </div>
 
           <!-- 関連記事リンク -->
-          <a id="diagnosis-result-link" href="#" class="flex items-center gap-2 p-2.5 sm:p-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-700 font-bold text-xs sm:text-sm hover:bg-blue-100 transition-colors">
-            <span class="material-symbols-outlined text-base">arrow_forward</span>
+          <a id="diagnosis-result-link" href="#" class="flex items-center gap-2 p-2.5 sm:p-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-700 font-bold text-xs sm:text-sm hover:bg-blue-100 transition-colors touch-manipulation">
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
             <span id="diagnosis-result-link-text">詳しいガイドを見る</span>
           </a>
         </div>
@@ -142,7 +142,7 @@
       <!-- もう一度ボタン -->
       <button
         id="diagnosis-retry-btn"
-        class="w-full py-3 px-6 bg-white border-2 border-pink-300 text-pink-600 font-bold rounded-xl hover:bg-pink-50 transition-colors text-sm"
+        class="w-full py-3 px-6 bg-white border-2 border-pink-300 text-pink-600 font-bold rounded-xl hover:bg-pink-50 transition-colors text-sm touch-manipulation"
       >
         もう一度診断する
       </button>
@@ -289,9 +289,9 @@
       q.options.forEach((opt) => {
         const btn = document.createElement('button');
         btn.className =
-          'w-full flex items-center gap-3 p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-pink-300 hover:bg-pink-50 transition-all text-left';
+          'w-full flex items-center gap-3 p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-pink-300 hover:bg-pink-50 transition-[border-color,background-color] text-left touch-manipulation';
         btn.innerHTML = `
-          <span class="material-symbols-outlined text-gray-400 text-xl">${opt.icon}</span>
+          <span class="material-symbols-outlined text-gray-400 text-xl" aria-hidden="true">${opt.icon}</span>
           <span class="text-sm font-medium text-gray-800">${opt.label}</span>
         `;
         btn.addEventListener('click', () => selectAnswer(opt.value));

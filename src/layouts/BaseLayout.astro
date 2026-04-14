@@ -98,5 +98,20 @@ const organizationSchema = {
   <Header />
   <slot />
   <Footer />
+
+  <!-- Accessibility: 装飾的なMaterial Symbolsアイコンに aria-hidden を一括付与 -->
+  <!-- aria-label 付きは読み上げ対象、それ以外は装飾扱いでスクリーンリーダーから隠す -->
+  <script is:inline>
+    document.querySelectorAll('.material-symbols-outlined:not([aria-label]):not([aria-hidden])').forEach(function(el) {
+      el.setAttribute('aria-hidden', 'true');
+    });
+  </script>
+
+  <!-- Accessibility: prefers-reduced-motion 時に自動再生動画を一時停止 -->
+  <script is:inline>
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video[autoplay]').forEach(function(v) { v.pause(); });
+    }
+  </script>
 </body>
 </html>

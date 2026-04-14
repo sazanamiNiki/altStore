@@ -16,7 +16,7 @@ const {
 ---
 
 <div class={`flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100 ${fullWidth ? 'sm:col-span-2' : ''}`}>
-  <span class={`material-symbols-outlined ${iconColor} text-base mt-0.5 flex-shrink-0`}>{icon}</span>
+  <span class={`material-symbols-outlined ${iconColor} text-base mt-0.5 flex-shrink-0`} aria-hidden="true">{icon}</span>
   <div>
     <div class="font-semibold text-gray-800 text-sm">{title}</div>
     {desc && <div class="text-gray-500 text-sm">{desc}</div>}
