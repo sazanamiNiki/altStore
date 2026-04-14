@@ -8,12 +8,12 @@ import Section from '../../components/Section.astro';
 import RelatedArticles from '../../components/RelatedArticles.astro';
 import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
-export const title = "代替マーケットプレイスとは？";
-export const h1 = "代替アプリマーケットプレイスとは？日本の現状と仕組み";
-export const summary = "App Storeの外に生まれた公式の代替配布ルート、代替マーケットプレイスの仕組みと日本の現状を解説。";
-export const description = "代替アプリマーケットプレイスの仕組みを日本向けに解説。MSCA施行の背景、AltStore PAL・Epic Games Store・Setapp Mobileの現状、従来のサイドローディングや公証との関係まで、制度面から体系的に理解できる解説記事。";
+export const title = "スマホ新法で解禁：代替アプリストアとは";
+export const h1 = "スマホ新法で解禁された代替アプリストアとは？日本の現状";
+export const summary = "2025年12月のスマホ新法（MSCA）施行で日本でも解禁された代替アプリストアの仕組みを制度面から解説。";
+export const description = "2025年12月施行のスマホ新法（MSCA）で日本でも解禁された代替アプリマーケットプレイスを制度面から解説。EUのDMAとの関係、AltStore PAL・Epic Games Store・Setapp Mobileの現状、従来のサイドローディングや公証との違いまで網羅。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-11" icon="store" iconColor="text-purple-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-14" icon="store" iconColor="text-purple-500" ogImage="/assets/og/alternative-marketplace.png">
 
 <Section intro title="「代替マーケットプレイス」とは？" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -80,7 +80,7 @@ export const description = "代替アプリマーケットプレイスの仕組�
   </CardGrid>
   <AccordionGroup>
     <Accordion title="AltStore PAL（稼働中）" open>
-      <p class="text-sm text-gray-700">2025年12月18日のMSCA施行と同時に日本で無料リリース。iOS 26.2以降で利用可能。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/altstore-pal-guide/`} class="text-blue-600 underline">AltStore PAL完全ガイド</a>」へ。</p>
+      <p class="text-sm text-gray-700">2025年12月18日のMSCA施行と同時に日本で無料リリース。iOS 26.2以降で利用可能。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/altstore-pal-guide/`} class="text-blue-600 underline">AltStore PALの使い方</a>」へ。</p>
     </Accordion>
     <Accordion title="Epic Games Store日本版（未リリース）">
       <p class="text-sm text-gray-700">Appleの手数料体系への反発で、2026年4月時点で日本リリース未定。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/epic-games-store-japan/`} class="text-blue-600 underline">Epic Games Store日本上陸</a>」へ。</p>
@@ -127,8 +127,8 @@ export const description = "代替アプリマーケットプレイスの仕組�
     href: '/articles/altstore-pal-guide/',
     icon: 'storefront',
     iconColor: 'text-indigo-600',
-    title: 'AltStore PAL完全ガイド',
-    desc: '日本唯一の稼働中代替マーケットプレイスの始め方。',
+    title: 'AltStore PALの使い方',
+    desc: '日本で唯一稼働中の代替アプリストア、AltStore PALの使い方と始め方。',
   },
   {
     href: '/articles/smartphone-law-explained/',
