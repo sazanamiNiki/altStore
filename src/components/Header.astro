@@ -3,28 +3,28 @@ const base = import.meta.env.BASE_URL;
 ---
 <header class="bg-white shadow-sm border-b border-sky-100 relative">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-    <a href={base} class="flex items-center gap-2 sm:gap-3 font-bold text-sm sm:text-xl text-sky-600">
+    <a href={base} class="flex items-center gap-2 sm:gap-3 font-bold text-sm sm:text-xl text-sky-600 touch-manipulation">
       <img src={`${base}assets/img/buncho_logo.svg`} alt="bunchoniki Storeのロゴ" width="32" height="32" class="h-8 w-auto" />
-      <span>bunchoniki Store</span>
+      <span translate="no">bunchoniki Store</span>
     </a>
     <ul class="hidden md:flex gap-8">
-      <li><a href={base} class="text-gray-700 hover:text-sky-600 transition">ホーム</a></li>
-      <li><a href={`${base}apps`} class="text-gray-700 hover:text-sky-600 transition">アプリ</a></li>
-      <li><a href={`${base}articles/`} class="text-gray-700 hover:text-sky-600 transition">記事</a></li>
-      <li><a href={`${base}articles/faq/`} class="text-gray-700 hover:text-sky-600 transition">FAQ</a></li>
+      <li><a href={base} class="text-gray-700 hover:text-sky-600 transition-colors">ホーム</a></li>
+      <li><a href={`${base}apps`} class="text-gray-700 hover:text-sky-600 transition-colors">アプリ</a></li>
+      <li><a href={`${base}articles/`} class="text-gray-700 hover:text-sky-600 transition-colors">記事</a></li>
+      <li><a href={`${base}articles/faq/`} class="text-gray-700 hover:text-sky-600 transition-colors">FAQ</a></li>
     </ul>
-    <button id="menu-toggle" class="md:hidden text-gray-700" aria-label="メニューを開く">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="menu-toggle" class="md:hidden text-gray-700 touch-manipulation" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </nav>
   <nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-sky-100 absolute top-full left-0 right-0 shadow-lg z-50">
     <ul class="flex flex-col p-2">
-      <li><a href={base} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition font-medium">ホーム</a></li>
-      <li><a href={`${base}apps`} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition font-medium">アプリ</a></li>
-      <li><a href={`${base}articles/`} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition font-medium">記事</a></li>
-      <li><a href={`${base}articles/faq/`} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition font-medium">FAQ</a></li>
+      <li><a href={base} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition-colors font-medium touch-manipulation">ホーム</a></li>
+      <li><a href={`${base}apps`} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition-colors font-medium touch-manipulation">アプリ</a></li>
+      <li><a href={`${base}articles/`} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition-colors font-medium touch-manipulation">記事</a></li>
+      <li><a href={`${base}articles/faq/`} class="text-gray-700 block w-full px-4 py-3 rounded-lg hover:bg-sky-50 hover:text-sky-600 transition-colors font-medium touch-manipulation">FAQ</a></li>
     </ul>
   </nav>
 </header>
@@ -34,7 +34,8 @@ const base = import.meta.env.BASE_URL;
   const menu = document.getElementById('mobile-menu');
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+      const isHidden = menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isHidden));
     });
   }
 </script>

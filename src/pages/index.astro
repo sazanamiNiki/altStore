@@ -142,7 +142,7 @@ const appListSchema = featuredApps.length > 0 ? {
           日本で無料利用可能（iOS 26.2以降）
         </span>
 
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 text-balance">
           iPhoneを、<br>
           <span class="text-blue-600">もっと自由に。</span>
         </h1>
@@ -221,33 +221,33 @@ const appListSchema = featuredApps.length > 0 ? {
     <!-- 特徴セクション -->
     <section class="py-12 sm:py-14 lg:py-16 px-4 bg-slate-50">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4 text-gray-900">当サイトの特徴</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-3 sm:mb-4 text-gray-900">当サイトの特徴</h2>
         <p class="text-sm sm:text-base text-gray-600 text-center max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
           サイドローディングに関する情報は英語が中心で、安全性の判断も難しいのが現状です。当サイトでは、掲載するアプリの安全性を独自に検証し、初心者でも迷わず使える日本語ガイドを提供しています。
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          <a href={`${base}articles/safety-guide/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all block">
+          <a href={`${base}articles/safety-guide/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
             <div class="mb-4">
               <span class="material-symbols-outlined feature-icon">verified</span>
             </div>
             <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-900">ダブルチェック体制</h3>
             <p class="text-sm sm:text-base text-gray-700 leading-relaxed">アプリの性質に合わせて「オープンソースによる透明性」または「Appleによる公証」のいずれかを確認済み。根拠のない危険な野良アプリは一切扱いません。</p>
           </a>
-          <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all block">
+          <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
             <div class="mb-4">
               <span class="material-symbols-outlined feature-icon">sports_esports</span>
             </div>
             <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-900">iPhoneでレトロゲーム</h3>
             <p class="text-sm sm:text-base text-gray-700 leading-relaxed">Deltaエミュレータを使えば、iPhoneでゲームボーイやファミコンのゲームが遊べます。App Storeから無料でダウンロードでき、導入方法や無料ゲームの入手先まで詳しく紹介しています。</p>
           </a>
-          <a href={`${base}articles/what-is-sideloading/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all block">
+          <a href={`${base}articles/what-is-sideloading/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
             <div class="mb-4">
               <span class="material-symbols-outlined feature-icon">menu_book</span>
             </div>
             <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-900">丁寧な解説</h3>
             <p class="text-sm sm:text-base text-gray-700 leading-relaxed">2025年12月施行のスマートフォン特定ソフトウェア競争促進法（新法）への対応状況や、サイドローディングの基礎知識を図解付きで分かりやすく説明しています。</p>
           </a>
-          <a href={`${base}articles/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all block">
+          <a href={`${base}articles/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
             <div class="mb-4">
               <span class="material-symbols-outlined feature-icon">language</span>
             </div>
@@ -278,7 +278,7 @@ const appListSchema = featuredApps.length > 0 ? {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
           <!-- AltStore PAL（推奨） -->
-          <a href={`${base}articles/install-app-step-by-step/`} class="relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-5 sm:p-6 border-2 border-indigo-300 hover:shadow-lg hover:border-indigo-400 transition-all block">
+          <a href={`${base}articles/install-app-step-by-step/`} class="relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-5 sm:p-6 border-2 border-indigo-300 hover:shadow-lg hover:border-indigo-400 transition-[border-color,box-shadow,transform] block">
             <span class="absolute -top-3 left-5 inline-block bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">おすすめ</span>
             <div class="flex items-center gap-2 mb-3 mt-1">
               <span class="material-symbols-outlined text-indigo-600">storefront</span>
@@ -296,7 +296,7 @@ const appListSchema = featuredApps.length > 0 ? {
           </a>
 
           <!-- AltStore Classic / SideStore（上級者向け） -->
-          <a href={`${base}articles/altstore-complete-guide/`} class="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-all block">
+          <a href={`${base}articles/altstore-complete-guide/`} class="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
             <div class="flex items-center gap-2 mb-3">
               <span class="material-symbols-outlined text-gray-500">build</span>
               <h3 class="text-lg font-semibold text-gray-900">AltStore Classic / SideStore</h3>
@@ -319,7 +319,7 @@ const appListSchema = featuredApps.length > 0 ? {
     <!-- 人気アプリ（ビルド時SSR） -->
     <section class="py-12 sm:py-14 lg:py-16 bg-slate-50">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-900 px-4">人気のアプリ</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-8 sm:mb-12 text-gray-900 px-4">人気のアプリ</h2>
 
         {featuredApps.length > 0 && (
           <Fragment>
@@ -352,16 +352,16 @@ const appListSchema = featuredApps.length > 0 ? {
                   ))}
                 </div>
               </div>
-              <button id="prev-btn" class="opacity-30 absolute left-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition z-10" aria-label="前のアプリを表示">
-                <span class="material-symbols-outlined">chevron_left</span>
+              <button id="prev-btn" class="opacity-30 absolute left-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition-[background-color,opacity] z-10 touch-manipulation" aria-label="前のアプリを表示">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
               </button>
-              <button id="next-btn" class="opacity-30 absolute right-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition z-10" aria-label="次のアプリを表示">
-                <span class="material-symbols-outlined">chevron_right</span>
+              <button id="next-btn" class="opacity-30 absolute right-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white/70 text-gray-800 rounded-full p-2 shadow-lg transition-[background-color,opacity] z-10 touch-manipulation" aria-label="次のアプリを表示">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
               </button>
               <div id="dots-container" class="flex justify-center gap-2 mt-6">
                 {featuredApps.map((_, i) => (
                   <button
-                    class={`w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-blue-600 w-8' : 'bg-gray-300'}`}
+                    class={`w-2 h-2 rounded-full transition-[border-color,box-shadow,transform] duration-300 ${i === 0 ? 'bg-blue-600 w-8' : 'bg-gray-300'}`}
                     data-slide={i}
                     aria-label={`スライド${i + 1}を表示`}
                   />
@@ -503,22 +503,22 @@ const appListSchema = featuredApps.length > 0 ? {
 
         <!-- 関連記事リンク -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-all block text-center">
+          <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-blue-500 mb-2">download</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Delta 導入ガイド</h3>
             <p class="text-xs text-gray-500">インストールから設定まで</p>
           </a>
-          <a href={`${base}articles/free-games-for-delta/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-all block text-center">
+          <a href={`${base}articles/free-games-for-delta/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-purple-500 mb-2">stadia_controller</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">無料ゲーム特集</h3>
             <p class="text-xs text-gray-500">今すぐ遊べるhomebrew</p>
           </a>
-          <a href={`${base}articles/gb-operator-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-all block text-center">
+          <a href={`${base}articles/gb-operator-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-blue-500 mb-2">sd_card</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">自分のソフトで遊ぶ</h3>
             <p class="text-xs text-gray-500">GB Operatorで合法吸い出し</p>
           </a>
-          <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-all block text-center">
+          <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-green-500 mb-2">gavel</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">法的に安全？</h3>
             <p class="text-xs text-gray-500">著作権と正しい遊び方</p>
@@ -551,17 +551,17 @@ const appListSchema = featuredApps.length > 0 ? {
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-          <a href={`${base}articles/commission-cut/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-amber-300 transition-all block text-center">
+          <a href={`${base}articles/commission-cut/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-amber-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-amber-500 mb-2">savings</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">手数料30%カットの衝撃</h3>
             <p class="text-xs text-gray-500">アプリは本当に安くなる？</p>
           </a>
-          <a href={`${base}articles/payment-freedom/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-amber-300 transition-all block text-center">
+          <a href={`${base}articles/payment-freedom/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-amber-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-green-500 mb-2">payments</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">決済の自由化</h3>
             <p class="text-xs text-gray-500">Web決済で年額5,000円の差</p>
           </a>
-          <a href={`${base}articles/direct-support/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-amber-300 transition-all block text-center">
+          <a href={`${base}articles/direct-support/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-amber-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-red-400 mb-2">favorite</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">開発者への直接支援</h3>
             <p class="text-xs text-gray-500">コーヒー1杯分でアプリが生き残る</p>
@@ -598,7 +598,7 @@ const appListSchema = featuredApps.length > 0 ? {
     <!-- 記事セクション -->
     <section class="py-12 sm:py-14 lg:py-16 px-4 bg-white">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4 text-gray-900">詳しく学ぶ</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-3 sm:mb-4 text-gray-900">詳しく学ぶ</h2>
         <p class="text-sm sm:text-base text-gray-600 text-center max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
           サイドローディングの基本から法律面の注意点まで、テーマ別に解説記事をまとめています。はじめての方は「サイドローディングとは？」から読み進めるのがおすすめです。
         </p>
@@ -611,16 +611,16 @@ const appListSchema = featuredApps.length > 0 ? {
           </h3>
           <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングの基本から、AltStore PALを使った最短インストール手順までを順を追って解説します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-            <a href={`${base}articles/altstore-pal-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/altstore-pal-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PAL完全ガイド</h4>
               <p class="text-xs text-gray-500">仕組みから始め方までを総合解説</p>
             </a>
-            <a href={`${base}articles/install-app-step-by-step/`} class="bg-white rounded-xl p-4 sm:p-5 border-2 border-indigo-300 hover:border-indigo-400 hover:shadow-md transition-all relative">
+            <a href={`${base}articles/install-app-step-by-step/`} class="bg-white rounded-xl p-4 sm:p-5 border-2 border-indigo-300 hover:border-indigo-400 hover:shadow-md transition-[border-color,box-shadow,transform] relative">
               <span class="absolute -top-2 right-3 inline-block bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">おすすめ</span>
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PALで始める</h4>
               <p class="text-xs text-gray-500">PC不要・7日制限なし・完全無料</p>
             </a>
-            <a href={`${base}articles/what-is-sideloading/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/what-is-sideloading/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">サイドローディングとは？</h4>
               <p class="text-xs text-gray-500">App Store以外からアプリを入れる方法</p>
             </a>
@@ -635,15 +635,15 @@ const appListSchema = featuredApps.length > 0 ? {
           </h3>
           <p class="text-sm text-gray-600 mb-3 sm:mb-4">「サイドローディングは危険？」「エミュレータは違法？」といった不安に、根拠を示しながら回答します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-            <a href={`${base}articles/safety-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/safety-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">野良アプリの安全ガイド</h4>
               <p class="text-xs text-gray-500">ウイルスから身を守る3つの鉄則</p>
             </a>
-            <a href={`${base}articles/alternative-marketplace/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/alternative-marketplace/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">代替マーケットプレイスとは？</h4>
               <p class="text-xs text-gray-500">App Storeの外の正規配布ルート</p>
             </a>
-            <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">エミュレータと著作権</h4>
               <p class="text-xs text-gray-500">日本国内での正しい遊び方を解説</p>
             </a>
@@ -658,15 +658,15 @@ const appListSchema = featuredApps.length > 0 ? {
           </h3>
           <p class="text-sm text-gray-600 mb-3 sm:mb-4">サイドローディングで使える注目アプリの使い方や活用テクニックを紹介します。</p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-            <a href={`${base}articles/altstore-pal-apps/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/altstore-pal-apps/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">AltStore PAL対応アプリ一覧</h4>
               <p class="text-xs text-gray-500">PALで入手できる主要アプリと選び方</p>
             </a>
-            <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Delta & UTM SE 完全ガイド</h4>
               <p class="text-xs text-gray-500">エミュレータの導入から設定まで</p>
             </a>
-            <a href={`${base}articles/utm-windows-on-ios/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all">
+            <a href={`${base}articles/utm-windows-on-ios/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">UTMで仮想化を活用</h4>
               <p class="text-xs text-gray-500">iPadでWindowsやLinuxを動かす</p>
             </a>
@@ -678,7 +678,7 @@ const appListSchema = featuredApps.length > 0 ? {
     <!-- FAQ -->
     <section class="py-12 sm:py-14 lg:py-16 px-4 bg-gray-50">
       <div class="max-w-2xl mx-auto space-y-6">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-900">よくある質問</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-8 sm:mb-12 text-gray-900">よくある質問</h2>
         {faqItems.map(item => (
           <div class="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
 
@@ -745,7 +745,7 @@ const appListSchema = featuredApps.length > 0 ? {
       currentSlide = index;
       container.style.transform = `translateX(${-currentSlide * 100}%)`;
       dots.forEach((dot, i) => {
-        dot.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-300');
+        dot.className = 'w-2 h-2 rounded-full transition-[border-color,box-shadow,transform] duration-300 ' + (i === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-300');
       });
       stopAutoPlay();
       startAutoPlay();

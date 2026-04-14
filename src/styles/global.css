@@ -45,6 +45,20 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  /* 自動再生動画を一時停止（index.astroのJSで視覚的に対応、CSSは念押し） */
+  video[autoplay] {
+    visibility: visible;
+  }
+}
+
+/* フォーカス可視状態（キーボード操作時のみ表示・アクセシビリティ対応） */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 ::selection {
@@ -67,7 +81,7 @@ html {
   .app-card {
     @apply bg-white rounded-2xl border border-gray-200
            hover:border-gray-300 hover:shadow-md
-           transition-all duration-300 p-6;
+           transition-[border-color,box-shadow] duration-300 p-6;
   }
 
   .app-card-image {
@@ -75,12 +89,16 @@ html {
   }
 
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 ease-out;
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl
+           transition-[background-color,box-shadow,transform] duration-200 ease-out
+           touch-manipulation;
     @apply hover:shadow-md hover:scale-[1.02];
   }
 
   .btn-secondary {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-3 px-6 rounded-xl transition-all duration-200 ease-out border border-gray-200;
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-3 px-6 rounded-xl
+           transition-[background-color,box-shadow] duration-200 ease-out border border-gray-200
+           touch-manipulation;
     @apply hover:shadow-sm;
   }
 

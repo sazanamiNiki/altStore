@@ -24,7 +24,7 @@ const iconClass = recommended ? 'text-blue-500 text-base' : 'text-gray-500 text-
 <div class={wrapperClass}>
   <div class={headerClass}>
     <h4 class={titleClass}>
-      <span class={`material-symbols-outlined ${iconClass}`}>{icon}</span>
+      <span class={`material-symbols-outlined ${iconClass}`} aria-hidden="true">{icon}</span>
       {title}{recommended && '（推奨）'}
     </h4>
   </div>

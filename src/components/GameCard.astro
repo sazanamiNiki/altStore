@@ -47,7 +47,7 @@ const isImageMetadata = image && typeof image !== 'string';
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class={`block bg-white rounded-xl border hover:shadow-md transition-all overflow-hidden ${featured ? 'border-yellow-300 ring-1 ring-yellow-200' : 'border-gray-200 hover:border-blue-300'}`}
+  class={`block bg-white rounded-xl border hover:shadow-md transition-[border-color,box-shadow] overflow-hidden touch-manipulation ${featured ? 'border-yellow-300 ring-1 ring-yellow-200' : 'border-gray-200 hover:border-blue-300'}`}
 >
   <div class="flex flex-col sm:flex-row">
     {/* 画像エリア */}
@@ -72,7 +72,7 @@ const isImageMetadata = image && typeof image !== 'string';
       </div>
     ) : (
       <div class="hidden sm:flex w-44 md:w-52 flex-shrink-0 bg-gradient-to-br from-gray-50 to-gray-100 items-center justify-center p-2">
-        <span class="material-symbols-outlined text-4xl text-gray-400">sports_esports</span>
+        <span class="material-symbols-outlined text-4xl text-gray-400" aria-hidden="true">sports_esports</span>
       </div>
     )}
 
@@ -87,7 +87,7 @@ const isImageMetadata = image && typeof image !== 'string';
             <span class="text-xs text-gray-500">{genre}</span>
             {featured && (
               <span class="inline-flex items-center gap-0.5 text-xs text-yellow-600">
-                <span class="material-symbols-outlined text-sm">star</span>
+                <span class="material-symbols-outlined text-sm" aria-hidden="true">star</span>
                 おすすめ
               </span>
             )}
@@ -99,14 +99,14 @@ const isImageMetadata = image && typeof image !== 'string';
             <p class="text-xs text-gray-500 mt-0.5">{name}</p>
           )}
         </div>
-        <span class="material-symbols-outlined text-gray-400 text-lg flex-shrink-0">open_in_new</span>
+        <span class="material-symbols-outlined text-gray-400 text-lg flex-shrink-0" aria-hidden="true">open_in_new</span>
       </div>
 
       <p class="text-gray-600 text-sm leading-relaxed mb-3">{description}</p>
 
       <div class="flex flex-wrap items-center gap-2">
         <span class="text-xs text-gray-500">
-          <span class="material-symbols-outlined text-xs align-middle mr-0.5">person</span>
+          <span class="material-symbols-outlined text-xs align-middle mr-0.5" aria-hidden="true">person</span>
           {developer}
         </span>
         {tags.length > 0 && (
