@@ -39,11 +39,11 @@ const PRIORITY_PAGES = [
   '/articles/what-is-sideloading/',
   '/articles/how-to-use-altstore/',
   '/articles/altstore-complete-guide/',
-  '/articles/install-app-step-by-step/',
   '/articles/safety-guide/',
   '/articles/delta-utm-guide/',
   '/articles/sidestore-guide/',
-  '/articles/top3-apps-2026/',
+  '/articles/free-games-for-delta/',
+  '/articles/gb-operator-guide/',
   '/articles/smartphone-law-explained/',
   '/articles/emulator-legal/',
 ];
