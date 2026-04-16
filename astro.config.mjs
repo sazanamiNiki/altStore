@@ -30,6 +30,24 @@ function getArticleDates() {
 const articleDates = getArticleDates();
 const rawBase = '';
 
+// サイトマップに含める優先ページ（インデックス促進のため厳選）
+// Google にまず信頼される少数の高品質ページを登録し、
+// インデックス実績ができたら徐々に追加する。
+const PRIORITY_PAGES = [
+  '/',
+  '/articles/',
+  '/articles/what-is-sideloading/',
+  '/articles/how-to-use-altstore/',
+  '/articles/altstore-complete-guide/',
+  '/articles/install-app-step-by-step/',
+  '/articles/safety-guide/',
+  '/articles/delta-utm-guide/',
+  '/articles/sidestore-guide/',
+  '/articles/top3-apps-2026/',
+  '/articles/smartphone-law-explained/',
+  '/articles/emulator-legal/',
+];
+
 export default defineConfig({
   site: 'https://altstore-jp.bunchoniki.com',
   base: rawBase || '/',
@@ -38,6 +56,10 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     mdx(),
     sitemap({
+      filter(page) {
+        const url = new URL(page);
+        return PRIORITY_PAGES.includes(url.pathname);
+      },
       serialize(item) {
         // 記事ページはArticleLayoutのdate属性を使用、それ以外はビルド日時
         const urlPath = new URL(item.url).pathname;
