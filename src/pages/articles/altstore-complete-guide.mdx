@@ -16,7 +16,7 @@ export const h1 = "AltStore完全ガイド";
 export const summary = "AltStoreの基本、7日署名、セットアップ、インストール、トラブル対処までを1ページで完全網羅。";
 export const description = "AltStoreの基本から7日署名の仕組み、AltServerのセットアップ、アプリのインストール方法、Wi-Fi自動更新の設定、トラブルシューティングまで完全網羅。サイドローディング初心者でも安心して使える統合ガイドです。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-09" icon="apps" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-17" icon="apps" iconColor="text-blue-500">
 
 <Section intro title="AltStoreを使いこなすための完全ガイド" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -29,11 +29,8 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
   <InfoBox type="indigo" icon="new_releases" title="AltStore PAL v2.3 — Fediverse統合で世界初の連合型ストアに">
     AltStore PALは日本で<strong>完全無料</strong>稼働中（iOS 26.2以降）。最新のv2.3では<strong>Fediverse統合</strong>（Mastodon/Bluesky連携）、<strong>Liquid Glass UI</strong>、<strong>日本風アイコン</strong>が追加されました。Exploreページでアプリを発見しやすくなっています。
   </InfoBox>
-  <InfoBox type="info" icon="auto_stories" title="より詳しく学ぶための関連記事">
-    このページは、AltStore に関する全ての情報を1つにまとめた<strong>統合ガイド・リファレンス編</strong>です。
-    より詳しく学びたい方は、
-    「<a href={`${import.meta.env.BASE_URL}articles/how-to-use-altstore`} class="font-bold underline">AltStore の仕組みと導入の基本（理論編）</a>」や
-    「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">アプリをインストールする方法（実践編）</a>」もご覧ください。
+  <InfoBox type="info" icon="auto_stories" title="どの方法を選ぶべきかわからない？">
+    PAL・Classic・SideStoreの違いが分からない方は、まず「<a href={`${import.meta.env.BASE_URL}articles/how-to-use-altstore`} class="font-bold underline">AltStore選び方ガイド</a>」で自分に合った方法を確認してください。このページはセットアップ・運用の実践ガイドです。
   </InfoBox>
 </Section>
 
@@ -50,52 +47,17 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
   </CardGrid>
 </Section>
 
-<Section title="AltStore Classic / PAL / SideStore 比較" icon="compare" iconColor="text-blue-600">
+<Section title="このガイドの対象" icon="compare" iconColor="text-blue-600">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    サイドローディングには3つの主要な選択肢があります。それぞれの特徴を比較しましょう。
+    このガイドでは主に<strong>AltStore Classic</strong>のセットアップ・運用を解説します。AltStore PALは基本的にSafariからインストールするだけで完了するため、以下のセクション（7日署名・AltServer・トラブル対応）は<strong>Classic利用者向け</strong>の内容です。
   </p>
-  <CardGrid cols={3}>
-    <Card icon="apps" iconColor="text-orange-500" title="AltStore Classic" desc="PC接続型・世界中で利用可" />
-    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL" desc="PC不要・7日制限なし" />
-    <Card icon="phone_iphone" iconColor="text-blue-500" title="SideStore" desc="オンデバイス・VPN必要" />
+  <CardGrid>
+    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL" desc="Safariで入れるだけ（解説不要）" />
+    <Card icon="apps" iconColor="text-orange-500" title="Classic（このガイド）" desc="セットアップ→運用→トラブル対応" />
   </CardGrid>
-  <AccordionGroup>
-    <Accordion title="AltStore Classic（従来版）" open>
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li><strong>PC/Mac必要</strong>：AltServerでインストール・署名更新</li>
-        <li><strong>7日署名制限</strong>：無料Apple IDでは7日ごとに再署名が必要</li>
-        <li><strong>Wi-Fi自動更新</strong>：AltServer起動中は自動で再署名</li>
-        <li><strong>世界中で利用可能</strong>：地域制限なし</li>
-        <li><strong>非公証アプリ</strong>も自由にインストール可能</li>
-      </ul>
-    </Accordion>
-    <Accordion title="AltStore PAL（代替マーケットプレイス版）">
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li><strong>PC不要</strong>：Safariからインストールするだけ</li>
-        <li><strong>7日制限なし</strong>：マーケットプレイスアプリは署名切れなし</li>
-        <li><strong>完全無料</strong>：Epic Games MegaGrantにより年会費不要</li>
-        <li><strong>日本・EU対応</strong>：iOS 26.2以降（日本は2025年12月18日〜）</li>
-        <li><strong>v2.3の新機能</strong>：Fediverse統合（Mastodon/Bluesky連携）、Exploreページ、Liquid Glass UI、日本風アイコン</li>
-        <li>Apple公証済みアプリのみ配信</li>
-      </ul>
-    </Accordion>
-    <Accordion title="SideStore（コミュニティ版）">
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li><strong>初回のみPC必要</strong>：以降はiPhoneのみで完結</li>
-        <li><strong>7日署名制限あり</strong>：VPN経由で自動更新</li>
-        <li><strong>VPNアプリが必要</strong>：StosVPNはApp Storeから削除済み（既存ユーザーは引き続き利用可能）</li>
-        <li><strong>世界中で利用可能</strong>：地域制限なし</li>
-        <li>非公証アプリもインストール可能</li>
-      </ul>
-      <InfoBox type="warning" icon="warning" title="StosVPN → LocalDevVPNへ移行">
-        SideStoreの動作に必要だったStosVPNはApp Storeから削除されました。現在は代替の<strong>LocalDevVPN</strong>がApp Storeから入手可能です。新規ユーザーはLocalDevVPNを使用してください。
-      </InfoBox>
-    </Accordion>
-  </AccordionGroup>
-  <BunchanAdvice alt="ぶんちゃんがおすすめの選択肢を案内している">
-    <strong>日本にいるなら、まずはAltStore PALを試してみて！</strong><br />
-    PC不要・7日制限なし・無料で一番手軽だよ。PALにないアプリを使いたいならClassicも併用してね🌸
-  </BunchanAdvice>
+  <InfoBox type="info" icon="route" title="PAL・Classic・SideStoreの違いは？">
+    「<a href={`${import.meta.env.BASE_URL}articles/how-to-use-altstore`} class="font-bold underline">AltStore選び方ガイド</a>」で3つの方法を比較しています。どれを使うか決まっていない方はそちらを先にご覧ください。
+  </InfoBox>
 </Section>
 
 <Section title="AltStore Classicの仕組み：なぜ7日で署名が切れるのか" icon="schedule" iconColor="text-blue-600">
@@ -271,25 +233,6 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
   </AccordionGroup>
 </Section>
 
-<Section title="SideStoreとの比較" icon="compare" iconColor="text-green-600">
-  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    SideStore は、AltStore をベースに開発されたコミュニティ主導のサイドローディングアプリです。
-  </p>
-  <CardGrid>
-    <Card icon="computer" iconColor="text-blue-500" title="AltStore Classic" desc="PC接続型・初心者向け" />
-    <Card icon="phone_iphone" iconColor="text-green-500" title="SideStore" desc="オンデバイス・VPN必要" />
-  </CardGrid>
-  <AccordionGroup>
-    <Accordion title="詳しい違いを見る">
-      <p class="text-sm text-gray-700 mb-2"><strong>AltStore Classic：</strong>毎週PC接続が必要、AltServer経由で更新、VPN不要、セットアップ簡単</p>
-      <p class="text-sm text-gray-700 mb-2"><strong>SideStore：</strong>初回のみPC必要、VPN経由で完全オンデバイス、やや複雑なセットアップ</p>
-      <InfoBox type="warning" icon="warning" title="SideStoreの注意点：VPNアプリの変更">
-        SideStoreの動作に必要だった<strong>StosVPN</strong>はApp Storeから削除されました。代替として<strong>LocalDevVPN</strong>がApp Storeから入手可能です。PC不要での運用を希望する場合は、<strong>AltStore PAL</strong>の利用がより簡単です。
-      </InfoBox>
-    </Accordion>
-  </AccordionGroup>
-</Section>
-
 <Section title="まとめ" icon="done_all" iconColor="text-green-600">
   <CardGrid>
     <Card icon="schedule" iconColor="text-orange-500" title="7日ごとの署名更新" desc="Wi-Fi自動更新で手放し管理" />
@@ -302,10 +245,10 @@ export const description = "AltStoreの基本から7日署名の仕組み、AltS
 <RelatedArticles articles={[
   {
     href: '/articles/how-to-use-altstore/',
-    icon: 'settings',
+    icon: 'route',
     iconColor: 'text-blue-600',
-    title: 'AltStoreの仕組みと導入の基本',
-    desc: '7日署名の仕組みやAltServerの役割など、理論・仕組み編として詳しく解説。',
+    title: 'PAL・Classic・SideStore選び方ガイド',
+    desc: '3つの方法を比較して、自分に合ったサイドローディング方法を選ぶ。',
   },
   {
     href: '/articles/install-app-step-by-step/',
