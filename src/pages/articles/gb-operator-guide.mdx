@@ -20,10 +20,10 @@ import gbOperatorCartridgeBackupImage from '../../assets/images/gb-operator-cart
 import deltaSelectImage from '../../assets/images/delta-select.jpeg';
 import deltaPlayImage from '../../assets/images/delta-play.PNG';
 
-export const title = "GB Operatorガイド - GBをiPhoneで復活";
-export const h1 = "GB Operatorで自分のゲームをiPhoneで遊ぼう";
-export const summary = "GB Operatorで自分のカートリッジからROMを吸い出し、Deltaで合法的に遊ぶ方法。購入から吸い出し手順まで解説。";
-export const description = "Epilogue GB Operatorを使って、自分が所有するゲームボーイカートリッジからROMを吸い出し、Deltaエミュレータで合法的に遊ぶ方法を完全解説。購入方法、吸い出し手順、法的な安全性まで、必要な情報をすべてカバーします。";
+export const title = "GB OperatorでROM吸い出し→Deltaで遊ぶ方法";
+export const h1 = "ゲームボーイのROMを吸い出してiPhoneで遊ぶ方法";
+export const summary = "GB Operatorで自分のカートリッジからROMを合法的に吸い出し、Deltaエミュレータで遊ぶ全手順を画像付きで解説。";
+export const description = "GB Operatorを使ったゲームボーイROMの吸い出し方法を画像付きで完全解説。著作権法第30条に基づく合法性、Deltaエミュレータへの転送手順、トラブル対処法、SN Operator（SFC対応）との比較まで。日本語で読める最も詳しいガイドです。";
 
 export const faqData = [
   { question: "GB Operatorとは何ですか？", answer: "Epilogue社製のUSB-Cカートリッジリーダーです。GB/GBC/GBAに対応し、ROMの吸い出しやPCでのプレイができます。価格は約8,000〜10,000円です。" },
@@ -70,29 +70,43 @@ export const howtoData = {
     <Card icon="verified" iconColor="text-yellow-600" title="偽物判定" desc="正規品か自動チェック" />
   </CardGrid>
 
-  <AccordionGroup>
-    <Accordion title="その他の機能・対応OS">
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
-        <li><strong>PCでプレイ：</strong>専用ソフト「Playback」で直接プレイ可能</li>
-        <li><strong>セーブデータ管理：</strong>読み書き・バックアップに対応</li>
-        <li><strong>対応OS：</strong>Windows / macOS / Linux</li>
-      </ul>
-    </Accordion>
-    <Accordion title="価格・購入方法">
-      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-        約50〜60ドル（<strong>約8,000〜10,000円</strong>）
-      </p>
-      <InfoBox type="info" icon="shopping_cart" title="購入先">
-        <ul class="list-disc pl-4 sm:pl-6 space-y-1 text-gray-700">
-          <li><a href="https://www.epilogue.co/product/gb-operator" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Epilogue公式サイト</a>（最安・海外発送）</li>
-          <li><a href="https://amzn.to/4rITtKI" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Amazon.co.jp</a>（国内発送・すぐ届く）</li>
-        </ul>
-      </InfoBox>
-      <BunchanAdvice>
-        Amazonだとちょっと高くなるけど、<strong>簡単に購入できる</strong>よ！海外通販に慣れてない人はAmazonがおすすめ🛒
-      </BunchanAdvice>
-    </Accordion>
-  </AccordionGroup>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    その他の機能：専用ソフト「Playback」でPCから直接プレイ可能、セーブデータの読み書き・バックアップにも対応。Windows / macOS / Linuxで動作します。
+  </p>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mt-4 sm:mt-6 mb-3 flex items-start gap-2">
+    <span class="material-symbols-outlined text-blue-500 flex-shrink-0" aria-hidden="true">shopping_cart</span>
+    価格・購入方法
+  </h3>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    価格は約50ドル（<strong>約8,000〜10,000円</strong>）。購入先は以下の2択です。
+  </p>
+  <div class="overflow-x-auto mb-3 sm:mb-4">
+    <table class="w-full text-left border border-gray-200 rounded-lg overflow-hidden">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">購入先</th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">価格</th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">特徴</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr>
+          <td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700"><a href="https://www.epilogue.co/product/gb-operator" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Epilogue公式</a></td>
+          <td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">$49.99 + 送料$25</td>
+          <td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">最安。到着まで1〜2週間</td>
+        </tr>
+        <tr>
+          <td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700"><a href="https://amzn.to/4rITtKI" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Amazon.co.jp</a></td>
+          <td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">約10,000円前後</td>
+          <td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">国内発送。翌日届く</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <BunchanAdvice>
+    海外通販に慣れてない人はAmazonがおすすめ。公式サイトは安いけど届くまで時間がかかるよ🛒
+  </BunchanAdvice>
 </Section>
 
 {/* ── 使い方 ── */}
@@ -231,11 +245,26 @@ export const howtoData = {
 </Section>
 
 {/* ── 法的な安全性 ── */}
-<Section title="法的な安全性" icon="gavel" iconColor="text-green-600" id="legal-safety">
-  <CardGrid>
-    <Card icon="check_circle" iconColor="text-green-500" title="私的複製OK" desc="著作権法第30条" />
-    <Card icon="verified" iconColor="text-blue-500" title="コピーガードなし" desc="GB系は技術的保護なし" />
-  </CardGrid>
+<Section title="法的な安全性：なぜGB Operatorでの吸い出しは合法なのか" icon="gavel" iconColor="text-green-600" id="legal-safety">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    GB Operatorを使ったROM吸い出しが合法と言える根拠は、<strong>2つのポイント</strong>に集約されます。
+  </p>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3 flex items-start gap-2">
+    <span class="material-symbols-outlined text-green-500 flex-shrink-0" aria-hidden="true">check_circle</span>
+    ポイント1：著作権法第30条（私的複製）
+  </h3>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    日本の著作権法第30条は、<mark class="bg-yellow-100 px-1 rounded"><strong>「個人的に又は家庭内その他これに準ずる限られた範囲内において使用すること」</strong></mark>を目的とする場合、著作物の複製を認めています。自分が購入したカートリッジから、自分で使うためにROMを吸い出す行為は、この私的複製に該当します。
+  </p>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3 flex items-start gap-2">
+    <span class="material-symbols-outlined text-green-500 flex-shrink-0" aria-hidden="true">verified</span>
+    ポイント2：コピーガードが存在しない
+  </h3>
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    著作権法第30条には「<strong>技術的保護手段の回避</strong>」を伴う場合は私的複製の例外とする規定があります。しかしGB/GBC/GBAカートリッジには暗号化やコピーガードが<strong>一切存在しません</strong>。したがってGB Operatorでの吸い出しは、コピーガード回避に該当しません。これがNintendo Switch（AES-128暗号化あり）のエミュレータと根本的に異なる点です。
+  </p>
 
   <InfoBox type="success" icon="rule" title="守るべき5つのルール">
     <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
@@ -247,25 +276,15 @@ export const howtoData = {
     </ul>
   </InfoBox>
 
+  <InfoBox type="error" icon="cancel" title="やってはいけないこと">
+    <ul class="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1.5 text-gray-700">
+      <li>ROMサイトからダウンロード — 著作権法違反で刑事罰の対象</li>
+      <li>吸い出したROMを共有・販売 — 私的利用の範囲を超える</li>
+      <li>カートリッジ売却後もROMを使用 — 所有権がなくなるため根拠を失う</li>
+    </ul>
+  </InfoBox>
+
   <AccordionGroup>
-    <Accordion title="私的複製の法的根拠（著作権法第30条）">
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li>著作権法第30条で<mark class="bg-yellow-100 px-1 rounded"><strong>「個人的・家庭内使用」</strong></mark>の複製が認められています</li>
-        <li>自分のカートリッジから自分で吸い出す行為は私的複製の範囲内です</li>
-        <li>GB/GBC/GBAにはコピーガードがないため、回避にも該当しません</li>
-      </ul>
-    </Accordion>
-
-    <Accordion title="やってはいけないこと">
-      <InfoBox type="error" icon="cancel" title="これらは著作権侵害です">
-        <ul class="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-1.5 text-gray-700">
-          <li>ROMサイトからダウンロード</li>
-          <li>吸い出したROMを共有・販売</li>
-          <li>カートリッジ売却後もROMを使用</li>
-        </ul>
-      </InfoBox>
-    </Accordion>
-
     <Accordion title="グレーゾーンについて">
       <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
         裁判例が少なく解釈が確定していない部分もあります。
@@ -277,7 +296,7 @@ export const howtoData = {
     </Accordion>
   </AccordionGroup>
   <BunchanAdvice>
-    もっと詳しく知りたい人は<a href="/articles/emulator-legal/" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！法的な部分をしっかり解説してるよ📚
+    もっと詳しく知りたい人は<a href="/articles/emulator-legal/" class="text-blue-600 underline font-medium">エミュレータと著作権</a>の記事を読んでみてね！Switchエミュとの法的な違いも解説してるよ📚
   </BunchanAdvice>
 </Section>
 
@@ -410,6 +429,28 @@ export const howtoData = {
   </BunchanAdvice>
 </Section>
 
+{/* ── Deltaでの実際のプレイ体験 ── */}
+<Section title="吸い出したROMをDeltaで遊ぶとどうなる？" icon="sports_esports" iconColor="text-indigo-500" id="delta-experience">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    GB Operatorで吸い出したROMファイル（.gb / .gbc / .gba）は、<strong>Deltaエミュレータでそのまま動作</strong>します。iPhoneへの転送はAirDropが最も手軽で、ファイルを受信するとDeltaで開くか聞かれるのでそのまま追加できます。
+  </p>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3 flex items-start gap-2">
+    <span class="material-symbols-outlined text-indigo-500 flex-shrink-0" aria-hidden="true">tips_and_updates</span>
+    知っておくと便利なこと
+  </h3>
+  <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+    <li><strong>セーブデータも移行可能</strong> — GB Operatorでカートリッジのセーブデータをバックアップし、Deltaにインポートすれば<strong>続きからプレイ</strong>できます。「何十時間もやったRPGのデータ」がiPhoneで復活します</li>
+    <li><strong>セーブステート対応</strong> — Delta独自のどこでもセーブ機能で、実機にはなかった「中断→再開」が可能。通勤中のRPGに最適です</li>
+    <li><strong>Bluetoothコントローラー対応</strong> — PS5/Xbox/8BitDoなどのコントローラーをペアリングすれば、タッチ操作より快適にプレイできます</li>
+    <li><strong>カートリッジは手元に残る</strong> — GB Operatorはデータをコピーするだけなので、カートリッジ自体は使い続けられます。実機でもiPhoneでも両方遊べます</li>
+  </ul>
+
+  <InfoBox type="info" icon="download" title="Deltaの導入がまだの方へ">
+    DeltaはApp Storeから無料でダウンロードできます。詳しい設定方法は「<a href="/articles/delta-utm-guide/" class="text-blue-600 underline font-medium">Delta/UTM SE完全ガイド</a>」で解説しています。手持ちのソフトがなくても、<a href="/articles/free-games-for-delta/" class="text-blue-600 underline font-medium">無料のhomebrewゲーム</a>で今すぐ遊び始められます。
+  </InfoBox>
+</Section>
+
 {/* ── まとめ ── */}
 <Section title="まとめ" icon="done_all" iconColor="text-green-600" id="summary">
   <CardGrid>
@@ -421,9 +462,9 @@ export const howtoData = {
 </Section>
 
 <RelatedArticles articles={[
-  { href: '/articles/delta-utm-guide/', icon: 'sports_esports', title: 'Delta/UTM SE完全ガイド', desc: 'Deltaエミュレータの詳しい使い方と設定方法' },
-  { href: '/articles/emulator-legal/', icon: 'gavel', title: 'エミュレータと著作権', desc: 'エミュレータ利用の法的側面を詳しく解説' },
-  { href: '/articles/altstore-complete-guide/', icon: 'apps', title: 'AltStore完全ガイド', desc: 'AltStoreのインストールから使い方まで' },
+  { href: '/articles/delta-utm-guide/', icon: 'sports_esports', title: 'Delta/UTM SE完全ガイド', desc: 'Deltaの導入・設定・コントローラー接続まで' },
+  { href: '/articles/free-games-for-delta/', icon: 'stadia_controller', title: 'Delta用無料ゲーム特集', desc: 'カートリッジがなくても今すぐ遊べるhomebrew' },
+  { href: '/articles/emulator-legal/', icon: 'gavel', title: 'エミュレータと著作権', desc: 'Switchエミュとの法的な違いも解説' },
 ]} />
 
 </ArticleLayout>
