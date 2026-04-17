@@ -12,25 +12,22 @@ import MethodCard from '../../components/MethodCard.astro';
 import AltStoreSetupSteps from '../../components/AltStoreSetupSteps.astro';
 import BunchanAdvice from '../../components/BunchanAdvice.astro';
 
-export const title = "AltStoreの使い方と仕組み｜初心者向け導入ガイド";
-export const h1 = "AltStoreの使い方と仕組み";
-export const summary = "AltStoreの使い方を初心者向けに解説。AltStore PALの日本対応情報、7日署名の仕組み、PCなしでの運用方法までわかります。";
-export const description = "AltStoreの使い方・インストール方法を初心者向けに解説。日本対応のAltStore PALなら7日制限なし・PC不要。AltStore Classicの7日間署名の仕組み、AltServerによるWi-Fi自動更新まで、基礎から丁寧にガイド。";
+export const title = "AltStore PAL・Classic・SideStore 選び方ガイド";
+export const h1 = "どれを使う？AltStore選び方ガイド";
+export const summary = "AltStore PAL・Classic・SideStoreの3つの違いを比較。あなたの環境に最適なサイドローディング方法がわかります。";
+export const description = "AltStore PAL、AltStore Classic、SideStoreの3つのサイドローディング方法を徹底比較。7日署名の有無、PC要否、費用、対応アプリの違いを表で整理。日本のiPhoneユーザーが自分に合った方法を選ぶためのガイドです。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-14" icon="apps" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-17" icon="apps" iconColor="text-blue-500">
 
-<Section intro title="AltStoreとは何か" icon="help_outline">
+<Section intro title="3つの選択肢、どれがあなたに合う？" icon="help_outline">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
-    <strong>App Storeの代替</strong>として使える、初心者に最もやさしいサイドローディングツールです。
+    iPhoneでApp Store以外のアプリを使う方法は<strong>3つ</strong>あります。環境や目的によって最適な方法が変わります。
   </p>
-  <InfoBox type="indigo" icon="new_releases" title="AltStore PAL v2.3 — 日本で無料利用可能">
-    AltStore PALは日本で<strong>完全無料</strong>で利用可能（iOS 26.2以降）。最新のv2.3では<strong>Fediverse統合</strong>（Mastodon/Bluesky連携）やExploreページが追加され、アプリの発見がより簡単になりました。PC不要・7日制限なし。
-  </InfoBox>
-  <InfoBox type="success" icon="check_circle" title="このガイドで習得できること">
-    ✓ AltStore ClassicとPALの違い ✓ 7日署名の仕組み ✓ Wi-Fi自動更新の設定 ✓ PC不要オプション
+  <InfoBox type="success" icon="check_circle" title="この記事でわかること">
+    ✓ 3つの方法の違いと使い分け ✓ あなたに最適な方法の判定 ✓ 7日署名の仕組み ✓ 各方法のメリット・デメリット
   </InfoBox>
   <BunchanAdvice alt="ぶんちゃんがアドバイスしている">
-    この記事では「仕組み」を解説するよ！実際の手順は「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法</a>」を見てね🌸
+    「どれを選べばいいかわからない！」って人のための記事だよ。<strong>具体的なセットアップ手順</strong>は「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">AltStore完全ガイド</a>」を見てね🌸
   </BunchanAdvice>
 </Section>
 
@@ -62,154 +59,121 @@ export const description = "AltStoreの使い方・インストール方法を�
   </AccordionGroup>
 </Section>
 
-<Section title="AltStore Classicの仕組み：なぜ7日で署名が切れるのか" icon="settings" iconColor="text-blue-600">
+<Section title="7日署名の仕組み（Classicのみ）" icon="settings" iconColor="text-blue-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    AltStore Classicでは、無料Apple IDでインストールしたアプリの署名が<strong>7日で期限切れ</strong>になります。期限が切れるとアプリが起動しなくなりますが、再署名すれば復活します。
+  </p>
   <CardGrid>
-    <Card icon="shopping_bag" iconColor="text-green-500" title="App Store" desc="Appleが永続的に署名を提供" />
-    <Card icon="apps" iconColor="text-orange-500" title="AltStore" desc="無料Apple IDは7日間のみ有効" />
+    <Card icon="schedule" iconColor="text-orange-500" title="7日間の期限" desc="無料Apple IDの制限" />
+    <Card icon="wifi" iconColor="text-green-500" title="Wi-Fi自動更新" desc="AltServer起動で自動再署名" />
+    <Card icon="touch_app" iconColor="text-blue-500" title="手動でもOK" desc="更新ボタン(↻)をタップ" />
+    <Card icon="money_off" iconColor="text-purple-500" title="有料IDなら制限なし" desc="年額99ドルで永続署名" />
   </CardGrid>
-  <AccordionGroup>
-    <Accordion title="署名（Signature）とは何か">
-      <p class="text-sm text-gray-700 mb-2">「このアプリは安全」とiOSに伝える<strong>デジタルスタンプ</strong>です。</p>
-      <p class="text-sm text-gray-600">7日ごとに再署名することで、iOSに「まだ信頼できる」と認識させ直します。</p>
-    </Accordion>
-    <Accordion title="有料開発者アカウントなら制限なし">
-      <p class="text-sm text-gray-700">Apple Developer Program（年額99ドル）に加入すれば、7日制限がなくなります。</p>
-    </Accordion>
-  </AccordionGroup>
-</Section>
-
-<Section title="AltServerの役割：PCからWi-Fiで自動更新" icon="dns" iconColor="text-blue-600">
-  <CardGrid>
-    <Card icon="smartphone" iconColor="text-blue-500" title="AltStore" desc="iPhone/iPad上のアプリストア" />
-    <Card icon="computer" iconColor="text-gray-500" title="AltServer" desc="PC/Mac上の署名更新ツール" />
-  </CardGrid>
-  <AccordionGroup>
-    <Accordion title="Wi-Fi自動更新の仕組み">
-      <p class="text-sm text-gray-700 mb-2">同じWi-Fiネットワーク上でAltServerがiPhoneを認識し、署名期限が近いアプリを自動で再署名します。</p>
-    </Accordion>
-    <Accordion title="Wi-Fi自動更新の条件">
-      <InfoBox type="info" title="自動更新に必要な3つの条件">
-        <ul class="mt-1 space-y-1">
-          <li><strong>同じWi-Fiネットワーク</strong>にPCとiPhoneが接続</li>
-          <li>PC上で<strong>AltServerが起動</strong>している</li>
-          <li>iPhoneが<strong>ロック画面</strong>の状態</li>
-        </ul>
-      </InfoBox>
-    </Accordion>
-    <Accordion title="AltServerを常に起動しておくメリット">
-      <p class="text-sm text-gray-700 mb-2">手動更新が不要になり、常に有効な署名を維持できます。PC起動時に自動起動する設定も可能です。</p>
-      <InfoBox type="info" title="常時起動用のPCがない場合">
-        省電力なミニPCが最適です。電気代も月数百円で済みます。
-      </InfoBox>
-    </Accordion>
-    <Accordion title="自動更新と公証ステータスについて">
-      <CardGrid>
-        <Card icon="verified" iconColor="text-green-500" title="初回インストール時" desc="公証済みの状態" />
-        <Card icon="update" iconColor="text-orange-500" title="7日後の自動更新以降" desc="公証なし（安全性は維持）" />
-      </CardGrid>
-      <InfoBox type="info" title="公証を継続的に維持したい場合">
-        有料開発者アカウント（年額99ドル）が必要です。詳しくは「<a href={`${import.meta.env.BASE_URL}articles/apple-notarization`} class="font-bold underline">Appleの公証とは何か</a>」をご覧ください。
-      </InfoBox>
-    </Accordion>
-  </AccordionGroup>
-</Section>
-
-<AltStoreSetupSteps />
-
-<Section title="PCがない場合はどうする？" icon="help_center" iconColor="text-blue-600">
-  <InfoBox type="success" icon="storefront" title="AltStore PALならPC不要">
-    日本ではAltStore PALが利用可能です。Safariからインストールするだけで、<strong>PC不要・7日制限なし</strong>で運用できます（iOS 26.2以降）。
+  <InfoBox type="info" icon="auto_stories" title="署名の詳しい仕組みやトラブル対処は？">
+    「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">AltStore完全ガイド</a>」でWi-Fi自動更新の条件、セットアップ手順、トラブルシューティングまで詳しく解説しています。
   </InfoBox>
-  <CardGrid>
-    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL" desc="PC不要・7日制限なし（推奨）" />
-    <Card icon="touch_app" iconColor="text-orange-500" title="Classic手動更新" desc="7日ごとに更新ボタンをタップ" />
-    <Card icon="people" iconColor="text-blue-500" title="PCを借りる" desc="1回AltServerを起動すればOK" />
-  </CardGrid>
-  <AccordionGroup>
-    <Accordion title="最良の選択肢：AltStore PALを使う" open>
-      <BunchanAdvice alt="ぶんちゃんがAltStore PALをおすすめしている">
-        <strong>日本にいるならAltStore PALが一番ラク！</strong><br />
-        Safariでaltstore.ioにアクセスしてダウンロードするだけ。PCもいらないし7日制限もないよ🌸
-      </BunchanAdvice>
-    </Accordion>
-    <Accordion title="AltStore Classicの場合：手動更新なら可能">
-      <BunchanAdvice alt="ぶんちゃんが手動更新について説明している">
-        <strong>PCなしでもOK。7日ごとにAltStoreで更新ボタン（↻）をタップ！</strong><br />
-        アプリは消えないから焦らず、数分で復活できるよ🌸
-      </BunchanAdvice>
-    </Accordion>
-    <Accordion title="代替手段：友人のPCを借りる">
-      <BunchanAdvice alt="ぶんちゃんがPCを借りる方法について説明している">
-        <strong>友人・家族のPCを1回借りればOK。</strong><br />
-        同じWi-FiでAltServerを起動して更新すれば完了。PCが本当に無い場合はAltStore PALかSideStoreも検討してみてね💡
-      </BunchanAdvice>
-    </Accordion>
-  </AccordionGroup>
 </Section>
 
-<Section title="よくある質問と対策" icon="help" iconColor="text-blue-600">
+<Section title="あなたはどれを選ぶべき？" icon="route" iconColor="text-green-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    迷ったら、以下のフローで判断できます。
+  </p>
   <AccordionGroup>
-    <Accordion title="署名が切れたアプリはどうなる？">
+    <Accordion title="iOS 26.2以降 + 日本在住 → AltStore PAL" open>
+      <InfoBox type="success" icon="recommend" title="ほとんどの人はこれ">
+        <strong>PC不要・7日制限なし・完全無料</strong>。Safariからインストールするだけで始められます。Delta、UTM SE等のApple公証済みアプリが利用可能。
+      </InfoBox>
       <BunchanAdvice>
-        <strong>AltStoreアプリで更新ボタン（↻）をタップするだけ！</strong><br />
-        アイコンが残ってれば削除されたわけじゃないから安心してね🌸
+        <strong>日本のiPhoneユーザーの9割はこれで十分！</strong><br />
+        難しい設定は一切なし。まずはこれを試してみて🌸
       </BunchanAdvice>
     </Accordion>
-    <Accordion title="Wi-Fi自動更新がうまくいかない場合は？">
-      <BunchanAdvice>
-        <strong>PCとiPhoneが同じWi-Fiに接続してるか確認！</strong><br />
-        iPhoneが4G/5Gになってないかチェックしてみて。ダメならUSBで手動更新でOK💡
-      </BunchanAdvice>
+    <Accordion title="PALにないアプリを使いたい → AltStore Classic">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        PALで配信されていないアプリ（Apple公証を通っていないIPA等）を使いたい場合は、Classicが必要です。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>PC必要</strong>（Windows/Mac）</li>
+        <li><strong>7日ごとに再署名</strong>（Wi-Fi自動更新で軽減可能）</li>
+        <li>PALとの<strong>併用OK</strong> — 両方インストールして使い分けできる</li>
+      </ul>
     </Accordion>
-    <Accordion title="複数のiPhoneで使える？">
-      <BunchanAdvice>
-        <strong>同じApple IDで複数デバイスで使えるよ！</strong><br />
-        ただし無料Apple IDは10個まで制限あり。たくさん使うなら開発者アカウントも検討してみて🌟
-      </BunchanAdvice>
+    <Accordion title="PCを持っていない + PALにないアプリが必要 → SideStore">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        初回だけPCが必要ですが、以降はiPhone単体で運用できます。VPNアプリ（LocalDevVPN）経由で自動更新。
+      </p>
+      <InfoBox type="warning" icon="warning" title="注意">
+        StosVPNはApp Storeから削除済み。代替のLocalDevVPNを使用してください。セットアップはClassicより複雑です。
+      </InfoBox>
     </Accordion>
   </AccordionGroup>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mt-6 mb-3 sm:mb-4 flex items-start gap-2">
+    <span class="material-symbols-outlined text-blue-500 flex-shrink-0" aria-hidden="true">table_chart</span>
+    3つの方法を一覧で比較
+  </h3>
+  <div class="overflow-x-auto mb-4 sm:mb-6">
+    <table class="w-full text-left border border-gray-200 rounded-lg overflow-hidden">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700"></th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-green-600">PAL（推奨）</th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">Classic</th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">SideStore</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">PC</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-green-600 font-bold">不要</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">必要</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">初回のみ</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">7日制限</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-green-600 font-bold">なし</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">あり</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">あり（VPN更新）</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">費用</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-green-600 font-bold">無料</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">無料</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">無料</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">対応地域</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">日本・EU</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">全世界</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">全世界</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">非公証アプリ</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">不可</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-green-600 font-bold">可能</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-green-600 font-bold">可能</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">難易度</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-green-600 font-bold">簡単</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">普通</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">やや難しい</td></tr>
+      </tbody>
+    </table>
+  </div>
 </Section>
 
-<Section title="まとめ" icon="done_all" iconColor="text-green-600">
+<Section title="まとめ：選んだら次のステップへ" icon="done_all" iconColor="text-green-600">
   <CardGrid>
-    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL（推奨）" desc="PC不要・7日制限なし・無料" />
-    <Card icon="schedule" iconColor="text-orange-500" title="Classic：7日ごとに再署名" desc="無料Apple IDの制限" />
-    <Card icon="wifi" iconColor="text-blue-500" title="Classic：Wi-Fi自動更新" desc="AltServerで手間ゼロ" />
-    <Card icon="smartphone" iconColor="text-green-600" title="Classic：PCなしでもOK" desc="手動更新で運用可能" />
+    <Card icon="storefront" iconColor="text-green-500" title="AltStore PAL" desc="迷ったらこれ一択" />
+    <Card icon="apps" iconColor="text-orange-500" title="Classic" desc="非公証アプリを使いたい人向け" />
+    <Card icon="phone_iphone" iconColor="text-blue-500" title="SideStore" desc="PC不要+非公証アプリの両立" />
   </CardGrid>
   <InfoBox type="info" title="次のステップ">
-    仕組みがわかったら、実際にやってみましょう！「<a href={`${import.meta.env.BASE_URL}articles/install-app-step-by-step`} class="font-bold underline">インストール方法（実践編）</a>」で画像付きの手順を確認できます。
+    方法が決まったら、実際にセットアップしましょう！<br />
+    ・AltStore PAL/Classic → 「<a href={`${import.meta.env.BASE_URL}articles/altstore-complete-guide`} class="font-bold underline">AltStore完全ガイド</a>」<br />
+    ・SideStore → 「<a href={`${import.meta.env.BASE_URL}articles/sidestore-guide`} class="font-bold underline">SideStore完全ガイド</a>」
   </InfoBox>
 </Section>
 
 <RelatedArticles articles={[
   {
-    href: '/articles/altstore-pal-guide/',
-    icon: 'storefront',
-    iconColor: 'text-indigo-600',
-    title: 'AltStore PALの使い方',
-    desc: 'Safariで完結する最新ルート。始め方と注意点を解説',
-  },
-  {
-    href: '/articles/install-app-step-by-step/',
-    icon: 'install_desktop',
-    iconColor: 'text-green-600',
-    title: 'アプリをインストールする方法',
-    desc: 'セットアップから実際のインストールまで',
-  },
-  {
     href: '/articles/altstore-complete-guide/',
     icon: 'apps',
     iconColor: 'text-purple-600',
-    title: 'AltStore完全ガイド',
-    desc: '基礎からトラブル対応まで網羅',
+    title: 'AltStore完全ガイド（実践編）',
+    desc: 'セットアップ手順、インストール方法、トラブル対応まで網羅',
   },
   {
-    href: '/articles/top3-apps-2026/',
-    icon: 'star',
-    iconColor: 'text-yellow-500',
-    title: '入れるべきアプリ【神アプリ3選】',
-    desc: '3大アプリを徹底解説',
+    href: '/articles/sidestore-guide/',
+    icon: 'phone_iphone',
+    iconColor: 'text-blue-600',
+    title: 'SideStore完全ガイド',
+    desc: 'SideStoreを選んだ方向けの詳細セットアップガイド',
+  },
+  {
+    href: '/articles/what-is-sideloading/',
+    icon: 'smartphone',
+    title: 'サイドローディングとは？',
+    desc: 'そもそもサイドローディングって何？基礎から解説',
+  },
+  {
+    href: '/articles/safety-guide/',
+    icon: 'security',
+    iconColor: 'text-red-600',
+    title: 'サイドローディング安全ガイド',
+    desc: '安全に使うための3つの鉄則',
   },
 ]} />
 

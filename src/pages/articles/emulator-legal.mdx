@@ -13,7 +13,7 @@ export const h1 = "エミュレータと著作権";
 export const summary = "エミュレータは合法？ROM吸い出しと違法ダウンロードの違いを日本の著作権法で解説。安全な楽しみ方を紹介。";
 export const description = "エミュレータの合法性、ROM吸い出し（ダンピング）の正しい知識、違法ダウンロードの危険性を日本の著作権法に基づいて解説。安全で合法的にレトロゲームを楽しむ方法をご紹介します。DeltaやGBOperatorの活用法も。";
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-04-10" icon="sports_esports" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} description={description} date="2026-04-17" icon="sports_esports" iconColor="text-blue-500">
 
 <Section intro title="「エミュレータ＝違法」ではない" icon="lightbulb">
   <InfoBox type="success" icon="verified" title="結論">
@@ -34,7 +34,7 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
   </CardGrid>
   <AccordionGroup>
     <Accordion title="なぜ合法なのか？">
-      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-600 text-sm">
         <li>ハードウェア機能を「新たに実装」したソフトウェア</li>
         <li>著作物そのものではなく、ゲームを動かす「環境」</li>
         <li>開発者テストなど多数の合法用途が存在</li>
@@ -55,7 +55,7 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
   </CardGrid>
   <AccordionGroup>
     <Accordion title="注意：暗号化解除のグレーゾーン">
-      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-600 text-sm">
         <li>ダンピングには専用機器（Retrode等）が必要</li>
         <li>暗号化解除は著作権法30条の2に抵触の可能性</li>
         <li>所有ゲームでも暗号化解除は違法となりうる</li>
@@ -140,12 +140,33 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
         <li>Switchエミュレータは技術的制限手段を無効化する機能を持っていたため米国等で訴訟・警告を実施</li>
       </ul>
     </Accordion>
-    <Accordion title="レトロ vs 現行機種の違い">
-      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
-        <li><strong>GB/GBC/GBA等（レトロ）：</strong>コピーガードがなく、エミュレータの合法性が広く認められている</li>
-        <li><strong>Switch等（現行機種）：</strong>暗号化などの技術的保護手段が施されており、その回避は法的リスクが高い</li>
-        <li><strong>Delta等のレトロエミュ：</strong>レトロゲーム機が対象のため、上記のリスクには該当しない</li>
+    <Accordion title="レトロ vs 現行機種：なぜ法的扱いが違うのか" open>
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        エミュレータの法的リスクは、<mark class="bg-yellow-100 px-1 rounded"><strong>対象ハードウェアに技術的保護手段（TPM）があるかどうか</strong></mark>で大きく変わります。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+        <li><strong>GB/GBC/GBA（レトロ機）：</strong>暗号化やコピーガードが<strong>存在しない</strong>。カートリッジからのROM吸い出しは単純なデータコピーであり、著作権法第30条の私的複製として認められる。エミュレータ側もTPM回避機能を持たないため、不正競争防止法に抵触しない</li>
+        <li><strong>Nintendo Switch（現行機）：</strong>ゲームカートリッジ・ダウンロードソフトともに<strong>AES-128暗号化</strong>が施されている。ゲームを動かすには暗号鍵（prod.keys等）の抽出が必要で、これが<strong>技術的制限手段の無効化</strong>に該当。日本では不正競争防止法、米国ではDMCA第1201条違反となる</li>
+        <li><strong>PS3/PS Vita等（旧世代だが暗号化あり）：</strong>暗号化が存在するため、レトロ機ほど単純ではない。ただし権利者が積極的に訴訟しているケースは現時点で少ない</li>
       </ul>
+      <InfoBox type="info" icon="key" title="技術的なポイント">
+        Switchエミュレータが問題になるのは「エミュレータだから」ではなく、「<strong>暗号化を解除する機能を内蔵しているから</strong>」です。仮にTPM回避機能のないSwitchエミュレータがあれば、それ自体は違法とは言えません。しかし実用上、暗号化を解除しなければゲームが動かないため、実質的に全てのSwitchエミュレータがTPM回避を伴います。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="2026年4月時点：Switch系エミュレータ開発の現状">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        2024年3月のYuzu和解以降、Switch系エミュレータは<strong>壊滅的な状況</strong>に陥っています。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+        <li><strong>2024年3月</strong> — Yuzu・Citra開発停止（240万ドル和解）</li>
+        <li><strong>2024年4月〜</strong> — Suyu、Sudachi等のYuzuフォークが相次いで登場するも、任天堂の法的圧力で次々と開発停止</li>
+        <li><strong>2025年後半</strong> — Citron、Eden、Ryubingなど新世代フォークが登場</li>
+        <li><strong>2026年2月</strong> — 任天堂がGitHub上のSwitch系プロジェクト<strong>13件以上にDMCA一斉通知</strong>。Citron、Eden、Suyu、Ryubing、MeloNX等が削除・開発停止</li>
+        <li><strong>2026年4月現在</strong> — 公開リポジトリで活発に開発されているSwitch系エミュレータは<strong>ほぼゼロ</strong></li>
+      </ul>
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        任天堂の戦略は明確で、「フォークが出たら即座に法的措置を取る」という<strong>法的消耗戦</strong>により、個人・小規模チームによるSwitch系エミュレータ開発を事実上不可能にしています。Yuzu和解の判例が強力な前例となっており、新規プロジェクトも訴訟リスクを避けて自主的に撤退するケースが増えています。
+      </p>
     </Accordion>
   </AccordionGroup>
   <BunchanAdvice>
@@ -157,25 +178,25 @@ export const description = "エミュレータの合法性、ROM吸い出し（�
 <Section title="よくある質問" icon="help">
   <AccordionGroup>
     <Accordion title="Q. 廃業したゲーム会社のゲームは？">
-      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-600 text-sm">
         <li>会社がなくても著作権は存在し保護されている</li>
         <li>訴訟は稀だがグレーゾーン、リスクはゼロではない</li>
       </ul>
     </Accordion>
     <Accordion title="Q. ROM配信サイトからDLしたら？">
-      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-600 text-sm">
         <li>著作権法違反で刑事罰の対象</li>
         <li>ISPが検出して警告することもある</li>
       </ul>
     </Accordion>
     <Accordion title="Q. VPNを使えば大丈夫？">
-      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-600 text-sm">
         <li>違法性は消えない、捜査で追跡可能</li>
         <li>詐欺サイト被害のリスクも高まる</li>
       </ul>
     </Accordion>
     <Accordion title="Q. 最新ゲーム機のエミュは使える？">
-      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-600 text-sm">
         <li>技術的保護手段の回避が問題となり、訴訟リスクが非常に高い</li>
         <li>Yuzu（Switch）は240万ドルで和解し開発停止済み</li>
         <li>Deltaのようなレトロ機エミュは問題なし</li>

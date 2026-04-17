@@ -13,7 +13,7 @@ export const h1 = "スマホ新法を徹底解説";
 export const summary = "2025年施行「スマホ新法」でiPhoneのアプリ配布・決済が大きく変わりました。4つの柱と施行後の実態、あなたへの影響をわかりやすく解説。";
 export const description = "2025年に施行された「スマートフォンソフトウェア競争促進法（スマホ新法）」により、iPhoneのアプリ配布・決済・デフォルト設定が大きく変わります。サイドローディングの法的位置づけ、Apple公証によるセキュリティ維持、そしてユーザーへの影響を詳しく解説します。";
 
-<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-14" icon="gavel" iconColor="text-blue-500">
+<ArticleLayout title={title} h1={h1} summary={summary} description={description} date="2026-04-17" icon="gavel" iconColor="text-blue-500">
 
 <Section intro title="iPhoneがついに「開国」する" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -50,7 +50,7 @@ export const description = "2025年に施行された「スマートフォンソ
     <mark class="bg-yellow-100 px-1 rounded"><strong>「スマートフォンソフトウェア競争促進法」</strong></mark>は、4つの柱でスマートフォン市場の競争を促進します。それぞれ見ていきましょう。
   </p>
 
-  <h3 class="text-xl font-bold mt-6 mb-3">柱1：他社アプリストアの容認</h3>
+  <h3 class="text-base sm:text-lg font-bold mt-6 mb-3">柱1：他社アプリストアの容認</h3>
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
       <p class="text-gray-700 text-sm mb-3">
@@ -69,7 +69,7 @@ export const description = "2025年に施行された「スマートフォンソ
     </Accordion>
   </AccordionGroup>
 
-  <h3 class="text-xl font-bold mt-6 mb-3">柱2：決済システムの開放</h3>
+  <h3 class="text-base sm:text-lg font-bold mt-6 mb-3">柱2：決済システムの開放</h3>
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
       <p class="text-sm text-gray-700 mb-2">
@@ -88,7 +88,7 @@ export const description = "2025年に施行された「スマートフォンソ
     </Accordion>
   </AccordionGroup>
 
-  <h3 class="text-xl font-bold mt-6 mb-3">柱3：デフォルト設定の変更</h3>
+  <h3 class="text-base sm:text-lg font-bold mt-6 mb-3">柱3：デフォルト設定の変更</h3>
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
       <p class="text-gray-700 text-sm mb-3">
@@ -101,7 +101,7 @@ export const description = "2025年に施行された「スマートフォンソ
     </Accordion>
   </AccordionGroup>
 
-  <h3 class="text-xl font-bold mt-6 mb-3">柱4：公平な扱い</h3>
+  <h3 class="text-base sm:text-lg font-bold mt-6 mb-3">柱4：公平な扱い</h3>
   <AccordionGroup>
     <Accordion title="具体的に何が変わる？">
       <p class="text-gray-700 text-sm mb-3">
@@ -224,10 +224,66 @@ export const description = "2025年に施行された「スマートフォンソ
         <li><strong>全体の評価</strong> — 法律の枠組みは整ったが、Appleの手数料体系が障壁となり実質的な競争促進は限定的</li>
       </ul>
     </Accordion>
+    <Accordion title="手数料の比較（施行前 → 施行後）">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border border-gray-200 rounded-lg overflow-hidden">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">配信・決済方法</th>
+              <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">手数料</th>
+              <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">備考</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700">App Store + Apple決済（従来）</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-red-600">30%</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">小規模開発者は15%</td></tr>
+            <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700">App Store + Apple決済（新料金）</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-orange-600">10〜21%</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">規模により変動</td></tr>
+            <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700">App Store + 外部決済リンク</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-yellow-600">15%</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">アプリ内リンクで外部決済に誘導</td></tr>
+            <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700">代替ストア経由</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-green-600">5%</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">Core Technology Commission</td></tr>
+            <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-700">外部Web販売情報の掲載</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-green-600">0%</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">テキストでの価格表示・リンクのみ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-gray-600 mt-2">※ 2026年4月時点の情報。Apple側の料率は変更される可能性があります。</p>
+    </Accordion>
   </AccordionGroup>
   <BunchanAdvice>
     <strong>法律ができても、すぐには変わらないのが現実…</strong><br />
     でも着実に前に進んでるよ！公正取引委員会もしっかり監視してるし、業界からの声も上がってる。これからに期待だね🌸
+  </BunchanAdvice>
+</Section>
+
+<Section title="施行後、あなたが「今」できること" icon="task_alt" iconColor="text-green-600">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    法律の話はわかった。では<mark class="bg-yellow-100 px-1 rounded"><strong>2026年4月時点で、日本のiPhoneユーザーが実際にできること・まだできないこと</strong></mark>を具体的に整理します。
+  </p>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-3 flex items-start gap-2">
+    <span class="material-symbols-outlined text-green-500 flex-shrink-0" aria-hidden="true">check_circle</span>
+    今できること
+  </h3>
+  <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-4 sm:mb-6">
+    <li><strong>AltStore PALを無料でインストール</strong> — Safariからaltstore.ioにアクセスするだけ。PC不要、iOS 26.2以降</li>
+    <li><strong>Delta（ゲームエミュレータ）をAltStore PAL経由で入手</strong> — GB/GBA/N64/DS等のレトロゲームをiPhoneでプレイ</li>
+    <li><strong>UTM SE（仮想化アプリ）を入手</strong> — iPhoneやiPad上でWindows/Linuxを動かせる</li>
+    <li><strong>デフォルトブラウザをChrome等に変更</strong> — 設定 → アプリ → デフォルトアプリで選択可能</li>
+    <li><strong>アプリ内から外部決済情報へのリンクを確認</strong> — 一部アプリで「Web版で購入するとお得」等の表示が解禁済み</li>
+  </ul>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-3 flex items-start gap-2">
+    <span class="material-symbols-outlined text-orange-500 flex-shrink-0" aria-hidden="true">pending</span>
+    まだできないこと・制限があること
+  </h3>
+  <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-4 sm:mb-6">
+    <li><strong>AltStore PAL以外の代替ストアがほぼ存在しない</strong> — Setapp Mobileは2026年2月にサービス終了。Epic Games Storeの日本iPhoneネイティブアプリは未提供</li>
+    <li><strong>フォートナイト等のiPhoneネイティブ版は未復帰</strong> — Epic Games Storeからのインストールは現時点で不可。Webアプリ版やクラウドゲーミング経由のみ</li>
+    <li><strong>App Store内の手数料は完全撤廃されていない</strong> — 外部決済リンクでも15%、代替ストア経由でも5%のApple手数料が発生</li>
+    <li><strong>Apple公証を通らないアプリはPALで配信不可</strong> — 非公証アプリを使いたい場合はAltStore ClassicかSideStoreが必要</li>
+    <li><strong>デフォルト検索エンジンの完全な自由選択</strong> — Safari内の検索エンジンは変更可能だが、Spotlightやホーム画面検索はまだApple依存</li>
+  </ul>
+
+  <BunchanAdvice>
+    <strong>「思ったより変わってない…」って感じた人もいるかも。</strong><br />
+    でも1年前はAltStore PALすら使えなかったことを考えると、確実に前進してるよ。代替ストアが増えるかどうかは、これからのAppleの手数料次第だね🌸
   </BunchanAdvice>
 </Section>
 

@@ -45,7 +45,7 @@ export const howtoData = {
   ]
 };
 
-<ArticleLayout title={title} h1={h1} description={description} date="2026-04-09" icon="sd_card" iconColor="text-blue-500" faq={faqData} howto={howtoData}>
+<ArticleLayout title={title} h1={h1} description={description} date="2026-04-17" icon="sd_card" iconColor="text-blue-500" faq={faqData} howto={howtoData}>
 
 <Section intro title="懐かしいゲームをiPhoneで" icon="lightbulb">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
@@ -310,11 +310,84 @@ export const howtoData = {
   </BunchanAdvice>
 </Section>
 
+{/* ── トラブルシューティング ── */}
+<Section title="トラブルシューティング" icon="build" iconColor="text-orange-500" id="troubleshooting">
+  <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+    GB Operatorの使用時によくあるトラブルと対処法をまとめました。
+  </p>
+  <AccordionGroup>
+    <Accordion title="カートリッジが認識されない" open>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700 mb-3 sm:mb-4">
+        <li><strong>端子の汚れ</strong> — カートリッジの金属端子を<strong>無水エタノール+綿棒</strong>で拭く。古いカートリッジほど端子の酸化・汚れが蓄積しており、接触不良の最大原因</li>
+        <li><strong>挿入の向き・深さ</strong> — ラベル面を上にし、端子側を下にして<strong>カチッと音がするまで</strong>しっかり押し込む。浅挿しだと認識しない</li>
+        <li><strong>GBAカートリッジの場合</strong> — GB/GBCスロットではなく、背面のGBAスロットに挿入する。GB Operatorは両方のスロットを持っている</li>
+        <li><strong>Playbackの再起動</strong> — アプリを完全に閉じてから再起動。USB接続も抜き差しする</li>
+      </ul>
+      <InfoBox type="warning" icon="cleaning_services" title="端子クリーニングのコツ">
+        力を入れてゴシゴシ擦らないこと。無水エタノール（薬局で購入可）を綿棒に付けて、端子に沿って優しく数回なぞるだけで十分です。接点復活剤は使わないでください（残留物が逆効果になる場合があります）。
+      </InfoBox>
+    </Accordion>
+    <Accordion title="PCがGB Operatorを認識しない">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>USBケーブル</strong> — 付属ケーブル以外を使う場合は、<strong>データ転送対応のUSB-Cケーブル</strong>を使うこと。充電専用ケーブルでは認識しない</li>
+        <li><strong>USBポートの変更</strong> — USBハブ経由ではなく、PCに直接接続する。別のUSBポートも試す</li>
+        <li><strong>OSの対応状況</strong> — Windows / macOS / Linuxに対応。Chromebookは非対応</li>
+        <li><strong>ドライバ不要</strong> — GB Operatorは追加ドライバなしで動作するが、古いWindowsではUSBドライバの更新が必要な場合あり</li>
+      </ul>
+    </Accordion>
+    <Accordion title="ROM吸い出しが途中で止まる・失敗する">
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li><strong>吸い出し中にカートリッジを動かさない</strong> — 端子の接触が途切れると即失敗する</li>
+        <li><strong>USBケーブルの接触不良</strong> — ケーブルを固定し、PCとの接続が安定していることを確認</li>
+        <li><strong>カートリッジの電池切れ（セーブデータ関連）</strong> — ROM吸い出し自体は電池がなくても可能だが、セーブデータのバックアップは電池が生きている間に行うこと</li>
+      </ul>
+    </Accordion>
+    <Accordion title="偽造品と表示される">
+      <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
+        GB Operatorには<strong>偽造品自動検出機能</strong>があります。「このカートリッジは正規品ではない可能性があります」と表示された場合、中古で購入したカートリッジが海賊版である可能性があります。
+      </p>
+      <ul class="list-disc pl-4 sm:pl-6 space-y-1.5 sm:space-y-2 text-gray-700">
+        <li>中古ショップ・フリマアプリでの購入時は注意</li>
+        <li>偽造品からのROM吸い出しは、正規品の私的複製とは言えない</li>
+        <li>心配な場合は、大手中古ゲーム専門店（ブックオフ、駿河屋等）を利用する</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+  <BunchanAdvice>
+    <strong>トラブルの8割は「端子の汚れ」と「挿し方」で解決するよ！</strong><br />
+    古いカートリッジほど端子が汚れてるから、まずはクリーニングしてみてね🧹
+  </BunchanAdvice>
+</Section>
+
 {/* ── その他のEpilogueデバイス ── */}
 <Section title="その他のEpilogueデバイス" icon="devices_other" iconColor="text-purple-600" id="other-devices">
   <p class="text-gray-700 leading-relaxed sm:leading-7 mb-3 sm:mb-4">
     Epilogue社はGB Operator以外にも、レトロゲームのアーカイブに特化したデバイスを展開しています。
   </p>
+
+  <h3 class="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4 flex items-start gap-2">
+    <span class="material-symbols-outlined text-purple-500 flex-shrink-0" aria-hidden="true">compare</span>
+    GB Operator vs SN Operator 比較
+  </h3>
+  <div class="overflow-x-auto mb-4 sm:mb-6">
+    <table class="w-full text-left border border-gray-200 rounded-lg overflow-hidden">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700"></th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">GB Operator</th>
+          <th class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-bold text-gray-700">SN Operator</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">対応機種</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">GB / GBC / GBA</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">SFC / SNES</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">価格</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">$49.99（約8,000円）</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">$59.99（約10,000円）</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">接続</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">USB-C</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">USB-C</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">特殊チップ</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">MBC1〜MBC5等</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">Super FX / SA-1 / DSP / CX4</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">RetroAchievements</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">対応（Playback経由）</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">対応（内蔵）</td></tr>
+        <tr><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700">出荷状況</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">販売中</td><td class="px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-600">2026年4月出荷開始</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <AccordionGroup>
     <Accordion title="SN Operator（スーパーファミコン対応）">
