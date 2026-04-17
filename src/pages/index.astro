@@ -53,10 +53,10 @@ const siteUrl = 'https://altstore-jp.bunchoniki.com';
 
 // 最新情報データ
 const recentUpdates = [
-  { date: '2026-04-11', title: 'AltStore PALの使い方ガイドを公開', href: `${base}articles/altstore-pal-guide/` },
-  { date: '2026-04-11', title: 'AltStore PALで遊べるアプリ一覧を公開', href: `${base}articles/altstore-pal-apps/` },
-  { date: '2026-04-11', title: 'スマホ新法で解禁：代替アプリストア解説を公開', href: `${base}articles/alternative-marketplace/` },
-  { date: '2026-03-23', title: 'Delta無料ゲーム特集にカスタマイズガイドを追加', href: `${base}articles/free-games-for-delta/` },
+  { date: '2026-04-17', title: 'エミュレータと著作権：Switch系エミュ壊滅の経緯を追記', href: `${base}articles/emulator-legal/` },
+  { date: '2026-04-17', title: 'スマホ新法：施行後に「今できること」一覧を追加', href: `${base}articles/smartphone-law-explained/` },
+  { date: '2026-04-17', title: 'GB Operatorガイド：トラブルシューティング・SN Operator比較を追加', href: `${base}articles/gb-operator-guide/` },
+  { date: '2026-04-17', title: 'AltStore選び方ガイド：PAL/Classic/SideStore比較表を新設', href: `${base}articles/how-to-use-altstore/` },
 ];
 
 // FAQPageスキーマ
@@ -122,8 +122,8 @@ const appListSchema = featuredApps.length > 0 ? {
 ---
 
 <BaseLayout
-  title="サイドローディング総合情報 - 厳選アプリカタログ"
-  description="日本でAltStore PALが無料で使えるようになりました（iOS 26.2以降・PC不要）。AltStore PALの始め方、Delta・UTMなどの厳選アプリ紹介、安全ガイドを日本語で提供するサイドローディング総合情報サイト。"
+  title="AltStore PAL 日本語ガイド｜iPhone サイドローディング情報"
+  description="AltStore PALが日本で無料解禁（iOS 26.2以降・PC不要）。Deltaエミュレータの導入方法、スマホ新法の最新動向、エミュレータの著作権問題まで、日本語で徹底解説。2026年4月更新。"
 >
   <Schema slot="schema" data={faqSchema} />
   <Schema slot="schema" data={breadcrumbSchema} />
@@ -670,6 +670,58 @@ const appListSchema = featuredApps.length > 0 ? {
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">UTMで仮想化を活用</h4>
               <p class="text-xs text-gray-500">iPadでWindowsやLinuxを動かす</p>
             </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 日本のサイドローディング現状 -->
+    <section class="py-12 sm:py-14 lg:py-16 px-4 bg-white border-t border-gray-200">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-3 sm:mb-4 text-gray-900">2026年4月：日本のサイドローディング現状</h2>
+        <p class="text-sm sm:text-base text-gray-600 text-center max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+          スマホ新法の施行から4ヶ月。日本のiPhoneユーザーを取り巻く状況を整理します。
+        </p>
+
+        <div class="space-y-6 sm:space-y-8">
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-start gap-2">
+              <span class="material-symbols-outlined text-green-500 flex-shrink-0" aria-hidden="true">check_circle</span>
+              できるようになったこと
+            </h3>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+              2025年12月18日のスマートフォンソフトウェア競争促進法（MSCA）施行により、<strong>AltStore PALが日本で無料利用可能</strong>になりました（iOS 26.2以降）。PC不要・7日署名制限なしで、Safariからインストールするだけ。DeltaエミュレータやUTM SEなどのApple公証済みアプリが、App Storeを経由せずに入手できます。デフォルトブラウザの変更や、アプリ内での外部決済情報の表示も解禁されています。
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-start gap-2">
+              <span class="material-symbols-outlined text-orange-500 flex-shrink-0" aria-hidden="true">pending</span>
+              まだ実現していないこと
+            </h3>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+              AltStore PAL以外の代替ストアはほぼ存在せず、Setapp Mobileは2026年2月にサービスを終了しました。Epic Games StoreのiPhoneネイティブアプリは日本では未提供で、フォートナイトのiPhone復帰もまだ実現していません。App Storeの手数料は完全撤廃されておらず、代替ストア経由でも5%、外部決済リンクでも15%のApple手数料が発生します。<a href={`${base}articles/smartphone-law-explained/`} class="text-blue-600 underline font-medium">法律の詳細はこちら</a>。
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-start gap-2">
+              <span class="material-symbols-outlined text-blue-500 flex-shrink-0" aria-hidden="true">sports_esports</span>
+              レトロゲームは合法的に楽しめる
+            </h3>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+              Deltaエミュレータ自体は合法で、App Storeから無料で入手できます。自分のカートリッジからROMを吸い出す「ダンピング」は著作権法第30条の私的複製として認められています。一方、Nintendo Switch等の現行機エミュレータは暗号化（AES-128）の解除が不正競争防止法に抵触するため、法的リスクが非常に高い状態です。2026年2月には任天堂がGitHub上のSwitch系エミュレータ13件以上にDMCA通知を一斉送付し、ほぼすべてが開発停止に追い込まれました。<a href={`${base}articles/emulator-legal/`} class="text-blue-600 underline font-medium">詳しくはエミュレータと著作権を参照</a>。
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-start gap-2">
+              <span class="material-symbols-outlined text-purple-500 flex-shrink-0" aria-hidden="true">info</span>
+              当サイトについて
+            </h3>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+              サイドローディングに関する日本語情報は英語圏と比べて圧倒的に少なく、安全性の判断も難しいのが現状です。当サイトでは、オープンソースによる透明性またはApple公証が確認できるアプリのみを紹介し、法的な根拠も明示しています。運営者は2019年からAltStore等のサイドローディングツールを利用しており、実体験に基づいた情報を提供しています。<a href={`${base}articles/our-policy/`} class="text-blue-600 underline font-medium">運営方針の詳細</a>。
+            </p>
           </div>
         </div>
       </div>
