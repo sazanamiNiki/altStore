@@ -54,9 +54,9 @@ const siteUrl = 'https://altstore-jp.bunchoniki.com';
 // 最新情報データ
 const recentUpdates = [
   { date: '2026-05-11', title: 'スマホ新法 施行半年レポート（2026年5月時点の制度・市場の動き）を追加', href: `${base}#six-month-report` },
-  { date: '2026-04-17', title: 'エミュレータと著作権：Switch系エミュ壊滅の経緯を追記', href: `${base}articles/emulator-legal/` },
+  { date: '2026-04-17', title: 'エミュレータと著作権：Switch系エミュ壊滅の経緯を追記', href: 'https://retrogame.bunchoniki.com/articles/emulator-legal/' },
   { date: '2026-04-17', title: 'スマホ新法：施行後に「今できること」一覧を追加', href: `${base}articles/smartphone-law-explained/` },
-  { date: '2026-04-17', title: 'GB Operatorガイド：トラブルシューティング・SN Operator比較を追加', href: `${base}articles/gb-operator-guide/` },
+  { date: '2026-04-17', title: 'GB Operatorガイド：トラブルシューティング・SN Operator比較を追加', href: 'https://retrogame.bunchoniki.com/articles/gb-operator-guide/' },
   { date: '2026-04-17', title: 'AltStore選び方ガイド：PAL/Classic/SideStore比較表を新設', href: `${base}articles/how-to-use-altstore/` },
 ];
 
@@ -96,8 +96,8 @@ const articleListSchema = {
     { "@type": "ListItem", "position": 5, "name": "AltStore選び方ガイド", "url": `${siteUrl}/articles/how-to-use-altstore/` },
     { "@type": "ListItem", "position": 6, "name": "アプリをインストールする方法", "url": `${siteUrl}/articles/install-app-step-by-step/` },
     { "@type": "ListItem", "position": 7, "name": "野良アプリの安全ガイド", "url": `${siteUrl}/articles/safety-guide/` },
-    { "@type": "ListItem", "position": 8, "name": "Delta/UTM SE 完全ガイド", "url": `${siteUrl}/articles/delta-utm-guide/` },
-    { "@type": "ListItem", "position": 9, "name": "エミュレータは違法？著作権と正しい遊び方", "url": `${siteUrl}/articles/emulator-legal/` },
+    { "@type": "ListItem", "position": 8, "name": "UTM SE 完全ガイド", "url": `${siteUrl}/articles/utm-guide/` },
+    { "@type": "ListItem", "position": 9, "name": "エミュレータと著作権（姉妹サイト）", "url": "https://retrogame.bunchoniki.com/articles/emulator-legal/" },
     { "@type": "ListItem", "position": 10, "name": "手数料30%カットの衝撃", "url": `${siteUrl}/articles/commission-cut/` },
   ]
 };
@@ -235,7 +235,7 @@ const appListSchema = featuredApps.length > 0 ? {
             <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-900">ダブルチェック体制</h3>
             <p class="text-sm sm:text-base text-gray-700 leading-relaxed">アプリの性質に合わせて「オープンソースによる透明性」または「Appleによる公証」のいずれかを確認済み。根拠のない危険な野良アプリは一切扱いません。</p>
           </a>
-          <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
+          <a href={'https://retrogame.bunchoniki.com/articles/delta-guide/'} class="bg-white rounded-xl p-5 sm:p-8 border border-gray-200 hover:shadow-md hover:border-gray-300 transition-[border-color,box-shadow,transform] block">
             <div class="mb-4">
               <span class="material-symbols-outlined feature-icon">sports_esports</span>
             </div>
@@ -763,12 +763,12 @@ const appListSchema = featuredApps.length > 0 ? {
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href={`${base}articles/gb-operator-guide/`}
+            <a href={'https://retrogame.bunchoniki.com/articles/gb-operator-guide/'}
               class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium shadow hover:bg-indigo-700 transition text-sm">
               <span class="material-symbols-outlined text-base">sd_card</span>
               GB Operator ガイドを読む
             </a>
-            <a href={`${base}articles/emulator-legal/`}
+            <a href={'https://retrogame.bunchoniki.com/articles/emulator-legal/'}
               class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-white text-gray-700 rounded-lg font-medium border border-gray-300 hover:border-indigo-300 hover:text-indigo-600 transition text-sm">
               <span class="material-symbols-outlined text-base">gavel</span>
               著作権の詳細を確認
@@ -778,22 +778,22 @@ const appListSchema = featuredApps.length > 0 ? {
 
         <!-- 関連記事リンク -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
+          <a href={'https://retrogame.bunchoniki.com/articles/delta-guide/'} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-blue-500 mb-2">download</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Delta 導入ガイド</h3>
             <p class="text-xs text-gray-500">インストールから設定まで</p>
           </a>
-          <a href={`${base}articles/free-games-for-delta/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
+          <a href={'https://retrogame.bunchoniki.com/articles/free-games-for-delta/'} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-purple-500 mb-2">stadia_controller</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">無料ゲーム特集</h3>
             <p class="text-xs text-gray-500">今すぐ遊べるhomebrew</p>
           </a>
-          <a href={`${base}articles/gb-operator-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
+          <a href={'https://retrogame.bunchoniki.com/articles/gb-operator-guide/'} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-blue-500 mb-2">sd_card</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">自分のソフトで遊ぶ</h3>
             <p class="text-xs text-gray-500">GB Operatorで合法吸い出し</p>
           </a>
-          <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
+          <a href={'https://retrogame.bunchoniki.com/articles/emulator-legal/'} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:shadow-md hover:border-indigo-300 transition-[border-color,box-shadow,transform] block text-center">
             <span class="material-symbols-outlined text-2xl text-green-500 mb-2">gavel</span>
             <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">法的に安全？</h3>
             <p class="text-xs text-gray-500">著作権と正しい遊び方</p>
@@ -918,7 +918,7 @@ const appListSchema = featuredApps.length > 0 ? {
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">スマホ新法の代替アプリストア</h4>
               <p class="text-xs text-gray-500">MSCAで解禁された制度を解説</p>
             </a>
-            <a href={`${base}articles/emulator-legal/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
+            <a href={'https://retrogame.bunchoniki.com/articles/emulator-legal/'} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-green-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">エミュレータと著作権</h4>
               <p class="text-xs text-gray-500">日本国内での正しい遊び方を解説</p>
             </a>
@@ -937,7 +937,7 @@ const appListSchema = featuredApps.length > 0 ? {
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">PALで遊べるアプリ</h4>
               <p class="text-xs text-gray-500">Delta・フォートナイト・UTMフル版</p>
             </a>
-            <a href={`${base}articles/delta-utm-guide/`} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
+            <a href={'https://retrogame.bunchoniki.com/articles/delta-guide/'} class="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-[border-color,box-shadow,transform]">
               <h4 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Delta & UTM SE 完全ガイド</h4>
               <p class="text-xs text-gray-500">エミュレータの導入から設定まで</p>
             </a>
@@ -985,7 +985,7 @@ const appListSchema = featuredApps.length > 0 ? {
               レトロゲームは合法的に楽しめる
             </h3>
             <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
-              Deltaエミュレータ自体は合法で、App Storeから無料で入手できます。自分のカートリッジからROMを吸い出す「ダンピング」は著作権法第30条の私的複製として認められています。一方、Nintendo Switch等の現行機エミュレータは暗号化（AES-128）の解除が不正競争防止法に抵触するため、法的リスクが非常に高い状態です。2026年2月には任天堂がGitHub上のSwitch系エミュレータ13件以上にDMCA通知を一斉送付し、ほぼすべてが開発停止に追い込まれました。<a href={`${base}articles/emulator-legal/`} class="text-blue-600 underline font-medium">詳しくはエミュレータと著作権を参照</a>。
+              Deltaエミュレータ自体は合法で、App Storeから無料で入手できます。自分のカートリッジからROMを吸い出す「ダンピング」は著作権法第30条の私的複製として認められています。一方、Nintendo Switch等の現行機エミュレータは暗号化（AES-128）の解除が不正競争防止法に抵触するため、法的リスクが非常に高い状態です。2026年2月には任天堂がGitHub上のSwitch系エミュレータ13件以上にDMCA通知を一斉送付し、ほぼすべてが開発停止に追い込まれました。<a href={'https://retrogame.bunchoniki.com/articles/emulator-legal/'} class="text-blue-600 underline font-medium">詳しくはエミュレータと著作権を参照</a>。
             </p>
           </div>
 

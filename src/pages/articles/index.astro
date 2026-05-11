@@ -10,9 +10,7 @@ const categories = [
     articles: [
       { href: '/articles/top3-apps-2026/', title: '神アプリ3選', desc: '2026最新の厳選アプリTOP3', tag: '人気', tagColor: 'text-red-600 bg-red-50' },
       { href: '/articles/altstore-pal-apps/', title: 'PALで遊べるアプリ一覧', desc: 'Delta・フォートナイト・UTMフル版など日本で入手できる主要アプリ', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
-      { href: '/articles/delta-utm-guide/', title: 'Delta / UTM SE', desc: 'iPhoneでレトロゲームやPCを動かす', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
-      { href: '/articles/gb-operator-guide/', title: 'GB Operator完全ガイド', desc: '自分のカートリッジをDeltaで遊ぶ合法的な方法', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
-      { href: '/articles/free-games-for-delta/', title: 'Deltaで遊べる無料ゲーム', desc: 'itch.ioで入手できる合法homebrew特集', tag: '紹介', tagColor: 'text-purple-600 bg-purple-50' },
+      { href: '/articles/utm-guide/', title: 'UTM SE 完全ガイド', desc: 'iPhone/iPadでWindows/Linuxを動かす方法', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
       { href: '/articles/sidestore-guide/', title: 'SideStore', desc: 'PC不要でアプリ管理する日本語ガイド', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
       { href: '/articles/utm-windows-on-ios/', title: 'UTMで仮想化を活用', desc: 'iPadでWindowsやLinuxを動かす', tag: 'ガイド', tagColor: 'text-indigo-600 bg-indigo-50' },
     ],
@@ -33,7 +31,6 @@ const categories = [
       { href: '/articles/safety-guide/', title: '安全ガイド', desc: 'ウイルスから身を守る3つの鉄則', tag: '安全', tagColor: 'text-green-600 bg-green-50' },
       { href: '/articles/apple-notarization/', title: 'Apple公証とは', desc: 'サイドローディングが安全な仕組み', tag: '安全', tagColor: 'text-green-600 bg-green-50' },
       { href: '/articles/alternative-marketplace/', title: 'スマホ新法の代替アプリストア', desc: 'MSCA施行で解禁された代替アプリストア制度の解説', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
-      { href: '/articles/emulator-legal/', title: 'エミュレータと著作権', desc: '日本国内での正しい遊び方', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
       { href: '/articles/smartphone-law-explained/', title: 'スマホ新法解説', desc: 'iPhoneのアプリ配布が変わる理由', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
       { href: '/articles/epic-games-store-japan/', title: 'Epic Games Store日本上陸', desc: 'スマホ新法が拓いた代替ストア第一号', tag: '法律', tagColor: 'text-blue-600 bg-blue-50' },
     ],
@@ -95,6 +92,35 @@ const articleListSchema = {
       <p class="text-gray-600 text-base sm:text-lg">サイドローディングやアプリについての詳細解説</p>
       <p class="text-gray-600 text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed">日本で無料で使える<strong class="text-indigo-600">AltStore PAL</strong>の始め方、サイドローディングの安全性と法的情報、エミュレータの著作権問題まで、初心者にもわかりやすく解説しています。いますぐ始めたい方は「<a href={`${base}articles/install-app-step-by-step/`} class="text-blue-600 underline font-medium">AltStore PALで始める</a>」、仕組みから知りたい方は「<a href={`${base}articles/what-is-sideloading/`} class="text-blue-600 underline font-medium">サイドローディングとは</a>」からどうぞ。</p>
     </div>
+
+    <!-- 姉妹サイト案内バナー：レトロゲーム関連の記事は移転 -->
+    <aside class="mb-8 sm:mb-12 p-4 sm:p-6 bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl">
+      <h2 class="text-base sm:text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+        <span class="material-symbols-outlined text-indigo-500 flex-shrink-0" aria-hidden="true">sports_esports</span>
+        レトロゲーム関連の記事は姉妹サイトへ
+      </h2>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3 sm:mb-4">
+        Deltaエミュレータ・GB Operator・著作権法第30条など、<strong>iPhoneでレトロゲームを合法的に楽しむ方法</strong>については、姉妹サイト <a href="https://retrogame.bunchoniki.com/" class="text-indigo-600 underline font-medium" target="_blank" rel="noopener">bunchoniki Retro</a> でより深く解説しています。
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+        <a href="https://retrogame.bunchoniki.com/articles/delta-guide/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
+          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">videogame_asset</span>
+          <p class="text-xs sm:text-sm font-semibold text-gray-900">Delta完全ガイド</p>
+        </a>
+        <a href="https://retrogame.bunchoniki.com/articles/gb-operator-guide/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
+          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">sd_card</span>
+          <p class="text-xs sm:text-sm font-semibold text-gray-900">GB Operator</p>
+        </a>
+        <a href="https://retrogame.bunchoniki.com/articles/free-games-for-delta/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
+          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">stadia_controller</span>
+          <p class="text-xs sm:text-sm font-semibold text-gray-900">無料ゲーム特集</p>
+        </a>
+        <a href="https://retrogame.bunchoniki.com/articles/emulator-legal/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
+          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">gavel</span>
+          <p class="text-xs sm:text-sm font-semibold text-gray-900">エミュ著作権</p>
+        </a>
+      </div>
+    </aside>
 
     {categories.map(category => (
       <section class="mb-8 sm:mb-16">

@@ -1,0 +1,127 @@
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import Accordion from '../../components/Accordion.astro';
+import AccordionGroup from '../../components/AccordionGroup.astro';
+import StepList from '../../components/StepList.astro';
+import Step from '../../components/Step.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import Card from '../../components/Card.astro';
+import InfoBox from '../../components/InfoBox.astro';
+import Section from '../../components/Section.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
+import BunchanAdvice from '../../components/BunchanAdvice.astro';
+
+export const title = "UTM SE 完全ガイド";
+export const summary = "iPhone/iPadで脱獄なしにWindows/Linuxを動かせるUTM SEの導入・設定を解説。";
+export const description = "iPhone/iPadで脱獄なしにWindows/Linuxを動かせるUTM SEの完全ガイド。App Store・AltStoreからの導入方法、おすすめOS、パフォーマンス最適化、AltStore版との違いを詳しく解説します。";
+
+<ArticleLayout title={title} summary={summary} description={description} date="2026-05-11" icon="computer" iconColor="text-blue-500">
+
+<Section intro title="はじめに" icon="lightbulb">
+  <InfoBox type="success" icon="verified" title="脱獄不要・App Store配信あり">
+    UTM SE は App Store で正式配信されており、iPhone/iPad で Windows・Linux を動かせるシステムエミュレータです。AltStore PAL 経由ではより高速な JIT 対応版（フル UTM）が利用可能です。
+  </InfoBox>
+  <BunchanAdvice>
+    <strong>iPadでWindows 98やLinuxが動くなんて夢みたい！</strong><br />
+    脱獄不要で安心して使えるよ💻
+  </BunchanAdvice>
+</Section>
+
+<Section title="UTM SEとは" icon="computer" iconColor="text-blue-600">
+  <InfoBox type="info" icon="computer" title="QEMUベースのシステムエミュレータ">
+    iPhoneやiPadでWindows/Linuxを実行。「SE」はSlow Edition（JITなし）の略。App Store版はQEMU v9.1.2ベース。AltStore経由のフルUTM版ではQEMU v10.0.2やLiquid Glass UI（iOS 26）に対応。
+  </InfoBox>
+  <CardGrid>
+    <Card icon="memory" iconColor="text-blue-500" title="x86_64/i386" desc="Windows/Linux対応" />
+    <Card icon="memory" iconColor="text-green-500" title="ARM64/ARM" desc="Raspberry Pi OS等" />
+    <Card icon="memory" iconColor="text-purple-500" title="RISC-V" desc="Ubuntu等" />
+    <Card icon="memory" iconColor="text-orange-500" title="PowerPC" desc="クラシックMac OS" />
+  </CardGrid>
+  <InfoBox type="warning" icon="speed" title="パフォーマンス注意">
+    JITなしのため動作が遅め。Windows 98など軽量OSを推奨。
+  </InfoBox>
+  <BunchanAdvice>
+    <strong>M1以降のiPadならサクサク動くよ。</strong><br />
+    古いソフトも復活できる💻
+  </BunchanAdvice>
+</Section>
+
+<Section title="UTM SEのセットアップ" icon="settings" iconColor="text-blue-600">
+  <InfoBox type="info" icon="info" title="動作要件">
+    iOS 14.0以降。App Storeで「UTM SE」検索、またはAltStore経由でインストール。
+  </InfoBox>
+  <StepList>
+    <Step num={1} title="UTM SEを起動し「+」をタップ" />
+    <Step num={2} title="「Emulate」を選択" desc="iOSでは仮想化は利用不可" />
+    <Step num={3} title="OSの種類を選択" desc="Win 95/98/Mac OS 8等のテンプレートあり" />
+    <Step num={4} title="ISOファイルを指定" />
+    <Step num={5} title="RAM・CPU・ストレージを設定" />
+    <Step num={6} title="仮想マシンを起動" />
+  </StepList>
+</Section>
+
+<Section title="おすすめのOS" icon="window" iconColor="text-green-600">
+  <CardGrid>
+    <Card icon="computer" iconColor="text-green-500" title="Win 98/XP（推奨）" desc="サクサク動作" />
+    <Card icon="terminal" iconColor="text-blue-500" title="軽量Linux" desc="Alpine/Tiny Core" />
+    <Card icon="desktop_windows" iconColor="text-gray-400" title="Win 10/11" desc="非実用的" />
+    <Card icon="memory" iconColor="text-purple-500" title="推奨スペック" desc="RAM 512MB〜1GB" />
+  </CardGrid>
+  <AccordionGroup>
+    <Accordion title="各OSの詳細">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>Win 98/XP</strong>：M1 iPadでPentium 120相当。90年代ソフト・DOSゲームに最適</li>
+        <li><strong>軽量Linux</strong>：Alpine、Tiny Core、Debian最小構成。GUIなしで高速</li>
+        <li><strong>Win 10/11</strong>：動作はするがJITなしで実用不可</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="パフォーマンス最適化" icon="tune" iconColor="text-blue-600">
+  <CardGrid>
+    <Card icon="terminal" iconColor="text-blue-500" title="GUIを無効化" desc="CLIのみで高速化" />
+    <Card icon="speed" iconColor="text-green-500" title="VirtIO使用" desc="I/O性能向上" />
+    <Card icon="storage" iconColor="text-purple-500" title="QCOW2形式" desc="ディスク最適化" />
+    <Card icon="block" iconColor="text-orange-500" title="サービス停止" desc="不要プロセス削減" />
+  </CardGrid>
+</Section>
+
+<Section title="よくある質問" icon="help" id="article-faq">
+  <AccordionGroup>
+    <Accordion title="UTM SEとAltStore版UTMの違いは？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li><strong>UTM SE</strong>：JITなし、動作が遅い。App Store で配信。</li>
+        <li><strong>AltStore版UTM</strong>：JIT有効、高速動作。AltStore PAL 経由（iOS 26.2 以降）。</li>
+        <li>実用性を求めるならAltStore版がおすすめ</li>
+      </ul>
+    </Accordion>
+    <Accordion title="iPhoneでも使える？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>iOS 14 以降の iPhone・iPad で動作</li>
+        <li>画面が小さい iPhone より、iPad の方が実用的</li>
+      </ul>
+    </Accordion>
+    <Accordion title="レトロゲームをやりたい場合は？">
+      <ul class="list-disc pl-4 space-y-1 text-gray-600 text-sm">
+        <li>UTM ではなく <a href="https://retrogame.bunchoniki.com/articles/delta-guide/" target="_blank" rel="noopener" class="text-blue-600 underline">Delta Emulator</a>（姉妹サイト bunchoniki Retro）が最適です</li>
+        <li>NES/SNES/N64/GB/GBC/GBA/NDS/Genesis に対応</li>
+      </ul>
+    </Accordion>
+  </AccordionGroup>
+</Section>
+
+<Section title="まとめ" icon="done_all" iconColor="text-green-600" id="article-summary">
+  <CardGrid>
+    <Card icon="computer" iconColor="text-purple-500" title="UTM SE" desc="iOS初のPCエミュレータ" />
+    <Card icon="verified" iconColor="text-green-500" title="脱獄不要" desc="App Store正規入手" />
+    <Card icon="speed" iconColor="text-indigo-500" title="フル版で高速化" desc="AltStore PAL経由でJIT有効" />
+  </CardGrid>
+</Section>
+
+<RelatedArticles articles={[
+  { href: '/articles/altstore-pal-guide/', icon: 'storefront', title: 'AltStore PAL の使い方', desc: 'JIT有効なフルUTM版を入れるには PAL が必要' },
+  { href: '/articles/altstore-pal-apps/', icon: 'apps', title: 'AltStore PALで入るアプリ', desc: 'UTMフル版を含む対応アプリ一覧' },
+  { href: '/articles/safety-guide/', icon: 'shield', title: '野良アプリの安全ガイド', desc: '安心して使うための3つの鉄則' },
+]} />
+
+</ArticleLayout>
