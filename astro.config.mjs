@@ -40,18 +40,25 @@ const PRIORITY_PAGES = [
   '/articles/how-to-use-altstore/',
   '/articles/altstore-complete-guide/',
   '/articles/safety-guide/',
-  '/articles/delta-utm-guide/',
+  '/articles/utm-guide/',
   '/articles/sidestore-guide/',
-  '/articles/free-games-for-delta/',
-  '/articles/gb-operator-guide/',
   '/articles/smartphone-law-explained/',
-  '/articles/emulator-legal/',
+  '/articles/altstore-pal-guide/',
+  '/articles/altstore-pal-apps/',
+  '/articles/alternative-marketplace/',
 ];
 
 export default defineConfig({
   site: 'https://altstore-jp.bunchoniki.com',
   base: rawBase || '/',
   trailingSlash: 'always',
+  // 記事の移転・分割に伴う 301 リダイレクト（GitHub Pages では meta refresh で実装）
+  redirects: {
+    '/articles/delta-utm-guide/': '/articles/utm-guide/',
+    '/articles/gb-operator-guide/': 'https://retrogame.bunchoniki.com/articles/gb-operator-guide/',
+    '/articles/free-games-for-delta/': 'https://retrogame.bunchoniki.com/articles/free-games-for-delta/',
+    '/articles/emulator-legal/': 'https://retrogame.bunchoniki.com/articles/emulator-legal/',
+  },
   integrations: [
     tailwind({ applyBaseStyles: false }),
     mdx(),
