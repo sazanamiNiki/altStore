@@ -53,6 +53,7 @@ const siteUrl = 'https://altstore-jp.bunchoniki.com';
 
 // 最新情報データ
 const recentUpdates = [
+  { date: '2026-05-11', title: 'スマホ新法 施行半年レポート（2026年5月時点の制度・市場の動き）を追加', href: `${base}#six-month-report` },
   { date: '2026-04-17', title: 'エミュレータと著作権：Switch系エミュ壊滅の経緯を追記', href: `${base}articles/emulator-legal/` },
   { date: '2026-04-17', title: 'スマホ新法：施行後に「今できること」一覧を追加', href: `${base}articles/smartphone-law-explained/` },
   { date: '2026-04-17', title: 'GB Operatorガイド：トラブルシューティング・SN Operator比較を追加', href: `${base}articles/gb-operator-guide/` },
@@ -123,7 +124,7 @@ const appListSchema = featuredApps.length > 0 ? {
 
 <BaseLayout
   title="AltStore PAL 日本語ガイド｜iPhone サイドローディング情報"
-  description="AltStore PALが日本で無料解禁（iOS 26.2以降・PC不要）。Deltaエミュレータの導入方法、スマホ新法の最新動向、エミュレータの著作権問題まで、日本語で徹底解説。2026年4月更新。"
+  description="AltStore PALが日本で無料解禁（iOS 26.2以降・PC不要）。Deltaエミュレータの導入方法、スマホ新法の施行半年レポート、エミュレータの著作権問題まで、日本語で徹底解説。2026年5月時点。"
 >
   <Schema slot="schema" data={faqSchema} />
   <Schema slot="schema" data={breadcrumbSchema} />
@@ -313,6 +314,214 @@ const appListSchema = featuredApps.length > 0 ? {
             <span class="inline-block mt-4 text-sm font-semibold text-gray-700">完全ガイドを見る →</span>
           </a>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- PALの正直な評価（ユーザー視点で何が変わる/変わらない） -->
+    <section class="py-10 sm:py-14 px-4 bg-slate-50 border-t border-gray-200">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-6 sm:mb-8">
+          <span class="inline-flex items-center gap-1 text-xs font-semibold bg-gray-200 text-gray-700 px-3 py-1 rounded-full mb-3">
+            <span class="material-symbols-outlined text-[14px] leading-none">balance</span>
+            正直な評価
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold mb-2 text-gray-900 text-balance">
+            PAL で本当に変わるもの・変わらないもの
+          </h2>
+          <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            「PAL に移行すれば全部お得」という解説も多いですが、ユーザーが受ける実利は項目によって差があります。事実ベースで整理しました。
+          </p>
+        </div>
+
+        <ul class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-6 sm:mb-8">
+          <li class="p-4 sm:p-5 border-b border-gray-200">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+              <p class="font-semibold text-sm sm:text-base text-gray-900 sm:w-44 sm:flex-shrink-0">アプリの値段</p>
+              <p class="sm:w-40 sm:flex-shrink-0">
+                <span class="inline-flex items-center gap-1 text-red-600 font-semibold text-sm sm:text-base">
+                  <span class="material-symbols-outlined text-base flex-shrink-0">close</span>ほぼ変わらない
+                </span>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">EU の実例では、手数料削減後も 90% 以上のアプリは価格が据え置きでした</p>
+            </div>
+          </li>
+          <li class="p-4 sm:p-5 border-b border-gray-200">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+              <p class="font-semibold text-sm sm:text-base text-gray-900 sm:w-44 sm:flex-shrink-0">入れられるアプリの幅</p>
+              <p class="sm:w-40 sm:flex-shrink-0">
+                <span class="inline-flex items-center gap-1 text-green-600 font-semibold text-sm sm:text-base">
+                  <span class="material-symbols-outlined text-base flex-shrink-0">check</span>広がる
+                </span>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">UTM のフル版など App Store では配信できないアプリが入手可能に</p>
+            </div>
+          </li>
+          <li class="p-4 sm:p-5 border-b border-gray-200">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+              <p class="font-semibold text-sm sm:text-base text-gray-900 sm:w-44 sm:flex-shrink-0">インストールの手間</p>
+              <p class="sm:w-40 sm:flex-shrink-0">
+                <span class="inline-flex items-center gap-1 text-green-600 font-semibold text-sm sm:text-base">
+                  <span class="material-symbols-outlined text-base flex-shrink-0">check</span>楽になる
+                </span>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">PC・USB ケーブル不要、Safari からそのままインストール</p>
+            </div>
+          </li>
+          <li class="p-4 sm:p-5 border-b border-gray-200">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+              <p class="font-semibold text-sm sm:text-base text-gray-900 sm:w-44 sm:flex-shrink-0">7 日ごとの署名更新</p>
+              <p class="sm:w-40 sm:flex-shrink-0">
+                <span class="inline-flex items-center gap-1 text-green-600 font-semibold text-sm sm:text-base">
+                  <span class="material-symbols-outlined text-base flex-shrink-0">check</span>不要になる
+                </span>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">代替マーケット仕様で署名は持続。Classic との一番大きな違い</p>
+            </div>
+          </li>
+          <li class="p-4 sm:p-5 border-b border-gray-200">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+              <p class="font-semibold text-sm sm:text-base text-gray-900 sm:w-44 sm:flex-shrink-0">対応 iPhone</p>
+              <p class="sm:w-40 sm:flex-shrink-0">
+                <span class="inline-flex items-center gap-1 text-red-600 font-semibold text-sm sm:text-base">
+                  <span class="material-symbols-outlined text-base flex-shrink-0">close</span>限定される
+                </span>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">iOS 26.2 以降のみ。古い端末では従来の Classic / SideStore が必要</p>
+            </div>
+          </li>
+          <li class="p-4 sm:p-5">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+              <p class="font-semibold text-sm sm:text-base text-gray-900 sm:w-44 sm:flex-shrink-0">開発者の手取り</p>
+              <p class="sm:w-40 sm:flex-shrink-0">
+                <span class="inline-flex items-center gap-1 text-green-600 font-semibold text-sm sm:text-base">
+                  <span class="material-symbols-outlined text-base flex-shrink-0">check</span>増える
+                </span>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Apple 手数料が 26% から 5% に。ただしユーザー価格への還元は限定的</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- 結論 -->
+        <div class="bg-white rounded-xl p-5 sm:p-6 border-l-4 border-indigo-400 shadow-sm">
+          <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-start gap-2">
+            <span class="material-symbols-outlined text-indigo-500 flex-shrink-0">lightbulb</span>
+            結論：PAL の価値は「金銭」ではなく「アクセス」と「手間」
+          </h3>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7 mb-3">
+            EU の実例が示すとおり、PAL 経由でもユーザーが直接的に支払う金額はほぼ変わりません。Apple 手数料の削減分は開発者の収益や心理的価格設定の維持に吸収されるためです（詳細：<a href={`${base}articles/commission-cut/`} class="text-blue-600 underline font-medium">手数料 30% カットの真実</a>）。
+          </p>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+            一方、<strong class="text-gray-900">PAL を選ぶ実利は確実にあります</strong>。①App Store では入らないアプリが手に入る、②Classic より圧倒的に楽（PC 不要・7 日制限なし）の 2 点です。<strong>「価格が下がるから」という理由で PAL に移行する必要はありません</strong>が、「使いたいアプリが App Store に無い」「7 日ごとの再署名が面倒」という人にとっては選ぶ価値が大きい方法です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 施行半年レポート（2026年5月時点） -->
+    <section id="six-month-report" class="py-10 sm:py-14 px-4 bg-white border-t border-gray-200 scroll-mt-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-6 sm:mb-8">
+          <span class="inline-flex items-center gap-1 text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full mb-3">
+            <span class="material-symbols-outlined text-[14px] leading-none">summarize</span>
+            2026年5月時点
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold mb-2 text-gray-900 text-balance">
+            スマホ新法 施行半年レポート
+          </h2>
+          <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            2025年12月18日のスマホ新法（MSCA）施行から約5ヶ月。当初予想された「代替ストアの林立」や「アプリ価格の下落」は起きておらず、業界全体は鎮静化期に入っています。
+          </p>
+        </div>
+
+        <!-- 制度面の動き -->
+        <div class="mb-6 sm:mb-8">
+          <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-start gap-2">
+            <span class="material-symbols-outlined text-blue-500 flex-shrink-0">gavel</span>
+            制度面：公取委と業界の動き
+          </h3>
+          <div class="space-y-3 sm:space-y-4">
+            <div class="bg-blue-50 rounded-lg p-4 sm:p-5 border border-blue-200">
+              <div class="flex items-start gap-2 mb-2">
+                <span class="material-symbols-outlined text-blue-500 text-base flex-shrink-0 mt-0.5">event</span>
+                <p class="font-semibold text-sm sm:text-base text-gray-900">2026年2月17日：公正取引委員会が遵守報告書を公表</p>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed sm:leading-6 sm:ml-7">
+                Apple Inc.、iTunes株式会社、Google LLCの3社が提出した遵守報告書を公取委が正式公開。法律に基づく初の公的検証ステージに入りました（出典：<a href="https://www.jftc.go.jp/msca/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">公正取引委員会</a>）。
+              </p>
+            </div>
+            <div class="bg-orange-50 rounded-lg p-4 sm:p-5 border border-orange-200">
+              <div class="flex items-start gap-2 mb-2">
+                <span class="material-symbols-outlined text-orange-500 text-base flex-shrink-0 mt-0.5">campaign</span>
+                <p class="font-semibold text-sm sm:text-base text-gray-900">2026年1月29日：MCFが手数料設計を批判</p>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed sm:leading-6 sm:ml-7">
+                モバイル・コンテンツ・フォーラム（MCF）が外部決済への10〜20%手数料について「算定根拠が不明確」と意見公表。施行から約1ヶ月強での早期批判で、業界が手数料体系に強い不満を持つ実態が浮き彫りに。
+              </p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 sm:p-5 border border-gray-200">
+              <div class="flex items-start gap-2 mb-2">
+                <span class="material-symbols-outlined text-gray-500 text-base flex-shrink-0 mt-0.5">hourglass_empty</span>
+                <p class="font-semibold text-sm sm:text-base text-gray-900">2026年5月時点：追加の是正命令は未発表</p>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed sm:leading-6 sm:ml-7">
+                公取委から手数料・配信ルールに関する追加の是正命令は出ていません。MCFを含む業界の批判は継続しているものの、現時点では制度の見直しには至っていない状況です。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 市場の動き -->
+        <div class="mb-6 sm:mb-8">
+          <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-start gap-2">
+            <span class="material-symbols-outlined text-purple-500 flex-shrink-0">storefront</span>
+            市場の動き：代替ストアの現状
+          </h3>
+          <ul class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <li class="p-3 sm:p-4 border-b border-gray-200 flex items-start gap-3">
+              <span class="material-symbols-outlined text-green-500 flex-shrink-0 text-xl">check_circle</span>
+              <div class="min-w-0 flex-1">
+                <p class="font-semibold text-sm sm:text-base text-gray-900 mb-0.5">AltStore PAL：事実上唯一の代替ストアとして稼働中</p>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">2026年3月11日に2.3アップデート（Fediverse対応・Liquid Glass UI採用）。Epic Games MegaGrantの支援により、日本では完全無料で利用可能。</p>
+              </div>
+            </li>
+            <li class="p-3 sm:p-4 border-b border-gray-200 flex items-start gap-3">
+              <span class="material-symbols-outlined text-red-500 flex-shrink-0 text-xl">cancel</span>
+              <div class="min-w-0 flex-1">
+                <p class="font-semibold text-sm sm:text-base text-gray-900 mb-0.5">Setapp Mobile：2026年2月にサービス終了</p>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">EU市場で先行していた代替ストアが採算面から撤退。代替ストアビジネスの厳しさを象徴する事例に。</p>
+              </div>
+            </li>
+            <li class="p-3 sm:p-4 border-b border-gray-200 flex items-start gap-3">
+              <span class="material-symbols-outlined text-gray-400 flex-shrink-0 text-xl">block</span>
+              <div class="min-w-0 flex-1">
+                <p class="font-semibold text-sm sm:text-base text-gray-900 mb-0.5">Epic Games Store iOS：日本上陸の動きなし</p>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">EU・米国・オーストラリアでは稼働中ですが、日本ではAltStore PAL以外の参入が確認できていません。フォートナイトiOS版も日本未提供のままです。</p>
+              </div>
+            </li>
+            <li class="p-3 sm:p-4 flex items-start gap-3">
+              <span class="material-symbols-outlined text-gray-400 flex-shrink-0 text-xl">remove_circle</span>
+              <div class="min-w-0 flex-1">
+                <p class="font-semibold text-sm sm:text-base text-gray-900 mb-0.5">新規代替ストアの参入も未確認</p>
+                <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">2026年5月時点で、日本向けの新規代替アプリマーケットプレイス参入の発表は確認できていません。手数料5%のCTC負担と1事業者あたりの導入コストが障壁になっていると見られます。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 当サイトの所見 -->
+        <div class="bg-white rounded-xl p-5 sm:p-6 border-l-4 border-blue-400 shadow-sm">
+          <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-start gap-2">
+            <span class="material-symbols-outlined text-blue-500 flex-shrink-0">edit_note</span>
+            当サイトの所見：制度は変わったが、市場の動きは限定的
+          </h3>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7 mb-3">
+            施行半年で見えてきたのは「制度は変わったが、市場の動きは限定的」という現実です。Apple手数料の3段階化（App Store IAP 26%・外部決済リンク15%・代替ストア5%）は実現したものの、業界からは「実質的な競争促進になっていない」との批判が続いています（詳細：<a href={`${base}articles/smartphone-law-explained/`} class="text-blue-600 underline font-medium">スマホ新法解説</a>・<a href={`${base}articles/commission-cut/`} class="text-blue-600 underline font-medium">手数料カットの真実</a>）。
+          </p>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7">
+            一方で、AltStore PALを通じて<strong class="text-gray-900">UTMのフル版やDelta系のApp Storeでは入手困難なアプリへのアクセスが安定的に確保</strong>された点は、ユーザー視点での確実な進歩です。当サイトでは公取委の動向を継続観察し、追加是正・新ストア参入・新アプリ展開などの動きがあれば随時更新します。
+          </p>
         </div>
       </div>
     </section>
@@ -744,9 +953,9 @@ const appListSchema = featuredApps.length > 0 ? {
     <!-- 日本のサイドローディング現状 -->
     <section class="py-12 sm:py-14 lg:py-16 px-4 bg-white border-t border-gray-200">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-3 sm:mb-4 text-gray-900">2026年4月：日本のサイドローディング現状</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-balance mb-3 sm:mb-4 text-gray-900">2026年5月：日本のサイドローディング現状</h2>
         <p class="text-sm sm:text-base text-gray-600 text-center max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-          スマホ新法の施行から4ヶ月。日本のiPhoneユーザーを取り巻く状況を整理します。
+          スマホ新法の施行から約5ヶ月。日本のiPhoneユーザーを取り巻く状況を整理します。
         </p>
 
         <div class="space-y-6 sm:space-y-8">
