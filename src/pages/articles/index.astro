@@ -93,35 +93,6 @@ const articleListSchema = {
       <p class="text-gray-600 text-sm sm:text-base mt-2 sm:mt-3 leading-relaxed">日本で無料で使える<strong class="text-indigo-600">AltStore PAL</strong>の始め方、サイドローディングの安全性と法的情報、エミュレータの著作権問題まで、初心者にもわかりやすく解説しています。いますぐ始めたい方は「<a href={`${base}articles/install-app-step-by-step/`} class="text-blue-600 underline font-medium">AltStore PALで始める</a>」、仕組みから知りたい方は「<a href={`${base}articles/what-is-sideloading/`} class="text-blue-600 underline font-medium">サイドローディングとは</a>」からどうぞ。</p>
     </div>
 
-    <!-- 姉妹サイト案内バナー：レトロゲーム関連の記事は移転 -->
-    <aside class="mb-8 sm:mb-12 p-4 sm:p-6 bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl">
-      <h2 class="text-base sm:text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
-        <span class="material-symbols-outlined text-indigo-500 flex-shrink-0" aria-hidden="true">sports_esports</span>
-        レトロゲーム関連の記事は姉妹サイトへ
-      </h2>
-      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3 sm:mb-4">
-        Deltaエミュレータ・GB Operator・著作権法第30条など、<strong>iPhoneでレトロゲームを合法的に楽しむ方法</strong>については、姉妹サイト <a href="https://retrogame.bunchoniki.com/" class="text-indigo-600 underline font-medium" target="_blank" rel="noopener">bunchoniki Retro</a> でより深く解説しています。
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-        <a href="https://retrogame.bunchoniki.com/articles/delta-guide/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
-          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">videogame_asset</span>
-          <p class="text-xs sm:text-sm font-semibold text-gray-900">Delta完全ガイド</p>
-        </a>
-        <a href="https://retrogame.bunchoniki.com/articles/gb-operator-guide/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
-          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">sd_card</span>
-          <p class="text-xs sm:text-sm font-semibold text-gray-900">GB Operator</p>
-        </a>
-        <a href="https://retrogame.bunchoniki.com/articles/free-games-for-delta/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
-          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">stadia_controller</span>
-          <p class="text-xs sm:text-sm font-semibold text-gray-900">無料ゲーム特集</p>
-        </a>
-        <a href="https://retrogame.bunchoniki.com/articles/emulator-legal/" target="_blank" rel="noopener" class="block p-2 sm:p-3 bg-white rounded-lg border border-indigo-200 hover:border-indigo-400 transition-colors text-center">
-          <span class="material-symbols-outlined text-indigo-500 text-base sm:text-xl block mb-1" aria-hidden="true">gavel</span>
-          <p class="text-xs sm:text-sm font-semibold text-gray-900">エミュ著作権</p>
-        </a>
-      </div>
-    </aside>
-
     {categories.map(category => (
       <section class="mb-8 sm:mb-16">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-8 pb-2 sm:pb-3 border-b border-gray-200">{category.label}</h2>
